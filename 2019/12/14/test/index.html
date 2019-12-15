@@ -7,7 +7,7 @@
     
 
     <title>
-      Leetcode 125 验证回文串 | Leo Yang&#39;s Blog 
+      Leetcode 125 Valid Palindrome（验证回文串） | Leo Yang&#39;s Blog 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -18,13 +18,13 @@
 
     <meta name="description" content="难度：Easy类型: Array解题语言： Java题目解析：1.Clarification 题目要求验证字符串是否为回文串，只考虑字母和数字字符，可以忽略字母的大小写 2.Possible solutions    - 双指针法&amp;nbsp;&amp;nbsp; 根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOrDigit方法进行判断，也可以通过写正则表达式进行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 125 验证回文串 | Leo Yang&#39;s Blog">
+<meta property="og:title" content="Leetcode 125 Valid Palindrome（验证回文串） | Leo Yang&#39;s Blog">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;test&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
 <meta property="og:description" content="难度：Easy类型: Array解题语言： Java题目解析：1.Clarification 题目要求验证字符串是否为回文串，只考虑字母和数字字符，可以忽略字母的大小写 2.Possible solutions    - 双指针法&amp;nbsp;&amp;nbsp; 根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOrDigit方法进行判断，也可以通过写正则表达式进行">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-14T08:39:05.000Z">
-<meta property="article:modified_time" content="2019-12-15T13:33:22.200Z">
+<meta property="article:modified_time" content="2019-12-15T14:02:16.017Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -203,7 +203,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">Leetcode 125 验证回文串</h1>
+    <h1 class="post-title">Leetcode 125 Valid Palindrome（验证回文串）</h1>
 
     
 
@@ -235,7 +235,7 @@ classes that you can use:
 <p>根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOrDigit方法进行判断，也可以通过写正则表达式进行判断（运行时间较长）。&nbsp;&nbsp;</p>
 <p>忽略字母大小写可直接用toLowerCase方法将所有字母转为小写。&nbsp;&nbsp;</p>
 <p>设置左指针和右指针，左指针初始值为0，右指针初始值为字符串长度-1，如果左指针小于右指针，且当前指针指向的字符不是字母和数字字符，左指针指向下一个字符（右指针同理，只不过右指针指向前一个字符）。&nbsp;&nbsp;</p>
-<p>如果左指针指向的字符不等于右指针指向的字符，返回false，否则左指针指向下一个字符，右指针指向前一个，循环结束后返回true。&nbsp;&nbsp;</p>
+<p>如果左指针指向的字符不等于右指针指向的字符，说明不是回文串，返回false，否则左指针指向下一个字符，右指针指向前一个，循环结束后返回true。&nbsp;&nbsp;</p>
 <p>3.Code<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>;<span class="keyword">int</span> right=s.length()-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left)))&#123;left++;&#125;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right)))&#123;right--;&#125;</span><br><span class="line">        <span class="keyword">if</span>(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        left++;right--;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>时间复杂度O(N)</p>
 <p>4.Test Case</p>
 <p>测试用例：&nbsp;&nbsp;<br>输入: “A man, a plan, a canal: Panama”<br>输出: true&nbsp;&nbsp;<br>输入: “race a car”<br>输出: false</p>
