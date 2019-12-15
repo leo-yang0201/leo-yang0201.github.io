@@ -24,7 +24,7 @@
 <meta property="og:description" content="难度：Easy类型: Array解题语言： Java题目解析：1.Clarification    题目要求验证字符串是否为回文串，只考虑字母和数字字符，可以忽略字母的大小写2.Possible solutions    - 双指针法    根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOrDigit方法进行判断，也可以通过写正则表达式进行判断（运行时间">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-14T08:39:05.000Z">
-<meta property="article:modified_time" content="2019-12-15T13:18:19.470Z">
+<meta property="article:modified_time" content="2019-12-15T13:19:25.880Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -230,21 +230,8 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <h4 id="难度：Easy"><a href="#难度：Easy" class="headerlink" title="难度：Easy"></a>难度：Easy</h4><h4 id="类型-Array"><a href="#类型-Array" class="headerlink" title="类型: Array"></a>类型: Array</h4><h5 id="解题语言：-Java"><a href="#解题语言：-Java" class="headerlink" title="解题语言： Java"></a>解题语言： Java</h5><p>题目解析：<br>1.Clarification<br>    题目要求验证字符串是否为回文串，只考虑<strong>字母和数字字符</strong>，可以<strong>忽略字母的大小写</strong><br>2.Possible solutions<br>    - 双指针法<br>    根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOrDigit方法进行判断，也可以通过写正则表达式进行判断（运行时间较长）。忽略字母大小写可直接用toLowerCase方法将所有字母转为小写。设置左指针和右指针，左指针初始值为0，右指针初始值为字符串长度-1，如果左指针小于右指针，且当前指针指向的字符不是字母和数字字符，左指针指向下一个字符（右指针同理，只不过右指针指向前一个字符）。如果左指针指向的字符不等于右指针指向的字符，返回false，否则左指针指向下一个字符，右指针指向前一个，循环结束后返回true。</p>
-<p>3.Code</p>
-<pre><code>&apos;&apos;&apos;java
-class Solution {
-    public boolean isPalindrome(String s) {
-        int left=0;int right=s.length()-1;
-        while(left&lt;right){
-        while(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left))){left++;}
-        while(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right))){right--;}
-        if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) return false;
-        left++;right--;
-    }
-        return true;
-    }
-}
-&apos;&apos;&apos;</code></pre>
+<p>3.Code<br>    ‘’’java<br>    class Solution {<br>        public boolean isPalindrome(String s) {<br>            int left=0;int right=s.length()-1;<br>            while(left&lt;right){<br>            while(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left))){left++;}<br>            while(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right))){right–;}<br>            if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) return false;<br>            left++;right–;<br>        }<br>            return true;<br>        }<br>    }<br>    ‘’’</p>
+
   </section>
 
   <section class="post-comments">
