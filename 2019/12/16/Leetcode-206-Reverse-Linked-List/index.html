@@ -24,7 +24,7 @@
 <meta property="og:description" content="Difficulty : EasyType: Linked ListLanguage : Java Clarification  Reverse a singly linked list  Possible Solutions   IterationSet three LinkNode prev, curr and temp. prev and temp are null at first and">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-16T08:03:44.000Z">
-<meta property="article:modified_time" content="2019-12-16T08:16:36.086Z">
+<meta property="article:modified_time" content="2019-12-16T08:20:57.140Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -236,7 +236,7 @@ classes that you can use:
 <li><p>Possible Solutions </p>
 <ul>
 <li>Iteration<br>Set three LinkNode prev, curr and temp. prev and temp are null at first and curr equals to head. prev is the pointer that point to last node. Each time we make curr.next point to previous node and set the temp to curr.next, prev to curr, curr to temp. So that each time the node in linked list will point to previous node and reverse the whole list in the end.</li>
-<li>Reversion<br>head.next.next=head means that head.next point to null at the first and add a next pointer to point itself. So, head.next.next point to head. (So hard to explain it by words - -. There is an <a href="'https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/'">animation</a> to show the process)</li>
+<li>Reversion<br>head.next.next=head means that head.next point to null at the first and add a next pointer to point itself. So, head.next.next point to head. (So hard to explain it by words - -. There is an <a href="https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/" target="_blank" rel="noopener">animation</a> to show the process)</li>
 </ul>
 </li>
 <li><p>Code</p>
