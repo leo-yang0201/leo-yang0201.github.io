@@ -14,6 +14,8 @@
 
 
 <link rel="stylesheet" href="/leo-yang0201.github.io/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/leo-yang0201.github.io/lib/pace/pace-theme-minimal.min.css">
+  <script src="/leo-yang0201.github.io/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
@@ -127,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
   </ul>
@@ -354,7 +356,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:08:46" itemprop="dateModified" datetime="2020-03-05T23:08:46+10:30">2020-03-05</time>
+                <time title="Modified: 2020-03-05 23:14:41" itemprop="dateModified" datetime="2020-03-05T23:14:41+10:30">2020-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -378,9 +380,9 @@
 
       
           <h4 id="Type-Array"><a href="#Type-Array" class="headerlink" title="Type: Array"></a>Type: Array</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification<br>链接：<a href="https://www.nowcoder.com/questionTerminal/42852fd7045c442192fa89404ab42e92?f=discussion" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/42852fd7045c442192fa89404ab42e92?f=discussion</a><br>来源：牛客网</p>
-<p>我叫王大锤，是一家出版社的编辑。我负责校对投稿来的英文稿件，这份工作非常烦人，因为每天都要去修正无数的拼写错误。但是，优秀的人总能在平凡的工作中发现真理。我发现一个发现拼写错误的捷径：  </p>
-<ol>
+<li><p>Clarification</p>
+<pre><code>[链接](https://www.nowcoder.com/questionTerminal/42852fd7045c442192fa89404ab42e92?f=discussion)
+我叫王大锤，是一家出版社的编辑。我负责校对投稿来的英文稿件，这份工作非常烦人，因为每天都要去修正无数的拼写错误。但是，优秀的人总能在平凡的工作中发现真理。我发现一个发现拼写错误的捷径：  </code></pre><ol>
 <li><p>三个同样的字母连在一起，一定是拼写错误，去掉一个的就好啦：比如 helllo -&gt; hello </p>
 </li>
 <li><p>两对一样的字母（AABB型）连在一起，一定是拼写错误，去掉第二对的一个字母就好啦：比如 helloo -&gt; hello </p>
@@ -405,15 +407,12 @@
 </li>
 </ul>
 </li>
-</ol>
-<ol start="3">
-<li>Code</li>
+<li><p>Code</p>
+</li>
 </ol>
    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EditString</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (in.hasNext()) &#123;</span><br><span class="line">            <span class="keyword">int</span> n = Integer.parseInt((in.nextLine()));</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">                StringBuilder sb = <span class="keyword">new</span> StringBuilder(in.nextLine());</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>;j &lt; sb.length(); j++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (sb.charAt(j) == sb.charAt(j - <span class="number">1</span>) &amp;&amp;</span><br><span class="line">                            sb.charAt(j - <span class="number">1</span>) == sb.charAt(j - <span class="number">2</span>)) &#123;</span><br><span class="line">                        sb.deleteCharAt(j);</span><br><span class="line">                        j--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(isPattern(sb,j - <span class="number">3</span>,j)) &#123;</span><br><span class="line">                        sb.deleteCharAt(j);</span><br><span class="line">                        j--;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(sb.toString());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPattern</span><span class="params">(StringBuilder sb,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> sb.charAt(i) == sb.charAt(i + <span class="number">1</span>) &amp;&amp; sb.charAt(j - <span class="number">1</span>) == sb.charAt(j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///正则表达式快速求解    </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> line = scanner.nextInt();</span><br><span class="line">        scanner.nextLine();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; line; i++) &#123;</span><br><span class="line">            System.out.println(scanner.nextLine().replaceAll(<span class="string">"(.)\\1+"</span>, <span class="string">"$1$1"</span>).replaceAll(<span class="string">"(.)\\1(.)\\2"</span>, <span class="string">"$1$1$2"</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
 
 <ol start="4">
 <li><p>Test cases</p>
@@ -1144,7 +1143,7 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/leo-yang0201.github.io/archives/">
+          <a href="/leo-yang0201.github.io/archive/">
         
           <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">posts</span>
@@ -1210,7 +1209,6 @@
   </div>
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="/leo-yang0201.github.io/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/leo-yang0201.github.io/lib/anime.min.js"></script>
   <script src="/leo-yang0201.github.io/lib/velocity/velocity.min.js"></script>
   <script src="/leo-yang0201.github.io/lib/velocity/velocity.ui.min.js"></script>
@@ -1226,6 +1224,8 @@
 <script src="/leo-yang0201.github.io/js/next-boot.js"></script>
 
 
+  <script defer src="/leo-yang0201.github.io/lib/three/three.min.js"></script>
+    <script defer src="/leo-yang0201.github.io/lib/three/canvas_lines.min.js"></script>
 
 
   
