@@ -28,7 +28,7 @@
 <meta property="og:description" content="Difficulty : MediumType: LinkedListLanguage : Java Clarification  We distribute some number of candies, to a row of n &#x3D; num_people people in the following way: We then give 1 candy to the first person">
 <meta property="og:image" content="https:&#x2F;&#x2F;pic.leetcode-cn.com&#x2F;Figures&#x2F;1103&#x2F;arithmeti.png">
 <meta property="article:published_time" content="2020-03-05T09:33:35.000Z">
-<meta property="article:modified_time" content="2020-03-05T11:46:08.402Z">
+<meta property="article:modified_time" content="2020-03-05T12:38:15.168Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -185,7 +185,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-05 20:03:35 / Modified: 22:16:08" itemprop="dateCreated datePublished" datetime="2020-03-05T20:03:35+10:30">2020-03-05</time>
+              <time title="Created: 2020-03-05 20:03:35 / Modified: 23:08:15" itemprop="dateCreated datePublished" datetime="2020-03-05T20:03:35+10:30">2020-03-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,7 +226,7 @@
 <li><p>暴力法<br>不断地遍历数组，如果还有糖就一直分，直到没有糖为止。</p>
 </li>
 <li><p>等差数列</p>
-<p>除了最后一份礼物数量是根据还剩多少糖果决定，剩下礼物数量都是从1开始构成的等差数列</p>
+<p>除了最后一份礼物数量是根据还剩多少糖果决定，剩下礼物数量都是从1开始构成的等差数列，所以思路是根据等差数列求和公式找到每次还剩多少candy，只要不是最后一行，每次要加的值都可以根据求和公式算出来然后叠加到数组位置上，到了最后一行最后一个位置的时候直接把剩余糖果数目累加到该位置</p>
 <p><img src="https://pic.leetcode-cn.com/Figures/1103/arithmeti.png" alt></p>
 </li>
 </ul>
