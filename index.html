@@ -179,7 +179,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -189,7 +189,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -199,7 +199,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -209,7 +209,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archive" rel="section">
+          <a href="/archive/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -362,11 +362,10 @@
 </li>
 <li><p>等差数列</p>
 <p>除了最后一份礼物数量是根据还剩多少糖果决定，剩下礼物数量都是从1开始构成的等差数列</p>
+<p><img src="https://pic.leetcode-cn.com/Figures/1103/arithmeti.png" alt></p>
 </li>
 </ul>
 </li>
-</ol>
-<pre><code>![](https://pic.leetcode-cn.com/Figures/1103/arithmeti.png)</code></pre><ol start="3">
 <li><p>Code</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] distributeCandies(<span class="keyword">int</span> candies, <span class="keyword">int</span> num_people) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[num_people];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (candies &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; num_people) &#123;</span><br><span class="line">                <span class="keyword">if</span> (candies &gt;= count + <span class="number">1</span>) &#123;</span><br><span class="line">                    ans[i] = ++count;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    ans[i] = candies;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (candies &gt;= count + <span class="number">1</span> ) &#123;</span><br><span class="line">                    ans[i % num_people] = ans[i % num_people] + count + <span class="number">1</span>;</span><br><span class="line">                    ++count;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    ans[i % num_people] = ans[i % num_people] + candies;</span><br><span class="line">                    count += <span class="number">1</span>;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
