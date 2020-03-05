@@ -286,6 +286,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -450,6 +451,26 @@
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '28053c3bf9e94bd99f96',
+      clientSecret: '8b2847e6971db2a6490a4a011655f88756a32e17',
+      repo        : 'leo-yang0201.github.io',
+      owner       : 'leo-yang0201',
+      admin       : ['leo-yang0201'],
+      id          : '632c1d990024697cb12a000c03b29552',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
