@@ -183,7 +183,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-06 18:00:46 / Modified: 18:16:18" itemprop="dateCreated datePublished" datetime="2020-03-06T18:00:46+10:30">2020-03-06</time>
+              <time title="Created: 2020-03-06 18:00:46 / Modified: 20:41:46" itemprop="dateCreated datePublished" datetime="2020-03-06T18:00:46+10:30">2020-03-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -213,7 +213,7 @@
 <p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
 <p>1 &lt;= target &lt;= 10^5</p>
 <h3 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h3><ul>
-<li><p>滑动窗口<br>第一次做滑动窗口类型的题，我一开始的思路是在考虑等差数列，但也没想出来，这题使用滑动窗口方法很好解决。<br><a href="https://pic.leetcode-cn.com/af4821c41d5b093e6a41ad5602208f9e7057cc1b002cd0053de71bc9a0e35b12.jpg" target="_blank" rel="noopener">滑动窗口实例图（摘自leetcode）</a></p>
+<li><p>滑动窗口<br>第一次做滑动窗口类型的题，我一开始的思路是在考虑等差数列，但也没想出来，这题使用滑动窗口方法很好解决。<br><img src="https://pic.leetcode-cn.com/af4821c41d5b093e6a41ad5602208f9e7057cc1b002cd0053de71bc9a0e35b12.jpg" alt="滑动窗口实例图（转自leetcode）"></p>
 <p>滑动窗口的重要性质是：窗口的左边界和右边界永远只能向右移动，不能向左移动，这样保证了时间复杂度为O(N)。这道题里需要判断的就是滑动窗口的和与target之间的大小关系，如果sum小于target，就让右边界向右移动1格，窗口中多了一个数字，sum也要累加上这个数字。当sum大于target的时候，窗口的和需要减少，左边界向右移一格，sum减掉原来左边界所指的数字。当sum等于target，新建长度为右边界 - 左边界的数组并赋值，即得到一个解，加到ArrayList里。</p>
 </li>
 </ul>
