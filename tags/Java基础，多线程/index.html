@@ -22,20 +22,16 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Difficulty : MediumType: Array &amp;&amp; Two pointersLanguage : Java Clarification  Calculate the max area, which length is the difference of index in the array and the height is the difference of ar">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 11 Container With Most Water(盛最多水的容器)">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2019&#x2F;12&#x2F;16&#x2F;Leetcode-11-Container-With-Most-Water&#x2F;index.html">
+  <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leo Yang&#39;s Blog">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;tags&#x2F;Java%E5%9F%BA%E7%A1%80%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="Difficulty : MediumType: Array &amp;&amp; Two pointersLanguage : Java Clarification  Calculate the max area, which length is the difference of index in the array and the height is the difference of ar">
-<meta property="article:published_time" content="2019-12-16T03:01:41.000Z">
-<meta property="article:modified_time" content="2020-03-05T13:15:12.668Z">
+<meta property="og:description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
 <meta property="article:author" content="Leo Yang">
-<meta property="article:tag" content="Two Pointers">
-<meta property="article:tag" content="Array">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/2019/12/16/Leetcode-11-Container-With-Most-Water/">
+<link rel="canonical" href="https://leo-yang0201.github.io/tags/Java%E5%9F%BA%E7%A1%80%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -43,11 +39,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true
+    isPost : false
   };
 </script>
 
-  <title>Leetcode 11 Container With Most Water(盛最多水的容器) | Leo Yang's Blog</title>
+  <title>Tag: Java基础，多线程 | Leo Yang's Blog</title>
   
 
 
@@ -157,142 +153,54 @@
           <div class="content">
             
 
-  <div class="posts-expand">
-      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/16/Leetcode-11-Container-With-Most-Water/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Leetcode 11 Container With Most Water(盛最多水的容器)
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h1 class="collection-header">Java基础，多线程
+          <small>Tag</small>
         </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-16 13:31:41" itemprop="dateCreated datePublished" datetime="2019-12-16T13:31:41+10:30">2019-12-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:45:12" itemprop="dateModified" datetime="2020-03-05T23:45:12+10:30">2020-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      </div>
 
       
-        <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-Array-amp-amp-Two-pointers"><a href="#Type-Array-amp-amp-Two-pointers" class="headerlink" title="Type: Array &amp;&amp; Two pointers"></a>Type: Array &amp;&amp; Two pointers</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Calculate the max area, which length is the difference of index in the array and the height is the difference of array[index].</p>
-</li>
-<li><p>Possible Solutions</p>
-<ul>
-<li><p>Brute Force</p>
-<p>Use two nested for loop to iterating through array. Calculate the max area then.</p>
-</li>
-<li><p>Two Pointers</p>
-<ol>
-<li>Set a left pointer that points to the head of the array and a right pointer that points to the tail of the array. This is to ensure the length changes from maximum to minimum.</li>
-<li>If next height is lower than the value of left/right pointer, area will only be smaller. If height[left] &lt; height[right], left pointer increase one. Otherwise, right pointer increase one. This is to find the minimum height. Calculate the area based on current height and move left pointer and right pointer to the middle in the end. </li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//brute force</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; height.length;i++)&#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; height.length;j++)&#123;</span><br><span class="line">        <span class="keyword">int</span> area = (j - i) * Math.min(height[j],height[i]);</span><br><span class="line">            max = Math.max(max,area);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>Time Complexity: O(N^2)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//two pointers</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = height.length - <span class="number">1</span>; i &lt; j;)&#123;</span><br><span class="line">            <span class="keyword">int</span> minHeight = height[i] &lt; height[j] ? height[i++] : height[j--];</span><br><span class="line">            <span class="keyword">int</span> area = (j - i + <span class="number">1</span>) * minHeight;</span><br><span class="line">            max = Math.max(max,area);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>Time Complexity: O(N)</p>
-</li>
-<li><p>Test Cases</p>
-<p>Input: [1,8,6,2,5,4,8,3,7]<br>Output: 49</p>
-</li>
-</ol>
-
+    <div class="collection-year">
+      <h1 class="collection-header">2020</h1>
     </div>
 
-    
-    
-    <!-- 文件位置：~/source/_data/post-body-end.swig -->
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-03-07T16:30:04+10:30"
+              content="2020-03-07">
+          03-07
+        </time>
+      </div>
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/leo-yang0201.github.io/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
-              <a href="/leo-yang0201.github.io/tags/Array/" rel="tag"># Array</a>
-          </div>
+      <h2 class="post-title">
+          <a class="post-title-link" href="/leo-yang0201.github.io/2020/03/07/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%89/" itemprop="url">
+            <span itemprop="name">Java面试题汇总（三）</span>
+          </a>
+      </h2>
 
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-283-Move-Zeroes/" rel="prev" title="Leetcode 283 Move Zeroes（移动0）">
-      <i class="fa fa-chevron-left"></i> Leetcode 283 Move Zeroes（移动0）
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-70-Climbing-Stairs/" rel="next" title="Leetcode 70 Climbing Stairs(爬楼梯)">
-      Leetcode 70 Climbing Stairs(爬楼梯) <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
   
 
-  </div>
+  
+
 
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -339,7 +247,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Difficulty-Medium"><span class="nav-number">1.</span> <span class="nav-text">Difficulty : Medium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-Array-amp-amp-Two-pointers"><span class="nav-number">2.</span> <span class="nav-text">Type: Array &amp;&amp; Two pointers</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Language-Java"><span class="nav-number">2.1.</span> <span class="nav-text">Language : Java</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -479,25 +386,6 @@
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '28053c3bf9e94bd99f96',
-      clientSecret: '8b2847e6971db2a6490a4a011655f88756a32e17',
-      repo        : 'leo-yang0201.github.io',
-      owner       : 'leo-yang0201',
-      admin       : ['leo-yang0201'],
-      id          : '26e8e6f845386eb7331e415e5d8a2bfd',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
 <!-- 文件位置：~/source/_data/body-end.swig -->
 
 <script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
