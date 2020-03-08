@@ -119,7 +119,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">25</span></a>
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">24</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">60</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">61</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,119 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%9B%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%9B%9B/" class="post-title-link" itemprop="url">Java面试题模块四</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-09 00:02:04 / Modified: 01:11:59" itemprop="dateCreated datePublished" datetime="2020-03-09T00:02:04+10:30">2020-03-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="什么是反射？"><a href="#什么是反射？" class="headerlink" title="什么是反射？"></a>什么是反射？</h4><p>反射主要是指程序可以访问、检测和修改它本身状态或行为的一种能力</p>
+<p>Java反射机制主要提供以下功能：</p>
+<ul>
+<li>在运行时判断任意一个对象所属的类</li>
+<li>在运行时构造任意一个类的对象</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法</li>
+<li>在运行时调用任意一个对象的方法</li>
+</ul>
+<h4 id="什么是Java序列化？什么情况需要序列化？"><a href="#什么是Java序列化？什么情况需要序列化？" class="headerlink" title="什么是Java序列化？什么情况需要序列化？"></a>什么是Java序列化？什么情况需要序列化？</h4><p>序列化本质上就是把对象内存中的数据按照一定规则，变成一系列的字节数据，然后把这些字节数据写入到流中，而反序列化的过程相反，先读取字节数据，然后再重新组装成Java对象。所有需要进行序列化的类，都必须实现Serializable接口，必要时还需要提供静态的常量serialVersionUID</p>
+<p>什么时候需要序列化：</p>
+<ul>
+<li>当你想把内存中的对象状态保存到一个文件中或者数据库中的时候</li>
+<li>当你想用套接字在网络上传送对象的时候</li>
+<li>当你想通过RMI传输对象的时候</li>
+</ul>
+<h4 id="动态代理是什么？有哪些应用？"><a href="#动态代理是什么？有哪些应用？" class="headerlink" title="动态代理是什么？有哪些应用？"></a>动态代理是什么？有哪些应用？</h4><p>动态代理：</p>
+<p>当想要给实现了某个接口的类中的方法，加一些额外的处理。比如说加日志，加事务等。可以给这个类创建一个代理，顾名思义就是创建一个新的类，这个类不仅包含原来类方法的功能，而且还在原来的基础上添加了额外处理的新类。这个代理类并不是定义好的，是动态生成的。具有解耦意义，灵活，扩展性强。</p>
+<p>动态代理的应用：</p>
+<ul>
+<li>Spring里的AOP</li>
+<li>加事务</li>
+<li>加权限</li>
+<li>加日志</li>
+</ul>
+<h4 id="怎么实现动态代理？"><a href="#怎么实现动态代理？" class="headerlink" title="怎么实现动态代理？"></a>怎么实现动态代理？</h4><p>首先必须定义一个接口，还要有一个InvocationHandler(将实现接口的类的对象传递给它)处理类。再有一个工具类Proxy（习惯性将其称为代理类，因为调用它的newInstance()可以产生代理对象，其实它只是一个产生代理对象的工具类）。利用到InvocationHandler，拼接代理类源码，将其编译生成代理类的二进制码，利用加载器加载，并将其实例化产生代理对象，最后返回。</p>
+<h4 id="为什么要使用克隆？"><a href="#为什么要使用克隆？" class="headerlink" title="为什么要使用克隆？"></a>为什么要使用克隆？</h4><p>想对一个对象进行处理，又想保留原有的数据进行接下来的操作，就需要克隆了。Java语言中克隆针对的是类的实例</p>
+<h4 id="如何实现对象克隆？"><a href="#如何实现对象克隆？" class="headerlink" title="如何实现对象克隆？"></a>如何实现对象克隆？</h4><ul>
+<li>实现Cloneable接口并重写Object类中的clone()方法</li>
+<li>实现Serializable接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆，代码如下</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Serializable&gt; <span class="function">T <span class="title">clone</span><span class="params">(T obj)</span> </span></span><br><span class="line"><span class="function">                                  <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ByteArrayOutputStream bout = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(bout);</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line"></span><br><span class="line">        ByteArrayInputStream bin = </span><br><span class="line">                    <span class="keyword">new</span> ByteArrayInputStream(bout.toByteArray());</span><br><span class="line">        ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(bin);</span><br><span class="line">        <span class="keyword">return</span> (T) ois.readObject();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 说明：调用ByteArrayInputStream</span></span><br><span class="line">        <span class="comment">//或ByteArrayOutputStream对象的close方法没有任何意义</span></span><br><span class="line">        <span class="comment">// 这两个基于内存的流只要垃圾回收器清理对象就能够释放资源，</span></span><br><span class="line">        <span class="comment">//这一点不同于对外部资源（如文件流）的释放</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>下面是测试代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 人类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nnngu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID </span><br><span class="line">                              = -<span class="number">9102017020286042305L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 姓名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;        <span class="comment">// 年龄</span></span><br><span class="line">    <span class="keyword">private</span> Car car;        <span class="comment">// 座驾</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age, Car car)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.car = car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Car <span class="title">getCar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCar</span><span class="params">(Car car)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.car = car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person [name="</span> + name + <span class="string">",</span></span><br><span class="line"><span class="string">                       age="</span> + age + <span class="string">", car="</span> + car + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 小汽车类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nnngu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID </span><br><span class="line">                                = -<span class="number">5713945027627603702L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String brand;       <span class="comment">// 品牌</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxSpeed;       <span class="comment">// 最高时速</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String brand, <span class="keyword">int</span> maxSpeed)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.brand = brand;</span><br><span class="line">        <span class="keyword">this</span>.maxSpeed = maxSpeed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBrand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> brand;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBrand</span><span class="params">(String brand)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.brand = brand;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMaxSpeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> maxSpeed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMaxSpeed</span><span class="params">(<span class="keyword">int</span> maxSpeed)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.maxSpeed = maxSpeed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Car [brand="</span> + brand + <span class="string">", </span></span><br><span class="line"><span class="string">                      maxSpeed="</span> + maxSpeed + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CloneTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Person p1 = <span class="keyword">new</span> Person(<span class="string">"郭靖"</span>, <span class="number">33</span>, </span><br><span class="line">                              <span class="keyword">new</span> Car(<span class="string">"Benz"</span>, <span class="number">300</span>));</span><br><span class="line">            Person p2 = MyUtil.clone(p1);   <span class="comment">// 深度克隆</span></span><br><span class="line">            p2.getCar().setBrand(<span class="string">"BYD"</span>);</span><br><span class="line">            <span class="comment">// 修改克隆的Person对象p2关联的汽车对象的品牌属性</span></span><br><span class="line">            <span class="comment">// 原来的Person对象p1关联的汽车不会受到任何影响</span></span><br><span class="line">            <span class="comment">// 因为在克隆Person对象时其关联的汽车对象也被克隆了</span></span><br><span class="line">            System.out.println(p1);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：基于序列化和反序列化实现的克隆不仅仅是深度克隆，更重要的是通过泛型限定，可以检查出要克隆的对象是否支持序列化，这项检查是编译器完成的，不是运行时抛出异常，这种方案明显优于使用Object类的clone方法克隆对象，让问题在编译时报出总好于把问题留到运行时</p>
+<h4 id="深拷贝和浅拷贝区别是什么？"><a href="#深拷贝和浅拷贝区别是什么？" class="headerlink" title="深拷贝和浅拷贝区别是什么？"></a>深拷贝和浅拷贝区别是什么？</h4><ul>
+<li>浅拷贝只是复制对象的引用地址，两个对象指向同一个内存地址，所以修改其中任意的值，另一个值都会随之变化，这就是浅拷贝（例：assign())</li>
+<li>深拷贝是将对象及值复制过来，两个对象修改其中任意的值，另一个值不会改变，这就是深拷贝（例：JSON.parse()和JSON.stringify()，但是此方法无法复制函数类型。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1211,111 +1324,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/03/Leetcode-1328-Break-a-Palindrome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/03/Leetcode-1328-Break-a-Palindrome/" class="post-title-link" itemprop="url">Leetcode 1328 Break a Palindrome(破坏回文串)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-03 00:17:21" itemprop="dateCreated datePublished" datetime="2020-03-03T00:17:21+10:30">2020-03-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:56:28" itemprop="dateModified" datetime="2020-03-05T23:56:28+10:30">2020-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-String"><a href="#Type-String" class="headerlink" title="Type: String"></a>Type: String</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Given a palindromic string <code>palindrome</code>, replace <strong>exactly one</strong> character by any lowercase English letter so that the string becomes the lexicographically smallest possible string that <strong>isn’t</strong> a palindrome.</p>
-<p>After doing so, return the final string. If there is no way to do so, return the empty string.</p>
-</li>
-<li><p>Possible Solutions </p>
-<p>这道题是Expedia的一道面经题目，最近投了他家的SDE实习，准备一下</p>
-</li>
-</ol>
-<p>   思路：</p>
-<ul>
-<li>字符串长度为1的时候返回空串</li>
-<li>否则检查前面一半长度的字符，如果出现第一个不是a的字符就把它改成a，返回修改后的字符串</li>
-<li>如果全都是a，如”aaaa”，把最后一个字符改成b，返回修改后的字符串</li>
-</ul>
-<p>   这道题自己卡住是因为一直在想如何操作字典序使其最小，想复杂了，就换成a就行了，需要考虑到全是a和只有一个字符的情况。</p>
-<ol start="3">
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">breakPalindrome</span><span class="params">(String palindrome)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(palindrome.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">char</span>[] a = palindrome.toCharArray();</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] != <span class="string">'a'</span>) &#123;</span><br><span class="line">                a[i] = <span class="string">'a'</span>;</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!flag) a[a.length - <span class="number">1</span>] = <span class="string">'b'</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Test Cases</p>
-</li>
-</ol>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: palindrome &#x3D; &quot;abccba&quot;</span><br><span class="line">Output: &quot;aaccba&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: palindrome &#x3D; &quot;a&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/leo-yang0201.github.io/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/leo-yang0201.github.io/page/6/">6</a><a class="extend next" rel="next" href="/leo-yang0201.github.io/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/leo-yang0201.github.io/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/leo-yang0201.github.io/page/7/">7</a><a class="extend next" rel="next" href="/leo-yang0201.github.io/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1383,7 +1396,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1396,7 +1409,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/leo-yang0201.github.io/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
