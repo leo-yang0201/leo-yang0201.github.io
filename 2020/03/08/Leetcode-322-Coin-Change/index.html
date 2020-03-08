@@ -22,16 +22,21 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leo Yang&#39;s Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;archive&#x2F;2020&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="Difficulty : Medium Type: Dynamic Programming Language : Java ClarificationYou are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest num">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 322 Coin Change(零钱兑换)">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;08&#x2F;Leetcode-322-Coin-Change&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+<meta property="og:description" content="Difficulty : Medium Type: Dynamic Programming Language : Java ClarificationYou are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest num">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2020&#x2F;03&#x2F;08&#x2F;3ztSgJ.png">
+<meta property="article:published_time" content="2020-03-08T12:09:00.000Z">
+<meta property="article:modified_time" content="2020-03-08T12:32:18.135Z">
 <meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2020&#x2F;03&#x2F;08&#x2F;3ztSgJ.png">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/archive/2020/page/2/">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/08/Leetcode-322-Coin-Change/">
 
 
 <script id="page-configurations">
@@ -39,11 +44,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
-  <title>Archive | Leo Yang's Blog</title>
+  <title>Leetcode 322 Coin Change(零钱兑换) | Leo Yang's Blog</title>
   
 
 
@@ -153,237 +158,125 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">Nice! 60 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/08/Leetcode-322-Coin-Change/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Leetcode 322 Coin Change(零钱兑换)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-08 22:39:00 / Modified: 23:02:18" itemprop="dateCreated datePublished" datetime="2020-03-08T22:39:00+10:30">2020-03-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <p>Difficulty : Medium</p>
+<p>Type: Dynamic Programming</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>You are given coins of different denominations and a total amount of money <em>amount</em>. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
+<p><strong>Note</strong>:<br>You may assume that you have an infinite number of each kind of coin.</p>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li>动态规划（自底向上）</li>
+</ul>
+<p>这题是一个标准的动态规划题目，思路是根据coin的面值计算dp（dp为求得amount所需要的最少硬币数目）</p>
+<p>首先将dp数组初始化(跳过dp[0])，因为我后面要比大小，就都选用了Integer的最大值减1作为填充值</p>
+<p>对于每一个面值，遍历求解得到amount所需要的最少数目，拿例子来说，amount = 11，coins的第一个面值是1，那么第一轮循环后，dp数组的值应该是[0,1,2,3,4,5,6,7,8,9,10,11]，coins的第二个面值是2，这个时候循环求解的是面值1和2组合后的dp（因为第一轮已经算了面值为1时的状态，第二轮在第一轮基础上更新dp数组值），这个时候dp数组结果如图：</p>
+<p><img src="https://s2.ax1x.com/2020/03/08/3ztSgJ.png" alt></p>
+<p>amount为11时最少需要6枚硬币（5个2元一个1元）</p>
+<p>根据此思路，再叠加下一个面值5元，得到的dp数组就是1，2，5三个面值组合后得到各个amount所需的最小数目集合，返回dp[amount]即得到结果。如果当前面值无法算出amount，即dp[amount]没有发生过改变，仍是预设的Integer最大值减1，返回-1。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[amount + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= amount;i++) &#123;</span><br><span class="line">            dp[i] = Integer.MAX_VALUE - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> coin : coins) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = coin;j &lt;= amount;j++) &#123;</span><br><span class="line">                dp[j] = Math.min(dp[j],dp[j - coin] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[amount] == (Integer.MAX_VALUE - <span class="number">1</span>) ? -<span class="number">1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: coins &#x3D; [1, 2, 5], amount &#x3D; 11</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: 11 &#x3D; 5 + 5 + 1</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-16T12:39:38+10:30"
-              content="2020-02-16">
-          02-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/16/Leetcode-64-Minimum-Path-Sum/" itemprop="url">
-            <span itemprop="name">Leetcode 64 Minimum Path Sum(最小路径和)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-15T22:08:53+10:30"
-              content="2020-02-15">
-          02-15
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/15/Leetcode-62-Unique-Paths/" itemprop="url">
-            <span itemprop="name">Leetcode 62 Unique Paths(不同路径)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-13T17:47:21+10:30"
-              content="2020-02-13">
-          02-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/13/Leetcode-92-Reverse-Linked-List-II/" itemprop="url">
-            <span itemprop="name">Leetcode 92 Reverse Linked List II(反转链表2)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-10T20:15:36+10:30"
-              content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/10/Leetcode-230-Kth-Smallest-Element-in-a-BST/" itemprop="url">
-            <span itemprop="name">Leetcode 230 Kth Smallest Element in a BST(二叉搜索树中第K小的元素)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-10T15:21:01+10:30"
-              content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/10/Leetcode-94-Binary-Tree-Inorder-Traversal/" itemprop="url">
-            <span itemprop="name">Leetcode 94 Binary Tree Inorder Traversal(二叉树的中序遍历)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-10T09:51:53+10:30"
-              content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/10/Leetcode-145-Binary-Tree-Postorder-Traversal/" itemprop="url">
-            <span itemprop="name">Leetcode 145 Binary Tree Postorder Traversal(二叉树的后序遍历)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-10T02:18:32+10:30"
-              content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/10/Leetcode-103-Binary-Tree-Zigzag-Level-Order-Traversal/" itemprop="url">
-            <span itemprop="name">Leetcode 103 Binary Tree Zigzag Level Order Traversal(二叉树的锯齿形层次遍历)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-09T00:37:06+10:30"
-              content="2020-02-09">
-          02-09
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/09/Leetcode-102-Binary-Tree-Level-Order-Traversal/" itemprop="url">
-            <span itemprop="name">Leetcode 102 Binary Tree Level Order Traversal(二叉树的层次遍历)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-03T22:10:37+10:30"
-              content="2020-02-03">
-          02-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/03/Leetcode-9-Palindrome-Number/" itemprop="url">
-            <span itemprop="name">Leetcode 9 Palindrome Number(回文数)</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-01T21:33:35+10:30"
-              content="2020-02-01">
-          02-01
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/leo-yang0201.github.io/2020/02/01/Leetcode-144-Binary-Tree-Preorder-Traversal/" itemprop="url">
-            <span itemprop="name">Leetcode 144 Binary Tree Preorder Traversal（二叉树的前序遍历）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: coins &#x3D; [2], amount &#x3D; 3</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
 
 
     </div>
+
+    
+    
+    <!-- 文件位置：~/source/_data/post-body-end.swig -->
+
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/leo-yang0201.github.io/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/leo-yang0201.github.io/2020/03/07/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%89/" rel="prev" title="Java面试题汇总（三）">
+      <i class="fa fa-chevron-left"></i> Java面试题汇总（三）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/leo-yang0201.github.io/archive/2020/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/leo-yang0201.github.io/archive/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/leo-yang0201.github.io/archive/2020/page/3/">3</a><a class="page-number" href="/leo-yang0201.github.io/archive/2020/page/4/">4</a><a class="extend next" rel="next" href="/leo-yang0201.github.io/archive/2020/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -430,6 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Clarification"><span class="nav-number">1.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Possible-Solutions"><span class="nav-number">2.</span> <span class="nav-text">Possible Solutions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Cases"><span class="nav-number">4.</span> <span class="nav-text">Test Cases</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -569,6 +463,25 @@
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '28053c3bf9e94bd99f96',
+      clientSecret: '8b2847e6971db2a6490a4a011655f88756a32e17',
+      repo        : 'leo-yang0201.github.io',
+      owner       : 'leo-yang0201',
+      admin       : ['leo-yang0201'],
+      id          : 'c3a2f4deb359a59a7fef379c05645670',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 <!-- 文件位置：~/source/_data/body-end.swig -->
 
 <script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
