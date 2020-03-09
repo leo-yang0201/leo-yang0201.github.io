@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/leo-yang0201.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/leo-yang0201.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/leo-yang0201.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/leo-yang0201.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/leo-yang0201.github.io/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/leo-yang0201.github.io/lib/pace/pace-theme-minimal.min.css">
+  <script src="/leo-yang0201.github.io/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="throw和throws的区别？throws是用来声明一个方法可能抛出的所有异常信息，throws是将异常声明但是不处理，而是将异常往上传，谁调用我就交给谁处理，而throw则是指抛出的一个具体的异常类型 final、finally、finalize有什么区别？ final可以修饰类、变量、方法，修饰类表示该类不可以继承，修饰变量表示该变量是常量，不能被重新赋值，修饰方法表示此方法不可以被重写 f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试题汇总（五）">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;09&#x2F;Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%94&#x2F;index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="throw和throws的区别？throws是用来声明一个方法可能抛出的所有异常信息，throws是将异常声明但是不处理，而是将异常往上传，谁调用我就交给谁处理，而throw则是指抛出的一个具体的异常类型 final、finally、finalize有什么区别？ final可以修饰类、变量、方法，修饰类表示该类不可以继承，修饰变量表示该变量是常量，不能被重新赋值，修饰方法表示此方法不可以被重写 f">
+<meta property="article:published_time" content="2020-03-09T13:07:16.000Z">
+<meta property="article:modified_time" content="2020-03-09T13:40:29.511Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Java基础">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%94/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Java面试题汇总（五） | Leo Yang's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/leo-yang0201.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leo Yang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">技术&&编程&&刷题</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/leo-yang0201.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">24</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/leo-yang0201.github.io/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">63</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java面试题汇总（五）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-09 23:37:16" itemprop="dateCreated datePublished" datetime="2020-03-09T23:37:16+10:30">2020-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-10 00:10:29" itemprop="dateModified" datetime="2020-03-10T00:10:29+10:30">2020-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="throw和throws的区别？"><a href="#throw和throws的区别？" class="headerlink" title="throw和throws的区别？"></a>throw和throws的区别？</h4><p>throws是用来声明一个方法可能抛出的所有异常信息，throws是将异常声明但是不处理，而是将异常往上传，谁调用我就交给谁处理，而throw则是指抛出的一个具体的异常类型</p>
+<h4 id="final、finally、finalize有什么区别？"><a href="#final、finally、finalize有什么区别？" class="headerlink" title="final、finally、finalize有什么区别？"></a>final、finally、finalize有什么区别？</h4><ul>
+<li>final可以修饰类、变量、方法，修饰类表示该类不可以继承，修饰变量表示该变量是常量，不能被重新赋值，修饰方法表示此方法不可以被重写</li>
+<li>finally一般作用在try-catch块中，在处理异常中，通常我们将一定要执行的代码放到finally块里，表示不管是否出现异常，该代码块都会执行，一般用来存放一些关闭资源的代码</li>
+<li>finalize是一个方法，属于Object类，该方法一般由垃圾回收器调用，当调用System的gc方法时，由垃圾回收器调用finalize()，回收垃圾</li>
+</ul>
+<h4 id="try-catch-finally中哪个部分可以省略？"><a href="#try-catch-finally中哪个部分可以省略？" class="headerlink" title="try-catch-finally中哪个部分可以省略？"></a>try-catch-finally中哪个部分可以省略？</h4><p>catch可以省略</p>
+<p>try只适合处理运行时异常，try+catch适合处理运行时异常+普通异常，如果只用try处理普通异常但不加catch处理，编译无法通过，因为编译器硬性规定，普通异常如果选择捕获，必须用catch显示声明以便进一步处理，而运行时异常在编译时没有如此设定，所以catch可以省略。加上finally，则是不管有没有捕获异常，都要进行的“扫尾”处理</p>
+<h4 id="try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？"><a href="#try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？" class="headerlink" title="try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？"></a>try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？</h4><p>会，在return前执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * java面试题--如果catch里面有return语句，finally里面的代码还会执行吗？</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinallyDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getInt());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(a / <span class="number">0</span>);</span><br><span class="line">            a = <span class="number">20</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            a = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * return a 在程序执行到这一步的时候，这里不是return a 而是 return 30；这个返回路径就形成了</span></span><br><span class="line"><span class="comment">             * 但是呢，它发现后面还有finally，所以继续执行finally的内容，a=40</span></span><br><span class="line"><span class="comment">             * 再次回到以前的路径,继续走return 30，形成返回路径之后，这里的a就不是a变量了，而是常量30</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a = <span class="number">40</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//      return a;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行结果：30</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * java面试题--如果catch里面有return语句，finally里面的代码还会执行吗？</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinallyDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getInt());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(a / <span class="number">0</span>);</span><br><span class="line">            a = <span class="number">20</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            a = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * return a 在程序执行到这一步的时候，这里不是return a 而是 return 30；这个返回路径就形成了</span></span><br><span class="line"><span class="comment">             * 但是呢，它发现后面还有finally，所以继续执行finally的内容，a=40</span></span><br><span class="line"><span class="comment">             * 再次回到以前的路径,继续走return 30，形成返回路径之后，这里的a就不是a变量了，而是常量30</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a = <span class="number">40</span>;</span><br><span class="line">            <span class="keyword">return</span> a; <span class="comment">//如果这样，就又重新形成了一条返回路径，由于只能通过1个return返回，所以这里直接返回40</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//      return a;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行结果：40</p>
+<h4 id="常见的异常类有哪些？"><a href="#常见的异常类有哪些？" class="headerlink" title="常见的异常类有哪些？"></a>常见的异常类有哪些？</h4><ul>
+<li>NullPointerException: 当应用程序试图访问空对象时，则抛出该异常</li>
+<li>SQLException: 提供关于数据库访问错误或其他错误信息的异常</li>
+<li>IndexOutOfBoundsException: 指示某排序索引（数组、字符串或向量的排序）超出范围时抛出</li>
+<li>NumberFormatException: 当程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常</li>
+<li>FileNotFoundException: 当试图打开指定路径名表示的文件失败时，抛出该异常</li>
+<li>IOException: 当发生某种I/O异常时，抛出此异常，此类是失败或中断的I/O操作生成的异常的通用类</li>
+<li>ClassCastException：当试图将对象强制转换为不是实例的子类时，抛出该异常。</li>
+<li>ArrayStoreException：试图将错误类型的对象存储到一个对象数组时抛出的异常。</li>
+<li>IllegalArgumentException：抛出的异常表明向方法传递了一个不合法或不正确的参数。</li>
+<li>ArithmeticException：当出现异常的运算条件时，抛出此异常。例如，一个整数“除以零”时，抛出此类的一个实例。 </li>
+<li>NegativeArraySizeException：如果应用程序试图创建大小为负的数组，则抛出该异常。</li>
+<li>NoSuchMethodException：无法找到某一特定方法时，抛出该异常。</li>
+<li>SecurityException：由安全管理器抛出的异常，指示存在安全侵犯。</li>
+<li>UnsupportedOperationException：当不支持请求的操作时，抛出该异常。</li>
+<li>RuntimeExceptionRuntimeException：是那些可能在Java虚拟机正常运行期间抛出的异常的超类。</li>
+</ul>
+
+    </div>
+
+    
+    
+    <!-- 文件位置：~/source/_data/post-body-end.swig -->
+
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/leo-yang0201.github.io/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag"># Java基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/leo-yang0201.github.io/2020/03/09/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/" rel="prev" title="Leetcode 121 Best Time to Buy and Sell Stock（买卖股票的最佳时机）">
+      <i class="fa fa-chevron-left"></i> Leetcode 121 Best Time to Buy and Sell Stock（买卖股票的最佳时机）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#throw和throws的区别？"><span class="nav-number">1.</span> <span class="nav-text">throw和throws的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final、finally、finalize有什么区别？"><span class="nav-number">2.</span> <span class="nav-text">final、finally、finalize有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try-catch-finally中哪个部分可以省略？"><span class="nav-number">3.</span> <span class="nav-text">try-catch-finally中哪个部分可以省略？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？"><span class="nav-number">4.</span> <span class="nav-text">try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的异常类有哪些？"><span class="nav-number">5.</span> <span class="nav-text">常见的异常类有哪些？</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Leo Yang"
+      src="/leo-yang0201.github.io/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Leo Yang</p>
+  <div class="site-description" itemprop="description">Hi, I use this blog to record my daily practice in computer science and data science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/leo-yang0201.github.io/archive/">
+        
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/leo-yang0201.github.io/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/leo-yang0201.github.io/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo Yang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/leo-yang0201.github.io/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/leo-yang0201.github.io/lib/anime.min.js"></script>
+  <script src="/leo-yang0201.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/leo-yang0201.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/leo-yang0201.github.io/js/utils.js"></script>
+
+<script src="/leo-yang0201.github.io/js/motion.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/schemes/muse.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/next-boot.js"></script>
+
+
+  <script defer src="/leo-yang0201.github.io/lib/three/three.min.js"></script>
+    <script defer src="/leo-yang0201.github.io/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '28053c3bf9e94bd99f96',
+      clientSecret: '8b2847e6971db2a6490a4a011655f88756a32e17',
+      repo        : 'leo-yang0201.github.io',
+      owner       : 'leo-yang0201',
+      admin       : ['leo-yang0201'],
+      id          : 'fb286eead5599732bf5fffef7ac72c20',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+<!-- 文件位置：~/source/_data/body-end.swig -->
+
+<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+<script>
+  console.log('今日诗词 - 开始加载...');
+  jinrishici.load((result) => {
+    let jrsc = document.getElementById('jrsc');
+    if (jrsc) {
+      console.log('今日诗词 - 标签获取成功.');
+    } else {
+      console.log('今日诗词 - 标签获取失败!');
+      return;
+    }
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+    console.log('今日诗词 - 载入完毕.');
+    if (data.origin.author == '李白') {
+      let audio = document.createElement("audio");
+      audio.src = "/ding.mp3";
+      audio.play();
+    }
+  });
+</script>
+</body>
+</html>
