@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Difficulty : EasyType: Stack,DesignLanguage : Java Clarification   Implement the following operations of a stack using queues. push(x) – Push element x onto stack. pop() – Removes the element on top o">
+  <meta name="description" content="Difficulty : Easy Type: Tree, DFS Language : Java ClarificationGiven a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 225 Implement Stack with Queue(用队列实现栈)">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;01&#x2F;22&#x2F;Leetcode-232-Implement-Stack-with-Queue&#x2F;index.html">
+<meta property="og:title" content="Leetcode 543 Diameter of Binary Tree(二叉树的直径)">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;10&#x2F;Leetcode-543-Diameter-of-Binary-Tree&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="Difficulty : EasyType: Stack,DesignLanguage : Java Clarification   Implement the following operations of a stack using queues. push(x) – Push element x onto stack. pop() – Removes the element on top o">
-<meta property="article:published_time" content="2020-01-22T06:12:56.000Z">
-<meta property="article:modified_time" content="2020-03-05T13:24:08.815Z">
+<meta property="og:description" content="Difficulty : Easy Type: Tree, DFS Language : Java ClarificationGiven a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longe">
+<meta property="article:published_time" content="2020-03-10T06:58:14.000Z">
+<meta property="article:modified_time" content="2020-03-10T07:27:32.040Z">
 <meta property="article:author" content="Leo Yang">
-<meta property="article:tag" content="Stack">
-<meta property="article:tag" content="Design">
+<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="tree">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/2020/01/22/Leetcode-232-Implement-Stack-with-Queue/">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/10/Leetcode-543-Diameter-of-Binary-Tree/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Leetcode 225 Implement Stack with Queue(用队列实现栈) | Leo Yang's Blog</title>
+  <title>Leetcode 543 Diameter of Binary Tree(二叉树的直径) | Leo Yang's Blog</title>
   
 
 
@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/01/22/Leetcode-232-Implement-Stack-with-Queue/">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/10/Leetcode-543-Diameter-of-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
@@ -175,7 +175,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Leetcode 225 Implement Stack with Queue(用队列实现栈)
+          Leetcode 543 Diameter of Binary Tree(二叉树的直径)
         </h1>
 
         <div class="post-meta">
@@ -184,16 +184,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-01-22 16:42:56" itemprop="dateCreated datePublished" datetime="2020-01-22T16:42:56+10:30">2020-01-22</time>
+              <time title="Created: 2020-03-10 17:28:14 / Modified: 17:57:32" itemprop="dateCreated datePublished" datetime="2020-03-10T17:28:14+10:30">2020-03-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:54:08" itemprop="dateModified" datetime="2020-03-05T23:54:08+10:30">2020-03-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -222,37 +216,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Stack-Design"><a href="#Type-Stack-Design" class="headerlink" title="Type: Stack,Design"></a>Type: Stack,Design</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<ul>
-<li>Implement the following operations of a stack using queues.<ul>
-<li>push(x) – Push element x onto stack.</li>
-<li>pop() – Removes the element on top of the stack.</li>
-<li>top() – Get the top element.</li>
-<li>empty() – Return whether the stack is empty.</li>
-</ul>
-</li>
-</ul>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>You must use <em>only</em> standard operations of a queue – which means only <code>push to back</code>, <code>peek/pop from front</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
-<li>Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.</li>
-<li>You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).</li>
-</ul>
-</li>
-<li><p>Possible Solutions </p>
-<ul>
-<li>出队入队操作<br>入队时，先把当前值入队，再把顺序倒成栈的样子，具体操作是将当前出队的值重新入队，这个值就会从队列头移到队列尾，每次移动队列长度 - 1 次。</li>
-</ul>
-</li>
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line">    Queue&lt;Integer&gt; queue;</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.queue = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Push element x onto stack. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        queue.add(x);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; queue.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            queue.add(queue.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Removes the element on top of the stack and returns that element. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> queue.poll();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Get the top element. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> queue.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns whether the stack is empty. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> queue.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MyStack obj = new MyStack();</span></span><br><span class="line"><span class="comment"> * obj.push(x);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj.pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj.top();</span></span><br><span class="line"><span class="comment"> * boolean param_4 = obj.empty();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Test Cases</p>
-<p>MyStack stack = new MyStack();</p>
-<p>stack.push(1);<br>stack.push(2);<br>stack.top();   // returns 2<br>stack.pop();   // returns 2<br>stack.empty(); // returns false</p>
-</li>
-</ol>
+        <p>Difficulty : Easy</p>
+<p>Type: Tree, DFS</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the <strong>longest</strong> path between any two nodes in a tree. This path may or may not pass through the root.</p>
+<p><strong>Note:</strong> The length of path between two nodes is represented by the number of edges between them.</p>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><p>首先这题要找的是二叉树的<strong>任意两个结点长度中的最大值</strong>，这个路径可能穿过根结点，也可能不穿过根结点。得到这个最大路径，要的就是任意结点的左子树深度和右子树深度和的最大值再加个1（默认一个结点的高度是1，求出左子树右子树之和以后再加当前根结点的深度1，就是最大路径，等于那个根结点把左子树右子树连接起来了）</p>
+<p>设一个全局变量result记录每一次更新后的最大路径，递归方法找到左子树和右子树的最大深度，如果此时左子树右子树深度之和大于result，就更新，反之继续递归知道root为空，返回左右子树深度之和加1，主函数返回result</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> * int val;</span></span><br><span class="line"><span class="comment"> * TreeNode left;</span></span><br><span class="line"><span class="comment"> * TreeNode right;</span></span><br><span class="line"><span class="comment"> * TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> leftDepth = dfs(root.left);</span><br><span class="line">        <span class="keyword">int</span> rightDepth = dfs(root.right);</span><br><span class="line">        <span class="keyword">if</span> ((leftDepth + rightDepth) &gt; result)&#123;</span><br><span class="line">            result = leftDepth +rightDepth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(leftDepth, rightDepth) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example:</strong><br>Given a binary tree</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   &#x2F; \</span><br><span class="line">  2   3</span><br><span class="line"> &#x2F; \     </span><br><span class="line">4   5</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Return <strong>3</strong>, which is the length of the path [4,2,1,3] or [5,2,1,3].</p>
 
     </div>
 
@@ -264,8 +244,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/leo-yang0201.github.io/tags/Stack/" rel="tag"># Stack</a>
-              <a href="/leo-yang0201.github.io/tags/Design/" rel="tag"># Design</a>
+              <a href="/leo-yang0201.github.io/tags/DFS/" rel="tag"># DFS</a>
+              <a href="/leo-yang0201.github.io/tags/tree/" rel="tag"># tree</a>
           </div>
 
         
@@ -274,12 +254,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/01/21/Leetcode-232-Implement-Queue-using-Stacks/" rel="prev" title="Leetcode 232 Implement Queue using Stacks(用栈实现队列)">
-      <i class="fa fa-chevron-left"></i> Leetcode 232 Implement Queue using Stacks(用栈实现队列)
+    <a href="/leo-yang0201.github.io/2020/03/10/ConcurrentHashMap%E5%92%8CHashtable%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="ConcurrentHashMap和Hashtable到底有什么不同？">
+      <i class="fa fa-chevron-left"></i> ConcurrentHashMap和Hashtable到底有什么不同？
     </a></div>
       <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/01/27/Leetcode-104-Maximum-Depth-of-Binary-Tree/" rel="next" title="Leetcode 104 Maximum Depth of Binary Tree（二叉树的最大深度）">
-      Leetcode 104 Maximum Depth of Binary Tree（二叉树的最大深度） <i class="fa fa-chevron-right"></i>
+    <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-123-Best-Time-to-Buy-and-Sell-Stock-III/" rel="next" title="Leetcode 123 Best Time to Buy and Sell Stock III(买卖股票的最佳时机III)">
+      Leetcode 123 Best Time to Buy and Sell Stock III(买卖股票的最佳时机III) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -341,7 +321,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Difficulty-Easy"><span class="nav-number">1.</span> <span class="nav-text">Difficulty : Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-Stack-Design"><span class="nav-number">2.</span> <span class="nav-text">Type: Stack,Design</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Language-Java"><span class="nav-number">2.1.</span> <span class="nav-text">Language : Java</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Clarification"><span class="nav-number">1.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Possible-Solutions"><span class="nav-number">2.</span> <span class="nav-text">Possible Solutions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Cases"><span class="nav-number">4.</span> <span class="nav-text">Test Cases</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -492,7 +472,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'leo-yang0201.github.io',
       owner       : 'leo-yang0201',
       admin       : ['leo-yang0201'],
-      id          : '2fd866ade4bc8d874cd8207330ec937b',
+      id          : '546165d52e79dc5cda0cfc9b9fc94a84',
         language: '',
       distractionFreeMode: true
     });
