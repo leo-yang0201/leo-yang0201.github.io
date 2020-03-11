@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">67</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">69</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,254 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/29/Leetcode-641-Design-Circular-Deque/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2019/12/29/Leetcode-641-Design-Circular-Deque/" class="post-title-link" itemprop="url">Leetcode 641 Design Circular Deque(设计循环双端队列)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-29 16:26:19" itemprop="dateCreated datePublished" datetime="2019-12-29T16:26:19+10:30">2019-12-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-05 23:56:05" itemprop="dateModified" datetime="2020-03-05T23:56:05+10:30">2020-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-Design-Queue"><a href="#Type-Design-Queue" class="headerlink" title="Type: Design, Queue"></a>Type: Design, Queue</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
+<li><p>Clarification </p>
+<ul>
+<li><p>Design your implementation of the circular double-ended queue (deque).</p>
+<p>Your implementation should support following operations:</p>
+<ul>
+<li><code>MyCircularDeque(k)</code>: Constructor, set the size of the deque to be k.</li>
+<li><code>insertFront()</code>: Adds an item at the front of Deque. Return true if the operation is successful.</li>
+<li><code>insertLast()</code>: Adds an item at the rear of Deque. Return true if the operation is successful.</li>
+<li><code>deleteFront()</code>: Deletes an item from the front of Deque. Return true if the operation is successful.</li>
+<li><code>deleteLast()</code>: Deletes an item from the rear of Deque. Return true if the operation is successful.</li>
+<li><code>getFront()</code>: Gets the front item from the Deque. If the deque is empty, return -1.</li>
+<li><code>getRear()</code>: Gets the last item from Deque. If the deque is empty, return -1.</li>
+<li><code>isEmpty()</code>: Checks whether Deque is empty or not. </li>
+<li><code>isFull()</code>: Checks whether Deque is full or not.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Possible Solutions</p>
+<ul>
+<li>取余实现循环双端队列<ul>
+<li>思路同leetcode 622（设计循环队列），区别在于此时数据可以从队列头入队/出队，也可以从队列尾入队/出队，实际上双端队列是栈和队列的结合。（既可以后入先出，也可以先入先出）</li>
+<li>队列头front指向队列头部第1个有效数据的位置</li>
+<li>队列尾rear指向队列尾部（即最后一个有效数据）的下一个位置，即下一个从队尾入队元素的位置</li>
+<li>为了避免“队列为空”或者“队列为满”的判别条件冲突，有意浪费了一个位置<ul>
+<li>浪费一个位置是指：循环数组中任何时刻一定至少有一个位置不存放有效元素</li>
+<li>判别队列为空的条件是 rear == front，判别队列为满的条件是 (rear + 1) % capacity == front，可理解为当rear循环到数组的前面，要从后面追上front，还差一格的时候，判断队列为满</li>
+</ul>
+</li>
+<li>注意数组下标可能越界的情况<ul>
+<li>指针后移的时候，索引 + 1，要取模</li>
+<li>指针前移的时候，为了循环到数组的末尾，需要先加上数组的长度，再对数组进行取模</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Code</p>
+</li>
+</ol>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCircularDeque</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1、不用设计成动态数组。使用静态数组即可</span></span><br><span class="line">    <span class="comment">// 2、设计front和rear指针变量</span></span><br><span class="line">    <span class="comment">// 3、front == rear 成立时说明队列为空</span></span><br><span class="line">    <span class="comment">// 4、rear + 1 == front</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> front, rear, capacity;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Initialize your data structure here. Set the size of the deque to be k. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyCircularDeque</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        capacity = k + <span class="number">1</span>;</span><br><span class="line">        arr = <span class="keyword">new</span> <span class="keyword">int</span>[capacity];</span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        头部指向第一个存放元素的位置</span></span><br><span class="line"><span class="comment">        插入时，先减，再赋值</span></span><br><span class="line"><span class="comment">        删除时，索引 + 1（注意取模）</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        front = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        尾部指向下一个插入元素的位置</span></span><br><span class="line"><span class="comment">        插入时，先赋值，再加</span></span><br><span class="line"><span class="comment">        删除时，索引 - 1（注意取模）</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        rear = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Adds an item at the front of Deque. Return true if the operation is successful. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">insertFront</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isFull())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        front = (front - <span class="number">1</span> + capacity) % capacity;</span><br><span class="line">        arr[front] = value;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Adds an item at the rear of Deque. Return true if the operation is successful. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">insertLast</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isFull()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        arr[rear] = value;</span><br><span class="line">        rear = (rear + <span class="number">1</span>) % capacity;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Deletes an item from the front of Deque. Return true if the operation is successful. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteFront</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// front被设计在数组的开头，所以是 +1</span></span><br><span class="line">        front = (front + <span class="number">1</span>) % capacity;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Deletes an item from the rear of Deque. Return true if the operation is successful. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        rear = (rear - <span class="number">1</span> + capacity) % capacity;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Get the front item from the deque. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getFront</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> arr[front];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Get the last item from the deque. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> arr[(rear - <span class="number">1</span> + capacity) % capacity];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Checks whether the circular deque is empty or not. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> front == rear;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Checks whether the circular deque is full or not. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 注意：这个设计是非常经典的算法</span></span><br><span class="line">        <span class="keyword">return</span> (rear + <span class="number">1</span>) % capacity == front;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyCircularDeque object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MyCircularDeque obj = new MyCircularDeque(k);</span></span><br><span class="line"><span class="comment"> * boolean param_1 = obj.insertFront(value);</span></span><br><span class="line"><span class="comment"> * boolean param_2 = obj.insertLast(value);</span></span><br><span class="line"><span class="comment"> * boolean param_3 = obj.deleteFront();</span></span><br><span class="line"><span class="comment"> * boolean param_4 = obj.deleteLast();</span></span><br><span class="line"><span class="comment"> * int param_5 = obj.getFront();</span></span><br><span class="line"><span class="comment"> * int param_6 = obj.getRear();</span></span><br><span class="line"><span class="comment"> * boolean param_7 = obj.isEmpty();</span></span><br><span class="line"><span class="comment"> * boolean param_8 = obj.isFull();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li><p>Test cases</p>
+<p>MyCircularDeque circularDeque = new MycircularDeque(3); // set the size to be 3<br>circularDeque.insertLast(1);            // return true<br>circularDeque.insertLast(2);            // return true<br>circularDeque.insertFront(3);            // return true<br>circularDeque.insertFront(4);            // return false, the queue is full<br>circularDeque.getRear();              // return 2<br>circularDeque.isFull();                // return true<br>circularDeque.deleteLast();            // return true<br>circularDeque.insertFront(4);            // return true<br>circularDeque.getFront();            // return 4</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/28/Leetcode-622-Design-Circular-Queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2019/12/28/Leetcode-622-Design-Circular-Queue/" class="post-title-link" itemprop="url">Leetcode 622 Design Circular Queue(设计环形队列)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-28 23:37:01" itemprop="dateCreated datePublished" datetime="2019-12-28T23:37:01+10:30">2019-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-05 23:55:48" itemprop="dateModified" datetime="2020-03-05T23:55:48+10:30">2020-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-Design-Queue"><a href="#Type-Design-Queue" class="headerlink" title="Type: Design, Queue"></a>Type: Design, Queue</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
+<li><p>Clarification </p>
+<p>Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle. It is also called “Ring Buffer”.</p>
+<p>One of the benefits of the circular queue is that we can make use of the spaces in front of the queue. In a normal queue, once the queue becomes full, we cannot insert the next element even if there is a space in front of the queue. But using the circular queue, we can use the space to store new values.</p>
+<p>Your implementation should support following operations:</p>
+<ul>
+<li><code>MyCircularQueue(k)</code>: Constructor, set the size of the queue to be k.</li>
+<li><code>Front</code>: Get the front item from the queue. If the queue is empty, return -1.</li>
+<li><code>Rear</code>: Get the last item from the queue. If the queue is empty, return -1.</li>
+<li><code>enQueue(value)</code>: Insert an element into the circular queue. Return true if the operation is successful.</li>
+<li><code>deQueue()</code>: Delete an element from the circular queue. Return true if the operation is successful.</li>
+<li><code>isEmpty()</code>: Checks whether the circular queue is empty or not.</li>
+<li><code>isFull()</code>: Checks whether the circular queue is full or not.</li>
+</ul>
+</li>
+<li><p>Possible Solutions</p>
+<ul>
+<li>取余实现循环队列<ul>
+<li>定义数组最大容量maxSize，队列头front和队列尾rear（默认初始值为0），以及用于存放队列的数组arr</li>
+<li>Constructor 里设计maxSize = k + 1; 为的是预留一个空位，方便在尾部添加数据，数组长度为4的时候，实际最大容量是3（arr数组的长度为3）</li>
+<li>判断队列是否为空，只需判断front是否等于rear，如果等于，说明队列为空</li>
+<li>判断队列是否为满，判断 (rear + 1) % maxSize 是否等于 front，意思是，队列尾的下一个元素如果是队列头，队列就满了，由于rear可能大于maxSize，需要进行取余操作令rear指针在数组中循环</li>
+<li>入队操作，先判断队列是不是满了，满了就返回false，否则令arr[rear] = value，rear = (rear + 1) % maxSize，先把当前入队的值赋给数组，再让尾结点指向数组下一个位置（同样需要取模使其在数组里循环，这样走到maxSize - 1的位置时，下一个rear的位置就会回到0索引，实现循环），返回true</li>
+<li>出队列操作，先判断队列是不是空，空了就返回false，否则令front = (front + 1) % maxSize, 由于front也需要循环，同样需要对其进行取模处理</li>
+<li>获取队列头，先判断是不是空，是空返回-1，否则返回arr[front]即为队列头的值</li>
+<li>获取队列尾，先判断是不是空，是空返回-1，否则返回arr[(rear - 1 +maxSize) % maxSize]，因为rear在每次入队操作时都会指向下一个位置，所以需要让rear - 1，当rear = 0时可能出现数组越界（rear = -1 ），所以进行取模操作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Code</p>
+</li>
+</ol>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCircularQueue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> front;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> rear;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. Set the size of the queue to be k. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyCircularQueue</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        maxSize = k + <span class="number">1</span>;<span class="comment">//预留一个空位，方便在尾部添加数据</span></span><br><span class="line">                      <span class="comment">//也就是说数组长度若为4 实际数据长度为3</span></span><br><span class="line">        arr = <span class="keyword">new</span> <span class="keyword">int</span>[maxSize];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Insert an element into the circular queue. Return true if the operation is successful. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">enQueue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isFull())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[rear] = value;</span><br><span class="line">        rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Delete an element from the circular queue. Return true if the operation is successful. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// int value = arr[front];</span></span><br><span class="line">        front = (front + <span class="number">1</span>) % maxSize;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Get the front item from the queue. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Front</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr[front];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Get the last item from the queue. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Rear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr[(rear - <span class="number">1</span> + maxSize) % maxSize];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Checks whether the circular queue is empty or not. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> rear == front;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Checks whether the circular queue is full or not. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (rear + <span class="number">1</span>) % maxSize == front;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyCircularQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MyCircularQueue obj = new MyCircularQueue(k);</span></span><br><span class="line"><span class="comment"> * boolean param_1 = obj.enQueue(value);</span></span><br><span class="line"><span class="comment"> * boolean param_2 = obj.deQueue();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj.Front();</span></span><br><span class="line"><span class="comment"> * int param_4 = obj.Rear();</span></span><br><span class="line"><span class="comment"> * boolean param_5 = obj.isEmpty();</span></span><br><span class="line"><span class="comment"> * boolean param_6 = obj.isFull();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li><p>Test cases</p>
+<p>MyCircularQueue circularQueue = new MycircularQueue(3); // 设置长度为 3</p>
+<p>circularQueue.enQueue(1);  // 返回 true</p>
+<p>circularQueue.enQueue(2);  // 返回 true</p>
+<p>circularQueue.enQueue(3);  // 返回 true</p>
+<p>circularQueue.enQueue(4);  // 返回 false，队列已满</p>
+<p>circularQueue.Rear();  // 返回 3</p>
+<p>circularQueue.isFull();  // 返回 true</p>
+<p>circularQueue.deQueue();  // 返回 true</p>
+<p>circularQueue.enQueue(4);  // 返回 true</p>
+<p>circularQueue.Rear();  // 返回 4</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -988,217 +1236,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/17/Leetcode-141-Linked-List-Cycle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2019/12/17/Leetcode-141-Linked-List-Cycle/" class="post-title-link" itemprop="url">Leetcode 141 Linked List Cycle(环形链表)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-17 12:06:16" itemprop="dateCreated datePublished" datetime="2019-12-17T12:06:16+10:30">2019-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:50:30" itemprop="dateModified" datetime="2020-03-05T23:50:30+10:30">2020-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Linked-List-amp-amp-Two-Pointers"><a href="#Type-Linked-List-amp-amp-Two-Pointers" class="headerlink" title="Type: Linked List &amp;&amp; Two Pointers"></a>Type: Linked List &amp;&amp; Two Pointers</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Given a linked list, determine if it has a cycle in it.</p>
-</li>
-<li><p>Possible Solutions </p>
-<ul>
-<li>HashSet<br>Iterate all the nodes and use HashSet to store references of nodes. If head is not null, determine whether HashSet contain head. If not, add head into Set. After each interation, head = head.next</li>
-<li>Faster and Slower Pointers<br>In order to determine whether a linked list contains circle, we can set two pointers. One is slow pointer that only moves a step each time and another is fast pointer that moves two steps each time. If the list has circle, fast pointer will equal to slow pointer eventually.</li>
-</ul>
-</li>
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HashSet</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123;</span></span><br><span class="line"><span class="comment"> *         val = x;</span></span><br><span class="line"><span class="comment"> *         next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        Set&lt;ListNode&gt; nodeSeens = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nodeSeens.contains(head))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                nodeSeens.add(head);</span><br><span class="line">            &#125;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Fast and Slow Pointers</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123;</span></span><br><span class="line"><span class="comment"> *         val = x;</span></span><br><span class="line"><span class="comment"> *         next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head.next;</span><br><span class="line">        <span class="keyword">while</span> (slow != fast)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>HashSet’s runtime is slower than Fast and Slow Pointers because new a hashset will cost extra time. It doesn’t mean that this algorithm’s speed is lower than Fast and Slow Pointers.</p>
-<ol start="4">
-<li><p>Test Cases</p>
-<p>Input : head = [3,2,0,-4], pos = 1</p>
-<p>Output : true</p>
-<p>Input : head = [1,2], pos = 0</p>
-<p>Output : true</p>
-<p>Input : head = [1], pos = -1</p>
-<p>Output : false</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/16/Leetcode-24-Swap-Nodes-In-Pairs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-24-Swap-Nodes-In-Pairs/" class="post-title-link" itemprop="url">Leetcode 24 Swap Nodes In Pairs(两两交换链表中的节点)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-16 22:39:15" itemprop="dateCreated datePublished" datetime="2019-12-16T22:39:15+10:30">2019-12-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:46:03" itemprop="dateModified" datetime="2020-03-05T23:46:03+10:30">2020-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-Linked-List"><a href="#Type-Linked-List" class="headerlink" title="Type: Linked List"></a>Type: Linked List</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification</p>
-<p>Given a linked list, swap every two adjacent nodes and return its head<br>You <strong>may not</strong> modify the values in the list’s nodes, only node itself can be changed.</p>
-</li>
-<li><p>Possible Solutions</p>
-<ul>
-<li><p>Iteration</p>
-<p>Set a node,which value is zero, called <u>pre</u> and <u>pre.next</u> points to head.<br>Set another node <u>temp</u> equals to <u>pre</u>.</p>
-<p>Set two nodes <u>start</u> and <u>end</u>. <u>temp.next</u> points to <u>start</u>, <u>temp.next.next</u> points to <u>end</u>. In this way, there are only one node or zero node left if <u>start</u> and <u>end</u> are null.<br>Basically, we choose three nodes as a group and swap the last two and then we set the new <u>temp</u> to <u>start</u>.<br>So, temp.next(pre) -&gt; end(2). start.next(1) -&gt; end.next(3). end.next(2) -&gt; start(1). And now the linked list is pre -&gt; 2 -&gt; 1 -&gt; 3 -&gt; 4 -&gt; null. Set temp = start(1) and begin new swap.  </p>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p>Recursion<br>This is much tricky. We have to find three important factors to analyze recursion ^_^</p>
-<ol>
-<li>When to terminate?<br>head is null or head.next is null. It will terminate when there is only one node or no node.</li>
-<li>What’s the repetitive action?<br>head.next -&gt; next.next<br>next.next -&gt; head<br>This is the process of swaping.</li>
-<li>Return value<br>return value is next pointer because next comes before head after swaping.</li>
-</ol>
-</li>
-</ul>
-<ol start="3">
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Iteration</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode pre = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        pre.next = head;</span><br><span class="line">        ListNode temp = pre;</span><br><span class="line">        <span class="keyword">while</span> (temp.next != <span class="keyword">null</span> &amp;&amp; temp.next.next != <span class="keyword">null</span>)&#123;</span><br><span class="line">            ListNode start = temp.next;</span><br><span class="line">            ListNode end = temp.next.next;</span><br><span class="line">            temp.next = end;</span><br><span class="line">            start.next = end.next;</span><br><span class="line">            end.next = start;</span><br><span class="line">            temp = start;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">swapPairs</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Solution 1 : 不用递归法 </span></span><br><span class="line">        <span class="comment">// Solution 2 : 递归</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode next = head.next;</span><br><span class="line">        head.next = swapPairs(next.next);</span><br><span class="line">        next.next = head;</span><br><span class="line">        <span class="keyword">return</span> next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="4">
-<li>Test Cases</li>
-</ol>
-<p>Given 1-&gt;2-&gt;3-&gt;4, return the list as 2-&gt;1-&gt;4-&gt;3.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1271,7 +1308,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
