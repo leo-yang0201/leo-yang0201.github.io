@@ -22,19 +22,21 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Difficulty : MediumType: StackLanguage : Java Clarification  Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, &#x2F;. Each operand may be an integer o">
+  <meta name="description" content="Difficulty : Easy Type: Dynamic Programming, Greedy, Array Language : Java ClarificationYour are given an array of integers prices, for which the i-th element is the price of a given stock on day i; a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 150 Evaluate Reverse Polish Notation(逆波兰表达式求值)">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;01&#x2F;04&#x2F;Leetcode-150-Evaluate-Reverse-Polish-Notation&#x2F;index.html">
+<meta property="og:title" content="Leetcode 714 Best Time to Buy and Sell Stock with Transaction Fee(买卖股票的最佳时机含手续费)">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;12&#x2F;Leetcode-714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="Difficulty : MediumType: StackLanguage : Java Clarification  Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, &#x2F;. Each operand may be an integer o">
-<meta property="article:published_time" content="2020-01-04T06:35:56.000Z">
-<meta property="article:modified_time" content="2020-03-05T13:21:21.985Z">
+<meta property="og:description" content="Difficulty : Easy Type: Dynamic Programming, Greedy, Array Language : Java ClarificationYour are given an array of integers prices, for which the i-th element is the price of a given stock on day i; a">
+<meta property="article:published_time" content="2020-03-12T04:36:59.000Z">
+<meta property="article:modified_time" content="2020-03-12T04:43:48.897Z">
 <meta property="article:author" content="Leo Yang">
-<meta property="article:tag" content="Stack">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Dynamic Programming">
+<meta property="article:tag" content="贪心算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/2020/01/04/Leetcode-150-Evaluate-Reverse-Polish-Notation/">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/12/Leetcode-714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>Leetcode 150 Evaluate Reverse Polish Notation(逆波兰表达式求值) | Leo Yang's Blog</title>
+  <title>Leetcode 714 Best Time to Buy and Sell Stock with Transaction Fee(买卖股票的最佳时机含手续费) | Leo Yang's Blog</title>
   
 
 
@@ -161,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/01/04/Leetcode-150-Evaluate-Reverse-Polish-Notation/">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/12/Leetcode-714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
@@ -174,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Leetcode 150 Evaluate Reverse Polish Notation(逆波兰表达式求值)
+          Leetcode 714 Best Time to Buy and Sell Stock with Transaction Fee(买卖股票的最佳时机含手续费)
         </h1>
 
         <div class="post-meta">
@@ -183,16 +185,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-01-04 17:05:56" itemprop="dateCreated datePublished" datetime="2020-01-04T17:05:56+10:30">2020-01-04</time>
+              <time title="Created: 2020-03-12 15:06:59 / Modified: 15:13:48" itemprop="dateCreated datePublished" datetime="2020-03-12T15:06:59+10:30">2020-03-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:51:21" itemprop="dateModified" datetime="2020-03-05T23:51:21+10:30">2020-03-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -221,37 +217,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-Stack"><a href="#Type-Stack" class="headerlink" title="Type: Stack"></a>Type: Stack</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Evaluate the value of an arithmetic expression in <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation" target="_blank" rel="noopener">Reverse Polish Notation</a>.</p>
-<p>Valid operators are <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>. Each operand may be an integer or another expression.</p>
+        <p>Difficulty : Easy</p>
+<p>Type: Dynamic Programming, Greedy, Array</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Your are given an array of integers <code>prices</code>, for which the <code>i</code>-th element is the price of a given stock on day <code>i</code>; and a non-negative integer <code>fee</code> representing a transaction fee.</p>
+<p>You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)</p>
+<p>Return the maximum profit you can make.</p>
 <p><strong>Note:</strong></p>
-<ul>
-<li>Division between two integers should truncate toward zero.</li>
-<li>The given RPN expression is always valid. That means the expression would always evaluate to a result and there won’t be any divide by zero operation.</li>
+<p><code>0 &lt; prices.length &lt;= 50000</code>.</p>
+<p><code>0 &lt; prices[i] &lt; 50000</code>.</p>
+<p><code>0 &lt;= fee &lt; 50000</code>.</p>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li><p>动态规划</p>
+<p>思路同LC 122，k还是正无穷（可以交易无数次），唯一的变化就是每次交易多了一个手续费fee，那直接减去就可以了</p>
+<p>状态转移方程依然是这个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">因为k为正无穷，那么k和k-1是一样的，又有一个手续费，那么卖出的时候减去手续费</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">            &#x3D; Max(dp[i-1][k][1],dp[i-1][k][0] - prices[i])</span><br><span class="line">所以k其实没有影响了，可以拿掉，简化后为：</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][0],dp[i-1][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][1],dp[i-1][0] - prices[i])</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-</li>
-<li><p>Possible Solutions</p>
-<ul>
-<li><p>Stack</p>
-<p>从左到右遍历数组，遇到数字就进栈，遇到运算符就弹出前两个数字（栈顶元素和次顶元素）并进行运算，把结果压入栈，最终栈顶的元素就是运算结果。（做减法和除法时注意是次顶元素减去/除去栈顶元素）</p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//stack</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">evalRPN</span><span class="params">(String[] tokens)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (String s : tokens) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.equals(<span class="string">"+"</span>)) &#123;</span><br><span class="line">                stack.push(stack.pop() + stack.pop());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.equals(<span class="string">"-"</span>)) &#123;</span><br><span class="line">                stack.push(-stack.pop() + stack.pop());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.equals(<span class="string">"*"</span>)) &#123;</span><br><span class="line">                stack.push(stack.pop() * stack.pop());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.equals(<span class="string">"/"</span>)) &#123;</span><br><span class="line">                <span class="keyword">int</span> num1 = stack.pop();</span><br><span class="line">                stack.push(stack.pop() / num1);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                stack.push(Integer.parseInt(s));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices, <span class="keyword">int</span> fee)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>],dp[i - <span class="number">1</span>][<span class="number">1</span>] + prices[i] - fee);</span><br><span class="line">            dp[i][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>],dp[i - <span class="number">1</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空间复杂度为O(1)的实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices, <span class="keyword">int</span> fee)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = prices.length;</span><br><span class="line">        <span class="keyword">int</span> keepMax = -prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> notKeepMax = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> keepMaxYesterday = keepMax;</span><br><span class="line">            keepMax = Math.max(keepMax, notKeepMax - prices[i]);</span><br><span class="line">            notKeepMax = Math.max(notKeepMax, keepMaxYesterday + prices[i] - fee);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> notKeepMax;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: prices &#x3D; [1, 3, 2, 8, 4, 9], fee &#x3D; 2</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: The maximum profit can be achieved by:</span><br><span class="line">Buying at prices[0] &#x3D; 1Selling at prices[3] &#x3D; 8Buying at prices[4] &#x3D; 4Selling at prices[5] &#x3D; 9The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) &#x3D; 8.</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<ol start="4">
-<li><p>Test Cases</p>
-<p>Input: [“2”,”1”,”+”,”3”,”*”]<br>Output: 9</p>
-</li>
-</ol>
 
     </div>
 
@@ -263,7 +253,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/leo-yang0201.github.io/tags/Stack/" rel="tag"># Stack</a>
+              <a href="/leo-yang0201.github.io/tags/Array/" rel="tag"># Array</a>
+              <a href="/leo-yang0201.github.io/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
+              <a href="/leo-yang0201.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag"># 贪心算法</a>
           </div>
 
         
@@ -272,13 +264,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/01/03/Leetcode-20-Valid-Parentheses/" rel="prev" title="Leetcode 20 Valid Parentheses(有效的括号)">
-      <i class="fa fa-chevron-left"></i> Leetcode 20 Valid Parentheses(有效的括号)
+    <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-198-House-Robber/" rel="prev" title="Leetcode 198 House Robber(打家劫舍)">
+      <i class="fa fa-chevron-left"></i> Leetcode 198 House Robber(打家劫舍)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/01/04/Leetcode-155-Min-Stack/" rel="next" title="Leetcode 155 Min Stack(最小栈)">
-      Leetcode 155 Min Stack(最小栈) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -339,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Difficulty-Medium"><span class="nav-number">1.</span> <span class="nav-text">Difficulty : Medium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-Stack"><span class="nav-number">2.</span> <span class="nav-text">Type: Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Language-Java"><span class="nav-number">2.1.</span> <span class="nav-text">Language : Java</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Clarification"><span class="nav-number">1.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Possible-Solutions"><span class="nav-number">2.</span> <span class="nav-text">Possible Solutions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Cases"><span class="nav-number">4.</span> <span class="nav-text">Test Cases</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -490,7 +479,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'leo-yang0201.github.io',
       owner       : 'leo-yang0201',
       admin       : ['leo-yang0201'],
-      id          : '179dd36dbd4308ccbf54b513b4606fa7',
+      id          : 'caf196b881bafbc6760ce413c30379cd',
         language: '',
       distractionFreeMode: true
     });
