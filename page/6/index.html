@@ -119,7 +119,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">26</span></a>
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">27</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">73</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">74</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,110 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/01/04/Leetcode-150-Evaluate-Reverse-Polish-Notation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/01/04/Leetcode-150-Evaluate-Reverse-Polish-Notation/" class="post-title-link" itemprop="url">Leetcode 150 Evaluate Reverse Polish Notation(逆波兰表达式求值)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-04 17:05:56" itemprop="dateCreated datePublished" datetime="2020-01-04T17:05:56+10:30">2020-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-05 23:51:21" itemprop="dateModified" datetime="2020-03-05T23:51:21+10:30">2020-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-Stack"><a href="#Type-Stack" class="headerlink" title="Type: Stack"></a>Type: Stack</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
+<li><p>Clarification </p>
+<p>Evaluate the value of an arithmetic expression in <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation" target="_blank" rel="noopener">Reverse Polish Notation</a>.</p>
+<p>Valid operators are <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>. Each operand may be an integer or another expression.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>Division between two integers should truncate toward zero.</li>
+<li>The given RPN expression is always valid. That means the expression would always evaluate to a result and there won’t be any divide by zero operation.</li>
+</ul>
+</li>
+<li><p>Possible Solutions</p>
+<ul>
+<li><p>Stack</p>
+<p>从左到右遍历数组，遇到数字就进栈，遇到运算符就弹出前两个数字（栈顶元素和次顶元素）并进行运算，把结果压入栈，最终栈顶的元素就是运算结果。（做减法和除法时注意是次顶元素减去/除去栈顶元素）</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//stack</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">evalRPN</span><span class="params">(String[] tokens)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (String s : tokens) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.equals(<span class="string">"+"</span>)) &#123;</span><br><span class="line">                stack.push(stack.pop() + stack.pop());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.equals(<span class="string">"-"</span>)) &#123;</span><br><span class="line">                stack.push(-stack.pop() + stack.pop());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.equals(<span class="string">"*"</span>)) &#123;</span><br><span class="line">                stack.push(stack.pop() * stack.pop());</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.equals(<span class="string">"/"</span>)) &#123;</span><br><span class="line">                <span class="keyword">int</span> num1 = stack.pop();</span><br><span class="line">                stack.push(stack.pop() / num1);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                stack.push(Integer.parseInt(s));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>Test Cases</p>
+<p>Input: [“2”,”1”,”+”,”3”,”*”]<br>Output: 9</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1229,113 +1333,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/19/Leetcode-21-Merge-Two-Sorted-lists/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2019/12/19/Leetcode-21-Merge-Two-Sorted-lists/" class="post-title-link" itemprop="url">Leetcode 21 Merge Two Sorted lists(合并两个有序链表)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-19 15:40:58" itemprop="dateCreated datePublished" datetime="2019-12-19T15:40:58+10:30">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:45:53" itemprop="dateModified" datetime="2020-03-05T23:45:53+10:30">2020-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Linked-List"><a href="#Type-Linked-List" class="headerlink" title="Type: Linked List"></a>Type: Linked List</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Come up as many solutions as you can.</p>
-<p>Do it in-place with <strong>O(1) extra space</strong></p>
-</li>
-<li><p>Possible Solutions</p>
-<ul>
-<li><p>Recursion</p>
-<ol>
-<li>If one link list is empty, return another one</li>
-<li>Compare l1’s value with l2’s value, if l1 is smaller then use recursion on l1.next and l2, return l1 then.<br>Else use recursion on l2.next and l1, return l2 then.</li>
-</ol>
-</li>
-<li><p>Iteration</p>
-<ol>
-<li>Create a new linked list</li>
-<li>Compare l1’s value with l2’s value, link the smaller one with new linked list</li>
-<li>If one linked list is empty whereas another is not empty. Link the whole unvoid list to the new linked list</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>Code</p>
-</li>
-</ol>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Recursion</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line">       <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">       <span class="keyword">if</span> (l1.val &lt; l2.val)&#123;</span><br><span class="line">         l1.next = mergeTwoLists(l1.next,l2);</span><br><span class="line">         <span class="keyword">return</span> l1;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         l2.next = mergeTwoLists(l2.next,l1);</span><br><span class="line">         <span class="keyword">return</span> l2;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Iteration</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    	ListNode dummy = <span class="keyword">new</span> ListNode(-<span class="number">1</span>),cur = dummy;</span><br><span class="line">      <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (l1.val &lt; l2.val)&#123;</span><br><span class="line">          cur.next = l1;</span><br><span class="line">          l1 = l1.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          cur.next = l2;</span><br><span class="line">          l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = cur.next;</span><br><span class="line">      &#125;</span><br><span class="line">      cur.next = (l1 != <span class="keyword">null</span>) ? l1 : l2;</span><br><span class="line">      <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><p>Test cases</p>
-<p>Input: [1,2,4],[1,3,4]<br>Output: [1,1,2,3,4,4]</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1408,7 +1405,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1421,7 +1418,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/leo-yang0201.github.io/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
