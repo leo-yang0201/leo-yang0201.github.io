@@ -22,20 +22,19 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="难度：Easy类型: String &amp;&amp; Two pointers解题语言： Java题目解析：1.Clarification 题目要求验证字符串是否为回文串，只考虑字母和数字字符，可以忽略字母的大小写 2.Possible solutions    - 双指针法&amp;nbsp;&amp;nbsp; 根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOr">
+  <meta name="description" content="反射的概念Java中的反射首先是能获得Java中要反射类的字节码，获得字节码有三种方式：  Class.forName(className) 例子：Class clazz &#x3D; Class.forName(“类的全路径”);（最常用）   类名.class 例子：Class clazz &#x3D; Person.class;   this.getClass() 例子：Person p &#x3D; new Perso">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 125 Valid Palindrome（验证回文串)">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2019&#x2F;12&#x2F;14&#x2F;test&#x2F;index.html">
+<meta property="og:title" content="Java中的反射">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;13&#x2F;Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="难度：Easy类型: String &amp;&amp; Two pointers解题语言： Java题目解析：1.Clarification 题目要求验证字符串是否为回文串，只考虑字母和数字字符，可以忽略字母的大小写 2.Possible solutions    - 双指针法&amp;nbsp;&amp;nbsp; 根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOr">
-<meta property="article:published_time" content="2019-12-14T08:39:05.000Z">
-<meta property="article:modified_time" content="2020-03-05T13:30:14.648Z">
+<meta property="og:description" content="反射的概念Java中的反射首先是能获得Java中要反射类的字节码，获得字节码有三种方式：  Class.forName(className) 例子：Class clazz &#x3D; Class.forName(“类的全路径”);（最常用）   类名.class 例子：Class clazz &#x3D; Person.class;   this.getClass() 例子：Person p &#x3D; new Perso">
+<meta property="article:published_time" content="2020-03-12T13:52:32.000Z">
+<meta property="article:modified_time" content="2020-03-12T14:41:31.610Z">
 <meta property="article:author" content="Leo Yang">
-<meta property="article:tag" content="Two Pointers">
-<meta property="article:tag" content="String">
+<meta property="article:tag" content="反射">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/2019/12/14/test/">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/13/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>Leetcode 125 Valid Palindrome（验证回文串) | Leo Yang's Blog</title>
+  <title>Java中的反射 | Leo Yang's Blog</title>
   
 
 
@@ -162,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/14/test/">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/13/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
@@ -175,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Leetcode 125 Valid Palindrome（验证回文串)
+          Java中的反射
         </h1>
 
         <div class="post-meta">
@@ -184,23 +183,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-12-14 19:09:05" itemprop="dateCreated datePublished" datetime="2019-12-14T19:09:05+10:30">2019-12-14</time>
+              <time title="Created: 2020-03-13 00:22:32 / Modified: 01:11:31" itemprop="dateCreated datePublished" datetime="2020-03-13T00:22:32+10:30">2020-03-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-06 00:00:14" itemprop="dateModified" datetime="2020-03-06T00:00:14+10:30">2020-03-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
             </span>
 
@@ -222,16 +215,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="难度：Easy"><a href="#难度：Easy" class="headerlink" title="难度：Easy"></a>难度：Easy</h4><h4 id="类型-String-amp-amp-Two-pointers"><a href="#类型-String-amp-amp-Two-pointers" class="headerlink" title="类型: String &amp;&amp; Two pointers"></a>类型: String &amp;&amp; Two pointers</h4><h5 id="解题语言：-Java"><a href="#解题语言：-Java" class="headerlink" title="解题语言： Java"></a>解题语言： Java</h5><p>题目解析：<br>1.Clarification</p>
-<p>题目要求验证字符串是否为回文串，只考虑<strong>字母和数字字符</strong>，可以<strong>忽略字母的大小写</strong></p>
-<p>2.Possible solutions<br>    - 双指针法&nbsp;&nbsp;</p>
-<p>根据题意，需要先将字符串中的空格，符号等消掉，只比较字母和数字字符，可通过isLetterOrDigit方法进行判断，也可以通过写正则表达式进行判断（运行时间较长）。&nbsp;&nbsp;</p>
-<p>忽略字母大小写可直接用toLowerCase方法将所有字母转为小写。&nbsp;&nbsp;</p>
-<p>设置左指针和右指针，左指针初始值为0，右指针初始值为字符串长度-1，如果左指针小于右指针，且当前指针指向的字符不是字母和数字字符，左指针指向下一个字符（右指针同理，只不过右指针指向前一个字符）。&nbsp;&nbsp;</p>
-<p>如果左指针指向的字符不等于右指针指向的字符，说明不是回文串，返回false，否则左指针指向下一个字符，右指针指向前一个，循环结束后返回true。&nbsp;&nbsp;</p>
-<p>3.Code<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>;<span class="keyword">int</span> right=s.length()-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left)))&#123;left++;&#125;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right)))&#123;right--;&#125;</span><br><span class="line">        <span class="keyword">if</span>(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        left++;right--;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>时间复杂度O(N)</p>
-<p>4.Test Case</p>
-<p>测试用例：&nbsp;&nbsp;<br>输入: “A man, a plan, a canal: Panama”<br>输出: true&nbsp;&nbsp;<br>输入: “race a car”<br>输出: false</p>
+        <h4 id="反射的概念"><a href="#反射的概念" class="headerlink" title="反射的概念"></a>反射的概念</h4><p>Java中的反射首先是能获得Java中要反射类的字节码，获得字节码有三种方式：</p>
+<ul>
+<li>Class.forName(className)<ul>
+<li>例子：Class clazz = Class.forName(“类的全路径”);（最常用）</li>
+</ul>
+</li>
+<li>类名.class<ul>
+<li>例子：Class clazz = Person.class;</li>
+</ul>
+</li>
+<li>this.getClass()<ul>
+<li>例子：Person p = new Person(); Class clazz = p.getClass();</li>
+</ul>
+</li>
+</ul>
+<p>然后将字节码中的方法，变量，构造函数等映射成相应的Method、Filed、Constructor等类，这些类提供了丰富的方法可以被我们使用.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 Person 类的 Class 对象</span></span><br><span class="line">Class clazz=Class.forName(<span class="string">"reflection.Person"</span>);</span><br><span class="line"><span class="comment">//获取 Person 类的所有方法信息</span></span><br><span class="line">Method[] method=clazz.getDeclaredMethods(); </span><br><span class="line"><span class="keyword">for</span>(Method m:method)&#123;</span><br><span class="line">System.out.println(m.toString()); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取 Person 类的所有成员属性信息</span></span><br><span class="line">Field[] field=clazz.getDeclaredFields(); </span><br><span class="line"><span class="keyword">for</span>(Field f:field)&#123;</span><br><span class="line">System.out.println(f.toString()); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取 Person 类的所有构造方法信息</span></span><br><span class="line">Constructor[] constructor=clazz.getDeclaredConstructors(); </span><br><span class="line"><span class="keyword">for</span>(Constructor c:constructor)&#123;</span><br><span class="line">System.out.println(c.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建对象的两种方法"><a href="#创建对象的两种方法" class="headerlink" title="创建对象的两种方法"></a>创建对象的两种方法</h4><h5 id="Class对象的newInstance"><a href="#Class对象的newInstance" class="headerlink" title="Class对象的newInstance()"></a>Class对象的newInstance()</h5><p>使用Class对象的newInstance()方法来创建该Class对象对应类的实例，该Class对象对应的类有默认的空构造器</p>
+<h5 id="调用Constructor对象的newInstance"><a href="#调用Constructor对象的newInstance" class="headerlink" title="调用Constructor对象的newInstance()"></a>调用Constructor对象的newInstance()</h5><p>先使用 Class 对象获取指定的 Constructor 对象，再调用 Constructor 对象的 newInstance()方法来创建 Class 对象对应类的实例,通过这种方法可以选定构造方法创建实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 Person 类的 Class 对象</span></span><br><span class="line">Class clazz=Class.forName(<span class="string">"reflection.Person"</span>); <span class="comment">//使用.newInstane 方法创建对象</span></span><br><span class="line">Person p=(Person) clazz.newInstance();</span><br><span class="line"><span class="comment">//获取构造方法并创建对象</span></span><br><span class="line">Constructor c=clazz.getDeclaredConstructor(String<span class="class">.<span class="keyword">class</span>,<span class="title">String</span>.<span class="title">class</span>,<span class="title">int</span>.<span class="title">class</span>)</span>;</span><br><span class="line"><span class="comment">//创建对象并设置属性</span></span><br><span class="line">Person p1=(Person) c.newInstance(<span class="string">"李四"</span>,<span class="string">"男"</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Java中的动态代理"><a href="#Java中的动态代理" class="headerlink" title="Java中的动态代理"></a>Java中的动态代理</h4><h5 id="写一个ArrayList的动态代理类（笔试题）"><a href="#写一个ArrayList的动态代理类（笔试题）" class="headerlink" title="写一个ArrayList的动态代理类（笔试题）"></a>写一个ArrayList的动态代理类（笔试题）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">List&lt;String&gt; proxyInstance = (List&lt;String&gt;)Proxy.newProxyInstance(list.getClass().getClassLoader(),list.getClass().getInterfaces(),<span class="keyword">new</span> InvocationHandler()&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy,Method method,Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> method.invoke(list,args);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">proxyInstance.add(<span class="string">"你好"</span>);</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+
+<h5 id="动静态代理的区别，什么场景使用"><a href="#动静态代理的区别，什么场景使用" class="headerlink" title="动静态代理的区别，什么场景使用"></a>动静态代理的区别，什么场景使用</h5><p>静态代理通常只代理一个类，动态代理是代理一个接口下的多个实现类。静态代理事先知道要代理的是什么，而动态代理不知道要代理什么东西，只有在运行时才知道。动态代理是实现JDK里的InvocationHandler接口的invoke方法，但注意的是代理的是接口，也就是你的业务类必须要实现接口，通过Proxy里的newProxyInstance得到代理对象。</p>
+<p>还有一种动态代理cglib，代理的是类，不需要业务类继承接口，通过派生的子类来实现代理。通过在运行时，动态修改字节码达到修改类的目的。</p>
+<p>AOP就是基于动态代理实现的，Spring框架、Hibernate框架等都是动态代理的使用例子。</p>
 
     </div>
 
@@ -243,8 +255,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/leo-yang0201.github.io/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
-              <a href="/leo-yang0201.github.io/tags/String/" rel="tag"># String</a>
+              <a href="/leo-yang0201.github.io/tags/%E5%8F%8D%E5%B0%84/" rel="tag"># 反射</a>
           </div>
 
         
@@ -253,13 +264,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2019/12/14/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-53-Maximum-Subarray/" rel="prev" title="Leetcode 53 Maximum Subarray(最大子序和)">
+      <i class="fa fa-chevron-left"></i> Leetcode 53 Maximum Subarray(最大子序和)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-283-Move-Zeroes/" rel="next" title="Leetcode 283 Move Zeroes（移动0）">
-      Leetcode 283 Move Zeroes（移动0） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -320,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#难度：Easy"><span class="nav-number">1.</span> <span class="nav-text">难度：Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型-String-amp-amp-Two-pointers"><span class="nav-number">2.</span> <span class="nav-text">类型: String &amp;&amp; Two pointers</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解题语言：-Java"><span class="nav-number">2.1.</span> <span class="nav-text">解题语言： Java</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#反射的概念"><span class="nav-number">1.</span> <span class="nav-text">反射的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建对象的两种方法"><span class="nav-number">2.</span> <span class="nav-text">创建对象的两种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class对象的newInstance"><span class="nav-number">2.1.</span> <span class="nav-text">Class对象的newInstance()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调用Constructor对象的newInstance"><span class="nav-number">2.2.</span> <span class="nav-text">调用Constructor对象的newInstance()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java中的动态代理"><span class="nav-number">3.</span> <span class="nav-text">Java中的动态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#写一个ArrayList的动态代理类（笔试题）"><span class="nav-number">3.1.</span> <span class="nav-text">写一个ArrayList的动态代理类（笔试题）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动静态代理的区别，什么场景使用"><span class="nav-number">3.2.</span> <span class="nav-text">动静态代理的区别，什么场景使用</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,7 +479,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'leo-yang0201.github.io',
       owner       : 'leo-yang0201',
       admin       : ['leo-yang0201'],
-      id          : '463cb816ca39cef7c3f26dc6701ebd27',
+      id          : 'd50fd9947a3b3445163a6a900b2e2bb9',
         language: '',
       distractionFreeMode: true
     });
