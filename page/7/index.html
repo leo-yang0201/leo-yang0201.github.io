@@ -295,7 +295,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:45:53" itemprop="dateModified" datetime="2020-03-05T23:45:53+10:30">2020-03-05</time>
+                <time title="Modified: 2020-03-13 17:31:14" itemprop="dateModified" datetime="2020-03-13T17:31:14+10:30">2020-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -318,13 +318,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Linked-List"><a href="#Type-Linked-List" class="headerlink" title="Type: Linked List"></a>Type: Linked List</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Come up as many solutions as you can.</p>
+          <p>Difficulty : Easy</p>
+<p>Type: Linked List</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Come up as many solutions as you can.</p>
 <p>Do it in-place with <strong>O(1) extra space</strong></p>
-</li>
-<li><p>Possible Solutions</p>
-<ul>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
 <li><p>Recursion</p>
 <ol>
 <li>If one link list is empty, return another one</li>
@@ -339,19 +338,11 @@
 </ol>
 </li>
 </ul>
-</li>
-<li><p>Code</p>
-</li>
-</ol>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Recursion</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line">       <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">       <span class="keyword">if</span> (l1.val &lt; l2.val)&#123;</span><br><span class="line">         l1.next = mergeTwoLists(l1.next,l2);</span><br><span class="line">         <span class="keyword">return</span> l1;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         l2.next = mergeTwoLists(l2.next,l1);</span><br><span class="line">         <span class="keyword">return</span> l2;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Recursion</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) <span class="keyword">return</span> l2;</span><br><span class="line">       <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) <span class="keyword">return</span> l1;</span><br><span class="line">       <span class="keyword">if</span> (l1.val &lt; l2.val)&#123;</span><br><span class="line">         l1.next = mergeTwoLists(l1.next,l2);</span><br><span class="line">         <span class="keyword">return</span> l1;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         l2.next = mergeTwoLists(l1,l2.next);</span><br><span class="line">         <span class="keyword">return</span> l2;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Iteration</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    	ListNode dummy = <span class="keyword">new</span> ListNode(-<span class="number">1</span>),cur = dummy;</span><br><span class="line">      <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (l1.val &lt; l2.val)&#123;</span><br><span class="line">          cur.next = l1;</span><br><span class="line">          l1 = l1.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          cur.next = l2;</span><br><span class="line">          l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = cur.next;</span><br><span class="line">      &#125;</span><br><span class="line">      cur.next = (l1 != <span class="keyword">null</span>) ? l1 : l2;</span><br><span class="line">      <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li><p>Test cases</p>
-<p>Input: [1,2,4],[1,3,4]<br>Output: [1,1,2,3,4,4]</p>
-</li>
-</ol>
+<h4 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h4><p>Input: [1,2,4],[1,3,4]<br>Output: [1,1,2,3,4,4]</p>
 
       
     </div>
