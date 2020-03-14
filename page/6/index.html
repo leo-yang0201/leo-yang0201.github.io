@@ -119,7 +119,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">28</span></a>
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">29</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">75</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">76</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,118 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/01/07/Leetcode-84-Largest-Rectangle-In-Histogram/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/01/07/Leetcode-84-Largest-Rectangle-In-Histogram/" class="post-title-link" itemprop="url">Leetcode 84 Largest Rectangle In Histogram(柱状图中最大的矩形)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-07 18:20:15" itemprop="dateCreated datePublished" datetime="2020-01-07T18:20:15+10:30">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-05 23:47:50" itemprop="dateModified" datetime="2020-03-05T23:47:50+10:30">2020-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Difficulty-Hard"><a href="#Difficulty-Hard" class="headerlink" title="Difficulty : Hard"></a>Difficulty : Hard</h4><h4 id="Type-Stack-amp-amp-Array"><a href="#Type-Stack-amp-amp-Array" class="headerlink" title="Type: Stack &amp;&amp; Array"></a>Type: Stack &amp;&amp; Array</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
+<li><p>Clarification </p>
+<p>Given <em>n</em> non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
+<p><img src="/leo-yang0201.github.io/.io//histogram.png" alt="示例图"></p>
+<p>Above is a histogram where width of each bar is 1, given height = <code>[2,1,5,6,2,3]</code>.</p>
+</li>
+<li><p>Possible Solutions </p>
+<ul>
+<li><p>暴力法<br>以题目的例子，柱形图高度有1，2，3，5，6，只需要找出每一个高度对应的最大面积，选出最大的即可。如果求高度为3面积最大的，需要遍历每一个高度，然后<strong>看连续的大于等于3的柱形有几个</strong>，如果是n个，那么此时面积就是3*n。所以高度确定之后，只需要找连续的大于等于3的柱形个数，也就是高度。</p>
+</li>
+<li><p>栈<br>遍历每个柱子，分以下情况</p>
+<ul>
+<li><p>如果当前栈空，或者当前柱子大于栈顶柱子的高度，就将当前柱子的下标入栈</p>
+</li>
+<li><p>当前柱子的高度小于栈顶柱子的高度。那么就把栈顶柱子出栈，而右边第一个小于当前柱子的下标就是当前再遍历的柱子，左边第一个小于当前柱子的下标就是当前新的栈顶</p>
+<p>遍历结束后，如果栈没有空，就依次出栈，出栈元素当作要求面积的柱子，然后依次计算矩形区域面积</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴力法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] heights)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; heightsSet = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">    <span class="comment">//得到所有的高度，也就是去重。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; heights.length; i++) &#123;</span><br><span class="line">        heightsSet.add(heights[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> maxArea = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//遍历每一个高度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> h : heightsSet) &#123;</span><br><span class="line">        <span class="keyword">int</span> width = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxWidth = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//找出连续的大于等于当前高度的柱形个数的最大值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; heights.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (heights[i] &gt;= h) &#123;</span><br><span class="line">                width++;</span><br><span class="line">            <span class="comment">//出现小于当前高度的就归零，并且更新最大宽度</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                maxWidth = Math.max(width, maxWidth);</span><br><span class="line">                width = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maxWidth = Math.max(width, maxWidth);</span><br><span class="line">        <span class="comment">//更新最大区域的面积</span></span><br><span class="line">        maxArea = Math.max(maxArea, h * maxWidth);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxArea;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] heights)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> maxArea = <span class="number">0</span>;</span><br><span class="line">    	Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">      <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (p &lt; heights.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">          stack.push(p);</span><br><span class="line">          p++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">int</span> top = stack.peek();</span><br><span class="line">          <span class="keyword">if</span> (heights[p] &gt;= heights[top] ) &#123;</span><br><span class="line">            stack.push(p);</span><br><span class="line">            p++;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> height = heights[stack.pop()];</span><br><span class="line">            <span class="keyword">int</span> leftLessMin = stack.isEmpty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">            <span class="keyword">int</span> rightLessMin = p;</span><br><span class="line">            <span class="keyword">int</span> area = (rightLessMin - leftLessMin - <span class="number">1</span>) * height;</span><br><span class="line">            maxArea = Math.max(area,maxArea);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> height = heights[stack.pop()];</span><br><span class="line">				<span class="keyword">int</span> leftLessMin = stack.isEmpty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">        <span class="keyword">int</span> rightLessMin = heights.length;</span><br><span class="line">        <span class="keyword">int</span> area = (rightLessMin - leftLessMin - <span class="number">1</span>) * height;</span><br><span class="line">        maxArea = Math.max(area,maxArea);</span><br><span class="line">      &#125;</span><br><span class="line">     	<span class="keyword">return</span> maxArea;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol start="4">
+<li><p>Test Cases</p>
+<p>Input : [2,1,5,6,2,3]</p>
+<p>Output : 10</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1255,110 +1367,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/26/Leetcode-203-Remove-Linked-List-Elements/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2019/12/26/Leetcode-203-Remove-Linked-List-Elements/" class="post-title-link" itemprop="url">Leetcode 203 Remove Linked List Elements(移除链表元素)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-26 23:21:34" itemprop="dateCreated datePublished" datetime="2019-12-26T23:21:34+10:30">2019-12-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:52:19" itemprop="dateModified" datetime="2020-03-05T23:52:19+10:30">2020-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Linked-List"><a href="#Type-Linked-List" class="headerlink" title="Type: Linked List"></a>Type: Linked List</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Remove all elements from a linked list of integers that have value <strong><em>val\</em></strong>.</p>
-</li>
-<li><p>Possible Solutions </p>
-<ul>
-<li>Iteration(迭代)<br>注意头节点情况，如果头节点需要被删除，需要把head结点移至head.next。设置两个结点prev和cur，cur指向head，prev为cur的前驱结点，删除时，prev.next -&gt; cur.next，再令cur = cur.next即可，若当前遍历结点不需删除，prev指向cur，cur指向cur.next</li>
-<li>Reversion（递归）<ul>
-<li>将链表分解为头结点和一个更小的链表</li>
-<li>在更小的链表中删除给定的元素，将新链表res返回</li>
-<li>然后判断头结点应不应该被删除，如果应该被删除，就返回新链表res，如果不该被删除，就把新链表链在head后，返回head</li>
-<li><strong>不能再小的基本问题是</strong>：链表缩短到不能再短，即链表中没有结点，此时head == null</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Iteration</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        ListNode prev = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (cur.val == val)&#123;</span><br><span class="line">                <span class="keyword">if</span> (prev == <span class="keyword">null</span>)&#123;</span><br><span class="line">                    cur = cur.next;</span><br><span class="line">                    head = cur;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    prev.next = cur.next;</span><br><span class="line">                    cur = cur.next;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                prev = cur;</span><br><span class="line">                cur = cur.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//Reversion</span></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment">    * public class ListNode &#123;</span></span><br><span class="line"><span class="comment">    *     int val;</span></span><br><span class="line"><span class="comment">    *     ListNode next;</span></span><br><span class="line"><span class="comment">    *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment">    * &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode res = removeElements(head.next, val);</span><br><span class="line">        <span class="keyword">if</span> (head.val == val) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">          	head.next = res;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="4">
-<li><p>Test Cases</p>
-<p>Input:  1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6<br>Output: 1-&gt;2-&gt;3-&gt;4-&gt;5</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1431,7 +1439,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1444,7 +1452,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/leo-yang0201.github.io/tags/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
