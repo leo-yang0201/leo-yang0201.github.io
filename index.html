@@ -119,7 +119,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">29</span></a>
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">31</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">76</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">78</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,286 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/16/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%85%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/03/16/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%85%AB/" class="post-title-link" itemprop="url">Java面试题汇总(八)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-16 14:43:36 / Modified: 18:31:19" itemprop="dateCreated datePublished" datetime="2020-03-16T14:43:36+10:30">2020-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="为什么要使用Spring？"><a href="#为什么要使用Spring？" class="headerlink" title="为什么要使用Spring？"></a>为什么要使用Spring？</h4><ul>
+<li><p>简介</p>
+<ul>
+<li>目的：解决企业应用开发的复杂性</li>
+<li>功能：使用基本的JavaBean代替EJB，并提供了更多的企业应用功能</li>
+<li>范围：任何Java应用</li>
+</ul>
+<p>简单来说，Spring是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架</p>
+</li>
+<li><p>轻量</p>
+</li>
+</ul>
+<p>从大小和开销两方面而言Spring都是轻量的。完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布。并且Spring所需的处理开销也是微不足道的。此外，Spring是非侵入式的：典型地，Spring应用中的对象不依赖于Spring的特定类。</p>
+<ul>
+<li>控制反转</li>
+</ul>
+<p>Spring通过IOC技术促进了松耦合。应用了IOC，一个对象依赖的其他对象会通过被动的方式传递进来，而不是这个对象自己创建或者查找依赖对象。你可以认为IOC和JNDI相反—不是对象从容器中查找依赖，而是容器在对象初始化时不等对象请求就主动将依赖传递给它</p>
+<ul>
+<li>面向切面 （AOP，后面详解）</li>
+<li>容器</li>
+</ul>
+<p>Spring包含并管理应用对象的配置和生命周期，在这个意义上它是一种容器，你可以配置你的每个bean如何被创建——基于一个可配置原型（prototype），你的bean可以创建一个单独的实例或者每次需要时都生成一个新的实例——以及它们是如何相互关联的。然而，Spring不应该被混同于传统的重量级的EJB容器，它们经常是庞大与笨重的，难以使用。</p>
+<ul>
+<li>框架</li>
+</ul>
+<p>Spring可以将简单的组建配置、组合称为复杂的应用。在Spring中，应用对象被声明式地组合，典型地是在一个XML文件里。Spring也提供了很多基础功能（事务管理、持久化框架集成等等），将应用逻辑的开发留给了你。</p>
+<p>所有Spring的这些特征使你能够编写更干净、更可管理、并且更易于测试的代码。它们也为Spring中的各种模块提供了基础支持。</p>
+<h4 id="解释一下什么是AOP？"><a href="#解释一下什么是AOP？" class="headerlink" title="解释一下什么是AOP？"></a>解释一下什么是AOP？</h4><p>OOP允许定义从上到下的关系，但不适合定义从左到右的关系，例如日志功能。日志代码往往分散在所有对象层次中，而与它所散布到的对象的核心功能毫无关系。对于安全性、异常处理和透明的持续性也是如此，这些散步在各处无关的代码被称为横切代码，在OOP里它导致了大量的代码重复。不利于重用。</p>
+<p>AOP利用一种横切的技术，将影响了多个类的公共行为封装到一个可重用模块，将其命名为”Aspect”切面，切面就是把和业务无关却为业务模块所共同调用的逻辑和责任封装起来，降低模块间的耦合度，并有利于未来的可操作性和可维护性。</p>
+<p>使用“横切”技术，AOP把软件系统分为两个部分：核心关注点和横切关注点，业务处理的主要流程是核心关注点，与之关系不大的是横切关注点，横切关注点经常发生在核心关注点的多处，且各处基本相似。比如权限认证、日志、事务处理。AOP的作用在于分离系统中的各种关注点，将核心关注点和横切关注点分离开来。</p>
+<h4 id="List、Set、Map之间的区别是什么？"><a href="#List、Set、Map之间的区别是什么？" class="headerlink" title="List、Set、Map之间的区别是什么？"></a>List、Set、Map之间的区别是什么？</h4><p><img src="https://s2.ax1x.com/2020/03/06/3LJszV.png" alt></p>
+<h4 id="HashMap和HashTable有什么区别"><a href="#HashMap和HashTable有什么区别" class="headerlink" title="HashMap和HashTable有什么区别"></a>HashMap和HashTable有什么区别</h4><ul>
+<li>hashMap去除了HashTable的contains方法，但是加上了containsValue()和containsKey()方法</li>
+<li>hashTable同步的，HashMap是非同步的，效率比HashTable高</li>
+<li>hashMap允许空键值，hashTable不允许</li>
+</ul>
+<h4 id="如何决定用HashMap还是TreeMap"><a href="#如何决定用HashMap还是TreeMap" class="headerlink" title="如何决定用HashMap还是TreeMap?"></a>如何决定用HashMap还是TreeMap?</h4><p>对于插入、删除、定位元素用HashMap较好，但如果需要对一个有序的key集合进行遍历，TreeMap是更好的选择。</p>
+<h4 id="说一下HashMap的实现原理？"><a href="#说一下HashMap的实现原理？" class="headerlink" title="说一下HashMap的实现原理？"></a>说一下HashMap的实现原理？</h4><p><img src="https://s2.ax1x.com/2020/03/06/3Lw6hQ.png" alt></p>
+<p>HashMap是基于哈希表的Map接口的非同步实现，此实现提供所有可选的映射操作，并允许使用null值null键，此类不保证映射的顺序，特别是不保证该顺序恒久不变。HashMap存储着Entry(hash,key,value,next)对象。</p>
+<p>HashMap有两个重要的参数capacity和load factor，capacity是桶的数目，Load factor是桶填满程度的最大比例。</p>
+<p>存储对象时，将K/V传递给put方法时，它调用hashCode计算hash从而得到bucket位置，进一步存储，HashMap会根据当前bucket的占用情况自动调整容量（把bucket扩充为2倍，重新计算index，把结点再放到新的bucket中）。</p>
+<p>获取对象时，把K传给get，它调用hashCode计算hash从而得到hash位置，并进一步调用equals()方法确定键值对，如果发生碰撞时，HashMap通过链表将产生碰撞冲突的元素组织起来，Java8中如果冲突超过8个就用红黑树来代替链表，提高速度。</p>
+<p>get函数的思路为，如果是bucket里的第一个结点，直接命中，时间复杂度O(1)，如果有冲突，则通过key.equals(k)去查找对应的entry，如果是树，则在树中通过key.equals(k)查找，时间复杂度O(logN)，如果是链表，时间复杂度O(N)</p>
+<h4 id="HashSet的实现原理"><a href="#HashSet的实现原理" class="headerlink" title="HashSet的实现原理"></a>HashSet的实现原理</h4><ul>
+<li>HashSet底层由HashMap实现</li>
+<li>HashSet的值存放于HashMap的key上</li>
+<li>HashMap和value统一为PRESENT</li>
+</ul>
+<h4 id="HashSet和HashMap区别？"><a href="#HashSet和HashMap区别？" class="headerlink" title="HashSet和HashMap区别？"></a>HashSet和HashMap区别？</h4><p><img src="https://s2.ax1x.com/2020/03/06/3LsXT0.png" alt></p>
+<p>HashSet不允许集合中有重复的值，存储对象之前一定保证对象重写hashCode()和equals()方法，这样才能比较对象的值是否相等，以确保set里没有储存相等的对象。</p>
+<h4 id="ArrayList-和-LinkedList的区别？"><a href="#ArrayList-和-LinkedList的区别？" class="headerlink" title="ArrayList 和 LinkedList的区别？"></a>ArrayList 和 LinkedList的区别？</h4><p>ArrayList底层的数据结构是数组，支持随机访问。LinkedList底层数据结构是双向循环链表，不支持随机访问，使用下标访问一个元素，ArrayList时间复杂度O(1)，LinkedList时间复杂度O(N)</p>
+<h4 id="如何实现数组和List之间的转换？"><a href="#如何实现数组和List之间的转换？" class="headerlink" title="如何实现数组和List之间的转换？"></a>如何实现数组和List之间的转换？</h4><ul>
+<li>List转换为数组：调用ArrayList的toArray()方法</li>
+<li>数组转换为List: 调用Arrays的asList()方法</li>
+</ul>
+<h4 id="ArrayList和Vector的区别是什么？"><a href="#ArrayList和Vector的区别是什么？" class="headerlink" title="ArrayList和Vector的区别是什么？"></a>ArrayList和Vector的区别是什么？</h4><ul>
+<li>Vector是同步的，ArrayList不是</li>
+<li>ArrayList比Vector快，因为Vector使用线程同步，使用Vector实例需要先获得锁</li>
+<li>ArrayList更加通用，因为我们可以使用Collections工具类轻易获取同步列表和只读列表</li>
+</ul>
+<h4 id="Array和ArrayList有何区别？"><a href="#Array和ArrayList有何区别？" class="headerlink" title="Array和ArrayList有何区别？"></a>Array和ArrayList有何区别？</h4><ul>
+<li>Array可以容纳基本类型和对象，而ArrayList只能容纳对象</li>
+<li>Array需要指定大小，ArrayList大小固定</li>
+<li>ArrayList的功能更多，如addAll，removeAll和Iterator等</li>
+</ul>
+<h4 id="在Queue中poll-和remove-有什么区别？"><a href="#在Queue中poll-和remove-有什么区别？" class="headerlink" title="在Queue中poll()和remove()有什么区别？"></a>在Queue中poll()和remove()有什么区别？</h4><p>pull()获取元素失败时返回空，remove()失败的时候报异常</p>
+<h4 id="哪些集合类是线程安全的？"><a href="#哪些集合类是线程安全的？" class="headerlink" title="哪些集合类是线程安全的？"></a>哪些集合类是线程安全的？</h4><ul>
+<li>vector</li>
+<li>stack</li>
+<li>HashTable</li>
+<li>Enumeration：枚举，相当于迭代器</li>
+</ul>
+<h4 id="迭代器Iterator是什么？"><a href="#迭代器Iterator是什么？" class="headerlink" title="迭代器Iterator是什么？"></a>迭代器Iterator是什么？</h4><p>迭代器是一种设计模式，是一个对象，可以遍历并选择序列中的对象，开发人员不需要了解该序列的底层结构。迭代器常被称为“轻量级”对象，因为创建的代价小</p>
+<h4 id="Iterator怎么用？有什么特点？"><a href="#Iterator怎么用？有什么特点？" class="headerlink" title="Iterator怎么用？有什么特点？"></a>Iterator怎么用？有什么特点？</h4><p>Java中的Iterator只能单向移动</p>
+<ol>
+<li>使用方法iterator()要求容器返回一个Iterator，第一次调用Iterator的next()方法时，返回序列的第一个元素，iterator()方法是java.lang.Iterable接口，被Collection继承</li>
+<li>使用next()获得序列中的下一个元素</li>
+<li>使用hasNext()检查序列中是否还有元素</li>
+<li>使用remove()将迭代器新返回的元素删除</li>
+</ol>
+<h4 id="Iterator和ListIterator有什么区别？"><a href="#Iterator和ListIterator有什么区别？" class="headerlink" title="Iterator和ListIterator有什么区别？"></a>Iterator和ListIterator有什么区别？</h4><ul>
+<li>Iterator可以遍历Set和List集合，ListIterator只能遍历List</li>
+<li>ListIterator支持前向遍历和后向遍历</li>
+<li>ListIterator实现了Iterator接口，包含其他功能如增加元素、替换元素、获取前一个和后一个元素的索引等</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/15/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/03/15/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%83/" class="post-title-link" itemprop="url">Java面试题汇总(七)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-15 20:26:19 / Modified: 21:23:22" itemprop="dateCreated datePublished" datetime="2020-03-15T20:26:19+10:30">2020-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="请你简述TCP、UDP的区别"><a href="#请你简述TCP、UDP的区别" class="headerlink" title="请你简述TCP、UDP的区别"></a>请你简述TCP、UDP的区别</h4><p>TCP和UDP是OSI模型中的运输层中的协议。TCP提供可靠的通信传输，而UDP常被用于让广播和细节控制交给应用的通信传输</p>
+<ul>
+<li>TCP面向连接，UDP面向非连接，即发送数据前不需要建立连接</li>
+<li>TCP提供可靠的服务（数据传输无差错，不丢失，不重复，按序到达），UDP无法保证可靠交付</li>
+<li>TCP面向字节流，UDP面向报文（对实时应用有用如实时视频会议）</li>
+<li>TCP数据传输慢，UDP数据传输快</li>
+<li>TCP连接只能是点到点的，UDP支持一对一，一对多，多对多，多对一的交互通信</li>
+</ul>
+<h4 id="请简单说一下你了解的端口及对应的服务"><a href="#请简单说一下你了解的端口及对应的服务" class="headerlink" title="请简单说一下你了解的端口及对应的服务"></a>请简单说一下你了解的端口及对应的服务</h4><ul>
+<li>21 FTP（文件传输协议）</li>
+<li>22 SSH</li>
+<li>23 Telnet（远程登录）服务</li>
+<li>25 SMTP（简单邮件传输协议）</li>
+<li>53 DNS 域名服务器</li>
+<li>80 HTTP超文本传输协议</li>
+<li>110 POP3邮件协议3</li>
+<li>443 HTTPS</li>
+<li>1080 Socket</li>
+<li>1521 Oracle数据库默认端口</li>
+<li>3306 MySQL服务</li>
+</ul>
+<h4 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h4><p>举个例子说明，张三（客户端）首先对李四（服务器）招手（发送一个syn），李四看到张三向自己招手后，点头并挤出一个微笑（发送一个ack），张三看到李四微笑后确认李四成功辨认了自己（张三进入了establish状态），但李四不知道张三是不是向他招手，所以他也向张三招了手（发送一个syn），张三看到后知道李四在寻求自己的确认，于是也点头微笑（发松一个ack），李四看到后确认张三在向自己打招呼（李四也进入了establish状态），连接建立。</p>
+<h4 id="TCP数据传输"><a href="#TCP数据传输" class="headerlink" title="TCP数据传输"></a>TCP数据传输</h4><p>张三喊了一句话（发送data），李四听见后向张三回复自己听见了（发送回一个ack）</p>
+<p>如果李四没有及时回复，张三就认为自己的话没被听到，就需要重新喊话（tcp重传），李四就有可能一句话听到了两次，这就是<strong>去重</strong>，<strong>重传</strong>和<strong>去重</strong>工作操作系统的网络内核模块以及处理好了，用户层不用关心。因为TCP是双工的，双方都可以主动发起数据传输，不论是哪方喊话，都需要对方确认才能认为对方收到了自己的喊话。</p>
+<h4 id="TCP四次挥手？"><a href="#TCP四次挥手？" class="headerlink" title="TCP四次挥手？"></a>TCP四次挥手？</h4><p>张三挥手（发送fin），李四微笑（收到fin后发送ack），此时是半关闭状态，张三（客户端）已经发送了fin请求，不再说话，但是还可以接收李四说的话，李四可以继续说话，等李四不想说话了发送了fin请求时，张三收到并微笑（发送ack），连接断开。</p>
+<p><img src="https://s1.ax1x.com/2020/03/15/83Hnfg.png" alt></p>
+<h4 id="在浏览器中输入网址之后执行会发生什么？"><a href="#在浏览器中输入网址之后执行会发生什么？" class="headerlink" title="在浏览器中输入网址之后执行会发生什么？"></a>在浏览器中输入网址之后执行会发生什么？</h4><ul>
+<li>查找域名对应的IP地址，会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li>
+<li>浏览器向IP对应的web服务器发送一个HTTP请求</li>
+<li>服务器响应请求，发回网页内容</li>
+<li>浏览器解析网页内容</li>
+</ul>
+<h4 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h4><p>从顶层到底层</p>
+<ul>
+<li>应用层：各种应用程序协议如HTTP, FTP, SMTP, POP3</li>
+<li>表示层：信息的语法语义以及它们的关联，如加密解密、转换翻译</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<h4 id="HTTP协议包括哪些请求"><a href="#HTTP协议包括哪些请求" class="headerlink" title="HTTP协议包括哪些请求"></a>HTTP协议包括哪些请求</h4><ul>
+<li>Get ：对服务器资源的简单请求</li>
+<li>Post ： 用于发送包含用户提交数据的请求</li>
+<li>Head ： 类似于GET请求，不过返回的响应中没有具体内容，用于获取报头</li>
+<li>Delete ：发出一个删除指定文档的请求</li>
+<li>Trace ： 发送一个请求副本，以跟踪其处理进程</li>
+<li>Options ：返回所有可用的方法，检查服务器支持哪些方法</li>
+<li>Connect ：用于ssl隧道的基于代理的请求</li>
+</ul>
+<h4 id="简述HTTP中GET和POST的区别"><a href="#简述HTTP中GET和POST的区别" class="headerlink" title="简述HTTP中GET和POST的区别"></a>简述HTTP中GET和POST的区别</h4><p>从表面上看：</p>
+<ul>
+<li>GET请求的数据会附在URL后面，POST的数据放在HTTP包体</li>
+<li>POST安全性比GET安全性高</li>
+</ul>
+<p>从原理性看：</p>
+<ul>
+<li>根据HTTP规范，GET用于信息获取，而且应该是安全和幂等的</li>
+<li>根据HTTP规范，POST请求表示可能修改服务器上资源的请求</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -911,197 +1191,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/11/Leetcode-1013-Partition-Array-Into-Three-Parts-With-Equal-Sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-1013-Partition-Array-Into-Three-Parts-With-Equal-Sum/" class="post-title-link" itemprop="url">Leetcode 1013 Partition Array Into Three Parts With Equal Sum(将数组分成和相等的三个部分)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-11 16:14:48 / Modified: 16:31:53" itemprop="dateCreated datePublished" datetime="2020-03-11T16:14:48+10:30">2020-03-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given an array <code>A</code> of integers, return <code>true</code> if and only if we can partition the array into three <strong>non-empty</strong> parts with equal sums.</p>
-<p>Formally, we can partition the array if we can find indexes <code>i+1 &lt; j</code> with <code>(A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1])</code></p>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>3 &lt;= A.length &lt;= 50000</code></li>
-<li><code>-10^4 &lt;= A[i] &lt;= 10^4</code></li>
-</ul>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>双指针</p>
-<p>三个和相等的非空部分，三部分总和一定可以整除3，所以先计算数组的总和能不能整除3，如果不能返回false。如果可以，用双指针遍历数组，左指针初始值为0，右指针初始值为数组长度 - 1，循环条件为left + 1 &lt; right(防止数组分成两个部分)，只要左指针的和不为sum/3，左指针就遍历下一个位置并加上当前位置的值到总和里，右指针同理只不过是遍历前一个位置，如果左右指针都等于sum/3，中间也一定等于sum/3，此时return true，其他情况return false</p>
-<p>Left + 1 &lt; Right的约束就是要中间有剩下的元素，以免数组划分成两部分，中间没有元素。</p>
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canThreePartsEqualSum</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : A)&#123;</span><br><span class="line">            sum += i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum % <span class="number">3</span> != <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;  <span class="comment">// 总和不是3的倍数，直接返回false</span></span><br><span class="line">        <span class="comment">// 使用双指针,从数组两头开始一起找，节约时间</span></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> leftSum = A[left];</span><br><span class="line">        <span class="keyword">int</span> right = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> rightSum = A[right];</span><br><span class="line">        <span class="comment">//使用left + 1 &lt; right以防止数组分成两个部分</span></span><br><span class="line">        <span class="comment">//例如：[1,-1,1,-1]，使用left &lt; right作为判断条件就会出错</span></span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (leftSum == sum / <span class="number">3</span> &amp;&amp; rightSum == sum / <span class="number">3</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">// 左右两边都等于 sum/3 ，中间也一定等于</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (leftSum != sum / <span class="number">3</span>) &#123;</span><br><span class="line">                leftSum += A[++left];<span class="comment">// left = 0赋予了初值，应该先left++，在leftSum += A[left];</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (rightSum != sum / <span class="number">3</span>) &#123;</span><br><span class="line">                rightSum += A[--right];<span class="comment">// right = A.length - 1 赋予了初值，应该先right--，在rightSum += A[right];</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: A &#x3D; [0,2,1,-6,6,-7,9,1,2,0,1]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: 0 + 2 + 1 &#x3D; -6 + 6 - 7 + 9 + 1 &#x3D; 2 + 0 + 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: A &#x3D; [0,2,1,-6,6,7,9,-1,2,0,1]</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: A &#x3D; [3,3,6,5,-2,2,5,1,-9,4]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: 3 + 3 &#x3D; 6 &#x3D; 5 - 2 + 2 + 5 + 1 - 9 + 4</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/10/Leetcode-123-Best-Time-to-Buy-and-Sell-Stock-III/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-123-Best-Time-to-Buy-and-Sell-Stock-III/" class="post-title-link" itemprop="url">Leetcode 123 Best Time to Buy and Sell Stock III(买卖股票的最佳时机III)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-10 18:04:09 / Modified: 18:15:49" itemprop="dateCreated datePublished" datetime="2020-03-10T18:04:09+10:30">2020-03-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Hard</p>
-<p>Type: Dynamic Programming, Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
-<p>Design an algorithm to find the maximum profit. You may complete at most <em>two</em> transactions.</p>
-<p><strong>Note:</strong> You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li>动态规划</li>
-</ul>
-<p>股票题的升级版，还是用状态机方法求解，这一次限定了最多可以完成<strong>两笔</strong>交易，意思就是k = 2，照搬LC 121的状态转移方程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">因为k为2,所以本题里k不能省略，不能化简</span><br></pre></td></tr></table></figure>
-
-<p>但此时就不能按照LC 121的思路去穷举了，因为k的存在，穷举状态需要把k = 1，k = 2两种状态也穷举出来，一共要穷举n * max_k * 2个状态，所以这次需要在多嵌套一层for循环遍历k，其他思路完全一致。</p>
-<ul>
-<li>空间复杂度为O(1)的写法</li>
-</ul>
-<p>由于这题的k = 2，完全可以枚举出所有状态，详见第二块代码。</p>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 状态机求解</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length; <span class="keyword">int</span> max_k = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][max_k + <span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = max_k;k &gt;=<span class="number">1</span>;k--) &#123; <span class="comment">//注意这里多了一层for循环遍历k</span></span><br><span class="line">                <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                dp[i][k][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][k][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][k][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][k][<span class="number">0</span>],dp[i - <span class="number">1</span>][k][<span class="number">1</span>] + prices[i]);</span><br><span class="line">            dp[i][k][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][k][<span class="number">1</span>],dp[i - <span class="number">1</span>][k - <span class="number">1</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][max_k][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         //fst的两个变量的意义与121题相同，就是简单的动态规划更新</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         fstMineprice : 到该天为止第一次买入股票的最小价格（即所有股票价格的最小值） </span></span><br><span class="line"><span class="comment">         fstMaxprofit: 到该天为止第一次卖出股票的最大收益（即只交易一次的最大收益）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         //sec的两个变量的意义要注意，特别是secMinprice，不单纯是股票原价格，而是在此基础上减去第一次收益</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         secMinprice: 到该天为止第二次买入股票的最小价格（第二次买入股票的价格是原股票价格减去第一次买卖收益）</span></span><br><span class="line"><span class="comment">         secMaxprofit: 到该天为止第二次卖出股票可获得的最大收益</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         分别对四个变量进行相应的更新, 最后secMaxprofit就是最大</span></span><br><span class="line"><span class="comment">         **/</span></span><br><span class="line">        <span class="keyword">int</span> fstMineprice = Integer.MAX_VALUE, fstMaxprofit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> secMinprice = Integer.MAX_VALUE, secMaxprofit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> p : prices) &#123;</span><br><span class="line">            <span class="comment">//更新fstMineprice与fstMaxprofit，这里应该没有问题，与121题一样</span></span><br><span class="line">            fstMineprice = Math.min(fstMineprice, p);</span><br><span class="line">            fstMaxprofit = Math.max(fstMaxprofit, p-fstMineprice);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//更新secMineprice与secMaxprofit</span></span><br><span class="line">            secMinprice = Math.min(secMinprice, p-fstMaxprofit);<span class="comment">//加入的p产生的最小价格就是p减去第一次买卖的最大收益，以此更新secMinprice</span></span><br><span class="line">            secMaxprofit = Math.max(secMaxprofit, p-secMinprice);<span class="comment">//p产生的最大收益就是p减去第二次买入的最小价格secMinprice，以此更新secMaxprofit</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> secMaxprofit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">作者：shi-wen</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/java-1ms-100dong-tai-gui-hua-li-yong-si-ge-bian-li/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,3,5,0,0,3,1,4]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: Buy on day 4 (price &#x3D; 0) and sell on day 6 (price &#x3D; 3), profit &#x3D; 3-0 &#x3D; 3.</span><br><span class="line">             Then buy on day 7 (price &#x3D; 1) and sell on day 8 (price &#x3D; 4), profit &#x3D; 4-1 &#x3D; 3.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,4,5]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: Buy on day 1 (price &#x3D; 1) and sell on day 5 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.</span><br><span class="line">             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are</span><br><span class="line">             engaging multiple transactions at the same time. You must sell before buying again.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,6,4,3,1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: In this case, no transaction is done, i.e. max profit &#x3D; 0.</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1174,7 +1263,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1187,7 +1276,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/leo-yang0201.github.io/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
