@@ -189,7 +189,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-18 00:31:23" itemprop="dateModified" datetime="2020-03-18T00:31:23+10:30">2020-03-18</time>
+                <time title="Modified: 2020-03-18 13:43:11" itemprop="dateModified" datetime="2020-03-18T13:43:11+10:30">2020-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,6 +242,36 @@
 <h4 id="解释一下什么是AOP？"><a href="#解释一下什么是AOP？" class="headerlink" title="解释一下什么是AOP？"></a>解释一下什么是AOP？</h4><p>OOP允许定义从上到下的关系，但不适合定义从左到右的关系，例如日志功能。日志代码往往分散在所有对象层次中，而与它所散布到的对象的核心功能毫无关系。对于安全性、异常处理和透明的持续性也是如此，这些散步在各处无关的代码被称为横切代码，在OOP里它导致了大量的代码重复。不利于重用。</p>
 <p>AOP利用一种横切的技术，将影响了多个类的公共行为封装到一个可重用模块，将其命名为”Aspect”切面，切面就是把和业务无关却为业务模块所共同调用的逻辑和责任封装起来，降低模块间的耦合度，并有利于未来的可操作性和可维护性。</p>
 <p>使用“横切”技术，AOP把软件系统分为两个部分：核心关注点和横切关注点，业务处理的主要流程是核心关注点，与之关系不大的是横切关注点，横切关注点经常发生在核心关注点的多处，且各处基本相似。比如权限认证、日志、事务处理。AOP的作用在于分离系统中的各种关注点，将核心关注点和横切关注点分离开来。</p>
+<h4 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h4><ul>
+<li>实例化一个Bean，以及设置bean属性</li>
+<li>如果通过Aware接口声明了依赖关系，就会注入Bean对容器基础设施层面的依赖，Aware接口是为了感知到自身的一些属性。在Bean中设置对容器的感知，可以通过BeanNameAware知道自己在容器中的名字。如果这个Bean以及实现了BeanFactoryAware接口，可以用这个方式获取其他Bean</li>
+<li>紧接着会调用BeanPostProcess的前置初始化方法postProcessBeforeInitialization，主要作用是在Spring完成实例化之后，初始化之前，对Spring容器实例化的Bean添加自定义的处理逻辑。有点类似于AOP</li>
+<li>如果实现了BeanFactoryPostProcessor接口的afterPropertiesSet方法，做一些属性被设定后的自定义的事情</li>
+<li>调用Bean自身定义的init方法，去做一些初始化的工作</li>
+<li>调用BeanPostProcess的后置初始化方法，postProcessAfterInitialization去做一些bean初始化之后的自定义工作</li>
+<li>完成以上创建之后就可以在应用里用这个Bean了</li>
+<li>销毁时，如果实现了DisposableBean接口，则会调用destroy方法</li>
+<li>如果配置了destroy-method属性，则会调用起配置的销毁方法</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/03/18/8dWQiV.jpg" alt></p>
+<h4 id="Spring如何解决循环依赖"><a href="#Spring如何解决循环依赖" class="headerlink" title="Spring如何解决循环依赖"></a>Spring如何解决循环依赖</h4><p>Spring bean的创建，本质上是一个对象的创建，只是在Spring中，对象的实例化是通过反射实现的，而对象的属性则是在对象实例化之后通过一定的方式设置的，循环依赖的理解以两个类A和B作为实例，实例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> B b;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setB</span><span class="params">(B b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.b = b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> A a;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(A a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A和B都以对方为自己的全局属性，如果获取的对象依赖了另一个对象，那么其首先会创建该对象，然后通过递归调用ApplicationContext.getBean()方法获取所依赖的对象，最后将获取到的对象注入到当前对象中。</p>
+<p>循环依赖可以是属性注入，构造方式注入或者setter方法注入，对应有三种循环依赖的形式。</p>
+<ul>
+<li>构造器参数循环依赖</li>
+</ul>
+<p>Spring容器会将每一个正在创建的Bean标识符放在一个“当前创建Bean池”中，Bean标示符在创建过程将一直保持在这个池中。因此如果创建Bean过程中发现自己已经在“当前创建Bean池”里时，将抛出BeanCurrentlyInCreationException异常表示循环依赖。对于已经创建完毕的Bean，将从“当前创建Bean池中清除掉。</p>
+<ul>
+<li>setter方法单例，默认方式</li>
+</ul>
+<p>Spring先是用构造实例化Bean对象，此时Spring会将这个实例化结束的对象放到一个Map中，并且提供了获取这个未设置属性的实例化对象引用的方法。当对象A，B，C被Spring实例化以后，紧接着会设置对象的属性，此时A依赖B，就去map里取出存在里面的单例B对象，，不会出现循环问题</p>
+<ul>
+<li>setter方式原型，prototype</li>
+</ul>
+<p>prototype的意思是每次请求都会创建一个实例对象</p>
+<p>两者的区别是有状态的Bean都使用prototype作用域，无状态的一般哦读使用singleton单例作用域，会报异常，因为对于prototype作用域Bean，Spring容器无法完成依赖注入，因为prototype作用域的Bean，Spring容器不进行缓存，因此无法提前暴露一个创建中的Bean</p>
 
       
     </div>
