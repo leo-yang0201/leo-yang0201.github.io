@@ -119,7 +119,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">34</span></a>
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">35</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">85</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">86</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,140 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/14/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%85%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/03/14/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%85%AD/" class="post-title-link" itemprop="url">Java面试题汇总(六)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-14 20:45:49 / Modified: 23:26:40" itemprop="dateCreated datePublished" datetime="2020-03-14T20:45:49+10:30">2020-03-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="数据库的三范式是什么"><a href="#数据库的三范式是什么" class="headerlink" title="数据库的三范式是什么"></a>数据库的三范式是什么</h4><ul>
+<li>第一范式：强调的是列的原子性，数据表的每一列都不可再分</li>
+<li>第二范式：要求实体的属性完全依赖于主关键字。不能存在仅依赖主关键字一部分的属性</li>
+<li>第三范式：任何非主属性不依赖于其他非主属性，消除传递依赖</li>
+</ul>
+<h4 id="数据库的事务隔离级别"><a href="#数据库的事务隔离级别" class="headerlink" title="数据库的事务隔离级别"></a>数据库的事务隔离级别</h4><p>由低到高依次为 Read uncommitted(读未提交）, Read committed（读提交）, Repeatable read（可重复读）, Serializable（序列化）</p>
+<ul>
+<li><p>Read uncommitted<br>会出现脏读问题，也就是用户读到了尚未提交的事务。举个例子，小明领工资，查看账户发现这个月工资10000，但是财务发现打得钱不对，工资只有8000，于是回滚了事务，修改了金额，<strong>再将事务提交</strong>，最后小明实际工资只有8000。“小明查工资”这个事务读取了“财务发工资”这个事务还没有提交的数据，即出现脏读。当隔离级别设为read uncommited时，即可能出现此问题。</p>
+</li>
+<li><p>Read committed<br>解决了脏读问题，但会出现不可重复读的问题。举个例子，小明拿了8000工资准备去消费，但此时小明女朋友正在网上转账，把小明的8000工资转到另一张卡里，<strong>并在小明之前提交了事务</strong>，小明拿卡消费时，系统检测到小明卡里没钱了，扣款失败。“小明拿卡消费”这个事务先读取了数据，紧接着“小明女朋友转账”这个事务更新了数据并提交了事务，导致前一个事务再次读取数据时读到了修改后的数据。</p>
+<p>Read committed是大多数数据库的默认级别（SqlServer，Oracle）</p>
+</li>
+<li><p>Repeatable Read<br>避免了不可重复读问题，当小明拿卡消费时，一旦读到了数据（8000工资），事务就开始了，小明女朋友就不能对该记录进行修改。<br>但此隔离级别可能出现幻读问题。小明女朋友查看小明这个月的信用卡消费记录发现小明花了5000元，而此时小明正消费了1000元并提交了事务，随后小明女朋友打印收据，发现消费金额变成了6000元。<br>注：MySQL的默认隔离级别是Repeatable Read</p>
+</li>
+<li><p>Serializable<br>Serializable是最高的事务隔离级别，但代价高性能低(完全串行执行)，很少使用，此隔离级别下幻读问题也可以避免。</p>
+</li>
+</ul>
+<h4 id="数据库事务四大特性"><a href="#数据库事务四大特性" class="headerlink" title="数据库事务四大特性"></a>数据库事务四大特性</h4><ul>
+<li>Atomicity(原子性)：一个事务中的所有操作，要么全部完成，要么都不完成，不会结束在中间某个环节。事务在执行中出现问题，会被回滚到事务开始前的状态，即事务不可分割、不可约简。</li>
+<li>Consistency(一致性)： 事务开始之前和事务结束以后，数据库的完整性没有被破坏，表示写入的数据必须完全符合所有的预设约束、触发器、级联回滚等。</li>
+<li>Isolation(隔离性): 数据库允许多个并发事务同时对其数据进行读写和修改的能力，可以防止多个事务并发执行时由于交叉执行而导致数据的不一致，事务隔离的四个级别上面一个问题已经解答。</li>
+<li>Durability(持久性): 事务处理结束以后，对数据的修改就是永久的，即便系统故障也不会丢失</li>
+</ul>
+<h4 id="MySQL索引是怎么实现的？"><a href="#MySQL索引是怎么实现的？" class="headerlink" title="MySQL索引是怎么实现的？"></a>MySQL索引是怎么实现的？</h4><p>MySQL一般用B+树作为其索引结构，特点如下：</p>
+<ul>
+<li>所有值按顺序存储，每个叶子到根的距离相等</li>
+<li>非叶子结点不存储数据，只存储指针索引，叶子结点存储所有数据，不存储指针</li>
+<li>每个叶子结点都有指向相邻下一个叶子结点的指针，即顺序访问指针</li>
+</ul>
+<h5 id="InnoDB索引实现"><a href="#InnoDB索引实现" class="headerlink" title="InnoDB索引实现"></a>InnoDB索引实现</h5><p>叶子结点的data域存储<strong>完整的数据记录</strong>，索引的key即为表的<strong>主键</strong>，下图为主键索引示意图（图片源自网络）：</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lFIhR.png" alt></p>
+<p>数据文件本身按主键索引，因此InnoDB必须由主键，下图为辅助索引示意图，InnoDB辅助索引的data域存的是主键的值，搜索辅助索引需要先根据辅助索引获取到主键值，再根据主键到主索引中获取到对应的数据记录。</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lk3bF.png" alt></p>
+<h5 id="MyISAM索引实现"><a href="#MyISAM索引实现" class="headerlink" title="MyISAM索引实现"></a>MyISAM索引实现</h5><p>同样也是使用B+树作为索引结构，叶子结点data域存的是<strong>数据记录的地址</strong>。数据文件和索引文件分别存储在xxx.MYD和xxx.MYI（xxx表示数据表名），索引文件xxx.MYI保存数据记录的地址，下图为主索引的示意图：</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lAgwF.png" alt></p>
+<p><strong>MyISAM中检索索引算法为</strong>：首先按照B+树搜索算法搜索，如果找到指定的key，取出其data域的值，再用data域的值为地址去查找对应的数据记录，所以<strong>MyISAM的索引方式也称为非聚集索引</strong>。</p>
+<h4 id="MySQL常用的引擎？"><a href="#MySQL常用的引擎？" class="headerlink" title="MySQL常用的引擎？"></a>MySQL常用的引擎？</h4><ul>
+<li><p>InnoDB<br>提供了对acid事务的支持，并且提供了行级锁和外键的约束，设计目标是处理大数据容量的数据库系统。MySQL运行的时候，InnoDB会在内存中建立缓冲池，用于缓存数据和索引。但是该引擎不支持全文搜索，同时启动的也比较慢，也不会保存表的行数，当执行select count(*) from table指令时，需要扫描全表。由于锁的粒度小，写操作不会锁定全表，所以在并发度较高的场景下使用会提升效率</p>
+</li>
+<li><p>MyISAM<br>MySQL的默认引擎，但不提供对事务的支持，也不支持行级锁和外键。因此当执行插入和更新语句时，即执行写操作时需要锁定这个表，导致效率降低。但与InnoDB不同，MyISAM保存了表的行数，于是进行select count(*) from table语句时，可以直接读取已经保存的值而不需要扫描全表。所以如果表的读操作远远超过写操作且不需要事务支持时，可以将MyISAM作为数据库引擎的首选。</p>
+</li>
+</ul>
+<h4 id="MySQL为何用B-树作为索引的数据结构？"><a href="#MySQL为何用B-树作为索引的数据结构？" class="headerlink" title="MySQL为何用B+树作为索引的数据结构？"></a>MySQL为何用B+树作为索引的数据结构？</h4><p>MySQL里索引有两种，Hash和B+树</p>
+<ul>
+<li>Hash<br>Hash算法由于随机性，可能出现哈希冲突，如果执行下面的sql语句：<br> Select * from test where name = ‘Leo’<br>可以直接对“Leo”按哈希算法算出来一个数组下标，然后直接从数据中取出数据并拿到所对应那一行数据的地址，进而查询那一行数据，但如果执行下面的sql语句<br>Select * from test where name &gt; ‘Leo’<br>Hash表没有办法做到，因为其特点就是<strong>可以快速的精确查询，但是不支持范围查询</strong>，如果做成索引，需要全部扫描，速度慢。Hash表更适用于等值查询的场景。</li>
+<li>B+树<br>首先说二叉树，二叉树因为是有序的，所以支持范围查询，但时间复杂度为O(log(N))，为了维持时间复杂度，更新的时间也要是O(log(N))，就需要保持这颗树是完全平衡二叉树，但完全平衡二叉树的维护成本随着数据量的增大而变高，不适用大数据量的查询。<br>相比B树，B+树的优势在于B+树的非叶子结点会冗余一份在叶子结点中，并且叶子结点件用指针相连。B树一个结点可以存储多个元素，比完全平衡二叉树的树高低，磁盘IO效率提高了，B+树把非叶子结点进行了冗余，这样提高了范围查找的范围（有一个指针指向下一个结点的叶子结点）</li>
+</ul>
+<p>所以B+树可以<strong>提高查询索引时的磁盘IO效率</strong>，并且<strong>可以提高范围查询的效率</strong>，并且<strong>B+树里的元素也是有序的</strong></p>
+<h4 id="索引的最左匹配原则了解吗？"><a href="#索引的最左匹配原则了解吗？" class="headerlink" title="索引的最左匹配原则了解吗？"></a>索引的最左匹配原则了解吗？</h4><ul>
+<li>索引可以简单如一个列(a)，也可以复杂如多个列(a,b,c,d)，即联合索引</li>
+<li>如果是联合索引，那么key也由多个列组成，同时，索引只能用于查找key是否存在（相等），遇到范围查询就不能进一步匹配了，后续退化为线性查找。</li>
+<li>因此，列的排列顺序决定了可命中索引的列数</li>
+</ul>
+<p>最左前缀匹配原则就是MySQL会一直向右匹配直到遇到范围查询(&gt;,&lt;,BETWEEN,LIKE)就停止匹配</p>
+<h4 id="MySQL如何避免幻读问题？"><a href="#MySQL如何避免幻读问题？" class="headerlink" title="MySQL如何避免幻读问题？"></a>MySQL如何避免幻读问题？</h4><ul>
+<li><p>mvcc（多版本并发控制）<br>多数数据库都实现了多版本并发控制，并且是通过数据快照实现的，普通的select就是快照读。Session A先执行一个查询，这个查询可以访问任何表，目的是创建一个当前时间点的快照。Session B插入一条数据到数据表read_view中并提交，Session A此时再执行select * from read_view，是看不到SessionB对数据表的任何更改的。因为Session A查询时创建了一个以Select操作的时间为基点的read view，从而避免了幻读的产生。<br>原理：将历史数据存一份快照，所以其他事务增加与删除数据，对于当前事务是不可见的。</p>
+</li>
+<li><p>Next-key锁</p>
+<p>Innod行锁分为:<br><img src="https://s1.ax1x.com/2020/03/14/8lY98x.png" alt></p>
+<p>Next-Key锁包含两部分</p>
+<ul>
+<li>记录锁（行锁）</li>
+<li>间隙锁</li>
+</ul>
+<p>记录锁时加在索引上的锁，间隙锁是加在索引之间的。<br>原理：将当前数据行与上一条数据和下一条数据之间的间隙锁定，保证此范围内读取的数据是一致的。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -968,90 +1102,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/10/Leetcode-543-Diameter-of-Binary-Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-543-Diameter-of-Binary-Tree/" class="post-title-link" itemprop="url">Leetcode 543 Diameter of Binary Tree(二叉树的直径)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-10 17:28:14 / Modified: 17:57:32" itemprop="dateCreated datePublished" datetime="2020-03-10T17:28:14+10:30">2020-03-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Tree, DFS</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the <strong>longest</strong> path between any two nodes in a tree. This path may or may not pass through the root.</p>
-<p><strong>Note:</strong> The length of path between two nodes is represented by the number of edges between them.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><p>首先这题要找的是二叉树的<strong>任意两个结点长度中的最大值</strong>，这个路径可能穿过根结点，也可能不穿过根结点。得到这个最大路径，要的就是任意结点的左子树深度和右子树深度和的最大值再加个1（默认一个结点的高度是1，求出左子树右子树之和以后再加当前根结点的深度1，就是最大路径，等于那个根结点把左子树右子树连接起来了）</p>
-<p>设一个全局变量result记录每一次更新后的最大路径，递归方法找到左子树和右子树的最大深度，如果此时左子树右子树深度之和大于result，就更新，反之继续递归知道root为空，返回左右子树深度之和加1，主函数返回result</p>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> * int val;</span></span><br><span class="line"><span class="comment"> * TreeNode left;</span></span><br><span class="line"><span class="comment"> * TreeNode right;</span></span><br><span class="line"><span class="comment"> * TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> leftDepth = dfs(root.left);</span><br><span class="line">        <span class="keyword">int</span> rightDepth = dfs(root.right);</span><br><span class="line">        <span class="keyword">if</span> ((leftDepth + rightDepth) &gt; result)&#123;</span><br><span class="line">            result = leftDepth +rightDepth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(leftDepth, rightDepth) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example:</strong><br>Given a binary tree</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   &#x2F; \</span><br><span class="line">  2   3</span><br><span class="line"> &#x2F; \     </span><br><span class="line">4   5</span><br></pre></td></tr></table></figure>
-
-
-
-<p>Return <strong>3</strong>, which is the length of the path [4,2,1,3] or [5,2,1,3].</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1124,7 +1174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1137,7 +1187,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/leo-yang0201.github.io/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
