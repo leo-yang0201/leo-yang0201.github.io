@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">83</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">84</span></a>
 
   </li>
   </ul>
@@ -262,7 +262,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -396,6 +396,26 @@
     if (jrsc) {
       console.log('今日诗词 - 标签获取成功.');
     } else {
+      console.log('今日诗词 - 标签获取失败!');
+      return;
+    }
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+    console.log('今日诗词 - 载入完毕.');
+    if (data.origin.author == '李白') {
+      let audio = document.createElement("audio");
+      audio.src = "/ding.mp3";
+      audio.play();
+    }
+  });
+</script>
+</body>
+</html>
+   } else {
       console.log('今日诗词 - 标签获取失败!');
       return;
     }

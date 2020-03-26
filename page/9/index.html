@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">83</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">84</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,108 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/16/Leetcode-11-Container-With-Most-Water/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-11-Container-With-Most-Water/" class="post-title-link" itemprop="url">Leetcode 11 Container With Most Water(盛最多水的容器)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-16 13:31:41" itemprop="dateCreated datePublished" datetime="2019-12-16T13:31:41+10:30">2019-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-05 23:45:12" itemprop="dateModified" datetime="2020-03-05T23:45:12+10:30">2020-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-Array-amp-amp-Two-pointers"><a href="#Type-Array-amp-amp-Two-pointers" class="headerlink" title="Type: Array &amp;&amp; Two pointers"></a>Type: Array &amp;&amp; Two pointers</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
+<li><p>Clarification </p>
+<p>Calculate the max area, which length is the difference of index in the array and the height is the difference of array[index].</p>
+</li>
+<li><p>Possible Solutions</p>
+<ul>
+<li><p>Brute Force</p>
+<p>Use two nested for loop to iterating through array. Calculate the max area then.</p>
+</li>
+<li><p>Two Pointers</p>
+<ol>
+<li>Set a left pointer that points to the head of the array and a right pointer that points to the tail of the array. This is to ensure the length changes from maximum to minimum.</li>
+<li>If next height is lower than the value of left/right pointer, area will only be smaller. If height[left] &lt; height[right], left pointer increase one. Otherwise, right pointer increase one. This is to find the minimum height. Calculate the area based on current height and move left pointer and right pointer to the middle in the end. </li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//brute force</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; height.length;i++)&#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; height.length;j++)&#123;</span><br><span class="line">        <span class="keyword">int</span> area = (j - i) * Math.min(height[j],height[i]);</span><br><span class="line">            max = Math.max(max,area);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Time Complexity: O(N^2)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//two pointers</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = height.length - <span class="number">1</span>; i &lt; j;)&#123;</span><br><span class="line">            <span class="keyword">int</span> minHeight = height[i] &lt; height[j] ? height[i++] : height[j--];</span><br><span class="line">            <span class="keyword">int</span> area = (j - i + <span class="number">1</span>) * minHeight;</span><br><span class="line">            max = Math.max(max,area);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Time Complexity: O(N)</p>
+</li>
+<li><p>Test Cases</p>
+<p>Input: [1,8,6,2,5,4,8,3,7]<br>Output: 49</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -494,7 +596,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

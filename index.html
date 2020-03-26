@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">83</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">84</span></a>
 
   </li>
   </ul>
@@ -154,6 +154,102 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/26/Leetcode-999-Available-Captures-for-Rook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/03/26/Leetcode-999-Available-Captures-for-Rook/" class="post-title-link" itemprop="url">Leetcode 999 Available Captures for Rook(车的可用捕获量)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-26 18:18:10 / Modified: 18:25:00" itemprop="dateCreated datePublished" datetime="2020-03-26T18:18:10+10:30">2020-03-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Difficulty : Easy</p>
+<p>Type: Array</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>On an 8 x 8 chessboard, there is one white rook. There also may be empty squares, white bishops, and black pawns. These are given as characters ‘R’, ‘.’, ‘B’, and ‘p’ respectively. Uppercase characters represent white pieces, and lowercase characters represent black pieces.</p>
+<p>The rook moves as in the rules of Chess: it chooses one of four cardinal directions (north, east, west, and south), then moves in that direction until it chooses to stop, reaches the edge of the board, or captures an opposite colored pawn by moving to the same square it occupies. Also, rooks cannot move into the same square as other friendly bishops.</p>
+<p>Return the number of pawns the rook can capture in one move.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li><code>board.length == board[i].length == 8</code></li>
+<li><code>board[i][j]</code> is either <code>&#39;R&#39;</code>, <code>&#39;.&#39;</code>, <code>&#39;B&#39;</code>, or <code>&#39;p&#39;</code></li>
+<li>There is exactly one cell with <code>board[i][j] == &#39;R&#39;</code></li>
+</ol>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li>两次循环<br>其实解法没有太大特别，按照题意遍历二维数组，碰到车的时候就判断四个方向能不能走就行。这道题的重点其实就是题目能不能读懂…</li>
+</ul>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numRookCaptures</span><span class="params">(<span class="keyword">char</span>[][] board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[][] directions = &#123;&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;&#125;; <span class="comment">// direction用来表示车的行进方向</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">8</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; <span class="number">8</span>;j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (board[i][j] == <span class="string">'R'</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span>[] direction : directions) &#123; <span class="comment">// 遍历四个方向</span></span><br><span class="line">                        <span class="keyword">if</span> (burnout(board,i,j,direction)) &#123; <span class="comment">//走遍一个方向，看有没有吃到卒</span></span><br><span class="line">                            res++;<span class="comment">//吃到卒了就加一</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> res;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">burnout</span><span class="params">(<span class="keyword">char</span>[][] board,<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span>[] direction)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = x;</span><br><span class="line">        <span class="keyword">int</span> j = y;</span><br><span class="line">        <span class="keyword">while</span> (inArea(i,j)) &#123; <span class="comment">// 先判断i，j是不是在棋盘里</span></span><br><span class="line">                    <span class="keyword">if</span> (board[i][j] == <span class="string">'B'</span>) &#123; <span class="comment">//如果遇到象，直接出循环，换下一个方向</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (board[i][j] == <span class="string">'p'</span>) &#123; <span class="comment">//遇到卒就返回true</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i += direction[<span class="number">0</span>];<span class="comment">//因为i，j里面有一个一定是0，另一个是1/-1，根据direction数组对索引进行移动</span></span><br><span class="line">        j += direction[<span class="number">1</span>];<span class="comment">//因为i，j里面有一个一定是0，另一个是1/-1，根据direction数组对索引进行移动</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">inArea</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> i &gt;= <span class="number">0</span> &amp;&amp; i &lt; <span class="number">8</span> &amp;&amp; j &gt;= <span class="number">0</span> &amp;&amp; j &lt; <span class="number">8</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h4><p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/02/20/1253_example_1_improved.PNG" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;R&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;]]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">In this example the rook is able to capture all the pawns.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/02/19/1253_example_2_improved.PNG" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;B&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;B&quot;,&quot;R&quot;,&quot;B&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;B&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;]]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: </span><br><span class="line">Bishops are blocking the rook to capture any pawn.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/02/20/1253_example_3_improved.PNG" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;R&quot;,&quot;.&quot;,&quot;p&quot;,&quot;B&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;B&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;]]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">The rook can capture the pawns at positions b5, d6 and f5.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1179,93 +1275,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/12/Leetcode-53-Maximum-Subarray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-53-Maximum-Subarray/" class="post-title-link" itemprop="url">Leetcode 53 Maximum Subarray(最大子序和)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-12 18:25:37 / Modified: 18:41:29" itemprop="dateCreated datePublished" datetime="2020-03-12T18:25:37+10:30">2020-03-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Dynamic Programming, Array, Divide and Conquer</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
-<p><strong>Follow up:</strong></p>
-<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>状态就是当前的索引值，选择就是加这个数还是不加，这个数本身和前一个数加这个数比大小来获得当前索引能取得的子序和最大值（有点像打家劫舍第一题），状态转移方程如下：</p>
-<p>dp[i] = Math.max(dp[i - 1] + nums[i], nums[i])</p>
-<p>新建一个max变量存储最大值，初始为nums[0]，只要max &lt; dp[i]，就max = dp[i]更新最大子序和的值，最后返回max。</p>
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        dp[<span class="number">0</span>] = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> max = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; nums.length;i++) &#123;</span><br><span class="line">            dp[i] = Math.max(dp[i - <span class="number">1</span>] + nums[i],nums[i]);</span><br><span class="line">            <span class="keyword">if</span> (max &lt; dp[i]) max = dp[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空间复杂度为O(1)的实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; <span class="number">0</span>) sum += num;</span><br><span class="line">            <span class="keyword">else</span> sum = num;</span><br><span class="line">            ans = Math.max(sum,ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum &#x3D; 6.</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1338,7 +1347,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
