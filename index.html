@@ -1167,10 +1167,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-15 20:26:19 / Modified: 21:23:22" itemprop="dateCreated datePublished" datetime="2020-03-15T20:26:19+10:30">2020-03-15</time>
+              <time title="Created: 2020-03-15 20:26:19" itemprop="dateCreated datePublished" datetime="2020-03-15T20:26:19+10:30">2020-03-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-27 10:31:48" itemprop="dateModified" datetime="2020-03-27T10:31:48+10:30">2020-03-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -1220,6 +1226,7 @@
 <p><img src="https://s1.ax1x.com/2020/03/15/83Hnfg.png" alt></p>
 <h4 id="在浏览器中输入网址之后执行会发生什么？"><a href="#在浏览器中输入网址之后执行会发生什么？" class="headerlink" title="在浏览器中输入网址之后执行会发生什么？"></a>在浏览器中输入网址之后执行会发生什么？</h4><ul>
 <li>查找域名对应的IP地址，会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li>
+<li>TCP连接</li>
 <li>浏览器向IP对应的web服务器发送一个HTTP请求</li>
 <li>服务器响应请求，发回网页内容</li>
 <li>浏览器解析网页内容</li>
@@ -1252,6 +1259,30 @@
 <ul>
 <li>根据HTTP规范，GET用于信息获取，而且应该是安全和幂等的</li>
 <li>根据HTTP规范，POST请求表示可能修改服务器上资源的请求</li>
+</ul>
+<h4 id="Cookie的作用是什么？它和Session有什么区别？"><a href="#Cookie的作用是什么？它和Session有什么区别？" class="headerlink" title="Cookie的作用是什么？它和Session有什么区别？"></a>Cookie的作用是什么？它和Session有什么区别？</h4><p>Cookie和Session都是用来跟踪浏览器用户身份的会话方式，但是两者的应用场景不一样</p>
+<ul>
+<li>Cookie一般用来保存用户信息<ul>
+<li>在Cookie中保存已登录过的用户信息，下次访问网站的时候页面可以自动帮你把登录的一些基本信息给填了</li>
+<li>一般网站都会有保持登录也就是下次你再访问网站时就不需要重新登录了，这是因为用户登陆的时候我们可以存放一个Token在Cookie中，下次登录根据Token值来查找用户即可（为安全考虑，重新登录一般要将Token重写）</li>
+<li>登录一次网站后访问网站其他页面不需要重新登录</li>
+</ul>
+</li>
+<li>Session的主要作用是通过服务器记录用户的状态<ul>
+<li>典型的场景是购物车，当你要添加商品到购物车的时候，系统不知道是哪个用户操作的，HTTP协议是无状态的。服务器给特定的用户创建特点的Session之后就可以标识这个用户并且跟踪这个用户。</li>
+</ul>
+</li>
+</ul>
+<p>Cookie数据保存在客户端（浏览器端），Session数据保存在服务器端，相对来说Session安全性更高。如果要在Cookie中存储一些敏感信息，不要直接写入Cookie中，最好将Cookie信息加密然后使用到的时候再去服务器端解密</p>
+<h4 id="HTTP-1-0和HTTP1-1的主要区别是什么？"><a href="#HTTP-1-0和HTTP1-1的主要区别是什么？" class="headerlink" title="HTTP 1.0和HTTP1.1的主要区别是什么？"></a>HTTP 1.0和HTTP1.1的主要区别是什么？</h4><ul>
+<li><p>长连接<br><strong>在HTTP/1.0中国，默认使用的是短链接</strong>，也就是每次请求都要重新建立一次连接，HTTP是基于TCP/IP协议的，每一次建立或者断开连接都需要三次握手四次挥手的开销，如果每次请求都建立连接，开销比较大。因此最好维持一个长连接，可以用长连接发送多个请求，<strong>HTTP1.1开始，默认使用长连接</strong>，默认开启Connection：keep-alive。<strong>HTTP/1.1的持续连接有非流水线方式和流水线方式</strong>。流水线方式是客户在收到HTTP的的响应报文之前就能接着发送新的请求报文。与之相对应的非流水线方式是客户在收到前一个响应后才能发送下一个请求。</p>
+</li>
+<li><p>错误状态响应码<br>在HTTP1.1中新增了24个错误状态响应码，如409(Conflict)表示请求的资源与资源的当前状态发生冲突；410(Gone)状态表示服务器上某个资源被永久性的删除</p>
+</li>
+<li><p>缓存处理<br>在HTTP1.0里主要使用header里的If-Modifed-Since，Expires来作为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略比如Entity tag，If-Unmodified-Since，If-Match，If-None-Match等更多可供选择的缓存头来控制缓存策略</p>
+</li>
+<li><p>带宽优化及网络连接的使用<br>HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206(Partial Content)，这样就方便了开发者自由的选择以便于充分利用带宽和连接。</p>
+</li>
 </ul>
 
       
