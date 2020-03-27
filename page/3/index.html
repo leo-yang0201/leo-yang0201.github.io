@@ -911,7 +911,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-18 14:39:42" itemprop="dateModified" datetime="2020-03-18T14:39:42+10:30">2020-03-18</time>
+                <time title="Modified: 2020-03-27 10:57:59" itemprop="dateModified" datetime="2020-03-27T10:57:59+10:30">2020-03-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -989,10 +989,11 @@
 </ul>
 </li>
 </ul>
-<h4 id="说一下Runnable个Callable的区别？"><a href="#说一下Runnable个Callable的区别？" class="headerlink" title="说一下Runnable个Callable的区别？"></a>说一下Runnable个Callable的区别？</h4><ul>
+<h4 id="说一下Runnable跟Callable的区别？"><a href="#说一下Runnable跟Callable的区别？" class="headerlink" title="说一下Runnable跟Callable的区别？"></a>说一下Runnable跟Callable的区别？</h4><ul>
 <li>Runnable接口中的run方法的返回值是void，它做的事情只是执行run方法中的代码而已</li>
 <li>Callable接口中的call方法是有返回值的，是一个泛型，和Future、FutureTask配合可以用来获得执行的结果</li>
 </ul>
+<p>工具类Executor可以实现Runnable对象和Callable对象之间的相互转换。（<code>Executors.callable（Runnable task</code>）或 <code>Executors.callable（Runnable task，Object resule）</code>）。</p>
 <h4 id="线程有哪些状态"><a href="#线程有哪些状态" class="headerlink" title="线程有哪些状态"></a>线程有哪些状态</h4><p>线程通常有五种状态：创建、就绪、运行、阻塞、死亡</p>
 <ul>
 <li>创建状态，在生成线程对象，并没有调用该对象的start方法，线程处于创建状态</li>
@@ -1022,7 +1023,16 @@
 <h4 id="线程的run-和start-有什么区别？"><a href="#线程的run-和start-有什么区别？" class="headerlink" title="线程的run()和start()有什么区别？"></a>线程的run()和start()有什么区别？</h4><p>每个线程都是通过某个特定Thread对象所对应的方法run()来完成其操作的，方法run()称为线程体。通过调用Thread类的start()方法来启动一个线程。</p>
 <p>start()方法来启动一个线程，这时此线程是处于就绪状态，并没有运行，然后通过此Thread类调用方法run()来完成其运行状态，这里方法run()称为线程体，它包含了要执行的这个线程的内容，Run方法运行结束，此线程终止。然后CPU再调度其他线程。</p>
 <p>run()方法是在本线程里的，只是线程里的一个函数，而不是多线程的，如果直接调用run()，其实就相当于调用了一个普通函数而已，多线程执行时要使用start()方法而不是run()方法，start()方法不能多次调用否则抛出java.lang.IllegalStateException，run()方法可以多次调用，因为它只是一种正常的方法调用</p>
-<h4 id="创建线程池有哪几种方式？"><a href="#创建线程池有哪几种方式？" class="headerlink" title="创建线程池有哪几种方式？"></a>创建线程池有哪几种方式？</h4><ul>
+<h4 id="创建线程池有哪几种方式？"><a href="#创建线程池有哪几种方式？" class="headerlink" title="创建线程池有哪几种方式？"></a>创建线程池有哪几种方式？</h4><p>阿里巴巴Java开发手册中强制线程池不允许使用Executor去创建，而是通过ThreadPoolExecutor的方式，这样处理让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p>
+<p>Executors 返回线程池对象的弊端如下：</p>
+<ul>
+<li><strong>FixedThreadPool 和 SingleThreadExecutor</strong> ： 允许请求的队列长度为 Integer.MAX_VALUE ，可能堆积大量的请求，从而导致OOM。</li>
+<li><strong>CachedThreadPool 和 ScheduledThreadPool</strong> ： 允许创建的线程数量为 Integer.MAX_VALUE ，可能会创建大量线程，从而导致OOM。</li>
+</ul>
+<p>方式一：通过构造方法来实现</p>
+<p><img src="https://s1.ax1x.com/2020/03/27/G9vwN9.jpg" alt></p>
+<p>方式二：通过Executor框架的工具类Executors来实现，可以创建三种类型的ThreadPoolExecutor</p>
+<ul>
 <li>newFixedThreadPool(int nThreads)</li>
 </ul>
 <p>创建一个<strong>固定</strong>长度的线程池，每当提交一个任务就创建一个线程，直到达到线程池的最大数量，这时线程规模将不再变化，当线程发生未预期的错误而结束时，线程池会补充一个新的线程。</p>
