@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Difficulty : Medium Type: Array,Backtracking,Bit Manipulation Language : Java ClarificationGiven a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set m">
+  <meta name="description" content="Difficulty : Medium Type: tree,DFS,BFS Language : Java ClarificationGiven a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows:  The left subtree of a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 78 Subsets(子集)">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;25&#x2F;Leetcode-78-Subsets&#x2F;index.html">
+<meta property="og:title" content="Leetcode 98 Validate Binary Search Tree(验证二叉搜索树)">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;28&#x2F;Leetcode-98-Validate-Binary-Search-Tree&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="Difficulty : Medium Type: Array,Backtracking,Bit Manipulation Language : Java ClarificationGiven a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set m">
-<meta property="article:published_time" content="2020-03-25T06:15:05.000Z">
-<meta property="article:modified_time" content="2020-03-25T06:29:58.006Z">
+<meta property="og:description" content="Difficulty : Medium Type: tree,DFS,BFS Language : Java ClarificationGiven a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows:  The left subtree of a">
+<meta property="article:published_time" content="2020-03-27T14:27:48.000Z">
+<meta property="article:modified_time" content="2020-03-27T14:32:35.036Z">
 <meta property="article:author" content="Leo Yang">
-<meta property="article:tag" content="Array">
-<meta property="article:tag" content="Bit Manipulation">
-<meta property="article:tag" content="Backtracking">
+<meta property="article:tag" content="tree">
+<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="BFS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/25/Leetcode-78-Subsets/">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/28/Leetcode-98-Validate-Binary-Search-Tree/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>Leetcode 78 Subsets(子集) | Leo Yang's Blog</title>
+  <title>Leetcode 98 Validate Binary Search Tree(验证二叉搜索树) | Leo Yang's Blog</title>
   
 
 
@@ -163,7 +163,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/25/Leetcode-78-Subsets/">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/28/Leetcode-98-Validate-Binary-Search-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
@@ -176,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Leetcode 78 Subsets(子集)
+          Leetcode 98 Validate Binary Search Tree(验证二叉搜索树)
         </h1>
 
         <div class="post-meta">
@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-25 16:45:05 / Modified: 16:59:58" itemprop="dateCreated datePublished" datetime="2020-03-25T16:45:05+10:30">2020-03-25</time>
+              <time title="Created: 2020-03-28 00:57:48 / Modified: 01:02:35" itemprop="dateCreated datePublished" datetime="2020-03-28T00:57:48+10:30">2020-03-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,29 +218,36 @@
 
       
         <p>Difficulty : Medium</p>
-<p>Type: Array,Backtracking,Bit Manipulation</p>
+<p>Type: tree,DFS,BFS</p>
 <p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given a set of <strong>distinct</strong> integers, <em>nums</em>, return all possible subsets (the power set).</p>
-<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
+<p>Assume a BST is defined as follows:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node’s key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
 <h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>回溯算法</p>
-<p>添加一个数，递归，删除之前的数，下次循环</p>
-</li>
-<li><p>位运算（异或）</p>
-<p>数组的每个元素，可以有两个状态，<strong>在</strong>子数组中和<strong>不在</strong>子数组中，所有状态的组合就是所有子数组了。</p>
-<p>例如，nums = [ 1, 2 , 3 ]。1 代表在，0 代表不在。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> -&gt; [     ]</span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span> -&gt; [    <span class="number">3</span>]</span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">0</span> -&gt; [  <span class="number">2</span>  ]   </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> -&gt; [  <span class="number">2</span> <span class="number">3</span>]  </span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">0</span> -&gt; [<span class="number">1</span>    ]</span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">1</span> -&gt; [<span class="number">1</span>   <span class="number">3</span>] </span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">0</span> -&gt; [<span class="number">1</span> <span class="number">2</span>  ]</span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> -&gt; [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<li><p>DFS（二叉树的先序遍历）<br>根据根结点进行DFS，然后计算每个结点应该的取值范围，如果当前结点不符合就返回false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">    &#x2F;    \</span><br><span class="line">   5     15</span><br><span class="line">  &#x2F; \    &#x2F;  </span><br><span class="line"> 3   6  7 </span><br><span class="line"></span><br><span class="line">   考虑 10 的范围</span><br><span class="line">     10(-inf,+inf)</span><br><span class="line"></span><br><span class="line">   考虑 5 的范围</span><br><span class="line">     10(-inf,+inf)</span><br><span class="line">    &#x2F;</span><br><span class="line">   5(-inf,10)</span><br><span class="line"></span><br><span class="line">   考虑 3 的范围</span><br><span class="line">       10(-inf,+inf)</span><br><span class="line">      &#x2F;</span><br><span class="line">   5(-inf,10)</span><br><span class="line">    &#x2F;</span><br><span class="line">  3(-inf,5)  </span><br><span class="line"></span><br><span class="line">   考虑 6 的范围</span><br><span class="line">       10(-inf,+inf)</span><br><span class="line">      &#x2F;</span><br><span class="line">   5(-inf,10)</span><br><span class="line">    &#x2F;       \</span><br><span class="line">  3(-inf,5)  6(5,10)</span><br><span class="line"></span><br><span class="line">   考虑 15 的范围</span><br><span class="line">      10(-inf,+inf)</span><br><span class="line">    &#x2F;          \</span><br><span class="line">    5(-inf,10) 15(10,+inf）</span><br><span class="line">    &#x2F;       \</span><br><span class="line">  3(-inf,5)  6(5,10)  </span><br><span class="line"></span><br><span class="line">   考虑 7 的范围，出现不符合返回 false</span><br><span class="line">       10(-inf,+inf)</span><br><span class="line">     &#x2F;              \</span><br><span class="line">5(-inf,10)           15(10,+inf）</span><br><span class="line">  &#x2F;       \             &#x2F;</span><br><span class="line">3(-inf,5)  6(5,10)   7（10,15）</span><br></pre></td></tr></table></figure>
 
+<p>可以观察到，左孩子的范围是 （父结点左边界，父节点的值），右孩子的范围是（父节点的值，父节点的右边界）。假设我们的题目的数值都是 Integer 范围的，那么我们用不在 Integer 范围的数字来表示负无穷和正无穷。用 long 去存储。</p>
+</li>
+<li><p>DFS(二叉树中序遍历)<br>中序遍历顺序会是左孩子，根节点，右孩子。二分查找树的性质，左孩子小于根节点，根节点小于右孩子。</p>
+<p>如果我们将中序遍历的结果输出，那么将会到的一个从小到大排列的序列。</p>
+<p>所以我们只需要进行一次中序遍历，将遍历结果保存，然后判断该数组是否是从小到大排列的即可。</p>
+<p>更近一步，由于我们只需要临近的两个数的相对关系，所以我们只需要在遍历过程中，把当前遍历的结果和上一个结果比较即可。</p>
 </li>
 </ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 回溯</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsets(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        getAns(nums,<span class="number">0</span>,<span class="keyword">new</span> ArrayList&lt;&gt;(),ans);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getAns</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start,ArrayList&lt;Integer&gt; temp,List&lt;List&lt;Integer&gt;&gt; ans)</span> </span>&#123;</span><br><span class="line">        ans.add(<span class="keyword">new</span> ArrayList&lt;&gt;(temp));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start;i &lt; nums.length;i++) &#123;</span><br><span class="line">            temp.add(nums[i]);</span><br><span class="line">            getAns(nums,i + <span class="number">1</span>,temp,ans);</span><br><span class="line">            temp.remove(temp.size() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> maxValue = (<span class="keyword">long</span>)Integer.MAX_VALUE + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">long</span> minValue = (<span class="keyword">long</span>)Integer.MIN_VALUE - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> getAns(root, minValue, maxValue);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">getAns</span><span class="params">(TreeNode node, <span class="keyword">long</span> minVal, <span class="keyword">long</span> maxVal)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.val &lt;= minVal) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.val &gt;= maxVal) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> getAns(node.left, minVal, node.val) &amp;&amp; getAns(node.right, node.val, maxVal);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// XOR异或运算</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">            ans ^= num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span> (root != <span class="keyword">null</span> || !stack.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(root);</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">        root = stack.pop();</span><br><span class="line">        <span class="keyword">if</span>(pre != <span class="keyword">null</span> &amp;&amp; root.val &lt;= pre.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        pre = root;</span><br><span class="line">        root = root.right;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h4><p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Input: nums &#x3D; [1,2,3]</span><br><span class="line">Output:</span><br><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [1],</span><br><span class="line">  [2],</span><br><span class="line">  [1,2,3],</span><br><span class="line">  [1,3],</span><br><span class="line">  [2,3],</span><br><span class="line">  [1,2],</span><br><span class="line">  []</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    2</span><br><span class="line">   &#x2F; \</span><br><span class="line">  1   3</span><br><span class="line"></span><br><span class="line">Input: [2,1,3]</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
 
-
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    5</span><br><span class="line">   &#x2F; \</span><br><span class="line">  1   4</span><br><span class="line">     &#x2F; \</span><br><span class="line">    3   6</span><br><span class="line"></span><br><span class="line">Input: [5,1,4,null,null,3,6]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: The root node&#39;s value is 5 but its right child&#39;s value is 4.</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -251,9 +258,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/leo-yang0201.github.io/tags/Array/" rel="tag"># Array</a>
-              <a href="/leo-yang0201.github.io/tags/Bit-Manipulation/" rel="tag"># Bit Manipulation</a>
-              <a href="/leo-yang0201.github.io/tags/Backtracking/" rel="tag"># Backtracking</a>
+              <a href="/leo-yang0201.github.io/tags/tree/" rel="tag"># tree</a>
+              <a href="/leo-yang0201.github.io/tags/DFS/" rel="tag"># DFS</a>
+              <a href="/leo-yang0201.github.io/tags/BFS/" rel="tag"># BFS</a>
           </div>
 
         
@@ -262,13 +269,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/03/25/Leetcode-136-Single-Number/" rel="prev" title="Leetcode 136 Single Number(只出现一次的数字)">
-      <i class="fa fa-chevron-left"></i> Leetcode 136 Single Number(只出现一次的数字)
+    <a href="/leo-yang0201.github.io/2020/03/27/Leetcode-100-Same-Tree/" rel="prev" title="Leetcode 100 Same Tree(相同的树)">
+      <i class="fa fa-chevron-left"></i> Leetcode 100 Same Tree(相同的树)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/03/25/Leetcode-200-Number-of-Islands/" rel="next" title="Leetcode 200 Number of Islands(岛屿数量)">
-      Leetcode 200 Number of Islands(岛屿数量) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -480,7 +484,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'leo-yang0201.github.io',
       owner       : 'leo-yang0201',
       admin       : ['leo-yang0201'],
-      id          : '1c561956b5513d4be1b6782b49595787',
+      id          : '13572467bb15111f1187169f7ab407ef',
         language: '',
       distractionFreeMode: true
     });
