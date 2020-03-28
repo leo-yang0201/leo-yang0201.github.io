@@ -19,7 +19,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":420,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="最近想给博客上线评论功能，发现之前的huno主题很久没有更新了，不是很方便做评论，就想着把博客改成现在比较常用的Next主题。 但是改完之后发现了一个很要命的bug，所有的html的页面的导航栏的链接都出现了问题，例如点击标签后会直接出现404，原因是URL里莫名其妙多了一个”%20”字符，只要删去就可以访问到页面，我一开始手动修复了一些链接，但目前推测应该是部署到github后，自动加上的这个字">
@@ -285,7 +285,9 @@
           Overview
         </li>
       </ul>
+      <div id="music163player">
       <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=395498715&auto=1&height=430"></iframe>
+      </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
       </div>
