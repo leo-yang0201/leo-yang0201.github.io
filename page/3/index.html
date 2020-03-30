@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">89</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">90</span></a>
 
   </li>
   </ul>
@@ -150,6 +150,93 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/11/Leetcode-188-Best-Time-to-Buy-and-Sell-Stock-IV/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-188-Best-Time-to-Buy-and-Sell-Stock-IV/" class="post-title-link" itemprop="url">Leetcode 188 Best Time to Buy and Sell Stock IV(买卖股票的最佳时机IV)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-11 17:20:39 / Modified: 17:42:02" itemprop="dateCreated datePublished" datetime="2020-03-11T17:20:39+10:30">2020-03-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Difficulty : Hard</p>
+<p>Type: Dynamic Programming, Greedy, Array</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i-*th element is the price of a given stock on day *i</em>.</p>
+<p>Design an algorithm to find the maximum profit. You may complete at most <strong>k</strong> transactions.</p>
+<p><strong>Note:</strong><br>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li><p>动态规划</p>
+<p>思路同LC 121，只是这一次的状态里，k是任意整数</p>
+<p>状态转移方程依然是这个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">k是任意整数，所以k的影响存在，不能化简，但直接套用上面的状态转移方程会报超内存的错误，原因是k有可能会非常大，大到比整个prices数组长度还大，所以需要做一个处理，当k大于数组长度的一半时，即默认k是正无穷的，那就和LC 122情况一样了，直接套用LC 122代码即可。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (k &gt; n / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> profit = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; prices.length;i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = prices[i] - prices[i - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (tmp &gt; <span class="number">0</span>) profit += tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> profit;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[][][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][k + <span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = k;j &gt;= <span class="number">1</span>;j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                    dp[i][j][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                    dp[i][j][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                dp[i][j][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][j][<span class="number">0</span>],dp[i - <span class="number">1</span>][j][<span class="number">1</span>] + prices[i]);</span><br><span class="line">                dp[i][j][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][j][<span class="number">1</span>],dp[i - <span class="number">1</span>][j - <span class="number">1</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][k][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,4,1], k &#x3D; 2</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: Buy on day 1 (price &#x3D; 2) and sell on day 2 (price &#x3D; 4), profit &#x3D; 4-2 &#x3D; 2.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,2,6,5,0,3], k &#x3D; 2</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Buy on day 2 (price &#x3D; 2) and sell on day 3 (price &#x3D; 6), profit &#x3D; 6-2 &#x3D; 4.</span><br><span class="line">             Then buy on day 5 (price &#x3D; 0) and sell on day 6 (price &#x3D; 3), profit &#x3D; 3-0 &#x3D; 3.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1062,95 +1149,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/08/Leetcode-322-Coin-Change/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/08/Leetcode-322-Coin-Change/" class="post-title-link" itemprop="url">Leetcode 322 Coin Change(零钱兑换)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-08 22:39:00 / Modified: 23:02:18" itemprop="dateCreated datePublished" datetime="2020-03-08T22:39:00+10:30">2020-03-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Medium</p>
-<p>Type: Dynamic Programming</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>You are given coins of different denominations and a total amount of money <em>amount</em>. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
-<p><strong>Note</strong>:<br>You may assume that you have an infinite number of each kind of coin.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li>动态规划（自底向上）</li>
-</ul>
-<p>这题是一个标准的动态规划题目，思路是根据coin的面值计算dp（dp为求得amount所需要的最少硬币数目）</p>
-<p>首先将dp数组初始化(跳过dp[0])，因为我后面要比大小，就都选用了Integer的最大值减1作为填充值</p>
-<p>对于每一个面值，遍历求解得到amount所需要的最少数目，拿例子来说，amount = 11，coins的第一个面值是1，那么第一轮循环后，dp数组的值应该是[0,1,2,3,4,5,6,7,8,9,10,11]，coins的第二个面值是2，这个时候循环求解的是面值1和2组合后的dp（因为第一轮已经算了面值为1时的状态，第二轮在第一轮基础上更新dp数组值），这个时候dp数组结果如图：</p>
-<p><img src="https://s2.ax1x.com/2020/03/08/3ztSgJ.png" alt></p>
-<p>amount为11时最少需要6枚硬币（5个2元一个1元）</p>
-<p>根据此思路，再叠加下一个面值5元，得到的dp数组就是1，2，5三个面值组合后得到各个amount所需的最小数目集合，返回dp[amount]即得到结果。如果当前面值无法算出amount，即dp[amount]没有发生过改变，仍是预设的Integer最大值减1，返回-1。</p>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[amount + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= amount;i++) &#123;</span><br><span class="line">            dp[i] = Integer.MAX_VALUE - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> coin : coins) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = coin;j &lt;= amount;j++) &#123;</span><br><span class="line">                dp[j] = Math.min(dp[j],dp[j - coin] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[amount] == (Integer.MAX_VALUE - <span class="number">1</span>) ? -<span class="number">1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: coins &#x3D; [1, 2, 5], amount &#x3D; 11</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: 11 &#x3D; 5 + 5 + 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: coins &#x3D; [2], amount &#x3D; 3</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1206,7 +1204,7 @@
         </li>
       </ul>
       <div id="music163player">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=4939273937&auto=1&height=90"></iframe>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=4942922911&auto=1&height=90"></iframe>
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
@@ -1225,7 +1223,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1278,7 +1276,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共61.5k字</span>
+  <span class="post-count">博客全站共61.8k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>

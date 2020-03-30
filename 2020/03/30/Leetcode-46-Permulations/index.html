@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Difficulty : MediumType: StringLanguage : Java Clarification  Given a palindromic string palindrome, replace exactly one character by any lowercase English letter so that the string becomes the lexico">
+  <meta name="description" content="Difficulty : Medium Type: 回溯算法 Language : Java Clarification Given a collection of distinct integers, return all possible permutations.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 1328 Break a Palindrome(破坏回文串)">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;03&#x2F;Leetcode-1328-Break-a-Palindrome&#x2F;index.html">
+<meta property="og:title" content="Leetcode 46 Permulations(全排列)">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;30&#x2F;Leetcode-46-Permulations&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="Difficulty : MediumType: StringLanguage : Java Clarification  Given a palindromic string palindrome, replace exactly one character by any lowercase English letter so that the string becomes the lexico">
-<meta property="article:published_time" content="2020-03-02T13:47:21.000Z">
-<meta property="article:modified_time" content="2020-03-05T13:26:28.580Z">
+<meta property="og:description" content="Difficulty : Medium Type: 回溯算法 Language : Java Clarification Given a collection of distinct integers, return all possible permutations.">
+<meta property="article:published_time" content="2020-03-30T10:36:14.000Z">
+<meta property="article:modified_time" content="2020-03-30T10:41:34.750Z">
 <meta property="article:author" content="Leo Yang">
-<meta property="article:tag" content="String">
+<meta property="article:tag" content="Backtracking">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/03/Leetcode-1328-Break-a-Palindrome/">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/30/Leetcode-46-Permulations/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Leetcode 1328 Break a Palindrome(破坏回文串) | Leo Yang's Blog</title>
+  <title>Leetcode 46 Permulations(全排列) | Leo Yang's Blog</title>
   
 
 
@@ -157,7 +157,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/03/Leetcode-1328-Break-a-Palindrome/">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/30/Leetcode-46-Permulations/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
@@ -170,7 +170,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Leetcode 1328 Break a Palindrome(破坏回文串)
+          Leetcode 46 Permulations(全排列)
         </h1>
 
         <div class="post-meta">
@@ -179,16 +179,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-03-03 00:17:21" itemprop="dateCreated datePublished" datetime="2020-03-03T00:17:21+10:30">2020-03-03</time>
+              <time title="Created: 2020-03-30 21:06:14 / Modified: 21:11:34" itemprop="dateCreated datePublished" datetime="2020-03-30T21:06:14+10:30">2020-03-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:56:28" itemprop="dateModified" datetime="2020-03-05T23:56:28+10:30">2020-03-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -217,34 +211,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="Difficulty-Medium"><a href="#Difficulty-Medium" class="headerlink" title="Difficulty : Medium"></a>Difficulty : Medium</h4><h4 id="Type-String"><a href="#Type-String" class="headerlink" title="Type: String"></a>Type: String</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Given a palindromic string <code>palindrome</code>, replace <strong>exactly one</strong> character by any lowercase English letter so that the string becomes the lexicographically smallest possible string that <strong>isn’t</strong> a palindrome.</p>
-<p>After doing so, return the final string. If there is no way to do so, return the empty string.</p>
-</li>
-<li><p>Possible Solutions </p>
-<p>这道题是Expedia的一道面经题目，最近投了他家的SDE实习，准备一下</p>
-</li>
-</ol>
-<p>   思路：</p>
-<ul>
-<li>字符串长度为1的时候返回空串</li>
-<li>否则检查前面一半长度的字符，如果出现第一个不是a的字符就把它改成a，返回修改后的字符串</li>
-<li>如果全都是a，如”aaaa”，把最后一个字符改成b，返回修改后的字符串</li>
+        <p>Difficulty : Medium</p>
+<p>Type: 回溯算法</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><ul>
+<li>Given a collection of <strong>distinct</strong> integers, return all possible permutations.</li>
 </ul>
-<p>   这道题自己卡住是因为一直在想如何操作字典序使其最小，想复杂了，就换成a就行了，需要考虑到全是a和只有一个字符的情况。</p>
-<ol start="3">
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">breakPalindrome</span><span class="params">(String palindrome)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(palindrome.length() == <span class="number">1</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">char</span>[] a = palindrome.toCharArray();</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] != <span class="string">'a'</span>) &#123;</span><br><span class="line">                a[i] = <span class="string">'a'</span>;</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!flag) a[a.length - <span class="number">1</span>] = <span class="string">'b'</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li><p>回溯算法</p>
+<p>利用递归，每次向temp里添加一个数字，数字添加够以后再回来进行回溯，再向后添加新的解。每调用一层就进入一个for循环，相当于列出了所有解，然后挑选了我们需要的，本质上就是深度优先遍历DFS</p>
 </li>
-<li><p>Test Cases</p>
-</li>
-</ol>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: palindrome &#x3D; &quot;abccba&quot;</span><br><span class="line">Output: &quot;aaccba&quot;</span><br></pre></td></tr></table></figure>
+</ul>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> maxValue = (<span class="keyword">long</span>)Integer.MAX_VALUE + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">long</span> minValue = (<span class="keyword">long</span>)Integer.MIN_VALUE - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> getAns(root, minValue, maxValue);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">getAns</span><span class="params">(TreeNode node, <span class="keyword">long</span> minVal, <span class="keyword">long</span> maxVal)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.val &lt;= minVal) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.val &gt;= maxVal) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> getAns(node.left, minVal, node.val) &amp;&amp; getAns(node.right, node.val, maxVal);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span> (root != <span class="keyword">null</span> || !stack.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(root);</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">        root = stack.pop();</span><br><span class="line">        <span class="keyword">if</span>(pre != <span class="keyword">null</span> &amp;&amp; root.val &lt;= pre.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        pre = root;</span><br><span class="line">        root = root.right;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    2</span><br><span class="line">   &#x2F; \</span><br><span class="line">  1   3</span><br><span class="line"></span><br><span class="line">Input: [2,1,3]</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: palindrome &#x3D; &quot;a&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    5</span><br><span class="line">   &#x2F; \</span><br><span class="line">  1   4</span><br><span class="line">     &#x2F; \</span><br><span class="line">    3   6</span><br><span class="line"></span><br><span class="line">Input: [5,1,4,null,null,3,6]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: The root node&#39;s value is 5 but its right child&#39;s value is 4.</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -255,7 +243,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/leo-yang0201.github.io/tags/String/" rel="tag"># String</a>
+              <a href="/leo-yang0201.github.io/tags/Backtracking/" rel="tag"># Backtracking</a>
           </div>
 
         
@@ -264,13 +252,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/02/16/Leetcode-64-Minimum-Path-Sum/" rel="prev" title="Leetcode 64 Minimum Path Sum(最小路径和)">
-      <i class="fa fa-chevron-left"></i> Leetcode 64 Minimum Path Sum(最小路径和)
+    <a href="/leo-yang0201.github.io/2020/03/28/Leetcode-96-Unique-Binary-Search-Trees/" rel="prev" title="Leetcode 96 Unique Binary Search Trees(不同的二叉搜索树)">
+      <i class="fa fa-chevron-left"></i> Leetcode 96 Unique Binary Search Trees(不同的二叉搜索树)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2020/03/03/Leetcode-82-remove-duplicates-from-sorted-list-ii/" rel="next" title="Leetcode 82 remove-duplicates-from-sorted-list-ii(删除排序链表中的重复元素 II)">
-      Leetcode 82 remove-duplicates-from-sorted-list-ii(删除排序链表中的重复元素 II) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -333,7 +318,7 @@
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Difficulty-Medium"><span class="nav-number">1.</span> <span class="nav-text">Difficulty : Medium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-String"><span class="nav-number">2.</span> <span class="nav-text">Type: String</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Language-Java"><span class="nav-number">2.1.</span> <span class="nav-text">Language : Java</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Clarification"><span class="nav-number">1.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Possible-Solutions"><span class="nav-number">2.</span> <span class="nav-text">Possible Solutions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-cases"><span class="nav-number">4.</span> <span class="nav-text">Test cases</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -496,7 +481,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'leo-yang0201.github.io',
       owner       : 'leo-yang0201',
       admin       : ['leo-yang0201'],
-      id          : '1e9f0599569c9b0013330cf411967342',
+      id          : '389d9b9901ed6692eff0b21e1d76e648',
         language: '',
       distractionFreeMode: true
     });
