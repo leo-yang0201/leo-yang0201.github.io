@@ -29,8 +29,10 @@
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
 <meta property="og:description" content="请你简述TCP、UDP的区别TCP和UDP是OSI模型中的运输层中的协议。TCP提供可靠的通信传输，而UDP常被用于让广播和细节控制交给应用的通信传输  TCP面向连接，UDP面向非连接，即发送数据前不需要建立连接 TCP提供可靠的服务（数据传输无差错，不丢失，不重复，按序到达），UDP无法保证可靠交付 TCP面向字节流，UDP面向报文（对实时应用有用如实时视频会议） TCP数据传输慢，UDP数据">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;15&#x2F;83Hnfg.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;30&#x2F;GnvKbQ.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;30&#x2F;GnvQEj.png">
 <meta property="article:published_time" content="2020-03-15T09:56:19.000Z">
-<meta property="article:modified_time" content="2020-03-27T00:01:48.290Z">
+<meta property="article:modified_time" content="2020-03-31T16:45:00.026Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -189,7 +191,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-27 10:31:48" itemprop="dateModified" datetime="2020-03-27T10:31:48+10:30">2020-03-27</time>
+                <time title="Modified: 2020-04-01 03:15:00" itemprop="dateModified" datetime="2020-04-01T03:15:00+10:30">2020-04-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,6 +229,8 @@
 <li>TCP数据传输慢，UDP数据传输快</li>
 <li>TCP连接只能是点到点的，UDP支持一对一，一对多，多对多，多对一的交互通信</li>
 </ul>
+<a id="more"></a>
+
 <h4 id="请简单说一下你了解的端口及对应的服务"><a href="#请简单说一下你了解的端口及对应的服务" class="headerlink" title="请简单说一下你了解的端口及对应的服务"></a>请简单说一下你了解的端口及对应的服务</h4><ul>
 <li>21 FTP（文件传输协议）</li>
 <li>22 SSH</li>
@@ -245,8 +249,27 @@
 <p>如果李四没有及时回复，张三就认为自己的话没被听到，就需要重新喊话（tcp重传），李四就有可能一句话听到了两次，这就是<strong>去重</strong>，<strong>重传</strong>和<strong>去重</strong>工作操作系统的网络内核模块以及处理好了，用户层不用关心。因为TCP是双工的，双方都可以主动发起数据传输，不论是哪方喊话，都需要对方确认才能认为对方收到了自己的喊话。</p>
 <h4 id="TCP四次挥手？"><a href="#TCP四次挥手？" class="headerlink" title="TCP四次挥手？"></a>TCP四次挥手？</h4><p>张三挥手（发送fin），李四微笑（收到fin后发送ack），此时是半关闭状态，张三（客户端）已经发送了fin请求，不再说话，但是还可以接收李四说的话，李四可以继续说话，等李四不想说话了发送了fin请求时，张三收到并微笑（发送ack），连接断开。</p>
 <p><img src="https://s1.ax1x.com/2020/03/15/83Hnfg.png" alt></p>
+<h4 id="TCP为什么要三次握手，两次不行吗，为什么？"><a href="#TCP为什么要三次握手，两次不行吗，为什么？" class="headerlink" title="TCP为什么要三次握手，两次不行吗，为什么？"></a>TCP为什么要三次握手，两次不行吗，为什么？</h4><p>为了实现可靠数据传输，TCP协议的通信双方，都必须维护一个序列号，以标识发送出去的数据包中，哪些是已经被对方收到的。三次握手的过程即是通信双方相互告知序列号起始值，并确认对方已经收到了序列号起始值的必经步骤。</p>
+<p>如果只是两次握手，至多只有连接发起方的起始序列号能被确认，另一方选择的序列号则得不到的确认。</p>
+<h4 id="TCP协议如何保证可靠传输"><a href="#TCP协议如何保证可靠传输" class="headerlink" title="TCP协议如何保证可靠传输"></a>TCP协议如何保证可靠传输</h4><ul>
+<li>应用数据被分割成TCP认为最适合发送的数据块</li>
+<li>TCP给发送的每一个包进行编号，接收方对数据包进行排序，把有序数据传送给应用层</li>
+<li>校验和：TCP将保持它首部和数据的校验和。这是一个端到端的校验和，目的是检测数据在传输过程中的任何变化。如果收到段的校验和有差错，TCP将丢弃这个报文段和不确认收到此报文段</li>
+<li>TCP的接收端会丢弃重复的数据</li>
+<li>流量控制：TCP连接的每一方都有固定大小的缓冲空间，TCP的接收端只允许发送端发送接收端缓存区能接纳的数据。当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。TCP使用的流量控制协议是可变大小的滑动窗口协议（TCP利用滑动窗口实现流量控制）</li>
+<li>拥塞控制：当网络拥塞时，减少数据的发送</li>
+<li>ARQ协议：也是为了实现可靠传输的，它的基本原理就是每发完一个分组就停止发送，等待对方确认。在收到确认后再发下一个分组。</li>
+<li>超时重传： 当TCP发送一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段。</li>
+</ul>
+<h4 id="TCP粘包是怎么产生的"><a href="#TCP粘包是怎么产生的" class="headerlink" title="TCP粘包是怎么产生的"></a>TCP粘包是怎么产生的</h4><ul>
+<li><p>发送方产生粘包<br>采用TCP协议传输数据的客户端与服务器经常是保持一个长连接的状态（一次连接发一次数据不存在粘包），双方在连接不断开的情况下，可以一直传输数据；但当发送的数据包过于的小时，那么TCP协议默认会启动Nagle算法，将这些较小的数据包进行合并发送（缓冲区数据发送是一个堆压的过程）；这个合并过程就是在发送缓冲区中进行的，也就是说数据发送出来，它已经是粘包的状态了。<br><img src="https://s1.ax1x.com/2020/03/30/GnvKbQ.png" alt="GnvKbQ.png"></p>
+</li>
+<li><p>接收方产生粘包<br>接收方采用TCP协议接收数据时的过程是这样的：数据到达接收方，从网络模型的下方传递到传输层，传输层的TCP协议处理是将其放置接收缓冲区，然后由应用层来主动获取（C语言用recv，read等函数）。这时会出现一个问题，我们在程序中调用的读取数据函数不能及时的把缓冲区中的数据拿出来，而下一个数据又到来并有一部分放入的缓冲区末尾，等我们读取数据时就是一个粘包（放数据的速度&gt;应用层拿数据速度）</p>
+<p><img src="https://s1.ax1x.com/2020/03/30/GnvQEj.png" alt="GnvQEj.png"></p>
+</li>
+</ul>
 <h4 id="在浏览器中输入网址之后执行会发生什么？"><a href="#在浏览器中输入网址之后执行会发生什么？" class="headerlink" title="在浏览器中输入网址之后执行会发生什么？"></a>在浏览器中输入网址之后执行会发生什么？</h4><ul>
-<li>查找域名对应的IP地址，会依次查找浏览器缓存，系统缓存，路由器缓存，ISPNDS缓存，根域名服务器</li>
+<li>查找域名对应的IP地址，会依次查找浏览器缓存，系统缓存，路由器缓存，DNS缓存，根域名服务器</li>
 <li>TCP连接</li>
 <li>浏览器向IP对应的web服务器发送一个HTTP请求</li>
 <li>服务器响应请求，发回网页内容</li>
@@ -295,16 +318,26 @@
 </li>
 </ul>
 <p>Cookie数据保存在客户端（浏览器端），Session数据保存在服务器端，相对来说Session安全性更高。如果要在Cookie中存储一些敏感信息，不要直接写入Cookie中，最好将Cookie信息加密然后使用到的时候再去服务器端解密</p>
-<h4 id="HTTP-1-0和HTTP1-1的主要区别是什么？"><a href="#HTTP-1-0和HTTP1-1的主要区别是什么？" class="headerlink" title="HTTP 1.0和HTTP1.1的主要区别是什么？"></a>HTTP 1.0和HTTP1.1的主要区别是什么？</h4><ul>
-<li><p>长连接<br><strong>在HTTP/1.0中国，默认使用的是短链接</strong>，也就是每次请求都要重新建立一次连接，HTTP是基于TCP/IP协议的，每一次建立或者断开连接都需要三次握手四次挥手的开销，如果每次请求都建立连接，开销比较大。因此最好维持一个长连接，可以用长连接发送多个请求，<strong>HTTP1.1开始，默认使用长连接</strong>，默认开启Connection：keep-alive。<strong>HTTP/1.1的持续连接有非流水线方式和流水线方式</strong>。流水线方式是客户在收到HTTP的的响应报文之前就能接着发送新的请求报文。与之相对应的非流水线方式是客户在收到前一个响应后才能发送下一个请求。</p>
-</li>
-<li><p>错误状态响应码<br>在HTTP1.1中新增了24个错误状态响应码，如409(Conflict)表示请求的资源与资源的当前状态发生冲突；410(Gone)状态表示服务器上某个资源被永久性的删除</p>
-</li>
-<li><p>缓存处理<br>在HTTP1.0里主要使用header里的If-Modifed-Since，Expires来作为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略比如Entity tag，If-Unmodified-Since，If-Match，If-None-Match等更多可供选择的缓存头来控制缓存策略</p>
-</li>
-<li><p>带宽优化及网络连接的使用<br>HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206(Partial Content)，这样就方便了开发者自由的选择以便于充分利用带宽和连接。</p>
+<h4 id="HTTP和HTTPS区别？"><a href="#HTTP和HTTPS区别？" class="headerlink" title="HTTP和HTTPS区别？"></a>HTTP和HTTPS区别？</h4><ul>
+<li>端口：HTTP的URL由”http://“起始且默认使用端口80，而HTTPS的URL由”https://“起始且默认端口443</li>
+<li>安全性和资源消耗：HTTP协议运行在TCP之上，所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。HTTPS是运行在SSL/TLS之上的HTTP协议，SSL/TLS运行在TCP之上。所有传输的内容都经过加密，加密采用对称加密，但对称加密的密钥用服务器方的证书进行了非对称加密。所以说，HTTP安全性没有HTTPS高，但是HTTPS比HTTP耗费更多服务器资源。<ul>
+<li>对称加密：密钥只有一个，加密解密为同一个密码，且加解密速度快，典型的对称加密算法有DES，AES等</li>
+<li>非对称加密：密钥成对出现（且根据公钥无法推知私钥，根据私钥也无法推知公钥），加密解密使用不同密钥（公钥加密需要私钥解密，私钥加密需要公钥解密），相对对称加密速度较慢，典型的非对称加密算法RSA、DSA等。</li>
+</ul>
 </li>
 </ul>
+<h4 id="HTTP-1-0和HTTP1-1的主要区别是什么？"><a href="#HTTP-1-0和HTTP1-1的主要区别是什么？" class="headerlink" title="HTTP 1.0和HTTP1.1的主要区别是什么？"></a>HTTP 1.0和HTTP1.1的主要区别是什么？</h4><ul>
+<li>长连接<br><strong>在HTTP/1.0中，默认使用的是短链接</strong>，也就是每次请求都要重新建立一次连接，HTTP是基于TCP/IP协议的，每一次建立或者断开连接都需要三次握手四次挥手的开销，如果每次请求都建立连接，开销比较大。因此最好维持一个长连接，可以用长连接发送多个请求，<strong>HTTP1.1开始，默认使用长连接</strong>，默认开启Connection：keep-alive。<strong>HTTP/1.1的持续连接有非流水线方式和流水线方式</strong>。流水线方式是客户在收到HTTP的的响应报文之前就能接着发送新的请求报文。与之相对应的非流水线方式是客户在收到前一个响应后才能发送下一个请求。</li>
+<li>错误状态响应码<br>在HTTP1.1中新增了24个错误状态响应码，如409(Conflict)表示请求的资源与资源的当前状态发生冲突；410(Gone)状态表示服务器上某个资源被永久性的删除</li>
+<li>缓存处理<br>在HTTP1.0里主要使用header里的If-Modifed-Since，Expires来作为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略比如Entity tag，If-Unmodified-Since，If-Match，If-None-Match等更多可供选择的缓存头来控制缓存策略</li>
+<li>带宽优化及网络连接的使用<br>HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206(Partial Content)，这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
+</ul>
+<h4 id="HTTP长连接，短连接"><a href="#HTTP长连接，短连接" class="headerlink" title="HTTP长连接，短连接"></a>HTTP长连接，短连接</h4><p>在HTTP1.0中默认使用短连接，客户端和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。当客户端浏览器访问的某个HTML或其他类型的Web页中包含有其他的Web资源（如JavaScript文件，图像文件或CSS文件等），每遇到这样一个Web资源，浏览器就会重新建立一个Http会话。</p>
+<p>Http1.1起，默认使用长连接，用以保持连接特性。使用长连接的HTTP协议，会在响应头加入这行代码：</p>
+<p>“Connection: keep-alive”</p>
+<p>在使用长连接的情况下，当一个网页打开完成以后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，客户端再次访问这个服务器时，会继续使用这一条已经建立的连接。Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间。实现长连接需要客户端和服务端都支持长连接。HTTP协议的长连接和短连接，实质上是TCP协议的长连接和短连接。</p>
+<h4 id="HTTP是不保存状态的协议，如何保存用户状态？"><a href="#HTTP是不保存状态的协议，如何保存用户状态？" class="headerlink" title="HTTP是不保存状态的协议，如何保存用户状态？"></a>HTTP是不保存状态的协议，如何保存用户状态？</h4><p>HTTP是一种不保存状态，即无状态协议。也就是说HTTP协议自身不对请求和响应之间的通信状态进行保存。那么我们保存用户状态呢？Session机制的存在就是为了解决这个问题，Session的主要作用就是通过服务端记录用户的状态。典型的场景是购物车，当你要添加商品到购物车的时候，系统不知道是哪个用户操作的，因为HTTP协议是无状态的。服务端给特定的用户创建特定的Session之后，就可以标识这个用户并且跟踪这个用户了（一般情况下，服务器会在一定时间内保存这个Session，过了时间限制，就会销毁这个Session）。</p>
+<h4 id="Cookie被禁用怎么办？"><a href="#Cookie被禁用怎么办？" class="headerlink" title="Cookie被禁用怎么办？"></a>Cookie被禁用怎么办？</h4><p>最常用的就是利用URL重写把SessionID直接附加在URL路径的后面。</p>
 
     </div>
 
@@ -394,7 +427,7 @@
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请你简述TCP、UDP的区别"><span class="nav-number">1.</span> <span class="nav-text">请你简述TCP、UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请简单说一下你了解的端口及对应的服务"><span class="nav-number">2.</span> <span class="nav-text">请简单说一下你了解的端口及对应的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">3.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP数据传输"><span class="nav-number">4.</span> <span class="nav-text">TCP数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次挥手？"><span class="nav-number">5.</span> <span class="nav-text">TCP四次挥手？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在浏览器中输入网址之后执行会发生什么？"><span class="nav-number">6.</span> <span class="nav-text">在浏览器中输入网址之后执行会发生什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">7.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP协议包括哪些请求"><span class="nav-number">8.</span> <span class="nav-text">HTTP协议包括哪些请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述HTTP中GET和POST的区别"><span class="nav-number">9.</span> <span class="nav-text">简述HTTP中GET和POST的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的作用是什么？它和Session有什么区别？"><span class="nav-number">10.</span> <span class="nav-text">Cookie的作用是什么？它和Session有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0和HTTP1-1的主要区别是什么？"><span class="nav-number">11.</span> <span class="nav-text">HTTP 1.0和HTTP1.1的主要区别是什么？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请你简述TCP、UDP的区别"><span class="nav-number">1.</span> <span class="nav-text">请你简述TCP、UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请简单说一下你了解的端口及对应的服务"><span class="nav-number">2.</span> <span class="nav-text">请简单说一下你了解的端口及对应的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">3.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP数据传输"><span class="nav-number">4.</span> <span class="nav-text">TCP数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次挥手？"><span class="nav-number">5.</span> <span class="nav-text">TCP四次挥手？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP为什么要三次握手，两次不行吗，为什么？"><span class="nav-number">6.</span> <span class="nav-text">TCP为什么要三次握手，两次不行吗，为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP协议如何保证可靠传输"><span class="nav-number">7.</span> <span class="nav-text">TCP协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP粘包是怎么产生的"><span class="nav-number">8.</span> <span class="nav-text">TCP粘包是怎么产生的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在浏览器中输入网址之后执行会发生什么？"><span class="nav-number">9.</span> <span class="nav-text">在浏览器中输入网址之后执行会发生什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">10.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP协议包括哪些请求"><span class="nav-number">11.</span> <span class="nav-text">HTTP协议包括哪些请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述HTTP中GET和POST的区别"><span class="nav-number">12.</span> <span class="nav-text">简述HTTP中GET和POST的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的作用是什么？它和Session有什么区别？"><span class="nav-number">13.</span> <span class="nav-text">Cookie的作用是什么？它和Session有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS区别？"><span class="nav-number">14.</span> <span class="nav-text">HTTP和HTTPS区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0和HTTP1-1的主要区别是什么？"><span class="nav-number">15.</span> <span class="nav-text">HTTP 1.0和HTTP1.1的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP长连接，短连接"><span class="nav-number">16.</span> <span class="nav-text">HTTP长连接，短连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP是不保存状态的协议，如何保存用户状态？"><span class="nav-number">17.</span> <span class="nav-text">HTTP是不保存状态的协议，如何保存用户状态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie被禁用怎么办？"><span class="nav-number">18.</span> <span class="nav-text">Cookie被禁用怎么办？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -463,7 +496,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共61.8k字</span>
+  <span class="post-count">博客全站共64.4k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
