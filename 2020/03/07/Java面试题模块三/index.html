@@ -36,7 +36,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2020&#x2F;03&#x2F;08&#x2F;3vV5fU.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;04&#x2F;01&#x2F;GlDXrT.png">
 <meta property="article:published_time" content="2020-03-07T06:00:04.000Z">
-<meta property="article:modified_time" content="2020-03-31T18:36:19.324Z">
+<meta property="article:modified_time" content="2020-04-01T04:08:20.433Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="Java基础">
 <meta property="article:tag" content="多线程">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">35</span></a>
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">36</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">90</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">91</span></a>
 
   </li>
   </ul>
@@ -196,7 +196,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-01 05:06:19" itemprop="dateModified" datetime="2020-04-01T05:06:19+10:30">2020-04-01</time>
+                <time title="Modified: 2020-04-01 14:38:20" itemprop="dateModified" datetime="2020-04-01T14:38:20+10:30">2020-04-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,6 +232,7 @@
 
 <p>假如执行线程1的是CPU1，执行线程2的是CPU2，当线程1执行i = 10这句时，会先把i的初始值<strong>加载到CPU1的高速缓存中</strong>，然后赋值为10，那么在CPU1的高速缓存当中i的值就变为10了，却<strong>没有立即写入到主存当中</strong>。</p>
 <p>此时线程2执行j = i，它会<strong>先去主存读取i的值</strong>并加载到CPU2的缓存当中，注意此时内存当中i的值还是0，那么就会使得j的值为0，而不是10。这就是可见性问题，线程1对变量修改后，线程2没有立即看到线程1修改的值。</p>
+<a id="more"></a>
 </li>
 <li><p>原子性<br>指一个操作或者多个操作要么全部执行并且执行过程不会被任何因素打断，要么都不执行</p>
 <p>转账问题：比如从账户A向账户B转1000元，那么必然包括2个操作：从账户A减1000元，往账户B加1000元。</p>
@@ -544,7 +545,7 @@
         </li>
       </ul>
       <div id="music163player">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=0&id=4939273937&auto=1&height=32"></iframe>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=0&id=4939273937&auto=0&height=32"></iframe>
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
@@ -564,7 +565,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -577,7 +578,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/leo-yang0201.github.io/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -617,7 +618,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共65.2k字</span>
+  <span class="post-count">博客全站共69.1k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
