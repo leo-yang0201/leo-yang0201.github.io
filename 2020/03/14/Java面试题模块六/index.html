@@ -22,18 +22,18 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="数据库的三范式是什么 第一范式：强调的是列的原子性，数据表的每一列都不可再分 第二范式：要求实体的属性完全依赖于主关键字。不能存在仅依赖主关键字一部分的属性 第三范式：任何非主属性不依赖于其他非主属性，消除传递依赖  数据库的事务隔离级别由低到高依次为 Read uncommitted(读未提交）, Read committed（读提交）, Repeatable read（可重复读）, Seria">
+  <meta name="description" content="数据库的三范式是什么 第一范式：强调的是列的原子性，数据表的每一列都不可再分 第二范式：要求实体的属性完全依赖于主关键字。不能存在仅依赖主关键字一部分的属性 第三范式：任何非主属性不依赖于其他非主属性，消除传递依赖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java面试题汇总(六)">
 <meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;14&#x2F;Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%85%AD&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="数据库的三范式是什么 第一范式：强调的是列的原子性，数据表的每一列都不可再分 第二范式：要求实体的属性完全依赖于主关键字。不能存在仅依赖主关键字一部分的属性 第三范式：任何非主属性不依赖于其他非主属性，消除传递依赖  数据库的事务隔离级别由低到高依次为 Read uncommitted(读未提交）, Read committed（读提交）, Repeatable read（可重复读）, Seria">
+<meta property="og:description" content="数据库的三范式是什么 第一范式：强调的是列的原子性，数据表的每一列都不可再分 第二范式：要求实体的属性完全依赖于主关键字。不能存在仅依赖主关键字一部分的属性 第三范式：任何非主属性不依赖于其他非主属性，消除传递依赖">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lFIhR.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lk3bF.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lAgwF.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lY98x.png">
 <meta property="article:published_time" content="2020-03-14T10:15:49.000Z">
-<meta property="article:modified_time" content="2020-03-26T13:00:34.540Z">
+<meta property="article:modified_time" content="2020-04-01T06:09:31.373Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-26 23:30:34" itemprop="dateModified" datetime="2020-03-26T23:30:34+10:30">2020-03-26</time>
+                <time title="Modified: 2020-04-01 16:39:31" itemprop="dateModified" datetime="2020-04-01T16:39:31+10:30">2020-04-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,6 +227,8 @@
 <li>第二范式：要求实体的属性完全依赖于主关键字。不能存在仅依赖主关键字一部分的属性</li>
 <li>第三范式：任何非主属性不依赖于其他非主属性，消除传递依赖</li>
 </ul>
+<a id="more"></a>
+
 <h4 id="数据库的事务隔离级别"><a href="#数据库的事务隔离级别" class="headerlink" title="数据库的事务隔离级别"></a>数据库的事务隔离级别</h4><p>由低到高依次为 Read uncommitted(读未提交）, Read committed（读提交）, Repeatable read（可重复读）, Serializable（序列化）</p>
 <ul>
 <li><p>Read uncommitted<br>会出现脏读问题，也就是用户读到了尚未提交的事务。举个例子，小明领工资，查看账户发现这个月工资10000，但是财务发现打得钱不对，工资只有8000，于是回滚了事务，修改了金额，<strong>再将事务提交</strong>，最后小明实际工资只有8000。“小明查工资”这个事务读取了“财务发工资”这个事务还没有提交的数据，即出现脏读。当隔离级别设为read uncommited时，即可能出现此问题。</p>
@@ -312,6 +314,15 @@
 <li>当有增删改的语句时，会记录到主库的binlog中</li>
 <li>主库通过IO线程把binlog里面的内容传给从库的relay binlog（中继日志）（这是MySQL复制是异步复制的原因）</li>
 <li>从库的sql线程负责读取它的relay log里的信息并应用到数据库中</li>
+</ul>
+<h4 id="MySQL索引失效的几种情况"><a href="#MySQL索引失效的几种情况" class="headerlink" title="MySQL索引失效的几种情况"></a>MySQL索引失效的几种情况</h4><ul>
+<li>前导模糊查询不能利用索引(like ‘%XX’或者like ‘%XX%’)<br>因为是模糊的，没办法利用索引，需求一个个找，全索引扫描或者全表扫</li>
+<li>组合索引，没有按照索引顺序查找</li>
+<li>条件里有or<br>应尽量避免在where子句里使用or来连接条件，否则将导致引擎放弃使用索引而进行全表扫描</li>
+<li>索引无法存储null值，所以where判断条件如果对字段进行null值判断，将导致数据库引擎放弃索引<br>索引是有序的，null值进入索引后，无法确定其放在哪里</li>
+<li>条件里有 != 还有in/not in语句，会导致全表扫描（能用between别用in）</li>
+<li>where子句中对字段进行函数操作，数据库引擎将放弃索引而用全表扫描<br>如 select id from t where substring(name,1,3) = ‘abc’ (查找name以abc开头的id)</li>
+<li>where子句中对字段进行表达式操作<br>如 select id from t where num / 2 = 100<br>应改为 select id from t where num = 100 * 2</li>
 </ul>
 
     </div>
@@ -402,7 +413,7 @@
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的三范式是什么"><span class="nav-number">1.</span> <span class="nav-text">数据库的三范式是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的事务隔离级别"><span class="nav-number">2.</span> <span class="nav-text">数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务四大特性"><span class="nav-number">3.</span> <span class="nav-text">数据库事务四大特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL索引是怎么实现的？"><span class="nav-number">4.</span> <span class="nav-text">MySQL索引是怎么实现的？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB索引实现"><span class="nav-number">4.1.</span> <span class="nav-text">InnoDB索引实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyISAM索引实现"><span class="nav-number">4.2.</span> <span class="nav-text">MyISAM索引实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL常用的引擎？"><span class="nav-number">5.</span> <span class="nav-text">MySQL常用的引擎？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL为何用B-树作为索引的数据结构？"><span class="nav-number">6.</span> <span class="nav-text">MySQL为何用B+树作为索引的数据结构？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引的最左匹配原则了解吗？"><span class="nav-number">7.</span> <span class="nav-text">索引的最左匹配原则了解吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL如何避免幻读问题？"><span class="nav-number">8.</span> <span class="nav-text">MySQL如何避免幻读问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL有哪些重要的日志文件？"><span class="nav-number">9.</span> <span class="nav-text">MySQL有哪些重要的日志文件？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL主从复制的原理"><span class="nav-number">10.</span> <span class="nav-text">MySQL主从复制的原理</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的三范式是什么"><span class="nav-number">1.</span> <span class="nav-text">数据库的三范式是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的事务隔离级别"><span class="nav-number">2.</span> <span class="nav-text">数据库的事务隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务四大特性"><span class="nav-number">3.</span> <span class="nav-text">数据库事务四大特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL索引是怎么实现的？"><span class="nav-number">4.</span> <span class="nav-text">MySQL索引是怎么实现的？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB索引实现"><span class="nav-number">4.1.</span> <span class="nav-text">InnoDB索引实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyISAM索引实现"><span class="nav-number">4.2.</span> <span class="nav-text">MyISAM索引实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL常用的引擎？"><span class="nav-number">5.</span> <span class="nav-text">MySQL常用的引擎？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL为何用B-树作为索引的数据结构？"><span class="nav-number">6.</span> <span class="nav-text">MySQL为何用B+树作为索引的数据结构？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引的最左匹配原则了解吗？"><span class="nav-number">7.</span> <span class="nav-text">索引的最左匹配原则了解吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL如何避免幻读问题？"><span class="nav-number">8.</span> <span class="nav-text">MySQL如何避免幻读问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL有哪些重要的日志文件？"><span class="nav-number">9.</span> <span class="nav-text">MySQL有哪些重要的日志文件？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL主从复制的原理"><span class="nav-number">10.</span> <span class="nav-text">MySQL主从复制的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL索引失效的几种情况"><span class="nav-number">11.</span> <span class="nav-text">MySQL索引失效的几种情况</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,7 +482,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共69.1k字</span>
+  <span class="post-count">博客全站共69.3k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
