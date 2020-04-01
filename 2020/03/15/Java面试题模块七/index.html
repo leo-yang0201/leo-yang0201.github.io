@@ -33,7 +33,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;30&#x2F;GnvQEj.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;04&#x2F;01&#x2F;G1I0F1.png">
 <meta property="article:published_time" content="2020-03-15T09:56:19.000Z">
-<meta property="article:modified_time" content="2020-04-01T06:48:46.242Z">
+<meta property="article:modified_time" content="2020-04-01T07:09:15.041Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-01 17:18:46" itemprop="dateModified" datetime="2020-04-01T17:18:46+10:30">2020-04-01</time>
+                <time title="Modified: 2020-04-01 17:39:15" itemprop="dateModified" datetime="2020-04-01T17:39:15+10:30">2020-04-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,7 +257,7 @@
 <li>TCP给发送的每一个包进行编号，接收方对数据包进行排序，把有序数据传送给应用层</li>
 <li>校验和：TCP将保持它首部和数据的校验和。这是一个端到端的校验和，目的是检测数据在传输过程中的任何变化。如果收到段的校验和有差错，TCP将丢弃这个报文段和不确认收到此报文段</li>
 <li>TCP的接收端会丢弃重复的数据</li>
-<li>流量控制：TCP连接的每一方都有固定大小的缓冲空间，TCP的接收端只允许发送端发送接收端缓存区能接纳的数据。当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。TCP使用的流量控制协议是可变大小的滑动窗口协议（TCP利用滑动窗口实现流量控制）</li>
+<li>流量控制：TCP连接的每一方都有固定大小的缓冲空间，TCP的接收端只允许发送端发送接收端缓存区能接纳的数据。<strong>当接收方来不及处理发送方的数据</strong>，能提示发送方降低发送的速率，防止包丢失。TCP使用的流量控制协议是可变大小的滑动窗口协议（TCP利用滑动窗口实现流量控制）</li>
 <li>拥塞控制：当网络拥塞时，减少数据的发送</li>
 <li>ARQ协议：也是为了实现可靠传输的，它的基本原理就是每发完一个分组就停止发送，等待对方确认。在收到确认后再发下一个分组。</li>
 <li>超时重传： 当TCP发送一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段。</li>
@@ -270,6 +270,7 @@
 <li>拥塞避免<br>算法思路是让cwnd缓慢增大，每经过一个往返时间就把发送方的cwnd+1</li>
 <li>快重传和快恢复(FRR)<br>快重传和快恢复可以快速恢复丢失的数据包。没有FRR，如果数据包丢失了，TCP会用定时器来要求传输暂停。在暂停的期间里，没有新的或复制的数据包被发送。FRR出现后，如果接收机接到一个不按顺序的数据端，会立即给发送机发一个重复确认。如果发送机收到三个重复确认，它会假定数据段丢失了，并立即重传这些丢失的数据段。有了FRR，就不会因为重传时要求的暂停被耽误。当有单独的数据包丢失时，FRR能最有效地工作，当有多个数据信息包在某一段很短的时间内丢失时，它则不能很有效地工作。</li>
 </ul>
+<h4 id="TCP流量控制说一下？"><a href="#TCP流量控制说一下？" class="headerlink" title="TCP流量控制说一下？"></a>TCP流量控制说一下？</h4><p>TCP利用滑动窗口实现流量控制。流量控制是为了控制发送方发送速率，保证接收方来得及接收。接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发松速率。将窗口字段设置为0，则发送方不能发送数据。</p>
 <h4 id="TCP粘包是怎么产生的"><a href="#TCP粘包是怎么产生的" class="headerlink" title="TCP粘包是怎么产生的"></a>TCP粘包是怎么产生的</h4><ul>
 <li><p>发送方产生粘包<br>采用TCP协议传输数据的客户端与服务器经常是保持一个长连接的状态（一次连接发一次数据不存在粘包），双方在连接不断开的情况下，可以一直传输数据；但当发送的数据包过于的小时，那么TCP协议默认会启动Nagle算法，将这些较小的数据包进行合并发送（缓冲区数据发送是一个堆压的过程）；这个合并过程就是在发送缓冲区中进行的，也就是说数据发送出来，它已经是粘包的状态了。<br><img src="https://s1.ax1x.com/2020/03/30/GnvKbQ.png" alt="GnvKbQ.png"></p>
 </li>
@@ -459,7 +460,7 @@
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请你简述TCP、UDP的区别"><span class="nav-number">1.</span> <span class="nav-text">请你简述TCP、UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请简单说一下你了解的端口及对应的服务"><span class="nav-number">2.</span> <span class="nav-text">请简单说一下你了解的端口及对应的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">3.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP数据传输"><span class="nav-number">4.</span> <span class="nav-text">TCP数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次挥手？"><span class="nav-number">5.</span> <span class="nav-text">TCP四次挥手？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP为什么要三次握手，两次不行吗，为什么？"><span class="nav-number">6.</span> <span class="nav-text">TCP为什么要三次握手，两次不行吗，为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP协议如何保证可靠传输"><span class="nav-number">7.</span> <span class="nav-text">TCP协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP拥塞控制讲一下？"><span class="nav-number">8.</span> <span class="nav-text">TCP拥塞控制讲一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP粘包是怎么产生的"><span class="nav-number">9.</span> <span class="nav-text">TCP粘包是怎么产生的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在浏览器中输入网址之后执行会发生什么？"><span class="nav-number">10.</span> <span class="nav-text">在浏览器中输入网址之后执行会发生什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">11.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP协议包括哪些请求"><span class="nav-number">12.</span> <span class="nav-text">HTTP协议包括哪些请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述HTTP中GET和POST的区别"><span class="nav-number">13.</span> <span class="nav-text">简述HTTP中GET和POST的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的作用是什么？它和Session有什么区别？"><span class="nav-number">14.</span> <span class="nav-text">Cookie的作用是什么？它和Session有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS区别？"><span class="nav-number">15.</span> <span class="nav-text">HTTP和HTTPS区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么数据传输是用对称加密？"><span class="nav-number">16.</span> <span class="nav-text">为什么数据传输是用对称加密？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0和HTTP1-1的主要区别是什么？"><span class="nav-number">17.</span> <span class="nav-text">HTTP 1.0和HTTP1.1的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-1和HTTP2-0的主要区别是什么？"><span class="nav-number">18.</span> <span class="nav-text">HTTP 1.1和HTTP2.0的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP长连接，短连接"><span class="nav-number">19.</span> <span class="nav-text">HTTP长连接，短连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP是不保存状态的协议，如何保存用户状态？"><span class="nav-number">20.</span> <span class="nav-text">HTTP是不保存状态的协议，如何保存用户状态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie被禁用怎么办？"><span class="nav-number">21.</span> <span class="nav-text">Cookie被禁用怎么办？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请你简述TCP、UDP的区别"><span class="nav-number">1.</span> <span class="nav-text">请你简述TCP、UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请简单说一下你了解的端口及对应的服务"><span class="nav-number">2.</span> <span class="nav-text">请简单说一下你了解的端口及对应的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">3.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP数据传输"><span class="nav-number">4.</span> <span class="nav-text">TCP数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次挥手？"><span class="nav-number">5.</span> <span class="nav-text">TCP四次挥手？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP为什么要三次握手，两次不行吗，为什么？"><span class="nav-number">6.</span> <span class="nav-text">TCP为什么要三次握手，两次不行吗，为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP协议如何保证可靠传输"><span class="nav-number">7.</span> <span class="nav-text">TCP协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP拥塞控制讲一下？"><span class="nav-number">8.</span> <span class="nav-text">TCP拥塞控制讲一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP流量控制说一下？"><span class="nav-number">9.</span> <span class="nav-text">TCP流量控制说一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP粘包是怎么产生的"><span class="nav-number">10.</span> <span class="nav-text">TCP粘包是怎么产生的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在浏览器中输入网址之后执行会发生什么？"><span class="nav-number">11.</span> <span class="nav-text">在浏览器中输入网址之后执行会发生什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">12.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP协议包括哪些请求"><span class="nav-number">13.</span> <span class="nav-text">HTTP协议包括哪些请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述HTTP中GET和POST的区别"><span class="nav-number">14.</span> <span class="nav-text">简述HTTP中GET和POST的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的作用是什么？它和Session有什么区别？"><span class="nav-number">15.</span> <span class="nav-text">Cookie的作用是什么？它和Session有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS区别？"><span class="nav-number">16.</span> <span class="nav-text">HTTP和HTTPS区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么数据传输是用对称加密？"><span class="nav-number">17.</span> <span class="nav-text">为什么数据传输是用对称加密？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0和HTTP1-1的主要区别是什么？"><span class="nav-number">18.</span> <span class="nav-text">HTTP 1.0和HTTP1.1的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-1和HTTP2-0的主要区别是什么？"><span class="nav-number">19.</span> <span class="nav-text">HTTP 1.1和HTTP2.0的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP长连接，短连接"><span class="nav-number">20.</span> <span class="nav-text">HTTP长连接，短连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP是不保存状态的协议，如何保存用户状态？"><span class="nav-number">21.</span> <span class="nav-text">HTTP是不保存状态的协议，如何保存用户状态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie被禁用怎么办？"><span class="nav-number">22.</span> <span class="nav-text">Cookie被禁用怎么办？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -528,7 +529,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共70.5k字</span>
+  <span class="post-count">博客全站共70.6k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
