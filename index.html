@@ -179,7 +179,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-02 11:19:37 / Modified: 12:04:03" itemprop="dateCreated datePublished" datetime="2020-04-02T11:19:37+10:30">2020-04-02</time>
+              <time title="Created: 2020-04-02 11:19:37 / Modified: 12:14:40" itemprop="dateCreated datePublished" datetime="2020-04-02T11:19:37+10:30">2020-04-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,103 +208,16 @@
 <li>200：请求成功</li>
 <li>301：永久重定向</li>
 <li>404:  客户端请求的语法错误，服务器无法理解</li>
-<li>500: 服务器端在执行时发生错误，无法完成请求</li>
+<li>500:  服务器端在执行时发生错误，无法完成请求</li>
 </ul>
-<p>状态码分类：</p>
-<ul>
-<li>1xx: 指示信息，表示请求已接收，继续处理</li>
-<li>2xx: 成功，表示请求已被成功接收、理解、接受<ul>
-<li>200: 请求正常处理</li>
-<li>204: 请求处理成功，但是没有资源可返回</li>
-<li>206: 对资源的某一部分的请求</li>
-</ul>
-</li>
-<li>3xx: 重定向，要完成请求必须进行更进一步的操作<ul>
-<li>301: 永久重定向，请求的资源已经被永久的移动到新URI，今后任何新的请求都应该使用新的URI代替</li>
-<li>302: 临时性重定向，资源只是临时被移动，客户端应继续使用原有URI</li>
-<li>304: 缓存中读取，未修改。所请求的资源未修改，服务器返回状态码时，不返回任何资源，客户端通常会缓存访问过的资源</li>
-</ul>
-</li>
-<li>4xx：客户端错误，请求有语法错误或请求无法实现<ul>
-<li>400: 请求报文中存在语法错误</li>
-<li>401: 请求未经授权，需要有同感HTTP认证的认证信息</li>
-<li>403: 服务器收到请求，但是拒绝提供服务</li>
-<li>404: 无法找到请求资源</li>
-</ul>
-</li>
-<li>5xx：服务器端错误，服务器未能实现合法的请求<ul>
-<li>500: 服务器在执行时发生错误</li>
-<li>503: 服务器处于超负荷或者正在进行停机维护</li>
-</ul>
-</li>
-</ul>
-<h4 id="https了解吗？"><a href="#https了解吗？" class="headerlink" title="https了解吗？"></a>https了解吗？</h4><p>之前总结过，https的重点是安全性方面，对内容进行对称加密，对称加密的密钥采用非对称加密</p>
-<h4 id="MySQL性能了解吗？"><a href="#MySQL性能了解吗？" class="headerlink" title="MySQL性能了解吗？"></a>MySQL性能了解吗？</h4><p>答了MySQL索引那一块的全家桶（为什么用B+树，索引最左匹配原则，索引什么时候失效，聚簇索引和非聚簇索引)，面试官还问到MySQL引擎，答了InnoDB和MyISAM的区别</p>
-<h4 id="MySQL你还知道一些什么？"><a href="#MySQL你还知道一些什么？" class="headerlink" title="MySQL你还知道一些什么？"></a>MySQL你还知道一些什么？</h4><p>答：分页分库，单表数据量百万或者千万级别的时候需要分页</p>
-<h4 id="那我分页后想做查询应该怎么做？"><a href="#那我分页后想做查询应该怎么做？" class="headerlink" title="那我分页后想做查询应该怎么做？"></a>那我分页后想做查询应该怎么做？</h4><p>这个就涉及我的知识盲区了…只知道要用分页分库，但是大数据量后做查询还真不太知道</p>
-<p>查了之后知道有以下方案：</p>
-<ul>
-<li><p>一般分页查询<br>一般的分页查询用简单的limit子句就可以实现。limit子句声明如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">table</span> <span class="keyword">LIMIT</span> [<span class="keyword">offset</span>,] <span class="keyword">rows</span> | <span class="keyword">rows</span> <span class="keyword">OFFSET</span> <span class="keyword">offset</span></span><br></pre></td></tr></table></figure>
-
-<p>LIMIT子句可以被用于指定select语句返回的记录数。需要注意以下几点:</p>
-<ul>
-<li>第一个参数指定第一个返回记录行的偏移量，注意从0开始</li>
-<li>第二个参数指定返回记录行的最大数目</li>
-<li>如果只给定一个参数：它表示返回最大的记录行数目</li>
-<li>第二个参数为-1表示检索从某一个偏移量到记录集的结束所有的记录行</li>
-<li>初始记录行的偏移量是0</li>
-</ul>
-<p>这种查询在记录量低于100时，查询时间基本没有差距，随着查询记录量变大，时间消耗也增多，尤其当查询偏移大于10万后，查询时间显著增加。<strong>这种分页查询方式会从数据库第一条记录开始扫描，所以越往后，查询速度越慢，且查询的数据越多，也会拖慢总查询速度。</strong></p>
-</li>
-<li><p>使用子查询优化<br>这种方式先定义偏移位置的id，然后往后查询，适用于id递增的状况</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> orders_history <span class="keyword">where</span> <span class="keyword">type</span>=<span class="number">8</span> <span class="keyword">limit</span> <span class="number">100000</span>,<span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> orders_history <span class="keyword">where</span> <span class="keyword">type</span>=<span class="number">8</span> <span class="keyword">limit</span> <span class="number">100000</span>,<span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> orders_history <span class="keyword">where</span> <span class="keyword">type</span>=<span class="number">8</span> <span class="keyword">and</span> </span><br><span class="line"><span class="keyword">id</span>&gt;=(<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> orders_history <span class="keyword">where</span> <span class="keyword">type</span>=<span class="number">8</span> <span class="keyword">limit</span> <span class="number">100000</span>,<span class="number">1</span>)</span><br><span class="line"><span class="keyword">limit</span> <span class="number">100</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> orders_history <span class="keyword">where</span> <span class="keyword">type</span>=<span class="number">8</span> <span class="keyword">limit</span> <span class="number">100000</span>,<span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-
-<p>4条语句的查询时间如下：</p>
-<ul>
-<li>第1条语句：3674ms</li>
-<li>第2条语句：1315ms</li>
-<li>第3条语句：1327ms</li>
-<li>第4条语句：3710ms</li>
-</ul>
-<p>比较第1条和第2条语句：使用select id比select *速度增加了3倍</p>
-<p>比较第2条和第3条语句，速度相差几十毫秒</p>
-<p>比较3条语句和第4条语句，得益于select id速度增加，第三条查询速度快了3倍</p>
-</li>
-<li><p>使用id限定优化<br>这方式假设数据表的id时连续递增的，则我们根据查询的页数和查询的记录数可以算出查询的id的范围，可以使用 id between and 来查询：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> orders_history <span class="keyword">where</span> <span class="keyword">type</span>=<span class="number">2</span> </span><br><span class="line"><span class="keyword">and</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">1000000</span> <span class="keyword">and</span> <span class="number">1000100</span> <span class="keyword">limit</span> <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这种查询方式能够极大地优化查询速度，基本能够在几十毫秒之内完成。限制是只能使用于明确知道id的情况，不过一般建立表的时候，都会添加基本的id字段，这为分页查询带来很多便利。</p>
-</li>
-</ul>
-<h4 id="SQL注入了解吗？"><a href="#SQL注入了解吗？" class="headerlink" title="SQL注入了解吗？"></a>SQL注入了解吗？</h4><h4 id="前端了解吗？自己项目前端用了什么框架，自己写过样式吗？"><a href="#前端了解吗？自己项目前端用了什么框架，自己写过样式吗？" class="headerlink" title="前端了解吗？自己项目前端用了什么框架，自己写过样式吗？"></a>前端了解吗？自己项目前端用了什么框架，自己写过样式吗？</h4><h4 id="样式的优先级了解吗？"><a href="#样式的优先级了解吗？" class="headerlink" title="样式的优先级了解吗？"></a>样式的优先级了解吗？</h4><h4 id="假设你做的页面访问比较慢，你能够从哪些方面定位这个问题？"><a href="#假设你做的页面访问比较慢，你能够从哪些方面定位这个问题？" class="headerlink" title="假设你做的页面访问比较慢，你能够从哪些方面定位这个问题？"></a>假设你做的页面访问比较慢，你能够从哪些方面定位这个问题？</h4><p>这是一个场景题，之前没怎么整理过，目前来看面试的时候面试官还是会问一些这样的题目考察对实际业务的理解。</p>
-<p>这个问题我们可简单理解为是服务器端的问题，而不是客户端的问题，回答时应该侧重服务端知识点</p>
-<p>可能的原因：</p>
-<ul>
-<li>服务器出口带宽不够用<br>可能本身购买的服务器出口带宽就很小，所以用户访问量上来以后，并发量大了，均分的带宽就小了，某些用户的访问速度就下降很多。另一个就是跨运营商网络导致带宽缩减，有一些公司的服务器时放在电信的网络上，如果用户对接的是长城或者联通的宽带，运营商之间网络传输在对接时时有限制的，导致带宽的缩减</li>
-<li>服务器负载过大<br>CPU和内存消耗完了（和我当时答的思路差不多，我说网站可能涉及的API和接口比较多，占用服务器的内存）</li>
-<li>网站的开发代码没有写好<br>比如MySQL语句没有优化，导致数据度读写耗费时间</li>
-<li>数据库的瓶颈<br>数据库变得大了以后，读写变得缓慢，索引优化可以提升一些效率，但是还是避免不了全局查询的情况，应该考虑拆表、拆库。</li>
-</ul>
-<p>针对上面的原因，有哪些方法和工具可以用来检测？</p>
-<ul>
-<li>首先我自己先打开网页看看加载情况，如果我这边没问题，那可能是用户的问题了，先确定时用户问题还是服务器或者网站问题</li>
-<li>如果是服务器问题，利用浏览器的调试功能，调试网络看看各种数据的加载速度，哪一项消耗了最多时间，是图片加载太慢还是某些数据加载半天都出不来</li>
-<li>然后针对服务器的负载情况，可以查看服务器硬件(带宽、CPU、内存)的消耗状况，带宽方面查看流量监控是不是已经到了峰值，带宽不够用了，如果是公司自己买服务器搭的网站服务器，需要自己搭建监控环境；如果用的是阿里云腾讯云这些的，平台会提供各方面的监控比如CPU、带宽等等，在后台就能看到</li>
-<li>如果硬件资源消耗不多，要考虑程序问题。可以通过查日志来检测，特别如mysql有个慢查询的日志功能，可以看到是不是某条mysql语句特别慢，如果某条语句花的时间太长，那这条语句很可能存在问题</li>
-<li>数据库太庞大，直接看表或者库是不是文件大小太大了</li>
-</ul>
-<p>解决方案：</p>
-<ul>
-<li>出口带宽不够，那就加带宽，买带宽</li>
-<li>mysql语句进行优化</li>
-<li>分表分库</li>
-<li>分表分库一般是针对数据库太庞大才会这么做，一般在此之前有其他优化方法，比如mysql的主从复制，一台主服务器专门用于写，然后其他从服务器用来读，写完之后同步更新到其他读的服务器中</li>
-<li>非关系型数据库，使用缓存机制，数据缓存到内存，用户访问数据直接从内存读取，速度就比在磁盘里快很多</li>
-<li>CDN（content-delivery-network：内容分发网络），鸡蛋放在多个篮子里，把数据放在离用户更近的位置（例如网站的一些静态文件比如图片或者js脚本），用户访问时判断IP来源是广州，那就通过智能DNS解析到广州的服务器上，直接从广州的篮子里去获取数据，速度就快了。这里有个静态数据和动态数据的概念，例如图片和一些js文件一般是不变的，那就可以把它们的映像分布到全国各地，加快速度，而一些需要在网站后台动态产生的一些数据，则需要去到网站所在的服务器去产生并得到。这个涉及到两种数据的显示的问题，这就交由浏览器处理了。同时异步加载的技术例如前端的Ajax技术，异步请求数据，可以使这些动态数据延迟加载。</li>
-<li>上面都没有说到架构的优化，如果网站扛不住，是不是网站架构已经不能适应了，比如做个小博客把数据库服务器和web服务器都用同一台服务器，那所有负载都在同一台服务器上了。但是访问量上来扛不住了，就得加服务器了，就得在架构上优化了，比如在数据库上做集群，在web服务器上也做集群，比如web服务器集群，在服务器前面加一个负载均衡，负载均衡就是专门负责分发，把用户的请求均匀分布到各个服务器上。</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/leo-yang0201.github.io/2020/04/02/%E8%85%BE%E8%AE%AF3-31%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91%E4%B8%80%E9%9D%A2%E6%80%BB%E7%BB%93/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
