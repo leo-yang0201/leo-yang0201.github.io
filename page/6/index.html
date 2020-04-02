@@ -119,7 +119,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">36</span></a>
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">37</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">91</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">92</span></a>
 
   </li>
   </ul>
@@ -150,6 +150,107 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/02/03/Leetcode-9-Palindrome-Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/02/03/Leetcode-9-Palindrome-Number/" class="post-title-link" itemprop="url">Leetcode 9 Palindrome Number(回文数)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-03 22:10:37" itemprop="dateCreated datePublished" datetime="2020-02-03T22:10:37+10:30">2020-02-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-05 23:44:57" itemprop="dateModified" datetime="2020-03-05T23:44:57+10:30">2020-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Math"><a href="#Type-Math" class="headerlink" title="Type: Math"></a>Type: Math</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
+<li><p>Clarification </p>
+<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p><strong>Follow up:</strong></p>
+<p>Coud you solve it without converting the integer to a string?</p>
+</li>
+<li><p>Possible Solutions</p>
+<ul>
+<li>每次循环去掉首尾<br>首先用一个数字记录数字的最高位，比如312213，可以标记div为100000，首位即为312213/100000 = 3，末位可用余数得到，312213 % 10 = 3，接下来要看1221是否为回文，去掉首位的方法是让312213 % 100000 = 12213，去掉末位的方法是让12213 / 10 = 1221，最后把div也去掉两位，div / 100 = 1000，如此循环，若每次比较的两位都相等，返回true。</li>
+</ul>
+</li>
+<li><p>Code</p>
+</li>
+</ol>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> div = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (x / div &gt;= <span class="number">10</span>) div = div * <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> left = x / div;</span><br><span class="line">            <span class="keyword">int</span> right = x % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span> (left != right) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            x = (x % div) / <span class="number">10</span>;</span><br><span class="line">            div = div / <span class="number">100</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：O(n) 空间复杂度：O(1)</p>
+<ol start="4">
+<li><p>Test cases</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1053,99 +1154,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/01/20/Leetcode-83-Remove-Duplicates-from-Sorted-List/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/01/20/Leetcode-83-Remove-Duplicates-from-Sorted-List/" class="post-title-link" itemprop="url">Leetcode 83 Remove Duplicates from Sorted List(删除排序链表中的重复元素)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-20 21:42:23" itemprop="dateCreated datePublished" datetime="2020-01-20T21:42:23+10:30">2020-01-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:47:37" itemprop="dateModified" datetime="2020-03-05T23:47:37+10:30">2020-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Linked-List"><a href="#Type-Linked-List" class="headerlink" title="Type: Linked List"></a>Type: Linked List</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification </p>
-<p>Given a sorted linked list, delete all duplicates such that each element appear only <em>once</em>.</p>
-</li>
-<li><p>Possible Solutions</p>
-<ul>
-<li>直接判断链表值然后删除结点<br>单设一个结点cur，如果cur.next不为空，就继续循环，判断cur.next.val 是不是等于 cur.val，如果相等说明出现重复值，cur.next = cur.next.next，跳过重复值指针，即可。</li>
-</ul>
-</li>
-<li><p>Code</p>
-</li>
-</ol>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">while</span> (cur.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur.next.val == cur.val) cur.next = cur.next.next;</span><br><span class="line">            <span class="keyword">else</span> cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><p>Test cases</p>
-<p>Example 2:</p>
-<p>Input: 1-&gt;1-&gt;2-&gt;3-&gt;3<br>Output: 1-&gt;2-&gt;3</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1220,7 +1228,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1233,7 +1241,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/leo-yang0201.github.io/tags/">
           
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1273,7 +1281,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共71.8k字</span>
+  <span class="post-count">博客全站共74.5k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
