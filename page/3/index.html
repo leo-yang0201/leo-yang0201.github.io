@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">92</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">93</span></a>
 
   </li>
   </ul>
@@ -150,6 +150,97 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/12/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/" class="post-title-link" itemprop="url">Leetcode 309 Best Time to Buy and Sell Stock with Cooldown(最佳买卖股票时机含冷冻期)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-12 15:15:57 / Modified: 15:40:34" itemprop="dateCreated datePublished" datetime="2020-03-12T15:15:57+10:30">2020-03-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Difficulty : Medium</p>
+<p>Type: Dynamic Programming, Array</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:</p>
+<ul>
+<li>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</li>
+<li>After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)</li>
+</ul>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li><p>动态规划</p>
+<p>思路同LC 122，k还是正无穷（可以交易无数次），唯一的变化就是每次交易多了一个冷冻期，那么第i天选择buy的时候，要从i - 2的状态转移而不是i - 1</p>
+<p>状态转移方程依然是这个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">因为k为正无穷，那么k和k-1是一样的，多了一个冷冻期，买入的时候从i - 2状态开始改变</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-2][k-1][0] - prices[i])</span><br><span class="line">            &#x3D; Max(dp[i-1][k][1],dp[i-2][k][0] - prices[i])</span><br><span class="line">所以k其实没有影响了，可以拿掉，简化后为：</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][0],dp[i-1][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][1],dp[i-2][0] - prices[i])</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">2</span> == -<span class="number">1</span>)&#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = Math.max(dp[<span class="number">0</span>][<span class="number">0</span>],dp[<span class="number">0</span>][<span class="number">1</span>] + prices[<span class="number">1</span>]);</span><br><span class="line">                dp[i][<span class="number">1</span>] = Math.max(dp[<span class="number">0</span>][<span class="number">1</span>],dp[<span class="number">0</span>][<span class="number">0</span>] - prices[<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>],dp[i - <span class="number">1</span>][<span class="number">1</span>] + prices[i]);</span><br><span class="line">            dp[i][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>],dp[i - <span class="number">2</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上面代码太繁琐了，又要处理i-1又要处理i-2，代码不够优雅</span></span><br><span class="line"><span class="comment">// 空间复杂度为O(1)的实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">int</span> dp_i_0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> dp_i_1 = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">int</span> dp_2_0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = dp_i_0;</span><br><span class="line">            dp_i_0 = Math.max(dp_i_0,dp_i_1 + prices[i]);</span><br><span class="line">            dp_i_1 = Math.max(dp_i_1,dp_2_0 - prices[i]);</span><br><span class="line">            dp_2_0 = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp_i_0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,0,2]</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: transactions &#x3D; [buy, sell, cooldown, buy, sell]</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1009,111 +1100,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%94/" class="post-title-link" itemprop="url">Java面试题汇总（五）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-09 23:37:16" itemprop="dateCreated datePublished" datetime="2020-03-09T23:37:16+10:30">2020-03-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-10 00:10:29" itemprop="dateModified" datetime="2020-03-10T00:10:29+10:30">2020-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="throw和throws的区别？"><a href="#throw和throws的区别？" class="headerlink" title="throw和throws的区别？"></a>throw和throws的区别？</h4><p>throws是用来声明一个方法可能抛出的所有异常信息，throws是将异常声明但是不处理，而是将异常往上传，谁调用我就交给谁处理，而throw则是指抛出的一个具体的异常类型</p>
-<h4 id="final、finally、finalize有什么区别？"><a href="#final、finally、finalize有什么区别？" class="headerlink" title="final、finally、finalize有什么区别？"></a>final、finally、finalize有什么区别？</h4><ul>
-<li>final可以修饰类、变量、方法，修饰类表示该类不可以继承，修饰变量表示该变量是常量，不能被重新赋值，修饰方法表示此方法不可以被重写</li>
-<li>finally一般作用在try-catch块中，在处理异常中，通常我们将一定要执行的代码放到finally块里，表示不管是否出现异常，该代码块都会执行，一般用来存放一些关闭资源的代码</li>
-<li>finalize是一个方法，属于Object类，该方法一般由垃圾回收器调用，当调用System的gc方法时，由垃圾回收器调用finalize()，回收垃圾</li>
-</ul>
-<h4 id="try-catch-finally中哪个部分可以省略？"><a href="#try-catch-finally中哪个部分可以省略？" class="headerlink" title="try-catch-finally中哪个部分可以省略？"></a>try-catch-finally中哪个部分可以省略？</h4><p>catch可以省略</p>
-<p>try只适合处理运行时异常，try+catch适合处理运行时异常+普通异常，如果只用try处理普通异常但不加catch处理，编译无法通过，因为编译器硬性规定，普通异常如果选择捕获，必须用catch显示声明以便进一步处理，而运行时异常在编译时没有如此设定，所以catch可以省略。加上finally，则是不管有没有捕获异常，都要进行的“扫尾”处理</p>
-<h4 id="try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？"><a href="#try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？" class="headerlink" title="try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？"></a>try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？</h4><p>会，在return前执行</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * java面试题--如果catch里面有return语句，finally里面的代码还会执行吗？</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinallyDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getInt());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(a / <span class="number">0</span>);</span><br><span class="line">            a = <span class="number">20</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            a = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * return a 在程序执行到这一步的时候，这里不是return a 而是 return 30；这个返回路径就形成了</span></span><br><span class="line"><span class="comment">             * 但是呢，它发现后面还有finally，所以继续执行finally的内容，a=40</span></span><br><span class="line"><span class="comment">             * 再次回到以前的路径,继续走return 30，形成返回路径之后，这里的a就不是a变量了，而是常量30</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a = <span class="number">40</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//      return a;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>执行结果：30</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * java面试题--如果catch里面有return语句，finally里面的代码还会执行吗？</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinallyDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getInt());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(a / <span class="number">0</span>);</span><br><span class="line">            a = <span class="number">20</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            a = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * return a 在程序执行到这一步的时候，这里不是return a 而是 return 30；这个返回路径就形成了</span></span><br><span class="line"><span class="comment">             * 但是呢，它发现后面还有finally，所以继续执行finally的内容，a=40</span></span><br><span class="line"><span class="comment">             * 再次回到以前的路径,继续走return 30，形成返回路径之后，这里的a就不是a变量了，而是常量30</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a = <span class="number">40</span>;</span><br><span class="line">            <span class="keyword">return</span> a; <span class="comment">//如果这样，就又重新形成了一条返回路径，由于只能通过1个return返回，所以这里直接返回40</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//      return a;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>执行结果：40</p>
-<h4 id="常见的异常类有哪些？"><a href="#常见的异常类有哪些？" class="headerlink" title="常见的异常类有哪些？"></a>常见的异常类有哪些？</h4><ul>
-<li>NullPointerException: 当应用程序试图访问空对象时，则抛出该异常</li>
-<li>SQLException: 提供关于数据库访问错误或其他错误信息的异常</li>
-<li>IndexOutOfBoundsException: 指示某排序索引（数组、字符串或向量的排序）超出范围时抛出</li>
-<li>NumberFormatException: 当程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常</li>
-<li>FileNotFoundException: 当试图打开指定路径名表示的文件失败时，抛出该异常</li>
-<li>IOException: 当发生某种I/O异常时，抛出此异常，此类是失败或中断的I/O操作生成的异常的通用类</li>
-<li>ClassCastException：当试图将对象强制转换为不是实例的子类时，抛出该异常。</li>
-<li>ArrayStoreException：试图将错误类型的对象存储到一个对象数组时抛出的异常。</li>
-<li>IllegalArgumentException：抛出的异常表明向方法传递了一个不合法或不正确的参数。</li>
-<li>ArithmeticException：当出现异常的运算条件时，抛出此异常。例如，一个整数“除以零”时，抛出此类的一个实例。 </li>
-<li>NegativeArraySizeException：如果应用程序试图创建大小为负的数组，则抛出该异常。</li>
-<li>NoSuchMethodException：无法找到某一特定方法时，抛出该异常。</li>
-<li>SecurityException：由安全管理器抛出的异常，指示存在安全侵犯。</li>
-<li>UnsupportedOperationException：当不支持请求的操作时，抛出该异常。</li>
-<li>RuntimeExceptionRuntimeException：是那些可能在Java虚拟机正常运行期间抛出的异常的超类。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1188,7 +1174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1241,7 +1227,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共74.7k字</span>
+  <span class="post-count">博客全站共75.5k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>

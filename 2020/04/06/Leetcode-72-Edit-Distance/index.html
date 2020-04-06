@@ -22,19 +22,20 @@
     var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Difficulty : EasyType: Dynamic programmingLanguage : Java ClarificationEach time you can either climb 1 step or 2 steps. Find all the distinct ways to climb to the top  Possible Solutions  斐波那契数列当n &amp;l">
+  <meta name="description" content="Difficulty : Hard Type: String,Dynamic Programming Language : Java Clarification Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2. You have the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 70 Climbing Stairs(爬楼梯)">
-<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2019&#x2F;12&#x2F;16&#x2F;Leetcode-70-Climbing-Stairs&#x2F;index.html">
+<meta property="og:title" content="Leetcode 72 Edit Distance(编辑距离)">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;04&#x2F;06&#x2F;Leetcode-72-Edit-Distance&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
-<meta property="og:description" content="Difficulty : EasyType: Dynamic programmingLanguage : Java ClarificationEach time you can either climb 1 step or 2 steps. Find all the distinct ways to climb to the top  Possible Solutions  斐波那契数列当n &amp;l">
-<meta property="article:published_time" content="2019-12-16T03:43:21.000Z">
-<meta property="article:modified_time" content="2020-03-05T13:17:12.609Z">
+<meta property="og:description" content="Difficulty : Hard Type: String,Dynamic Programming Language : Java Clarification Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2. You have the">
+<meta property="article:published_time" content="2020-04-06T08:49:59.000Z">
+<meta property="article:modified_time" content="2020-04-06T09:12:52.587Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="Dynamic Programming">
+<meta property="article:tag" content="String">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://leo-yang0201.github.io/2019/12/16/Leetcode-70-Climbing-Stairs/">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/04/06/Leetcode-72-Edit-Distance/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>Leetcode 70 Climbing Stairs(爬楼梯) | Leo Yang's Blog</title>
+  <title>Leetcode 72 Edit Distance(编辑距离) | Leo Yang's Blog</title>
   
 
 
@@ -157,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/16/Leetcode-70-Climbing-Stairs/">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/04/06/Leetcode-72-Edit-Distance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
@@ -170,7 +171,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Leetcode 70 Climbing Stairs(爬楼梯)
+          Leetcode 72 Edit Distance(编辑距离)
         </h1>
 
         <div class="post-meta">
@@ -179,16 +180,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-12-16 14:13:21" itemprop="dateCreated datePublished" datetime="2019-12-16T14:13:21+10:30">2019-12-16</time>
+              <time title="Created: 2020-04-06 18:19:59 / Modified: 18:42:52" itemprop="dateCreated datePublished" datetime="2020-04-06T18:19:59+09:30">2020-04-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-05 23:47:12" itemprop="dateModified" datetime="2020-03-05T23:47:12+10:30">2020-03-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -217,42 +212,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Dynamic-programming"><a href="#Type-Dynamic-programming" class="headerlink" title="Type: Dynamic programming"></a>Type: Dynamic programming</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
-<li><p>Clarification<br>Each time you can either climb 1 step or 2 steps. Find all the <strong>distinct</strong> ways to climb to the top</p>
-</li>
-<li><p>Possible Solutions</p>
-<ul>
-<li><p>斐波那契数列<br>当n &lt;= 2时，结果将为n。 当n&gt; 2时（例如n = 4），到达顶部的最后一步要么是1步要么是2步。 因此，n = one_step_before + two_steps_before。 这是要进行递归的三个指针。 使用for循环更新它们的值并返回最后的n。</p>
-</li>
-<li><p>动态规划<br>分成多个子问题，爬第n阶楼梯的方法数量，等于2部分之和</p>
-<ul>
-<li>爬上n - 1阶楼梯的方法数量，因为再爬1阶就能到第n阶</li>
-<li>爬上n - 2阶楼梯的方法数量，因为再爬2阶就能到第n阶</li>
-</ul>
-<p>所以公式为dp[n] = dp[n-1] + dp[n-2]</p>
-<p>同时需要初始化dp[0] = 1和dp[1] = 1</p>
+        <p>Difficulty : Hard</p>
+<p>Type: String,Dynamic Programming</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><ul>
+<li><p>Given two words <em>word1</em> and <em>word2</em>, find the minimum number of operations required to convert <em>word1</em> to <em>word2</em>.</p>
+<p>You have the following 3 operations permitted on a word:</p>
+<ol>
+<li>Insert a character</li>
+<li>Delete a character</li>
+<li>Replace a character</li>
+</ol>
 </li>
 </ul>
+<a id="more"></a>
+
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li><p>动态规划<br>这道题我一开始看了题解也没有想明白，但是这种题面试中被问到的频率还挺高的，动态规划一类的题自己也还是比较怕遇到。<br>这道题需求求解的是word1编辑到word2需要的步骤最小值，思路是可以先把word1的一个子串编辑成word2的一个子串，然后随着子串的长度逐渐变大，推导出结果。<br>用w1si表示word1的子串(sub(0,i))，w2sj表示word2的子串(sub(0,j));<br>二维数组dp[i][j]表示把w1si编辑成w2sj所需要的最少步数<br>假如现在word1是horse，word2是ros<br>把horse转为Ros，可在已知以下三种情况之下，在做一个额外操作：</p>
+<ul>
+<li>当前已经有hors编辑为ros的步骤，那么可以在原word1(horse)的基础上，删除最后的e，实现编辑，即 horse -&gt; rose -&gt; ros</li>
+<li>当前已经有horse编辑成ro的步骤，那么可以在原word1(horse)的基础上，插入一个s，也可以得到ros，即horse -&gt; ro -&gt; ros</li>
+<li>当前已经有了hors编辑成ro的步骤，那么可以在原word1(horse)的基础上，把最后的一个e替换成s，也可以得到ros，即 horse -&gt; roe -&gt; ros</li>
+</ul>
+<p>注：hors -&gt; ros 等于 hor -&gt; ro</p>
+<h6 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a><strong>状态转移方程</strong></h6><p>可以认为上面三种情况下最小值就是最终结果：</p>
+<p>dp(horse -&gt; ros) = min{dp(hors-&gt;ros),dp(horse-&gt;ro),dp(hors-&gt;ro)} + 1</p>
+<p>即：dp[i][j] = min(dp[i - 1][j],dp[i][j - 1],dp[i - 1][j - 1] + 1);</p>
+<p>特殊情况下：</p>
+<p>如果word1[i] == word2[j]，那么dp[i][j]=dp[i - 1][j - 1];</p>
+<p><strong>边界</strong></p>
+<p>边界是i = 0 或者 j = 0</p>
+<p>如果i = 0，表示从horse的一个空子串(“”)编辑成ros的所有子串(“”、”r”、”ro”、”ros”)所需要的步数，每一个都执行插入就可以了，结果为dp[0][j] = j;</p>
+<p>如果j = 0，表示从horse的所有子串(“”、”h”、”ho”、”hor”、”hors”、”horse”)编辑成ros的一个空子串(“”)所需要的步数，每一步都执行删除就可以了，结果为dp[i][0] = i;</p>
 </li>
-<li><p>Code</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Fibonacchi</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">      <span class="comment">// Set the initial value of f1,f2,f3</span></span><br><span class="line">        <span class="keyword">int</span> f1 = <span class="number">1</span>, f2 = <span class="number">2</span>, f3 = <span class="number">3</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>;i &lt; n;i++)&#123;</span><br><span class="line">        f3 = f1 + f2;</span><br><span class="line">        f1 = f2;</span><br><span class="line">        f2 = f3;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> f3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Time Complexity: O(N)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动态规划</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">            dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> dp[n];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</ul>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size1 = word1.length();</span><br><span class="line">        <span class="keyword">int</span> size2 = word2.length();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//子串都应包含空串，所以长度都+1</span></span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[size1 + <span class="number">1</span>][size2 + <span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= size1; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= size2; j++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][j] = j;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//都从不为空串的第一个子串开始</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= size1; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;=size2; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (word1.charAt(i-<span class="number">1</span>) == word2.charAt(j-<span class="number">1</span>)) &#123;</span><br><span class="line">                    dp[i][j] = dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    </span><br><span class="line">                    dp[i][j] = Math.min(Math.min(dp[i-<span class="number">1</span>][j-<span class="number">1</span>], dp[i][j-<span class="number">1</span>]), dp[i-<span class="number">1</span>][j]) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[size1][size2];</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-</li>
-</ol>
-<ol start="4">
-<li><p>Test Case</p>
-<p>Input : 2</p>
-<p>Output : 2</p>
-<p>Input : 7</p>
-<p>Output : 21</p>
-</li>
-</ol>
+<h4 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: word1 &#x3D; &quot;horse&quot;, word2 &#x3D; &quot;ros&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">horse -&gt; rorse (replace &#39;h&#39; with &#39;r&#39;)</span><br><span class="line">rorse -&gt; rose (remove &#39;r&#39;)</span><br><span class="line">rose -&gt; ros (remove &#39;e&#39;)</span><br></pre></td></tr></table></figure>
 
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: word1 &#x3D; &quot;intention&quot;, word2 &#x3D; &quot;execution&quot;</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: </span><br><span class="line">intention -&gt; inention (remove &#39;t&#39;)</span><br><span class="line">inention -&gt; enention (replace &#39;i&#39; with &#39;e&#39;)</span><br><span class="line">enention -&gt; exention (replace &#39;n&#39; with &#39;x&#39;)</span><br><span class="line">exention -&gt; exection (replace &#39;n&#39; with &#39;c&#39;)</span><br><span class="line">exection -&gt; execution (insert &#39;u&#39;)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -264,6 +266,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/leo-yang0201.github.io/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
+              <a href="/leo-yang0201.github.io/tags/String/" rel="tag"># String</a>
           </div>
 
         
@@ -272,13 +275,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-11-Container-With-Most-Water/" rel="prev" title="Leetcode 11 Container With Most Water(盛最多水的容器)">
-      <i class="fa fa-chevron-left"></i> Leetcode 11 Container With Most Water(盛最多水的容器)
+    <a href="/leo-yang0201.github.io/2020/04/02/%E8%85%BE%E8%AE%AF3-31%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91%E4%B8%80%E9%9D%A2%E6%80%BB%E7%BB%93/" rel="prev" title="腾讯3.31后台开发一面总结">
+      <i class="fa fa-chevron-left"></i> 腾讯3.31后台开发一面总结
     </a></div>
-      <div class="post-nav-item">
-    <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-15-3Sum/" rel="next" title="Leetcode 15 3Sum(三数之和)">
-      Leetcode 15 3Sum(三数之和) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -341,7 +341,7 @@
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Difficulty-Easy"><span class="nav-number">1.</span> <span class="nav-text">Difficulty : Easy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-Dynamic-programming"><span class="nav-number">2.</span> <span class="nav-text">Type: Dynamic programming</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Language-Java"><span class="nav-number">2.1.</span> <span class="nav-text">Language : Java</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Clarification"><span class="nav-number">1.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Possible-Solutions"><span class="nav-number">2.</span> <span class="nav-text">Possible Solutions</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#状态转移方程"><span class="nav-number">2.0.1.</span> <span class="nav-text">状态转移方程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-cases"><span class="nav-number">4.</span> <span class="nav-text">Test cases</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -504,7 +504,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'leo-yang0201.github.io',
       owner       : 'leo-yang0201',
       admin       : ['leo-yang0201'],
-      id          : '6945d9b3f255e9abd9db65f085760fc3',
+      id          : 'e1551d7740b7d7ede8b39f67e378f928',
         language: '',
       distractionFreeMode: true
     });
