@@ -33,7 +33,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lAgwF.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lY98x.png">
 <meta property="article:published_time" content="2020-03-14T10:15:49.000Z">
-<meta property="article:modified_time" content="2020-04-01T08:44:47.059Z">
+<meta property="article:modified_time" content="2020-04-15T07:54:14.420Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-01 19:14:47" itemprop="dateModified" datetime="2020-04-01T19:14:47+10:30">2020-04-01</time>
+                <time title="Modified: 2020-04-15 17:24:14" itemprop="dateModified" datetime="2020-04-15T17:24:14+09:30">2020-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,7 +271,11 @@
 <li>Hash<br>Hash算法由于随机性，可能出现哈希冲突，如果执行下面的sql语句：<br> Select * from test where name = ‘Leo’<br>可以直接对“Leo”按哈希算法算出来一个数组下标，然后直接从数据中取出数据并拿到所对应那一行数据的地址，进而查询那一行数据，但如果执行下面的sql语句<br>Select * from test where name &gt; ‘Leo’<br>Hash表没有办法做到，因为其特点就是<strong>可以快速的精确查询，但是不支持范围查询</strong>，如果做成索引，需要全部扫描，速度慢。Hash表更适用于等值查询的场景。</li>
 <li>B+树<br>首先说二叉树，二叉树因为是有序的，所以支持范围查询，但时间复杂度为O(log(N))，为了维持时间复杂度，更新的时间也要是O(log(N))，就需要保持这颗树是完全平衡二叉树，但完全平衡二叉树的维护成本随着数据量的增大而变高，不适用大数据量的查询。<br>相比B树，B+树的优势在于B+树的非叶子结点会冗余一份在叶子结点中，并且叶子结点件用指针相连。B树一个结点可以存储多个元素，比完全平衡二叉树的树高低，磁盘IO效率提高了，B+树把非叶子结点进行了冗余，这样提高了范围查找的范围（有一个指针指向下一个结点的叶子结点）</li>
 </ul>
-<p>所以B+树可以<strong>提高查询索引时的磁盘IO效率</strong>，并且<strong>可以提高范围查询的效率</strong>，并且<strong>B+树里的元素也是有序的</strong></p>
+<p>所以B+树可以<strong>提高查询索引时的磁盘IO效率</strong>，并且<strong>可以提高范围查询的效率</strong>，并且<strong>B+树里的元素也是有序的</strong>。但B+树存在产生大量随机IO的性能问题，主要有两种情况：</p>
+<ul>
+<li>主键不是有序递增的，导致每次插入数据产生大量的数据迁移和空间碎片</li>
+<li>即使主键是有序递增的，大量写请求的分布仍是随机的</li>
+</ul>
 <h4 id="索引的最左匹配原则了解吗？"><a href="#索引的最左匹配原则了解吗？" class="headerlink" title="索引的最左匹配原则了解吗？"></a>索引的最左匹配原则了解吗？</h4><ul>
 <li>索引可以简单如一个列(a)，也可以复杂如多个列(a,b,c,d)，即联合索引</li>
 <li>如果是联合索引，那么key也由多个列组成，同时，索引只能用于查找key是否存在（相等），遇到范围查询就不能进一步匹配了，后续退化为线性查找。</li>
@@ -557,7 +561,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共81.2k字</span>
+  <span class="post-count">博客全站共81.7k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
