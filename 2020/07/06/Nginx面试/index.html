@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/leo-yang0201.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/leo-yang0201.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/leo-yang0201.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/leo-yang0201.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/leo-yang0201.github.io/yzm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/leo-yang0201.github.io/yzm/pace/pace-theme-center-atom.min.css">
+  <script src="/leo-yang0201.github.io/yzm/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这几天实习还算比较轻松，自己也打算再多花点时间学习一些知识，准备回国继续找实习，这次就从Nginx开始整理，这也是个比较常见的Web服务器，面试中很可能会被问到。 什么是Nginx? Nginx是一个轻量级&#x2F;高性能的反向代理Web服务器，可以实现高效的反向代理、负载均衡，可以处理2-3万并发连接数。新浪、网易、腾讯都在使用Nginx  为什么要用Nginx? 跨平台、配置简单、方向代理、高并发连接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx面试整理">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;07&#x2F;06&#x2F;Nginx%E9%9D%A2%E8%AF%95&#x2F;index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="这几天实习还算比较轻松，自己也打算再多花点时间学习一些知识，准备回国继续找实习，这次就从Nginx开始整理，这也是个比较常见的Web服务器，面试中很可能会被问到。 什么是Nginx? Nginx是一个轻量级&#x2F;高性能的反向代理Web服务器，可以实现高效的反向代理、负载均衡，可以处理2-3万并发连接数。新浪、网易、腾讯都在使用Nginx  为什么要用Nginx? 跨平台、配置简单、方向代理、高并发连接">
+<meta property="article:published_time" content="2020-07-06T13:41:35.000Z">
+<meta property="article:modified_time" content="2020-07-06T14:22:25.199Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/07/06/Nginx%E9%9D%A2%E8%AF%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Nginx面试整理 | Leo Yang's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/leo-yang0201.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leo Yang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">技术&&编程&&刷题</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/leo-yang0201.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">40</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/leo-yang0201.github.io/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">100</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/07/06/Nginx%E9%9D%A2%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx面试整理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-07-06 23:11:35 / Modified: 23:52:25" itemprop="dateCreated datePublished" datetime="2020-07-06T23:11:35+09:30">2020-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">Web服务器</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这几天实习还算比较轻松，自己也打算再多花点时间学习一些知识，准备回国继续找实习，这次就从Nginx开始整理，这也是个比较常见的Web服务器，面试中很可能会被问到。</p>
+<h4 id="什么是Nginx"><a href="#什么是Nginx" class="headerlink" title="什么是Nginx?"></a>什么是Nginx?</h4><ul>
+<li>Nginx是一个轻量级/高性能的反向代理Web服务器，可以实现高效的反向代理、负载均衡，可以处理2-3万并发连接数。新浪、网易、腾讯都在使用Nginx</li>
+</ul>
+<h4 id="为什么要用Nginx"><a href="#为什么要用Nginx" class="headerlink" title="为什么要用Nginx?"></a>为什么要用Nginx?</h4><ul>
+<li>跨平台、配置简单、方向代理、高并发连接、内存消耗小（开10个nginx才占150M内存，擅长处理静态文件，耗费内存少）</li>
+<li>内置健康检查功能：如有一个服务器宕机，会进行健康检查，后续的请求不会发送到宕机的服务器上，而是重新将请求提交到其他的节点上</li>
+<li>节省宽带：支持GZIP压缩，可以添加浏览器本地缓存</li>
+<li>稳定感好，不容易宕机</li>
+<li>接收用户请求是异步的</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="为什么Nginx性能这么高？"><a href="#为什么Nginx性能这么高？" class="headerlink" title="为什么Nginx性能这么高？"></a>为什么Nginx性能这么高？</h4><ul>
+<li>其事件处理机制是<strong>异步非阻塞事件处理机制</strong>：运用了epoll模型，提供一个队列，排队解决。</li>
+</ul>
+<h4 id="那什么是异步非阻塞？怎么理解Nginx的异步非阻塞？"><a href="#那什么是异步非阻塞？怎么理解Nginx的异步非阻塞？" class="headerlink" title="那什么是异步非阻塞？怎么理解Nginx的异步非阻塞？"></a>那什么是异步非阻塞？怎么理解Nginx的异步非阻塞？</h4><ul>
+<li><p>异步<br>指调用以后直接返回，如有结果后通过消息通知，或者回调函数进行处理，核心在于有结果后通过其他执行流程进行通知和处理，不影响现有的执行流程执行。</p>
+</li>
+<li><p>非阻塞<br>指调用制定调用后，若不满足当前需求直接返回，若满足需求则处理，处理之后返回，通过轮询访问直至成功</p>
+</li>
+<li><p>Nginx的异步非阻塞<br>Nginx主要分为网络事件和定时器事件，网络事件主要以TCP为主，主要包含read/write事件。Nginx初始化时会预分配出所有的read/write事件，每当有新连接时，就把read/write事件和对应的socket关联起来，然后放到epoll队列中。nginx会一直（阻塞）等待epoll返回事件通知或epoll_wait超时，一旦有事件触发，nginx就会调用相关的(read/write)handler处理事件，<strong>nginx的异步非阻塞形容的是nginx的事件处理流程，而不是对epoll的调用</strong>。</p>
+<p>举个例子说明，假如我在家宅着啥也不干(epoll阻塞，等待事件通知)，等到了吃饭时间（定时器事件触发），我就去做饭（处理事件），在这个处理的过程中，米饭是需要一定时间才能熟的，我此时不会啥都不干（阻塞）在厨房干等着米饭熟了，在这个过程中如果有别的事件发生，我可以先去处理别的事件（非阻塞），提升效率</p>
+</li>
+</ul>
+<h4 id="什么是正向代理和反向代理？"><a href="#什么是正向代理和反向代理？" class="headerlink" title="什么是正向代理和反向代理？"></a>什么是正向代理和反向代理？</h4><ul>
+<li>正向代理：一个人发送一个请求，直接到了目标服务器</li>
+<li>反向代理：所有请求都被web服务器接收，按照一定的规则分发给后端的业务处理服务器进行处理</li>
+</ul>
+<h4 id="使用反向代理服务器的优点？"><a href="#使用反向代理服务器的优点？" class="headerlink" title="使用反向代理服务器的优点？"></a>使用反向代理服务器的优点？</h4><ul>
+<li>反向代理服务器可以隐藏源服务器的存在和特征，它充当互联网云和web服务器的中间层，利于安全，特别是使用web托管服务时</li>
+</ul>
+<h4 id="Nginx的优缺点？"><a href="#Nginx的优缺点？" class="headerlink" title="Nginx的优缺点？"></a>Nginx的优缺点？</h4><ul>
+<li>优点：<ul>
+<li>内存小，高并发，响应快</li>
+<li>可实现http服务器、虚拟主机、方向代理、负载均衡</li>
+<li>配置简单</li>
+<li>不暴露正式的服务器IP（反向代理）</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>动态处理差，Nginx擅长处理静态文件，耗费内存少，但处理动态页面不够好，一般用于把nginx顶在最前面作为反向代理扛住压力</li>
+</ul>
+</li>
+</ul>
+<h4 id="Nginx应用场景？"><a href="#Nginx应用场景？" class="headerlink" title="Nginx应用场景？"></a>Nginx应用场景？</h4><ul>
+<li>http服务器。Nginx可以做网页静态服务器，可以独立提供http服务</li>
+<li>虚拟主机。可以实现在一台服务器上虚拟出多个网站，如个人网站使用的虚拟机</li>
+<li>反向代理，负载均衡。网站的访问量达到一定程度，单台服务器不能满足用户请求，需要用多台服务器集群时可以用nginx做反向代理，且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况</li>
+<li>配置安全管理，如可以用Nginx搭建API接口网关，对每个接口服务进行拦截</li>
+</ul>
+<h4 id="Nginx目录结构有哪些？"><a href="#Nginx目录结构有哪些？" class="headerlink" title="Nginx目录结构有哪些？"></a>Nginx目录结构有哪些？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# tree &#x2F;usr&#x2F;local&#x2F;nginx</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx</span><br><span class="line">├── client_body_temp</span><br><span class="line">├── conf                             # Nginx所有配置文件的目录</span><br><span class="line">│   ├── fastcgi.conf                 # fastcgi相关参数的配置文件</span><br><span class="line">│   ├── fastcgi.conf.default         # fastcgi.conf的原始备份文件</span><br><span class="line">│   ├── fastcgi_params               # fastcgi的参数文件</span><br><span class="line">│   ├── fastcgi_params.default       </span><br><span class="line">│   ├── koi-utf</span><br><span class="line">│   ├── koi-win</span><br><span class="line">│   ├── mime.types                   # 媒体类型</span><br><span class="line">│   ├── mime.types.default</span><br><span class="line">│   ├── nginx.conf                   # Nginx主配置文件</span><br><span class="line">│   ├── nginx.conf.default</span><br><span class="line">│   ├── scgi_params                  # scgi相关参数文件</span><br><span class="line">│   ├── scgi_params.default  </span><br><span class="line">│   ├── uwsgi_params                 # uwsgi相关参数文件</span><br><span class="line">│   ├── uwsgi_params.default</span><br><span class="line">│   └── win-utf</span><br><span class="line">├── fastcgi_temp                     # fastcgi临时数据目录</span><br><span class="line">├── html                             # Nginx默认站点目录</span><br><span class="line">│   ├── 50x.html                     # 错误页面优雅替代显示文件，例如当出现502错误时会调用此页面</span><br><span class="line">│   └── index.html                   # 默认的首页文件</span><br><span class="line">├── logs                             # Nginx日志目录</span><br><span class="line">│   ├── access.log                   # 访问日志文件</span><br><span class="line">│   ├── error.log                    # 错误日志文件</span><br><span class="line">│   └── nginx.pid                    # pid文件，Nginx进程启动后，会把所有进程的ID号写到此文件</span><br><span class="line">├── proxy_temp                       # 临时目录</span><br><span class="line">├── sbin                             # Nginx命令目录</span><br><span class="line">│   └── nginx                        # Nginx的启动命令</span><br><span class="line">├── scgi_temp                        # 临时目录</span><br><span class="line">└── uwsgi_temp                       # 临时目录</span><br></pre></td></tr></table></figure>
+
+<h4 id="Nginx配置文件nginx-conf有哪些属性模块？"><a href="#Nginx配置文件nginx-conf有哪些属性模块？" class="headerlink" title="Nginx配置文件nginx.conf有哪些属性模块？"></a>Nginx配置文件nginx.conf有哪些属性模块？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  1；                			# worker进程的数量</span><br><span class="line">events &#123;                              			# 事件区块开始</span><br><span class="line">    worker_connections  1024；          		# 每个worker进程支持的最大连接数</span><br><span class="line">&#125;                               			# 事件区块结束</span><br><span class="line">http &#123;                           			# HTTP区块开始</span><br><span class="line">    include       mime.types；         			# Nginx支持的媒体类型库文件</span><br><span class="line">    default_type  application&#x2F;octet-stream；            # 默认的媒体类型</span><br><span class="line">    sendfile        on；       				# 开启高效传输模式</span><br><span class="line">    keepalive_timeout  65；       			# 连接超时</span><br><span class="line">    server &#123;            		                # 第一个Server区块开始，表示一个独立的虚拟主机站点</span><br><span class="line">        listen       80；      			        # 提供服务的端口，默认80</span><br><span class="line">        server_name  localhost；    			# 提供服务的域名主机名</span><br><span class="line">        location &#x2F; &#123;            	        	# 第一个location区块开始</span><br><span class="line">            root   html；       			# 站点的根目录，相当于Nginx的安装目录</span><br><span class="line">            index  index.html index.htm；       	# 默认的首页文件，多个用空格分开</span><br><span class="line">        &#125;          				        # 第一个location区块结果</span><br><span class="line">        error_page   500502503504  &#x2F;50x.html；          # 出现对应的http状态码时，使用50x.html回应客户</span><br><span class="line">        location &#x3D; &#x2F;50x.html &#123;          	        # location区块开始，访问50x.html</span><br><span class="line">            root   html；      		      	        # 指定对应的站点目录为html</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
+
+<h4 id="Nginx静态资源？"><a href="#Nginx静态资源？" class="headerlink" title="Nginx静态资源？"></a>Nginx静态资源？</h4><ul>
+<li>静态资源访问存放在nginx的html页面，可以自行编写</li>
+</ul>
+<h4 id="如何用Nginx解决前端跨域问题？"><a href="#如何用Nginx解决前端跨域问题？" class="headerlink" title="如何用Nginx解决前端跨域问题？"></a>如何用Nginx解决前端跨域问题？</h4><ul>
+<li>使用Nginx转发请求。把跨域的接口写成调本域的接口，然后把接口转发到真正的请求地址</li>
+</ul>
+<h4 id="Nginx虚拟主机怎么配置？"><a href="#Nginx虚拟主机怎么配置？" class="headerlink" title="Nginx虚拟主机怎么配置？"></a>Nginx虚拟主机怎么配置？</h4><ul>
+<li>基于域名的虚拟主机，通过域名来区分虚拟主机——应用：外部网站</li>
+<li>基于端口的虚拟主机，通过端口来区分虚拟主机——应用：公司内部网站，外部网站的管理后台</li>
+<li>基于ip的虚拟主机</li>
+</ul>
+<h5 id="基于虚拟主机配置域名"><a href="#基于虚拟主机配置域名" class="headerlink" title="基于虚拟主机配置域名"></a>基于虚拟主机配置域名</h5><ul>
+<li><p>需要建立/data/www /data/bbs目录，windows本地hosts添加虚拟机ip地址对应的域名解析；对应域名网站目录下新增index.html文件；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#当客户端访问www.lijie.com,监听端口号为80,直接跳转到data&#x2F;www目录下文件</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  www.lijie.com;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root   data&#x2F;www;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">#当客户端访问www.lijie.com,监听端口号为80,直接跳转到data&#x2F;bbs目录下文件</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  bbs.lijie.com;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        root   data&#x2F;bbs;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="基于端口的虚拟主机"><a href="#基于端口的虚拟主机" class="headerlink" title="基于端口的虚拟主机"></a>基于端口的虚拟主机</h5><ul>
+<li><p>使用端口来区分，浏览器使用域名或ip地址：端口号 访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  #当客户端访问www.lijie.com,监听端口号为8080,直接跳转到data&#x2F;www目录下文件</span><br><span class="line">  server &#123;</span><br><span class="line">      listen       8080;</span><br><span class="line">      server_name  8080.lijie.com;</span><br><span class="line">      location &#x2F; &#123;</span><br><span class="line">          root   data&#x2F;www;</span><br><span class="line">          index  index.html index.htm;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  	</span><br><span class="line">  #当客户端访问www.lijie.com,监听端口号为80直接跳转到真实ip服务器地址 127.0.0.1:8080</span><br><span class="line">  server &#123;</span><br><span class="line">      listen       80;</span><br><span class="line">      server_name  www.lijie.com;</span><br><span class="line">      location &#x2F; &#123;</span><br><span class="line">proxy_pass http:&#x2F;&#x2F;127.0.0.1:8080;</span><br><span class="line">              index  index.html index.htm;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="Location的作用是什么？"><a href="#Location的作用是什么？" class="headerlink" title="Location的作用是什么？"></a>Location的作用是什么？</h4><ul>
+<li>location指令的作用是根据用户请求的URI来执行不同的应用，也就是根据用户请求的网站URL进行匹配，匹配成功即进行相关的操作。</li>
+</ul>
+
+    </div>
+
+    
+    
+    <!-- 文件位置：~/source/_data/post-body-end.swig -->
+
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/leo-yang0201.github.io/tags/Nginx/" rel="tag"># Nginx</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/leo-yang0201.github.io/2020/07/06/hyperledger/" rel="prev" title="Hyperledger学习总结">
+      <i class="fa fa-chevron-left"></i> Hyperledger学习总结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+      <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=4939273937&auto=0&height=90"></iframe>
+      </div>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Nginx"><span class="nav-number">1.</span> <span class="nav-text">什么是Nginx?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要用Nginx"><span class="nav-number">2.</span> <span class="nav-text">为什么要用Nginx?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么Nginx性能这么高？"><span class="nav-number">3.</span> <span class="nav-text">为什么Nginx性能这么高？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#那什么是异步非阻塞？怎么理解Nginx的异步非阻塞？"><span class="nav-number">4.</span> <span class="nav-text">那什么是异步非阻塞？怎么理解Nginx的异步非阻塞？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是正向代理和反向代理？"><span class="nav-number">5.</span> <span class="nav-text">什么是正向代理和反向代理？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用反向代理服务器的优点？"><span class="nav-number">6.</span> <span class="nav-text">使用反向代理服务器的优点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx的优缺点？"><span class="nav-number">7.</span> <span class="nav-text">Nginx的优缺点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx应用场景？"><span class="nav-number">8.</span> <span class="nav-text">Nginx应用场景？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx目录结构有哪些？"><span class="nav-number">9.</span> <span class="nav-text">Nginx目录结构有哪些？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx配置文件nginx-conf有哪些属性模块？"><span class="nav-number">10.</span> <span class="nav-text">Nginx配置文件nginx.conf有哪些属性模块？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx静态资源？"><span class="nav-number">11.</span> <span class="nav-text">Nginx静态资源？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何用Nginx解决前端跨域问题？"><span class="nav-number">12.</span> <span class="nav-text">如何用Nginx解决前端跨域问题？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx虚拟主机怎么配置？"><span class="nav-number">13.</span> <span class="nav-text">Nginx虚拟主机怎么配置？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基于虚拟主机配置域名"><span class="nav-number">13.1.</span> <span class="nav-text">基于虚拟主机配置域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于端口的虚拟主机"><span class="nav-number">13.2.</span> <span class="nav-text">基于端口的虚拟主机</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Location的作用是什么？"><span class="nav-number">14.</span> <span class="nav-text">Location的作用是什么？</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Leo Yang"
+      src="/leo-yang0201.github.io/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Leo Yang</p>
+  <div class="site-description" itemprop="description">Hi, I use this blog to record my daily practice in computer science and data science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/leo-yang0201.github.io/archive/">
+        
+          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/leo-yang0201.github.io/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/leo-yang0201.github.io/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo Yang</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共85.4k字</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.2
+  </div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/leo-yang0201.github.io/yzm/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/anime.min.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.min.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.ui.min.js"></script>
+
+<script src="/leo-yang0201.github.io/js/utils.js"></script>
+
+<script src="/leo-yang0201.github.io/js/motion.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/schemes/pisces.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/next-boot.js"></script>
+
+
+  <script defer src="/leo-yang0201.github.io/yzm/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '28053c3bf9e94bd99f96',
+      clientSecret: '8b2847e6971db2a6490a4a011655f88756a32e17',
+      repo        : 'leo-yang0201.github.io',
+      owner       : 'leo-yang0201',
+      admin       : ['leo-yang0201'],
+      id          : 'af2afca8cc960e396b5b60c1c846916e',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+<!-- 文件位置：~/source/_data/body-end.swig -->
+
+<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+<script>
+  console.log('今日诗词 - 开始加载...');
+  jinrishici.load((result) => {
+    let jrsc = document.getElementById('jrsc');
+    if (jrsc) {
+      console.log('今日诗词 - 标签获取成功.');
+    } else {
+      console.log('今日诗词 - 标签获取失败!');
+      return;
+    }
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+    console.log('今日诗词 - 载入完毕.');
+    if (data.origin.author == '李白') {
+      let audio = document.createElement("audio");
+      audio.src = "/ding.mp3";
+      audio.play();
+    }
+  });
+</script>
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
