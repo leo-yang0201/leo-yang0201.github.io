@@ -31,9 +31,12 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;15&#x2F;83Hnfg.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;30&#x2F;GnvKbQ.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;30&#x2F;GnvQEj.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;08&#x2F;25&#x2F;d6ebE4.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;08&#x2F;25&#x2F;d6mMVg.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;08&#x2F;25&#x2F;d6muqS.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;04&#x2F;01&#x2F;G1I0F1.png">
-<meta property="article:published_time" content="2020-03-15T09:56:19.000Z">
-<meta property="article:modified_time" content="2020-04-01T07:09:15.041Z">
+<meta property="article:published_time" content="2020-03-15T09:26:19.000Z">
+<meta property="article:modified_time" content="2020-08-25T01:45:41.211Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -185,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-15 20:56:19" itemprop="dateCreated datePublished" datetime="2020-03-15T20:56:19+11:00">2020-03-15</time>
+              <time title="Created: 2020-03-15 20:26:19" itemprop="dateCreated datePublished" datetime="2020-03-15T20:26:19+11:00">2020-03-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-01 18:09:15" itemprop="dateModified" datetime="2020-04-01T18:09:15+11:00">2020-04-01</time>
+                <time title="Modified: 2020-08-25 11:45:41" itemprop="dateModified" datetime="2020-08-25T11:45:41+10:00">2020-08-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,13 +290,57 @@
 </ul>
 <h4 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h4><p>从顶层到底层</p>
 <ul>
-<li>应用层：各种应用程序协议如HTTP, FTP, SMTP, POP3</li>
-<li>表示层：信息的语法语义以及它们的关联，如加密解密、转换翻译</li>
-<li>会话层</li>
-<li>传输层</li>
-<li>网络层</li>
-<li>数据链路层</li>
-<li>物理层</li>
+<li>应用层：为应用程序提供网络服务，各种应用程序协议如HTTP, FTP, SMTP, POP3</li>
+<li>表示层：信息的语法语义以及它们的关联，数据格式化，如加密解密、转换翻译，对应网络协议Telnet,Rlogin,SNMP</li>
+<li>会话层：建立、维护、管理会话连接，对应网络协议SMTP，DNS</li>
+<li>传输层：建立、维护、管理端到端连接，对应网络协议TCP，UDP</li>
+<li>网络层：IP寻址和路由选择，对应网络协议IP，ICMP，ARP，AKP，UUCP</li>
+<li>数据链路层：控制网络层与物理层之间通信，对应网络协议FDDI，Ethernet，Arpanet，PDN，PPP</li>
+<li>物理层：比特流传输，对应协议IEEE 802.1A，IEEE 802.2到IEEE802.11</li>
+</ul>
+<p>注：在TCP/IP四层概念模型中，应用层，表示层，会话层统称为应用层，数据链路层和物理层统称为数据链路层</p>
+<h4 id="OSI模型详解"><a href="#OSI模型详解" class="headerlink" title="OSI模型详解"></a>OSI模型详解</h4><ul>
+<li>物理层<ul>
+<li>通过光缆，电缆，无线电波等方式将设备连接起来组网</li>
+<li>两个不同区域网通信，需要ISP互联网服务供应商的物理连接</li>
+<li>作用：传送比特流0和1</li>
+</ul>
+</li>
+<li>数据链路层<ul>
+<li>作用<ul>
+<li>根据以太网协议将一组电信号组一个数据包，称作“帧”，并控制它的传输，有两部分，标头head，标明数据发送者、接收者、数据类型，另一部分是数据data</li>
+</ul>
+</li>
+<li>MAC地址<ul>
+<li>作用：定位数据包的路径，如发送者，接收者</li>
+<li>网卡地址，每个网卡都是独一无二的12个16进制数</li>
+<li>前6个表厂商，后6个表流水号</li>
+</ul>
+</li>
+<li>广播方式<ul>
+<li>发送者把数据包，发送给局域网内的所有pc，让每个pc根据MAC地址自动匹配</li>
+<li>发送媒介：分组交换剂/网络交换机</li>
+</ul>
+</li>
+<li>网络交换机<ul>
+<li>扩展网络的机器</li>
+<li>作用：为子网提供更多的接口，以连接更多的pc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络层<ul>
+<li><img src="https://s1.ax1x.com/2020/08/25/d6ebE4.jpg" alt="d6ebE4.jpg"></li>
+</ul>
+</li>
+<li>传输层<ul>
+<li><img src="https://s1.ax1x.com/2020/08/25/d6mMVg.jpg" alt="d6mMVg.jpg"></li>
+</ul>
+</li>
+<li>应用层<ul>
+<li><img src="https://s1.ax1x.com/2020/08/25/d6muqS.jpg" alt="d6muqS.jpg"></li>
+</ul>
+</li>
 </ul>
 <h4 id="HTTP协议包括哪些请求"><a href="#HTTP协议包括哪些请求" class="headerlink" title="HTTP协议包括哪些请求"></a>HTTP协议包括哪些请求</h4><ul>
 <li>Get ：对服务器资源的简单请求</li>
@@ -460,7 +507,7 @@
       </div>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请你简述TCP、UDP的区别"><span class="nav-number">1.</span> <span class="nav-text">请你简述TCP、UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请简单说一下你了解的端口及对应的服务"><span class="nav-number">2.</span> <span class="nav-text">请简单说一下你了解的端口及对应的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">3.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP数据传输"><span class="nav-number">4.</span> <span class="nav-text">TCP数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次挥手？"><span class="nav-number">5.</span> <span class="nav-text">TCP四次挥手？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP为什么要三次握手，两次不行吗，为什么？"><span class="nav-number">6.</span> <span class="nav-text">TCP为什么要三次握手，两次不行吗，为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP协议如何保证可靠传输"><span class="nav-number">7.</span> <span class="nav-text">TCP协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP拥塞控制讲一下？"><span class="nav-number">8.</span> <span class="nav-text">TCP拥塞控制讲一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP流量控制说一下？"><span class="nav-number">9.</span> <span class="nav-text">TCP流量控制说一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP粘包是怎么产生的"><span class="nav-number">10.</span> <span class="nav-text">TCP粘包是怎么产生的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在浏览器中输入网址之后执行会发生什么？"><span class="nav-number">11.</span> <span class="nav-text">在浏览器中输入网址之后执行会发生什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">12.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP协议包括哪些请求"><span class="nav-number">13.</span> <span class="nav-text">HTTP协议包括哪些请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述HTTP中GET和POST的区别"><span class="nav-number">14.</span> <span class="nav-text">简述HTTP中GET和POST的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的作用是什么？它和Session有什么区别？"><span class="nav-number">15.</span> <span class="nav-text">Cookie的作用是什么？它和Session有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS区别？"><span class="nav-number">16.</span> <span class="nav-text">HTTP和HTTPS区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么数据传输是用对称加密？"><span class="nav-number">17.</span> <span class="nav-text">为什么数据传输是用对称加密？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0和HTTP1-1的主要区别是什么？"><span class="nav-number">18.</span> <span class="nav-text">HTTP 1.0和HTTP1.1的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-1和HTTP2-0的主要区别是什么？"><span class="nav-number">19.</span> <span class="nav-text">HTTP 1.1和HTTP2.0的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP长连接，短连接"><span class="nav-number">20.</span> <span class="nav-text">HTTP长连接，短连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP是不保存状态的协议，如何保存用户状态？"><span class="nav-number">21.</span> <span class="nav-text">HTTP是不保存状态的协议，如何保存用户状态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie被禁用怎么办？"><span class="nav-number">22.</span> <span class="nav-text">Cookie被禁用怎么办？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请你简述TCP、UDP的区别"><span class="nav-number">1.</span> <span class="nav-text">请你简述TCP、UDP的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请简单说一下你了解的端口及对应的服务"><span class="nav-number">2.</span> <span class="nav-text">请简单说一下你了解的端口及对应的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">3.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP数据传输"><span class="nav-number">4.</span> <span class="nav-text">TCP数据传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次挥手？"><span class="nav-number">5.</span> <span class="nav-text">TCP四次挥手？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP为什么要三次握手，两次不行吗，为什么？"><span class="nav-number">6.</span> <span class="nav-text">TCP为什么要三次握手，两次不行吗，为什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP协议如何保证可靠传输"><span class="nav-number">7.</span> <span class="nav-text">TCP协议如何保证可靠传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP拥塞控制讲一下？"><span class="nav-number">8.</span> <span class="nav-text">TCP拥塞控制讲一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP流量控制说一下？"><span class="nav-number">9.</span> <span class="nav-text">TCP流量控制说一下？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP粘包是怎么产生的"><span class="nav-number">10.</span> <span class="nav-text">TCP粘包是怎么产生的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在浏览器中输入网址之后执行会发生什么？"><span class="nav-number">11.</span> <span class="nav-text">在浏览器中输入网址之后执行会发生什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">12.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI模型详解"><span class="nav-number">13.</span> <span class="nav-text">OSI模型详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP协议包括哪些请求"><span class="nav-number">14.</span> <span class="nav-text">HTTP协议包括哪些请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简述HTTP中GET和POST的区别"><span class="nav-number">15.</span> <span class="nav-text">简述HTTP中GET和POST的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的作用是什么？它和Session有什么区别？"><span class="nav-number">16.</span> <span class="nav-text">Cookie的作用是什么？它和Session有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP和HTTPS区别？"><span class="nav-number">17.</span> <span class="nav-text">HTTP和HTTPS区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么数据传输是用对称加密？"><span class="nav-number">18.</span> <span class="nav-text">为什么数据传输是用对称加密？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-0和HTTP1-1的主要区别是什么？"><span class="nav-number">19.</span> <span class="nav-text">HTTP 1.0和HTTP1.1的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-1-1和HTTP2-0的主要区别是什么？"><span class="nav-number">20.</span> <span class="nav-text">HTTP 1.1和HTTP2.0的主要区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP长连接，短连接"><span class="nav-number">21.</span> <span class="nav-text">HTTP长连接，短连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP是不保存状态的协议，如何保存用户状态？"><span class="nav-number">22.</span> <span class="nav-text">HTTP是不保存状态的协议，如何保存用户状态？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie被禁用怎么办？"><span class="nav-number">23.</span> <span class="nav-text">Cookie被禁用怎么办？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -529,7 +576,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共85.4k字</span>
+  <span class="post-count">博客全站共85.9k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
