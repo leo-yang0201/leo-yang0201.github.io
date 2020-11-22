@@ -179,7 +179,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-11-22 21:20:05 / Modified: 22:20:25" itemprop="dateCreated datePublished" datetime="2020-11-22T21:20:05+08:00">2020-11-22</time>
+              <time title="Created: 2020-11-22 21:20:05 / Modified: 22:21:24" itemprop="dateCreated datePublished" datetime="2020-11-22T21:20:05+08:00">2020-11-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -205,46 +205,14 @@
           <p>实习过程中目前用的最多也最广泛的数据库就是Amazon S3，有必要对其以及其他工作中常见到的分布式存储系统进行深入了解。</p>
 <h4 id="S3的存储形式"><a href="#S3的存储形式" class="headerlink" title="S3的存储形式"></a>S3的存储形式</h4><p>S3是基于桶(Bucket)的存储系统，它把每个被存储的文件当做一个Object，被存储的Object被放到相应的Bucket中，如下所示：</p>
 <p><a href="https://imgchr.com/i/DG1PKO" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DG1PKO.png" alt="DG1PKO.png"></a></p>
-<h5 id="Bucket"><a href="#Bucket" class="headerlink" title="Bucket"></a>Bucket</h5><p>用户创建的Bucket的BuckerName必须说全局唯一的，该名字可以由用户提供，也可以由系统提供。创建的同时会设置Bucket的一些属性：</p>
-<ul>
-<li>MetaData: 包含创建时间、创建者标识，该Bucket中所有Objects的总大小，还包含有用户访问的历史信息等</li>
-<li>Acess Policy: 设置了Bucket的访问权限，例如可以设置哪些用户可以访问，是否有读写权限等</li>
-</ul>
-<h5 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h5><p>在一个Bucket里可以存放多个Object，在S3系统中存储的Object是被序列化的，S3系统并不能区分Object的类型，它可能是一个文本文件或者一个视频文件。Metadata里面存储的是Object创建时间、大小、文件类型等。另外只要用户能够访问object的数据，就能够访问MetaData的权限。</p>
-<p>S3系统中Object的Identifier有两种表示方法，key和locator</p>
-<ul>
-<li><p>Key<br>Key在Object被创建的时候由用户给定，若用户未指定则由系统分配，要保证key在桶内部是唯一的，不同的桶可以有相同的key，如：有一个Bucket的标识为05073951，存储了一个Object的key为MyDocument/Email/message.txt(注：key可以是string类型或其他类型)，那么用户就可以通过下面的地址来访问Object</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;storageservice.domain.com&#x2F;050739517&#x2F;MyDocument&#x2F;Email&#x2F;message.txt</span><br></pre></td></tr></table></figure>
-
-<p>当然不能直接访问，用户还需提供必要的验证信息，因为Bucket设置了访问权限，所以当一个访问到达时，首先有一个认证过程。</p>
-</li>
-<li><p>Locator<br>Locator和key不同，locator的分配必须是全局唯一的，而不是桶内唯一。通过locator访问object可以越过认证，所以性能上比key要好（吞吐率、访问延迟等），但是正因为越过了验证，安全性不好，所以一般在传输过程中要对locator进行加密传输。和上面的key对应如下是一个locator例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;storageservice.domain.com&#x2F;locator&#x2F;3859C89A208FDB5A</span><br></pre></td></tr></table></figure>
-
-<p>这里3859C89A208FDB5A就是object的locator，它是一个128位16进制表示的数</p>
-</li>
-</ul>
-<h4 id="存储系统架构"><a href="#存储系统架构" class="headerlink" title="存储系统架构"></a>存储系统架构</h4><p>S3的整体架构如下图所示：</p>
-<p><a href="https://imgchr.com/i/DG8G3q" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DG8G3q.png" alt="DG8G3q.png"></a></p>
-<p>如上图所示，S3存储架构主要是由keymap+Bitstore作为基本的存储功能，然后coordinator和NodePicker充当调度功能，然后replicator实现副本的功能，DFDD(discovery, failure, detection, daemon)用来检测各个组件的运行状态，web service platform使用来接收和处理客户端client的请求。</p>
-<p><a href="https://imgchr.com/i/DG8T2t" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DG8T2t.png" alt="DG8T2t.png"></a></p>
-<ul>
-<li>Web Service Platform<br>用来接收客户端的web service请求，然后将这些请求送给coordinator。Web Service Platform 是存储系统对外的接口，它提供REST/SOAP类型的API，支持一些对bucket或者object的操作。例如creatBucket、listBucket、deleteBucket等API。WebServicePlatform还提供计费功能、认证、访问控制等。</li>
-</ul>
-<p>  另外如果该存储系统限制object的大小，那么web service platform还需要对一些大文件进行分割，将它们分成好多chunck，然后为每个chunck分配一个key，这些key可以是由原来大文件的key作为每个chunck的前缀，后面加上一些按字母或数字顺序的字段，例如<a href="http://storageservice.domain.com/050739517/MyDocument/Email/message.txt/1，http://storageservice.domain.com/050739517/MyDocument/Email/message.txt/2" target="_blank" rel="noopener">http://storageservice.domain.com/050739517/MyDocument/Email/message.txt/1，http://storageservice.domain.com/050739517/MyDocument/Email/message.txt/2</a></p>
-<p>  当然客户端也可以设置是否允许系统进行分片，如果不允许则存储失败。</p>
-<ul>
-<li><p>Coordinator协调器<br>Coordinator是用来协调web service platform和系统中其他组件的。例如：</p>
-<ul>
-<li>当webservice platform有read object请求时，coordinator首先从keymap中获取该object及object副本的存储位置，然后根据这些位置去相应的bitstore Node获取数据。</li>
-<li>当有write object请求时，coordinator首先从NodePicker获取符合一定SLA的节点，然后讲object写入到这些节点</li>
-<li>CreateBucker请求时，创建并存储一个新的bucket，有时候用户未指定bucket标识时它也可以为bucket生成一个key</li>
-</ul>
-</li>
-<li><p>NodePicker</p>
-</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/leo-yang0201.github.io/2020/11/22/Amazon-S3-%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
