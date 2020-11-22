@@ -31,8 +31,10 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s3.ax1x.com&#x2F;2020&#x2F;11&#x2F;22&#x2F;DG1PKO.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s3.ax1x.com&#x2F;2020&#x2F;11&#x2F;22&#x2F;DG8G3q.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s3.ax1x.com&#x2F;2020&#x2F;11&#x2F;22&#x2F;DG8T2t.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s3.ax1x.com&#x2F;2020&#x2F;11&#x2F;22&#x2F;DGNmTO.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s3.ax1x.com&#x2F;2020&#x2F;11&#x2F;22&#x2F;DGNe0K.png">
 <meta property="article:published_time" content="2020-11-22T13:20:05.000Z">
-<meta property="article:modified_time" content="2020-11-22T14:21:24.348Z">
+<meta property="article:modified_time" content="2020-11-22T14:43:56.485Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="S3">
@@ -186,7 +188,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-11-22 21:20:05 / Modified: 22:21:24" itemprop="dateCreated datePublished" datetime="2020-11-22T21:20:05+08:00">2020-11-22</time>
+              <time title="Created: 2020-11-22 21:20:05 / Modified: 22:43:56" itemprop="dateCreated datePublished" datetime="2020-11-22T21:20:05+08:00">2020-11-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,7 +259,37 @@
 <li>CreateBucker请求时，创建并存储一个新的bucket，有时候用户未指定bucket标识时它也可以为bucket生成一个key</li>
 </ul>
 </li>
-<li><p>NodePicker</p>
+<li><p>NodePicker<br>NodePicker会根据一定的存储策略来选择节点，如下：</p>
+<ul>
+<li>Durability Policy（持续性）: 至少N个副本被成功存储，write object才算成功</li>
+<li>Area diversity policy（区域多样性）: Object被存在在多个区域，增加可靠性</li>
+<li>Locality policy（本地）: 降低延迟</li>
+<li>Load balance policy（负载均衡）: 平衡各个存储节点的请求量</li>
+<li>Space balance policy（空间负载均衡）: 平衡各个存储节点的空间利用率</li>
+<li>Lowest-cost chain policy : 在write object时最小开销</li>
+</ul>
+<p>上述是一些存储策略，NodePicker会根据用户的SLA来选择不同的存储策略，例如：</p>
+<ol>
+<li>有些用户对可靠性要求不高，则可以减少副本数目</li>
+<li>有些用户对延迟要求比较高，同时要求可靠性，假设副本数量为5，那么可以选择将3个副本使用locality policy来保证延时，另外2个分别存储在两个不同的区域来保证可靠性</li>
+<li>有些用户对延迟的要求比可靠性低，那么可以选择将2（或1）个副本使用 locality policy，另外3（或4）分别存放在三个不同的区域里面</li>
+<li>当coordinator需要read object时，node picker会选择一个离用户比较近的位置的节点给coordinator</li>
+</ol>
+<p>NodePicker为了完成上面的一些调度任务，需要监视节点的状态，如可用资源大小等，且考虑到节点的状态时刻在变，所以需要定期进行检测</p>
+</li>
+<li><p>Keymap<br>是用来存储object(和其副本)的存放位置的</p>
+</li>
+<li><p>Bitstore<br>Bitstore是存储object的最终节点，它的内部结构如下：<br><a href="https://imgchr.com/i/DGNmTO" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DGNmTO.png" alt="DGNmTO.png"></a></p>
+<ul>
+<li>Storage node management controller:<br>对外提供存取数据的API，如put，get，release</li>
+<li>Logical file I/O manager<br>该部分实现虚拟化底层的存储设备或者file system，它用object在存储设备上的偏移量以及文件大小来定位文件，它给每个被存储的object提供一个索引，如下所示:<br><a href="https://imgchr.com/i/DGNe0K" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DGNe0K.png" alt="DGNe0K.png"></a></li>
+<li>File System 文件系统</li>
+<li>Storage Device 存储设备</li>
+</ul>
+</li>
+<li><p>Replicator<br>当系统中object的实例副本的数目小于给定的副本的数目时，Replicator就会完成剩下副本的存储，使副本满足给定的数目。</p>
+</li>
+<li><p>DFDD<br>DFDD是组件所在系统上运行的一个守护进程，用来监测组件的状态信息。</p>
 </li>
 </ul>
 
@@ -416,7 +448,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共87k字</span>
+  <span class="post-count">博客全站共87.5k字</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
