@@ -34,7 +34,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s3.ax1x.com&#x2F;2020&#x2F;11&#x2F;22&#x2F;DGNmTO.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s3.ax1x.com&#x2F;2020&#x2F;11&#x2F;22&#x2F;DGNe0K.png">
 <meta property="article:published_time" content="2020-11-22T13:20:05.000Z">
-<meta property="article:modified_time" content="2020-11-22T14:47:42.142Z">
+<meta property="article:modified_time" content="2020-11-22T14:50:36.842Z">
 <meta property="article:author" content="Leo Yang">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="S3">
@@ -188,7 +188,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-11-22 21:20:05 / Modified: 22:47:42" itemprop="dateCreated datePublished" datetime="2020-11-22T21:20:05+08:00">2020-11-22</time>
+              <time title="Created: 2020-11-22 21:20:05 / Modified: 22:50:36" itemprop="dateCreated datePublished" datetime="2020-11-22T21:20:05+08:00">2020-11-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,7 +256,7 @@
 <li><p>Coordinator协调器<br>Coordinator是用来协调web service platform和系统中其他组件的。例如：</p>
 <ul>
 <li>当webservice platform有read object请求时，coordinator首先从keymap中获取该object及object副本的存储位置，然后根据这些位置去相应的bitstore Node获取数据。</li>
-<li>当有write object请求时，coordinator首先从NodePicker获取符合一定SLA的节点，然后讲object写入到这些节点</li>
+<li>当有write object请求时，coordinator首先从NodePicker获取符合一定SLA的节点，然后将object写入到这些节点</li>
 <li>CreateBucker请求时，创建并存储一个新的bucket，有时候用户未指定bucket标识时它也可以为bucket生成一个key</li>
 </ul>
 </li>
