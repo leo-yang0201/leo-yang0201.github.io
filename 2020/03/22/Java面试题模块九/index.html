@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/leo-yang0201.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/leo-yang0201.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/leo-yang0201.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/leo-yang0201.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/leo-yang0201.github.io/yzm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/leo-yang0201.github.io/yzm/pace/pace-theme-center-atom.min.css">
+  <script src="/leo-yang0201.github.io/yzm/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="冒泡排序 算法描述  i从0开始，i与i+1比较，如果i&gt;i + 1，那么就互换 i不断增加，直到i&lt;n - 1（n是数组元素的个数，n - 1是数组最后一个元素），一趟下来，可以让数组元素中最大值排在数组的最后面   冒泡算法优化  如果在某趟排序中没有发生交换位置，那么我们可以认为该数组已经排好序了   代码实现要点  两个for循环，外层控制排序的趟数，内层控制比较的次数，每趟过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试题汇总(九)">
+<meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;22&#x2F;Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B9%9D&#x2F;index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="冒泡排序 算法描述  i从0开始，i与i+1比较，如果i&gt;i + 1，那么就互换 i不断增加，直到i&lt;n - 1（n是数组元素的个数，n - 1是数组最后一个元素），一趟下来，可以让数组元素中最大值排在数组的最后面   冒泡算法优化  如果在某趟排序中没有发生交换位置，那么我们可以认为该数组已经排好序了   代码实现要点  两个for循环，外层控制排序的趟数，内层控制比较的次数，每趟过">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;27&#x2F;GioJ4P.png">
+<meta property="article:published_time" content="2020-03-22T13:25:52.000Z">
+<meta property="article:modified_time" content="2020-03-27T14:17:09.965Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="排序算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;27&#x2F;GioJ4P.png">
+
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/22/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B9%9D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Java面试题汇总(九) | Leo Yang's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/leo-yang0201.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leo Yang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">技术&&编程&&刷题</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/leo-yang0201.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">40</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/leo-yang0201.github.io/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">100</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/22/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B9%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java面试题汇总(九)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-22 21:25:52" itemprop="dateCreated datePublished" datetime="2020-03-22T21:25:52+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-27 22:17:09" itemprop="dateModified" datetime="2020-03-27T22:17:09+08:00">2020-03-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><ul>
+<li><p>算法描述</p>
+<ul>
+<li>i从0开始，i与i+1比较，如果i&gt;i + 1，那么就互换</li>
+<li>i不断增加，直到i&lt;n - 1（n是数组元素的个数，n - 1是数组最后一个元素），一趟下来，可以让数组元素中最大值排在数组的最后面</li>
+</ul>
+</li>
+<li><p>冒泡算法优化</p>
+<ul>
+<li>如果在某趟排序中没有发生交换位置，那么我们可以认为该数组已经排好序了</li>
+</ul>
+</li>
+<li><p>代码实现要点</p>
+<ul>
+<li>两个for循环，外层控制排序的趟数，内层控制比较的次数，每趟过后，比较的次数都应该要减1</li>
+</ul>
+</li>
+<li><p><strong>稳定排序算法</strong></p>
+</li>
+<li><p>时间复杂度：最好情况O(N)，最差情况O(N^2)，平均情况O(N^2)，空间复杂度O(1)</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//外层循环是排序的趟数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrays.length -<span class="number">1</span> ; i++) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//每比较一趟就重新初始化为0</span></span><br><span class="line">    isChange = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//内层循环是当前趟数需要比较的次数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arrays.length - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//前一位与后一位与前一位比较，如果前一位比后一位要大，那么交换</span></span><br><span class="line">        <span class="keyword">if</span> (arrays[j] &gt; arrays[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            temp = arrays[j];</span><br><span class="line">            arrays[j] = arrays[j + <span class="number">1</span>];</span><br><span class="line">            arrays[j + <span class="number">1</span>] = temp;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果进到这里面了，说明发生置换了</span></span><br><span class="line">            isChange = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果比较完一趟没有发生置换，那么说明已经排好序了，不需要再执行下去了</span></span><br><span class="line">    <span class="keyword">if</span> (isChange == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">System.out.println(arrays);</span><br></pre></td></tr></table></figure>
+
+<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><ul>
+<li>找到数组中最大的元素，与数组最后一位元素交换</li>
+<li>当只有一个数时，则不需要选择了，因此需要n - 1趟排序，比如10个数，需要9趟排序</li>
+<li><strong>不稳定排序算法</strong></li>
+<li>时间复杂度O(N^2)(所有情况下都是)，空间复杂度O(1)</li>
+<li>代码实现要点<ul>
+<li>两个for循环，外层循环控制排序的趟数，内层循环找到当前趟数的最大值，随和与当前趟数组最后的一位元素交换</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//外层循环控制需要排序的趟数</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrays.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">      <span class="comment">//新的趟数、将角标重新赋值为0</span></span><br><span class="line">      pos = <span class="number">0</span>;</span><br><span class="line">      <span class="comment">//内层循环控制遍历数组的个数并得到最大数的角标</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arrays.length - i; j++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (arrays[j] &gt; arrays[pos]) &#123;</span><br><span class="line">              pos = j;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//交换</span></span><br><span class="line">      temp = arrays[pos];</span><br><span class="line">      arrays[pos] = arrays[arrays.length - <span class="number">1</span> - i];</span><br><span class="line">      arrays[arrays.length - <span class="number">1</span> - i] = temp;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  System.out.println(arrays);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>AOP利用一种横切的技术，将影响了多个类的公共行为封装到一个可重用模块，将其命名为”Aspect”切面，切面就是把和业务无关却为业务模块所共同调用的逻辑和责任封装起来，降低模块间的耦合度，并有利于未来的可操作性和可维护性。</p>
+<p>使用“横切”技术，AOP把软件系统分为两个部分：核心关注点和横切关注点，业务处理的主要流程是核心关注点，与之关系不大的是横切关注点，横切关注点经常发生在核心关注点的多处，且各处基本相似。比如权限认证、日志、事务处理。AOP的作用在于分离系统中的各种关注点，将核心关注点和横切关注点分离开来。</p>
+<h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><ul>
+<li>将一个元素插入到已有序的数组中，在初始时未知是否存在有序的数据，因此将元素第一个元素看成是有序的</li>
+<li>与有序的数组进行比较，比它大则直接放入，比它小则移动数组元素的位置，找到个合适的位置插入</li>
+<li>当只有一个数时，则不需要插入了，因此需要n - 1趟排序，比如10个数，需要9趟排序</li>
+<li><strong>稳定排序算法</strong></li>
+<li>时间复杂度O(N^2)，最好情况O(N)，空间复杂度O(1)</li>
+<li>代码实现<ul>
+<li>一个for循环内嵌一个while循环实现，外层for循环控制需要排序的趟数，while循环找到合适的插入位置（并且插入的位置不能小于0）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] arrays)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//临时变量</span></span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="comment">//外层循环控制需要排序的趟数(从1开始因为将第0位看成了有序数据)</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arrays.length; i++) &#123;</span><br><span class="line">        temp = arrays[i];</span><br><span class="line">        <span class="comment">//如果前一位(已排序的数据)比当前数据要大，那么就进入循环比较[参考第二趟排序]</span></span><br><span class="line">        <span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; arrays[j] &gt; temp) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//往后退一个位置，让当前数据与之前前位进行比较</span></span><br><span class="line">            arrays[j + <span class="number">1</span>] = arrays[j];</span><br><span class="line">            <span class="comment">//不断往前，直到退出循环</span></span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//退出了循环说明找到了合适的位置了，将当前数据插入合适的位置中</span></span><br><span class="line">        arrays[j + <span class="number">1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"公众号Java3y"</span> + arrays);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><ul>
+<li>在数组中找一个元素（结点），比它小的放在节点的左边，比它大的放在节点右边。一趟下来，比结点小的在左边，比结点大的在右边。</li>
+<li>递归这个操作直到只剩一个元素</li>
+<li>快排处理过程是由上到下的，先分区，然后再处理子问题，是一个原地排序算法</li>
+<li><strong>不稳定排序算法</strong></li>
+<li>时间复杂度O(Nlog2N),最坏情况O(N)，空间复杂度O(nlog2n)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 快速排序</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> L   指向数组第一个元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> R   指向数组最后一个元素</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = L;</span><br><span class="line">    <span class="keyword">int</span> j = R;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//支点</span></span><br><span class="line">    <span class="keyword">int</span> pivot = arr[(L + R) / <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//左右两端进行扫描，只要两端还没有交替，就一直扫描</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= j) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//寻找直到比支点大的数</span></span><br><span class="line">        <span class="keyword">while</span> (pivot &gt; arr[i])</span><br><span class="line">            i++;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//寻找直到比支点小的数</span></span><br><span class="line">        <span class="keyword">while</span> (pivot &lt; arr[j])</span><br><span class="line">            j--;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//此时已经分别找到了比支点小的数(右边)、比支点大的数(左边)，它们进行交换</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt;= j) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = temp;</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上面一个while保证了第一趟排序支点的左边比支点小，支点的右边比支点大了。</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//“左边”再做排序，直到左边剩下一个数(递归出口)</span></span><br><span class="line">    <span class="keyword">if</span> (L &lt; j)</span><br><span class="line">        quickSort(arr, L, j);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//“右边”再做排序，直到右边剩下一个数(递归出口)</span></span><br><span class="line">    <span class="keyword">if</span> (i &lt; R)</span><br><span class="line">        quickSort(arr, i, R);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><ul>
+<li>将两个已经排好序的数组合并成一个有序的数组<ul>
+<li>将元素分割开来，看成是有序的数组，进行比较合并</li>
+<li>不断拆分和合并，直到只有一个元素</li>
+</ul>
+</li>
+<li><strong>稳定排序算法</strong></li>
+<li>时间复杂度O(Nlog2N)(所有情况下都是)，空间复杂度O(n)，不是原地排序算法，处理过程是由下到上的，先处理子问题，然后再合并，性能上会占用更多内存</li>
+<li>代码实现<ul>
+<li>在第一趟排序时实质是两个元素（看成是两个已经有序的数组）来进行合并，不断执行这样的操作，最终数组有序</li>
+<li>拆分左边，右边，合并</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arrays = &#123;<span class="number">9</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">8</span>&#125;;</span><br><span class="line">    mergeSort(arrays, <span class="number">0</span>, arrays.length - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"公众号：Java3y"</span> + arrays);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 归并排序</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> arrays</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> L      指向数组第一个元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> R      指向数组最后一个元素</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arrays, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果只有一个元素，那就不用排序了</span></span><br><span class="line">    <span class="keyword">if</span> (L == R) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//取中间的数，进行拆分</span></span><br><span class="line">        <span class="keyword">int</span> M = (L + R) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//左边的数不断进行拆分</span></span><br><span class="line">        mergeSort(arrays, L, M);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//右边的数不断进行拆分</span></span><br><span class="line">        mergeSort(arrays, M + <span class="number">1</span>, R);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//合并</span></span><br><span class="line">        merge(arrays, L, M + <span class="number">1</span>, R);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 合并数组</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> arrays</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> L      指向数组第一个元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> M      指向数组分隔的元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> R      指向数组最后的元素</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] arrays, <span class="keyword">int</span> L, <span class="keyword">int</span> M, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//左边的数组的大小</span></span><br><span class="line">    <span class="keyword">int</span>[] leftArray = <span class="keyword">new</span> <span class="keyword">int</span>[M - L];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//右边的数组大小</span></span><br><span class="line">    <span class="keyword">int</span>[] rightArray = <span class="keyword">new</span> <span class="keyword">int</span>[R - M + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//往这两个数组填充数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = L; i &lt; M; i++) &#123;</span><br><span class="line">        leftArray[i - L] = arrays[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = M; i &lt;= R; i++) &#123;</span><br><span class="line">        rightArray[i - M] = arrays[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// arrays数组的第一个元素</span></span><br><span class="line">    <span class="keyword">int</span>  k = L;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//比较这两个数组的值，哪个小，就往数组上放</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; leftArray.length &amp;&amp; j &lt; rightArray.length) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//谁比较小，谁将元素放入大数组中,移动指针，继续比较下一个</span></span><br><span class="line">        <span class="keyword">if</span> (leftArray[i] &lt; rightArray[j]) &#123;</span><br><span class="line">            arrays[k] = leftArray[i];</span><br><span class="line"></span><br><span class="line">            i++;</span><br><span class="line">            k++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            arrays[k] = rightArray[j];</span><br><span class="line">            j++;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果左边的数组还没比较完，右边的数都已经完了，那么将左边的数抄到大数组中(剩下的都是大数字)</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; leftArray.length) &#123;</span><br><span class="line">        arrays[k] = leftArray[i];</span><br><span class="line"></span><br><span class="line">        i++;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果右边的数组还没比较完，左边的数都已经完了，那么将右边的数抄到大数组中(剩下的都是大数字)</span></span><br><span class="line">    <span class="keyword">while</span> (j &lt; rightArray.length) &#123;</span><br><span class="line">        arrays[k] = rightArray[j];</span><br><span class="line"></span><br><span class="line">        k++;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><ul>
+<li>堆排序用到了完全二叉树的一个特性，根结点比左孩子和右孩子都要大，完成一次建堆的操作实质上是比较根结点和左孩子、右孩子的大小，大的交换到根结点上，直到最大的节点在树顶</li>
+<li>随和与数组最后一位元素进行交换</li>
+<li>代码实现<ul>
+<li>只要左子树或右子树大于当前的根结点，则替换。替换后会导致下面的子树发生变化，因此同样需要进行比较，直至各个结点实现父&gt;子这么一个条件</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[] arrays = &#123;<span class="number">6</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">23</span>, <span class="number">4321</span>, <span class="number">432</span>, <span class="number">3</span>,<span class="number">2</span>,<span class="number">34234</span>,<span class="number">2134</span>,<span class="number">1234</span>,<span class="number">5</span>,<span class="number">132423</span>, <span class="number">234</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrays.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//每完成一次建堆就可以排除一个元素了</span></span><br><span class="line">        maxHeapify(arrays, arrays.length - i);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//交换</span></span><br><span class="line">        <span class="keyword">int</span> temp = arrays[<span class="number">0</span>];</span><br><span class="line">        arrays[<span class="number">0</span>] = arrays[(arrays.length - <span class="number">1</span>) - i];</span><br><span class="line">        arrays[(arrays.length - <span class="number">1</span>) - i] = temp;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"公众号：Java3y"</span> + arrays);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 完成一次建堆，最大值在堆的顶部(根节点)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">maxHeapify</span><span class="params">(<span class="keyword">int</span>[] arrays, <span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = size - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        heapify(arrays, i, size);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 建堆</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> arrays          看作是完全二叉树</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> currentRootNode 当前父节点位置</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> size            节点总数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="keyword">int</span>[] arrays, <span class="keyword">int</span> currentRootNode, <span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (currentRootNode &lt; size) &#123;</span><br><span class="line">        <span class="comment">//左子树和右字数的位置</span></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">2</span> * currentRootNode + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">2</span> * currentRootNode + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//把当前父节点位置看成是最大的</span></span><br><span class="line">        <span class="keyword">int</span> max = currentRootNode;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &lt; size) &#123;</span><br><span class="line">            <span class="comment">//如果比当前根元素要大，记录它的位置</span></span><br><span class="line">            <span class="keyword">if</span> (arrays[max] &lt; arrays[left]) &#123;</span><br><span class="line">                max = left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &lt; size) &#123;</span><br><span class="line">            <span class="comment">//如果比当前根元素要大，记录它的位置</span></span><br><span class="line">            <span class="keyword">if</span> (arrays[max] &lt; arrays[right]) &#123;</span><br><span class="line">                max = right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果最大的不是根元素位置，那么就交换</span></span><br><span class="line">        <span class="keyword">if</span> (max != currentRootNode) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = arrays[max];</span><br><span class="line">            arrays[max] = arrays[currentRootNode];</span><br><span class="line">            arrays[currentRootNode] = temp;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//继续比较，直到完成一次建堆</span></span><br><span class="line">            heapify(arrays, max, size);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><ul>
+<li><p>希尔排序实际上是插入排序的增强版、希尔排序将数组分割成n组来进行插入排序，<strong>直至该数组宏观上有序</strong>，最后再进行插入排序时就不用移动太多次位置</p>
+</li>
+<li><p>代码实现</p>
+<ul>
+<li>希尔增量一般是gap = gap / 2，只是比普通版插入排序多了这么一个for循环</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 希尔排序</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> arrays</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span>[] arrays)</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">     <span class="comment">//增量每次都/2</span></span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> step = arrays.length / <span class="number">2</span>; step &gt; <span class="number">0</span>; step /= <span class="number">2</span>) &#123;</span><br><span class="line">  </span><br><span class="line">         <span class="comment">//从增量那组开始进行插入排序，直至完毕</span></span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = step; i &lt; arrays.length; i++) &#123;</span><br><span class="line">  </span><br><span class="line">             <span class="keyword">int</span> j = i;</span><br><span class="line">             <span class="keyword">int</span> temp = arrays[j];</span><br><span class="line">  </span><br><span class="line">             <span class="comment">// j - step 就是代表与它同组隔壁的元素</span></span><br><span class="line">             <span class="keyword">while</span> (j - step &gt;= <span class="number">0</span> &amp;&amp; arrays[j - step] &gt; temp) &#123;</span><br><span class="line">                 arrays[j] = arrays[j - step];</span><br><span class="line">                 j = j - step;</span><br><span class="line">             &#125;</span><br><span class="line">             arrays[j] = temp;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="基数排序（桶排序）"><a href="#基数排序（桶排序）" class="headerlink" title="基数排序（桶排序）"></a>基数排序（桶排序）</h4><ul>
+<li>将数组切割成个、十、百、千位放入到不同的桶子里，放一次就按桶子顺序回收一次，直到最大位数的数字放完</li>
+<li><strong>稳定排序算法</strong></li>
+<li>时间复杂度O(d(r + n))，最好情况O(d(n+rd))，空间复杂度O(rd+n)，r代表关键字的基数，d代表长度，n代表关键字的个数</li>
+<li>限制：<ul>
+<li>桶排序需要很容易就能划分成m个桶，且桶与桶之间有天然的大小顺序。这样每个桶内的数据排序完后，桶与桶之间的数据不需要再进行排序</li>
+<li>数据在各个桶之间的分布是比较均匀的。如果有的桶里的数据非常多，有的非常少，那桶内数据排序时间的复杂度就不是常量级了，极端情况可能所有数据都被划分到一个桶里，就退化为O(nlogN)的排序算法</li>
+</ul>
+</li>
+<li>适用场景：<ul>
+<li>外部排序：数据存储在外部磁盘中，数据量大，内存有限，无法将数据全部加载到内存里</li>
+</ul>
+</li>
+<li>代码实现<ul>
+<li>先找到数组的最大值，然后根据最大值/10来作为循环的条件（只要&gt;0，那么就说明还有位数）</li>
+<li>将个位、十位、…分配到桶里，每分配一次就回收一次</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[] arrays = &#123;<span class="number">6</span>, <span class="number">4322</span>, <span class="number">432</span>, <span class="number">344</span>, <span class="number">55</span>, <span class="number">234</span>, <span class="number">45</span>, <span class="number">243</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">3245</span>, <span class="number">345</span>, <span class="number">345</span>, <span class="number">234</span>, <span class="number">68</span>, <span class="number">65</span>&#125;;</span><br><span class="line"></span><br><span class="line">    radixSort(arrays);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"公众号：Java3y"</span> + arrays);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">radixSort</span><span class="params">(<span class="keyword">int</span>[] arrays)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> max = findMax(arrays, <span class="number">0</span>, arrays.length - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//需要遍历的次数由数组最大值的位数来决定</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; max / i &gt; <span class="number">0</span>; i = i * <span class="number">10</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[][] buckets = <span class="keyword">new</span> <span class="keyword">int</span>[arrays.length][<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取每一位数字(个、十、百、千位...分配到桶子里)</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arrays.length; j++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> num = (arrays[j] / i) % <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//将其放入桶子里</span></span><br><span class="line">            buckets[j][num] = arrays[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//回收桶子里的元素</span></span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//有10个桶子</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">            <span class="comment">//对每个桶子里的元素进行回收</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; arrays.length ; l++) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//如果桶子里面有元素就回收(数据初始化会为0)</span></span><br><span class="line">                <span class="keyword">if</span> (buckets[l][j] != <span class="number">0</span>) &#123;</span><br><span class="line">                    arrays[k++] = buckets[l][j];</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 递归，找出数组最大的值</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> arrays 数组</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> L      左边界，第一个数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> R      右边界，数组的长度</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findMax</span><span class="params">(<span class="keyword">int</span>[] arrays, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果该数组只有一个数，那么最大的就是该数组第一个值了</span></span><br><span class="line">    <span class="keyword">if</span> (L == R) &#123;</span><br><span class="line">        <span class="keyword">return</span> arrays[L];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> a = arrays[L];</span><br><span class="line">        <span class="keyword">int</span> b = findMax(arrays, L + <span class="number">1</span>, R);<span class="comment">//找出整体的最大值</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><img src="https://s1.ax1x.com/2020/03/27/GioJ4P.png" alt></p>
+
+    </div>
+
+    
+    
+    <!-- 文件位置：~/source/_data/post-body-end.swig -->
+
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/leo-yang0201.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag"># 排序算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/leo-yang0201.github.io/2020/03/16/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%85%AB/" rel="prev" title="Java面试题汇总(八)">
+      <i class="fa fa-chevron-left"></i> Java面试题汇总(八)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/leo-yang0201.github.io/2020/03/24/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9817-16-%E6%8C%89%E6%91%A9%E5%B8%88/" rel="next" title="Leetcode 面试题17.16 按摩师">
+      Leetcode 面试题17.16 按摩师 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+      <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1329734169&auto=0&height=66"></iframe>
+      </div>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序"><span class="nav-number">2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-number">3.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-number">4.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序"><span class="nav-number">5.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序"><span class="nav-number">6.</span> <span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序"><span class="nav-number">7.</span> <span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基数排序（桶排序）"><span class="nav-number">8.</span> <span class="nav-text">基数排序（桶排序）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Leo Yang"
+      src="/leo-yang0201.github.io/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Leo Yang</p>
+  <div class="site-description" itemprop="description">Hi, I use this blog to record my daily practice in computer science and data science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/leo-yang0201.github.io/archive/">
+        
+          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/leo-yang0201.github.io/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/leo-yang0201.github.io/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo Yang</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共85.9k字</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.2
+  </div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/leo-yang0201.github.io/yzm/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/anime.min.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.min.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.ui.min.js"></script>
+
+<script src="/leo-yang0201.github.io/js/utils.js"></script>
+
+<script src="/leo-yang0201.github.io/js/motion.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/schemes/pisces.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/next-boot.js"></script>
+
+
+  <script defer src="/leo-yang0201.github.io/yzm/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '28053c3bf9e94bd99f96',
+      clientSecret: '8b2847e6971db2a6490a4a011655f88756a32e17',
+      repo        : 'leo-yang0201.github.io',
+      owner       : 'leo-yang0201',
+      admin       : ['leo-yang0201'],
+      id          : '8b9ae7f1aaea3ff8c0a5ca2447204c4c',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+<!-- 文件位置：~/source/_data/body-end.swig -->
+
+<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+<script>
+  console.log('今日诗词 - 开始加载...');
+  jinrishici.load((result) => {
+    let jrsc = document.getElementById('jrsc');
+    if (jrsc) {
+      console.log('今日诗词 - 标签获取成功.');
+    } else {
+      console.log('今日诗词 - 标签获取失败!');
+      return;
+    }
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+    console.log('今日诗词 - 载入完毕.');
+    if (data.origin.author == '李白') {
+      let audio = document.createElement("audio");
+      audio.src = "/ding.mp3";
+      audio.play();
+    }
+  });
+</script>
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
