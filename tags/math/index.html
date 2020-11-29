@@ -170,7 +170,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2020-02-03T19:40:37+08:00"
+              datetime="2020-02-03T22:10:37+08:00"
               content="2020-02-03">
           02-03
         </time>
@@ -410,6 +410,26 @@
       return;
     }
     const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+    console.log('今日诗词 - 载入完毕.');
+    if (data.origin.author == '李白') {
+      let audio = document.createElement("audio");
+      audio.src = "/ding.mp3";
+      audio.play();
+    }
+  });
+</script>
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
+lt.data;
     let author = data.origin.author;
     let title = '《' + data.origin.title + '》';
     let content = data.content.substr(0, data.content.length - 1);
