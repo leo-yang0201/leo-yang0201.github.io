@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">104</span></a>
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">105</span></a>
 
   </li>
   </ul>
@@ -150,6 +150,114 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2019/12/16/Leetcode-70-Climbing-Stairs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/leo-yang0201.github.io/2019/12/16/Leetcode-70-Climbing-Stairs/" class="post-title-link" itemprop="url">Leetcode 70 Climbing Stairs(爬楼梯)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-16 14:13:21" itemprop="dateCreated datePublished" datetime="2019-12-16T14:13:21+08:00">2019-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-05 21:17:12" itemprop="dateModified" datetime="2020-03-05T21:17:12+08:00">2020-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Difficulty-Easy"><a href="#Difficulty-Easy" class="headerlink" title="Difficulty : Easy"></a>Difficulty : Easy</h4><h4 id="Type-Dynamic-programming"><a href="#Type-Dynamic-programming" class="headerlink" title="Type: Dynamic programming"></a>Type: Dynamic programming</h4><h5 id="Language-Java"><a href="#Language-Java" class="headerlink" title="Language : Java"></a>Language : Java</h5><ol>
+<li><p>Clarification<br>Each time you can either climb 1 step or 2 steps. Find all the <strong>distinct</strong> ways to climb to the top</p>
+</li>
+<li><p>Possible Solutions</p>
+<ul>
+<li><p>斐波那契数列<br>当n &lt;= 2时，结果将为n。 当n&gt; 2时（例如n = 4），到达顶部的最后一步要么是1步要么是2步。 因此，n = one_step_before + two_steps_before。 这是要进行递归的三个指针。 使用for循环更新它们的值并返回最后的n。</p>
+</li>
+<li><p>动态规划<br>分成多个子问题，爬第n阶楼梯的方法数量，等于2部分之和</p>
+<ul>
+<li>爬上n - 1阶楼梯的方法数量，因为再爬1阶就能到第n阶</li>
+<li>爬上n - 2阶楼梯的方法数量，因为再爬2阶就能到第n阶</li>
+</ul>
+<p>所以公式为dp[n] = dp[n-1] + dp[n-2]</p>
+<p>同时需要初始化dp[0] = 1和dp[1] = 1</p>
+</li>
+</ul>
+</li>
+<li><p>Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Fibonacchi</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">      <span class="comment">// Set the initial value of f1,f2,f3</span></span><br><span class="line">        <span class="keyword">int</span> f1 = <span class="number">1</span>, f2 = <span class="number">2</span>, f3 = <span class="number">3</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>;i &lt; n;i++)&#123;</span><br><span class="line">        f3 = f1 + f2;</span><br><span class="line">        f1 = f2;</span><br><span class="line">        f2 = f3;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> f3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Time Complexity: O(N)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动态规划</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">            dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                dp[i] = dp[i - <span class="number">1</span>] + dp[i - <span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> dp[n];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>Test Case</p>
+<p>Input : 2</p>
+<p>Output : 2</p>
+<p>Input : 7</p>
+<p>Output : 21</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -594,7 +702,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/leo-yang0201.github.io/archive/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
