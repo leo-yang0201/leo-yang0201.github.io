@@ -1,1375 +1,457 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.1.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/leo-yang0201.github.io/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/leo-yang0201.github.io/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/leo-yang0201.github.io/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/leo-yang0201.github.io/images/logo.svg" color="#222">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-<link rel="stylesheet" href="/leo-yang0201.github.io/css/main.css">
+    
 
+    <title>
+      page 5 | Leo Yang&#39;s Blog 
+    </title>
 
-<link rel="stylesheet" href="/leo-yang0201.github.io/yzm/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/leo-yang0201.github.io/yzm/pace/pace-theme-center-atom.min.css">
-  <script src="/leo-yang0201.github.io/yzm/pace/pace.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+      <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Leo Yang&#39;s Blog">
+<meta property="og:title" content="page 5 | Leo Yang&#39;s Blog">
 <meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;page&#x2F;5&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
 <meta property="og:description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
 <meta property="article:author" content="Leo Yang">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://leo-yang0201.github.io/page/5/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false
-  };
-</script>
-
-  <title>Leo Yang's Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <div>
-      <a href="/leo-yang0201.github.io/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leo Yang's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">记录一些技术随笔和刷题思路～</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/leo-yang0201.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">43</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/leo-yang0201.github.io/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">13</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">105</span></a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
 
     
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+<meta name="generator" content="Hexo 4.1.1"></head>
+<body>
 
-          <div class="content">
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+ 
+<header class="panel-cover">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
             
 
-  <div class="posts-expand">
+
+   <!-- do nothing -->
+
+
+<div class="main-post-list">
+    <ol class="post-list">
+    
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/10/ConcurrentHashMap和Hashtable的区别/" title="link to ConcurrentHashMap和Hashtable到底有什么不同？">ConcurrentHashMap和Hashtable到底有什么不同？</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-10" class="post-list__meta--date date">2020-03-10</time> 
+      </div>
+
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/10/ConcurrentHashMap%E5%92%8CHashtable%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      </div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/10/ConcurrentHashMap%E5%92%8CHashtable%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">ConcurrentHashMap和Hashtable到底有什么不同？</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-10 02:55:42" itemprop="dateCreated datePublished" datetime="2020-03-10T02:55:42+08:00">2020-03-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-27 10:32:00" itemprop="dateModified" datetime="2020-03-27T10:32:00+08:00">2020-03-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <li>
 
-      
-          <p>面试只要是问到多线程相关的知识，这个问题是很常见的，我查了几篇资料然后做了一下总结：</p>
-<p>首先HashMap它不是线程安全的，在多线程情况下HashMap可能出现以下线程安全问题：</p>
-<h4 id="多线程的put可能导致元素的丢失"><a href="#多线程的put可能导致元素的丢失" class="headerlink" title="多线程的put可能导致元素的丢失"></a>多线程的put可能导致元素的丢失</h4><p>试验代码：</p>
-<p>注：仅作为可能会产生这个问题的样例代码，直接运行不一定会产生问题</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurrentIssueDemo1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 线程1 =&gt; t1</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">99999999</span>; i++) &#123;</span><br><span class="line">                    map.put(<span class="string">"thread1_key"</span> + i, <span class="string">"thread1_value"</span> + i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        <span class="comment">// 线程2 =&gt; t2</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">99999999</span>; i++) &#123;</span><br><span class="line">                    map.put(<span class="string">"thread2_key"</span> + i, <span class="string">"thread2_value"</span> + i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：Mr羽墨青衫</span><br><span class="line">链接：https:<span class="comment">//juejin.im/post/5c8910286fb9a049ad77e9a3</span></span><br><span class="line">来源：掘金</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/" title="link to Leetcode 122 Best Time to Buy and Sell Stock II(买卖股票的最佳时机II)">Leetcode 122 Best Time to Buy and Sell Stock II(买卖股票的最佳时机II)</a>
+      </h2>
 
-<p>触发此问题的场景</p>
-<p>首先观察put的源码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> putVal(hash(key), key, value, <span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">final</span> V <span class="title">putVal</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">boolean</span> onlyIfAbsent,</span></span></span><br><span class="line"><span class="function"><span class="params">               <span class="keyword">boolean</span> evict)</span> </span>&#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="keyword">int</span> n, I;</span><br><span class="line">    <span class="comment">// 初始化hash表</span></span><br><span class="line">    <span class="keyword">if</span> ((tab = table) == <span class="keyword">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">        n = (tab = resize()).length;</span><br><span class="line">    <span class="comment">// 通过hash值计算在hash表中的位置，并将这个位置上的元素赋值给p，如果是空的则new一个新的node放在这个位置上</span></span><br><span class="line">    <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="keyword">null</span>)</span><br><span class="line">        tab[i] = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// hash表的当前index已经存在元素，向这个元素后追加链表</span></span><br><span class="line">        Node&lt;K,V&gt; e; K k;</span><br><span class="line">        <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">            ((k = p.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            e = p;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">            e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="keyword">this</span>, tab, hash, key, value);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> binCount = <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                <span class="comment">// 新建节点并追加到链表</span></span><br><span class="line">                <span class="keyword">if</span> ((e = p.next) == <span class="keyword">null</span>) &#123; <span class="comment">// #1</span></span><br><span class="line">                    p.next = newNode(hash, key, value, <span class="keyword">null</span>); <span class="comment">// #2</span></span><br><span class="line">                    <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                        treeifyBin(tab, hash);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                p = e;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">            V oldValue = e.value;</span><br><span class="line">            <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="keyword">null</span>)</span><br><span class="line">                e.value = value;</span><br><span class="line">            afterNodeAccess(e);</span><br><span class="line">            <span class="keyword">return</span> oldValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ++modCount;</span><br><span class="line">    <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">        resize();</span><br><span class="line">    afterNodeInsertion(evict);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：Mr羽墨青衫</span><br><span class="line">链接：https:<span class="comment">//juejin.im/post/5c8910286fb9a049ad77e9a3</span></span><br><span class="line">来源：掘金</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+      <div class="post-list__meta">
 
-<p>假设当前HashMap中的table状态如下：</p>
-<p><img src="https://s2.ax1x.com/2020/03/10/8CKkOx.png" alt></p>
-<p>此时t1和t2同时执行put，假设t1执行put(“key2”, “value2”)，t2执行put(“key3”, “value3”)，并且key2和key3的hash值与图中的key1相同。</p>
-<p>那么正常情况下，put完成后，table的状态应该是下图二者其一</p>
-<p><img src="https://s2.ax1x.com/2020/03/10/8CKufH.png" alt></p>
-<p>下面来看看异常情况</p>
-<p>假设线程1、线程2现在都执行到put源代码中#1的位置，且当前table状态如下</p>
-<p><img src="https://s2.ax1x.com/2020/03/10/8CKUhQ.png" alt></p>
-<p>然后两个线程都执行了if ((e = p.next) == null)这句代码，来到了#2这行代码。</p>
-<p>此时假设t1先执行p.next = newNode(hash, key, value, null);</p>
-<p>那么table会变成如下状态</p>
-<p><a href="https://imgchr.com/i/8CKtAS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/10/8CKtAS.png" alt="8CKtAS.png"></a></p>
-<p>紧接着t2执行p.next = newNode(hash, key, value, null);</p>
-<p>此时table会变成如下状态</p>
-<p><a href="https://imgchr.com/i/8CKNtg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/10/8CKNtg.png" alt="8CKNtg.png"></a></p>
-<p>这样一来，key2元素就丢了。</p>
-<h4 id="put和get并发时，可能导致get为null"><a href="#put和get并发时，可能导致get为null" class="headerlink" title="put和get并发时，可能导致get为null"></a>put和get并发时，可能导致get为null</h4><p>场景：线程1执行put时，因为元素个数超出threshold而导致rehash，线程2此时执行get，有可能导致这个问题。</p>
-<p>分析如下：</p>
-<p>先看下resize方法源码</p>
-<p>大致意思是，先计算新的容量和threshold，在创建一个新hash表，最后将旧hash表中元素rehash到新的hash表中</p>
-<p>重点代码在于#1和#2两句</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hash表</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;</span><br><span class="line">    <span class="comment">// 计算新hash表容量大小，begin</span></span><br><span class="line">    Node&lt;K,V&gt;[] oldTab = table;</span><br><span class="line">    <span class="keyword">int</span> oldCap = (oldTab == <span class="keyword">null</span>) ? <span class="number">0</span> : oldTab.length;</span><br><span class="line">    <span class="keyword">int</span> oldThr = threshold;</span><br><span class="line">    <span class="keyword">int</span> newCap, newThr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (oldCap &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (oldCap &gt;= MAXIMUM_CAPACITY) &#123;</span><br><span class="line">            threshold = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">return</span> oldTab;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACITY &amp;&amp;</span><br><span class="line">                 oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">            newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// double threshold</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (oldThr &gt; <span class="number">0</span>) <span class="comment">// initial capacity was placed in threshold</span></span><br><span class="line">        newCap = oldThr;</span><br><span class="line">    <span class="keyword">else</span> &#123;               <span class="comment">// zero initial threshold signifies using defaults</span></span><br><span class="line">        newCap = DEFAULT_INITIAL_CAPACITY;</span><br><span class="line">        newThr = (<span class="keyword">int</span>)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (newThr == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">float</span> ft = (<span class="keyword">float</span>)newCap * loadFactor;</span><br><span class="line">        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (<span class="keyword">float</span>)MAXIMUM_CAPACITY ?</span><br><span class="line">                  (<span class="keyword">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    threshold = newThr;</span><br><span class="line">    <span class="comment">// 计算新hash表容量大小，end</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(&#123;<span class="string">"rawtypes"</span>,<span class="string">"unchecked”&#125;)</span></span><br><span class="line"><span class="string">    Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])new Node[newCap]; // #1</span></span><br><span class="line"><span class="string">    table = newTab; // #2</span></span><br><span class="line"><span class="string">    // rehash begin</span></span><br><span class="line"><span class="string">    if (oldTab != null) &#123;</span></span><br><span class="line"><span class="string">        for (int j = 0; j &lt; oldCap; ++j) &#123;</span></span><br><span class="line"><span class="string">            Node&lt;K,V&gt; e;</span></span><br><span class="line"><span class="string">            if ((e = oldTab[j]) != null) &#123;</span></span><br><span class="line"><span class="string">                oldTab[j] = null;</span></span><br><span class="line"><span class="string">                if (e.next == null)</span></span><br><span class="line"><span class="string">                    newTab[e.hash &amp; (newCap - 1)] = e;</span></span><br><span class="line"><span class="string">                else if (e instanceof TreeNode)</span></span><br><span class="line"><span class="string">                    ((TreeNode&lt;K,V&gt;)e).split(this, newTab, j, oldCap);</span></span><br><span class="line"><span class="string">                else &#123; // preserve order</span></span><br><span class="line"><span class="string">                    Node&lt;K,V&gt; loHead = null, loTail = null;</span></span><br><span class="line"><span class="string">                    Node&lt;K,V&gt; hiHead = null, hiTail = null;</span></span><br><span class="line"><span class="string">                    Node&lt;K,V&gt; next;</span></span><br><span class="line"><span class="string">                    do &#123;</span></span><br><span class="line"><span class="string">                        next = e.next;</span></span><br><span class="line"><span class="string">                        if ((e.hash &amp; oldCap) == 0) &#123;</span></span><br><span class="line"><span class="string">                            if (loTail == null)</span></span><br><span class="line"><span class="string">                                loHead = e;</span></span><br><span class="line"><span class="string">                            else</span></span><br><span class="line"><span class="string">                                loTail.next = e;</span></span><br><span class="line"><span class="string">                            loTail = e;</span></span><br><span class="line"><span class="string">                        &#125;</span></span><br><span class="line"><span class="string">                        else &#123;</span></span><br><span class="line"><span class="string">                            if (hiTail == null)</span></span><br><span class="line"><span class="string">                                hiHead = e;</span></span><br><span class="line"><span class="string">                            else</span></span><br><span class="line"><span class="string">                                hiTail.next = e;</span></span><br><span class="line"><span class="string">                            hiTail = e;</span></span><br><span class="line"><span class="string">                        &#125;</span></span><br><span class="line"><span class="string">                    &#125; while ((e = next) != null);</span></span><br><span class="line"><span class="string">                    if (loTail != null) &#123;</span></span><br><span class="line"><span class="string">                        loTail.next = null;</span></span><br><span class="line"><span class="string">                        newTab[j] = loHead;</span></span><br><span class="line"><span class="string">                    &#125;</span></span><br><span class="line"><span class="string">                    if (hiTail != null) &#123;</span></span><br><span class="line"><span class="string">                        hiTail.next = null;</span></span><br><span class="line"><span class="string">                        newTab[j + oldCap] = hiHead;</span></span><br><span class="line"><span class="string">                    &#125;</span></span><br><span class="line"><span class="string">                &#125;</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    // rehash end</span></span><br><span class="line"><span class="string">    return newTab;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+        <time datetime="2020-03-10" class="post-list__meta--date date">2020-03-10</time> 
+      </div>
 
-<p>在代码#1位置，用新计算的容量new了一个新的hash表，#2将新创建的空hash表赋值给实例变量table。</p>
-<p>注意此时实例变量table是空的。</p>
-<p>那么，如果此时另一个线程执行get时，就会get出null。</p>
-<h4 id="如何解决HashMap的线程不安全问题？"><a href="#如何解决HashMap的线程不安全问题？" class="headerlink" title="如何解决HashMap的线程不安全问题？"></a>如何解决HashMap的线程不安全问题？</h4><p>上一节的内容源自Mr羽墨青衫的文章（<a href="https://juejin.im/post/5c8910286fb9a049ad77e9a3）" target="_blank" rel="noopener">https://juejin.im/post/5c8910286fb9a049ad77e9a3）</a></p>
-<p>在学习过后可以发现HashMap用于多线程可能导致的严重问题。在面试当中，一般会被问到如何解决HashMap的线程不安全问题，如果只是回答用ConcurrentHashMap，面试官可能会追加提问“HashTable也是线程安全的，为什么用ConcurrentHashMap不用HashTable?“</p>
-<p>首先ConcurrentHashMap和HashTable的区别在于实现线程安全的方式不同</p>
-<ul>
-<li>底层数据结构<br>JDK1.7的ConcurrentHashMap底层采用分段的数组+链表实现，JDK1.8采用数组+链表+红黑树的结构。HashTable和JDK1.8之前的HashMap底层数据结构类似都是采用数组+链表的形式，数组是HashMap的主体，链表是解决Hash冲突而存在的。</li>
-<li>实现线程安全的方式<ul>
-<li>JDK1.7版本时，ConcurrentHashMap对整个桶数组进行了分割(Segment)，每一把锁只锁容器其中一部分的数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。（默认分配16个Segment，比HashTable效率提高16倍）JDK1.8因为使用了数组+链表+红黑树的数据结构，摒弃了Segment的概念，并发控制使用synchornized和CAS来操作，整个看起来就像是优化过且线程安全的HashMap。</li>
-<li>HashTable使用synchronized来保证线程安全，因为synchronized是一个重量级的锁，只要锁住，当一个线程访问同步方法时，别的线程也访问同步方法，它们就只能处于阻塞或轮询状态，这意味着一个线程在使用put方法时，另一个线程不仅不能用put方法，连get方法也不能用，效率非常低下，竞争越激烈效率越低。</li>
-</ul>
-</li>
-</ul>
-<p>两者的对比图</p>
-<p>图片来源：<a href="http://www.cnblogs.com/chengxiao/p/6842045.html" target="_blank" rel="noopener">http://www.cnblogs.com/chengx…</a></p>
-<p>HashTable:</p>
-<p><a href="https://imgchr.com/i/8CM5GQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/10/8CM5GQ.md.png" alt="8CM5GQ.md.png"></a></p>
-<p>JDK1.7的ConcurrentHashMap：</p>
-<p><a href="https://imgchr.com/i/8CM4Pg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/10/8CM4Pg.md.png" alt="8CM4Pg.md.png"></a></p>
-<p>JDK1.8的ConcurrentHashMap：</p>
-<p><a href="https://imgchr.com/i/8CMfIS" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/03/10/8CMfIS.md.png" alt="8CMfIS.md.png"></a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/10/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/">
+      </div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/" class="post-title-link" itemprop="url">Leetcode 122 Best Time to Buy and Sell Stock II(买卖股票的最佳时机II)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-10 01:32:41" itemprop="dateCreated datePublished" datetime="2020-03-10T01:32:41+08:00">2020-03-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-09 23:28:32" itemprop="dateModified" datetime="2020-03-09T23:28:32+08:00">2020-03-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <li>
 
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Dynamic Programming, Greedy, Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
-<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).</p>
-<p><strong>Note:</strong> You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>思路同LC 121，只是这一次的状态里，k是正无穷（可以交易无数次）</p>
-<p>状态转移方程依然是这个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">因为k为正无穷，那么k和k-1是一样的</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">            &#x3D; Max(dp[i-1][k][1],dp[i-1][k][0] - prices[i])</span><br><span class="line">所以k其实没有影响了，可以拿掉，简化后为：</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][0],dp[i-1][1] + prices[i])</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][1],dp[i-1][0] - prices[i])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>贪心算法</p>
-<p>股票买卖策略：</p>
-<ul>
-<li>单独交易日：设今天价格p<sub>1</sub>、明天价格p<sub>2</sub>，则今天买入，明天卖出的利润是p<sub>2</sub>-p<sub>1</sub>（负值代表亏损）</li>
-<li>连续上涨交易日：设此上涨交易日股票价格分别为p<sub>1</sub>，p<sub>2</sub>，…，p<sub>n</sub>，则第一天买，最后一天卖的利润最大，即p<sub>n</sub>-p<sub>1</sub>。<strong>等价于每天都买卖</strong>，即p<sub>n</sub> - p<sub>1</sub> = (p<sub>2</sub> - p<sub>1</sub>) + (p<sub>3</sub> - p<sub>2</sub>) + … +(p<sub>n</sub> - p<sub>n-1</sub>)。</li>
-<li>连续下降交易日： 即不买卖收益最大，不会亏钱</li>
-</ul>
-<p>算法流程</p>
-<ul>
-<li>遍历整个股票交易日价格列表prices，策略是所有上涨交易日都交易（赚到所有利润），所以下降收益日都不交易（永不亏钱）</li>
-</ul>
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>],dp[i - <span class="number">1</span>][<span class="number">1</span>] + prices[i]);</span><br><span class="line">            dp[i][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>],dp[i - <span class="number">1</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/09/Java面试题模块五/" title="link to Java面试题汇总（五）">Java面试题汇总（五）</a>
+      </h2>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空间复杂度为O(1)的贪心算法实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> profit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; prices.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = prices[i] - prices[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (tmp &gt; <span class="number">0</span>) profit += tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="post-list__meta">
 
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,1,5,3,6,4]</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Buy on day 2 (price &#x3D; 1) and sell on day 3 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.</span><br><span class="line">             Then buy on day 4 (price &#x3D; 3) and sell on day 5 (price &#x3D; 6), profit &#x3D; 6-3 &#x3D; 3.</span><br></pre></td></tr></table></figure>
+        <time datetime="2020-03-09" class="post-list__meta--date date">2020-03-09</time> 
+      </div>
 
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,4,5]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: Buy on day 1 (price &#x3D; 1) and sell on day 5 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.</span><br><span class="line">             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are</span><br><span class="line">             engaging multiple transactions at the same time. You must sell before buying again.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,6,4,3,1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: In this case, no transaction is done, i.e. max profit &#x3D; 0.</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%94/">
+      </div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%94/" class="post-title-link" itemprop="url">Java面试题汇总（五）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-09 23:37:16 / Modified: 21:40:29" itemprop="dateCreated datePublished" datetime="2020-03-09T23:37:16+08:00">2020-03-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <li>
 
-      
-          <h4 id="throw和throws的区别？"><a href="#throw和throws的区别？" class="headerlink" title="throw和throws的区别？"></a>throw和throws的区别？</h4><p>throws是用来声明一个方法可能抛出的所有异常信息，throws是将异常声明但是不处理，而是将异常往上传，谁调用我就交给谁处理，而throw则是指抛出的一个具体的异常类型</p>
-<h4 id="final、finally、finalize有什么区别？"><a href="#final、finally、finalize有什么区别？" class="headerlink" title="final、finally、finalize有什么区别？"></a>final、finally、finalize有什么区别？</h4><ul>
-<li>final可以修饰类、变量、方法，修饰类表示该类不可以继承，修饰变量表示该变量是常量，不能被重新赋值，修饰方法表示此方法不可以被重写</li>
-<li>finally一般作用在try-catch块中，在处理异常中，通常我们将一定要执行的代码放到finally块里，表示不管是否出现异常，该代码块都会执行，一般用来存放一些关闭资源的代码</li>
-<li>finalize是一个方法，属于Object类，该方法一般由垃圾回收器调用，当调用System的gc方法时，由垃圾回收器调用finalize()，回收垃圾</li>
-</ul>
-<h4 id="try-catch-finally中哪个部分可以省略？"><a href="#try-catch-finally中哪个部分可以省略？" class="headerlink" title="try-catch-finally中哪个部分可以省略？"></a>try-catch-finally中哪个部分可以省略？</h4><p>catch可以省略</p>
-<p>try只适合处理运行时异常，try+catch适合处理运行时异常+普通异常，如果只用try处理普通异常但不加catch处理，编译无法通过，因为编译器硬性规定，普通异常如果选择捕获，必须用catch显示声明以便进一步处理，而运行时异常在编译时没有如此设定，所以catch可以省略。加上finally，则是不管有没有捕获异常，都要进行的“扫尾”处理</p>
-<h4 id="try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？"><a href="#try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？" class="headerlink" title="try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？"></a>try-catch-finally中，如果catch里面有return语句，finally里的代码还会执行吗？</h4><p>会，在return前执行</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * java面试题--如果catch里面有return语句，finally里面的代码还会执行吗？</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinallyDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getInt());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(a / <span class="number">0</span>);</span><br><span class="line">            a = <span class="number">20</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            a = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * return a 在程序执行到这一步的时候，这里不是return a 而是 return 30；这个返回路径就形成了</span></span><br><span class="line"><span class="comment">             * 但是呢，它发现后面还有finally，所以继续执行finally的内容，a=40</span></span><br><span class="line"><span class="comment">             * 再次回到以前的路径,继续走return 30，形成返回路径之后，这里的a就不是a变量了，而是常量30</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a = <span class="number">40</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//      return a;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/09/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/" title="link to Leetcode 121 Best Time to Buy and Sell Stock（买卖股票的最佳时机）">Leetcode 121 Best Time to Buy and Sell Stock（买卖股票的最佳时机）</a>
+      </h2>
 
-<p>执行结果：30</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * java面试题--如果catch里面有return语句，finally里面的代码还会执行吗？</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinallyDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getInt());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(a / <span class="number">0</span>);</span><br><span class="line">            a = <span class="number">20</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArithmeticException e) &#123;</span><br><span class="line">            a = <span class="number">30</span>;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * return a 在程序执行到这一步的时候，这里不是return a 而是 return 30；这个返回路径就形成了</span></span><br><span class="line"><span class="comment">             * 但是呢，它发现后面还有finally，所以继续执行finally的内容，a=40</span></span><br><span class="line"><span class="comment">             * 再次回到以前的路径,继续走return 30，形成返回路径之后，这里的a就不是a变量了，而是常量30</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            a = <span class="number">40</span>;</span><br><span class="line">            <span class="keyword">return</span> a; <span class="comment">//如果这样，就又重新形成了一条返回路径，由于只能通过1个return返回，所以这里直接返回40</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//      return a;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="post-list__meta">
 
-<p>执行结果：40</p>
-<h4 id="常见的异常类有哪些？"><a href="#常见的异常类有哪些？" class="headerlink" title="常见的异常类有哪些？"></a>常见的异常类有哪些？</h4><ul>
-<li>NullPointerException: 当应用程序试图访问空对象时，则抛出该异常</li>
-<li>SQLException: 提供关于数据库访问错误或其他错误信息的异常</li>
-<li>IndexOutOfBoundsException: 指示某排序索引（数组、字符串或向量的排序）超出范围时抛出</li>
-<li>NumberFormatException: 当程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常</li>
-<li>FileNotFoundException: 当试图打开指定路径名表示的文件失败时，抛出该异常</li>
-<li>IOException: 当发生某种I/O异常时，抛出此异常，此类是失败或中断的I/O操作生成的异常的通用类</li>
-<li>ClassCastException：当试图将对象强制转换为不是实例的子类时，抛出该异常。</li>
-<li>ArrayStoreException：试图将错误类型的对象存储到一个对象数组时抛出的异常。</li>
-<li>IllegalArgumentException：抛出的异常表明向方法传递了一个不合法或不正确的参数。</li>
-<li>ArithmeticException：当出现异常的运算条件时，抛出此异常。例如，一个整数“除以零”时，抛出此类的一个实例。 </li>
-<li>NegativeArraySizeException：如果应用程序试图创建大小为负的数组，则抛出该异常。</li>
-<li>NoSuchMethodException：无法找到某一特定方法时，抛出该异常。</li>
-<li>SecurityException：由安全管理器抛出的异常，指示存在安全侵犯。</li>
-<li>UnsupportedOperationException：当不支持请求的操作时，抛出该异常。</li>
-<li>RuntimeExceptionRuntimeException：是那些可能在Java虚拟机正常运行期间抛出的异常的超类。</li>
-</ul>
+        <time datetime="2020-03-09" class="post-list__meta--date date">2020-03-09</time> 
+      </div>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/09/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/">
+      </div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/09/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/" class="post-title-link" itemprop="url">Leetcode 121 Best Time to Buy and Sell Stock（买卖股票的最佳时机）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-09 22:33:05 / Modified: 23:05:28" itemprop="dateCreated datePublished" datetime="2020-03-09T22:33:05+08:00">2020-03-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <li>
 
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Dynamic Programming</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
-<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
-<p>Note that you cannot sell a stock before you buy one.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>动态规划其实就是穷举，穷举出所有可能的状态最后选择出符合题意的最优状态（注意：不是根据递归思想进行穷举，而是利用状态进行穷举）。在股票类型的题目中，状态有三种：天数、允许交易的最大次数、当前的持有状态。每天有三种选择：买入、卖出、无操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0 or 1]</span><br><span class="line">0 &lt;&#x3D; i &lt;&#x3D; n - 1, 1 &lt;&#x3D; k &lt;&#x3D; K</span><br><span class="line">n为天数，K为最多交易数</span><br><span class="line">此问题共有n * K * 2种状态，全部穷举就能解决</span><br><span class="line">for 0 &lt;&#x3D; i &lt; n:</span><br><span class="line">	for 1 &lt;&#x3D; k &lt;&#x3D; K:</span><br><span class="line">		for s in &#123;0,1&#125;:</span><br><span class="line">			dp[i][k][s] &#x3D; max(but,sell,rest)</span><br></pre></td></tr></table></figure>
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/09/Java面试题模块四/" title="link to Java面试题汇总（四）">Java面试题汇总（四）</a>
+      </h2>
 
-<p>举例，dp[2][4][0] 的意思是：今天是第2天，至今最多可进行4次交易，手上目前没有持有股票</p>
-<p>接下来考虑状态转移方程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1]+prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br></pre></td></tr></table></figure>
+      <div class="post-list__meta">
 
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">int</span> n = prices.length;</span><br><span class="line">      	<span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      	<span class="keyword">int</span> dp[][] = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line">      	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>] = -prices[i];</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>],dp[i - <span class="number">1</span>][<span class="number">1</span>] + prices[i]);</span><br><span class="line">          dp[i][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>], - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">return</span> dp[n - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <time datetime="2020-03-09" class="post-list__meta--date date">2020-03-09</time> 
+      </div>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空间复杂度为O(1)的简便写法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE, max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> price : prices) &#123;</span><br><span class="line">            min = Math.min(min,price);</span><br><span class="line">            max = Math.max(price - min, max);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,1,5,3,6,4]</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: Buy on day 2 (price &#x3D; 1) and sell on day 5 (price &#x3D; 6), profit &#x3D; 6-1 &#x3D; 5.</span><br><span class="line">             Not 7-1 &#x3D; 6, as selling price needs to be larger than buying price.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,6,4,3,1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: In this case, no transaction is done, i.e. max profit &#x3D; 0.</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%9B%9B/">
+      </div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/09/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%9B%9B/" class="post-title-link" itemprop="url">Java面试题汇总（四）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-09 00:02:04" itemprop="dateCreated datePublished" datetime="2020-03-09T00:02:04+08:00">2020-03-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-08 22:55:49" itemprop="dateModified" datetime="2020-03-08T22:55:49+08:00">2020-03-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <li>
 
-      
-          <h4 id="什么是反射？"><a href="#什么是反射？" class="headerlink" title="什么是反射？"></a>什么是反射？</h4><p>反射主要是指程序可以访问、检测和修改它本身状态或行为的一种能力</p>
-<p>Java反射机制主要提供以下功能：</p>
-<ul>
-<li>在运行时判断任意一个对象所属的类</li>
-<li>在运行时构造任意一个类的对象</li>
-<li>在运行时判断任意一个类所具有的成员变量和方法</li>
-<li>在运行时调用任意一个对象的方法</li>
-</ul>
-<h4 id="什么是Java序列化？什么情况需要序列化？"><a href="#什么是Java序列化？什么情况需要序列化？" class="headerlink" title="什么是Java序列化？什么情况需要序列化？"></a>什么是Java序列化？什么情况需要序列化？</h4><p>序列化本质上就是把对象内存中的数据按照一定规则，变成一系列的字节数据，然后把这些字节数据写入到流中，而反序列化的过程相反，先读取字节数据，然后再重新组装成Java对象。所有需要进行序列化的类，都必须实现Serializable接口，必要时还需要提供静态的常量serialVersionUID</p>
-<p>什么时候需要序列化：</p>
-<ul>
-<li>当你想把内存中的对象状态保存到一个文件中或者数据库中的时候</li>
-<li>当你想用套接字在网络上传送对象的时候</li>
-<li>当你想通过RMI传输对象的时候</li>
-</ul>
-<h4 id="动态代理是什么？有哪些应用？"><a href="#动态代理是什么？有哪些应用？" class="headerlink" title="动态代理是什么？有哪些应用？"></a>动态代理是什么？有哪些应用？</h4><p>动态代理：</p>
-<p>当想要给实现了某个接口的类中的方法，加一些额外的处理。比如说加日志，加事务等。可以给这个类创建一个代理，顾名思义就是创建一个新的类，这个类不仅包含原来类方法的功能，而且还在原来的基础上添加了额外处理的新类。这个代理类并不是定义好的，是动态生成的。具有解耦意义，灵活，扩展性强。</p>
-<p>动态代理的应用：</p>
-<ul>
-<li>Spring里的AOP</li>
-<li>加事务</li>
-<li>加权限</li>
-<li>加日志</li>
-</ul>
-<h4 id="怎么实现动态代理？"><a href="#怎么实现动态代理？" class="headerlink" title="怎么实现动态代理？"></a>怎么实现动态代理？</h4><p>首先必须定义一个接口，还要有一个InvocationHandler(将实现接口的类的对象传递给它)处理类。再有一个工具类Proxy（习惯性将其称为代理类，因为调用它的newInstance()可以产生代理对象，其实它只是一个产生代理对象的工具类）。利用到InvocationHandler，拼接代理类源码，将其编译生成代理类的二进制码，利用加载器加载，并将其实例化产生代理对象，最后返回。</p>
-<h4 id="为什么要使用克隆？"><a href="#为什么要使用克隆？" class="headerlink" title="为什么要使用克隆？"></a>为什么要使用克隆？</h4><p>想对一个对象进行处理，又想保留原有的数据进行接下来的操作，就需要克隆了。Java语言中克隆针对的是类的实例</p>
-<h4 id="如何实现对象克隆？"><a href="#如何实现对象克隆？" class="headerlink" title="如何实现对象克隆？"></a>如何实现对象克隆？</h4><ul>
-<li>实现Cloneable接口并重写Object类中的clone()方法</li>
-<li>实现Serializable接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆，代码如下</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Serializable&gt; <span class="function">T <span class="title">clone</span><span class="params">(T obj)</span> </span></span><br><span class="line"><span class="function">                                  <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ByteArrayOutputStream bout = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(bout);</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line"></span><br><span class="line">        ByteArrayInputStream bin = </span><br><span class="line">                    <span class="keyword">new</span> ByteArrayInputStream(bout.toByteArray());</span><br><span class="line">        ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(bin);</span><br><span class="line">        <span class="keyword">return</span> (T) ois.readObject();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 说明：调用ByteArrayInputStream</span></span><br><span class="line">        <span class="comment">//或ByteArrayOutputStream对象的close方法没有任何意义</span></span><br><span class="line">        <span class="comment">// 这两个基于内存的流只要垃圾回收器清理对象就能够释放资源，</span></span><br><span class="line">        <span class="comment">//这一点不同于对外部资源（如文件流）的释放</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/08/Leetcode-322-Coin-Change/" title="link to Leetcode 322 Coin Change(零钱兑换)">Leetcode 322 Coin Change(零钱兑换)</a>
+      </h2>
 
+      <div class="post-list__meta">
 
+        <time datetime="2020-03-08" class="post-list__meta--date date">2020-03-08</time> 
+      </div>
 
-<p>下面是测试代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 人类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nnngu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID </span><br><span class="line">                              = -<span class="number">9102017020286042305L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 姓名</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;        <span class="comment">// 年龄</span></span><br><span class="line">    <span class="keyword">private</span> Car car;        <span class="comment">// 座驾</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age, Car car)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.car = car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Car <span class="title">getCar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCar</span><span class="params">(Car car)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.car = car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person [name="</span> + name + <span class="string">",</span></span><br><span class="line"><span class="string">                       age="</span> + age + <span class="string">", car="</span> + car + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 小汽车类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nnngu</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID </span><br><span class="line">                                = -<span class="number">5713945027627603702L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String brand;       <span class="comment">// 品牌</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxSpeed;       <span class="comment">// 最高时速</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String brand, <span class="keyword">int</span> maxSpeed)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.brand = brand;</span><br><span class="line">        <span class="keyword">this</span>.maxSpeed = maxSpeed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBrand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> brand;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBrand</span><span class="params">(String brand)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.brand = brand;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMaxSpeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> maxSpeed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMaxSpeed</span><span class="params">(<span class="keyword">int</span> maxSpeed)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.maxSpeed = maxSpeed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Car [brand="</span> + brand + <span class="string">", </span></span><br><span class="line"><span class="string">                      maxSpeed="</span> + maxSpeed + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CloneTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Person p1 = <span class="keyword">new</span> Person(<span class="string">"郭靖"</span>, <span class="number">33</span>, </span><br><span class="line">                              <span class="keyword">new</span> Car(<span class="string">"Benz"</span>, <span class="number">300</span>));</span><br><span class="line">            Person p2 = MyUtil.clone(p1);   <span class="comment">// 深度克隆</span></span><br><span class="line">            p2.getCar().setBrand(<span class="string">"BYD"</span>);</span><br><span class="line">            <span class="comment">// 修改克隆的Person对象p2关联的汽车对象的品牌属性</span></span><br><span class="line">            <span class="comment">// 原来的Person对象p1关联的汽车不会受到任何影响</span></span><br><span class="line">            <span class="comment">// 因为在克隆Person对象时其关联的汽车对象也被克隆了</span></span><br><span class="line">            System.out.println(p1);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：基于序列化和反序列化实现的克隆不仅仅是深度克隆，更重要的是通过泛型限定，可以检查出要克隆的对象是否支持序列化，这项检查是编译器完成的，不是运行时抛出异常，这种方案明显优于使用Object类的clone方法克隆对象，让问题在编译时报出总好于把问题留到运行时</p>
-<h4 id="深拷贝和浅拷贝区别是什么？"><a href="#深拷贝和浅拷贝区别是什么？" class="headerlink" title="深拷贝和浅拷贝区别是什么？"></a>深拷贝和浅拷贝区别是什么？</h4><ul>
-<li>浅拷贝只是复制对象的引用地址，两个对象指向同一个内存地址，所以修改其中任意的值，另一个值都会随之变化，这就是浅拷贝（例：assign())</li>
-<li>深拷贝是将对象及值复制过来，两个对象修改其中任意的值，另一个值不会改变，这就是深拷贝（例：JSON.parse()和JSON.stringify()，但是此方法无法复制函数类型。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/08/Leetcode-322-Coin-Change/">
+      </div>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/08/Leetcode-322-Coin-Change/" class="post-title-link" itemprop="url">Leetcode 322 Coin Change(零钱兑换)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-08 22:39:00 / Modified: 20:32:18" itemprop="dateCreated datePublished" datetime="2020-03-08T22:39:00+08:00">2020-03-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <li>
 
-      
-          <p>Difficulty : Medium</p>
-<p>Type: Dynamic Programming</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>You are given coins of different denominations and a total amount of money <em>amount</em>. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
-<p><strong>Note</strong>:<br>You may assume that you have an infinite number of each kind of coin.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li>动态规划（自底向上）</li>
-</ul>
-<p>这题是一个标准的动态规划题目，思路是根据coin的面值计算dp（dp为求得amount所需要的最少硬币数目）</p>
-<p>首先将dp数组初始化(跳过dp[0])，因为我后面要比大小，就都选用了Integer的最大值减1作为填充值</p>
-<p>对于每一个面值，遍历求解得到amount所需要的最少数目，拿例子来说，amount = 11，coins的第一个面值是1，那么第一轮循环后，dp数组的值应该是[0,1,2,3,4,5,6,7,8,9,10,11]，coins的第二个面值是2，这个时候循环求解的是面值1和2组合后的dp（因为第一轮已经算了面值为1时的状态，第二轮在第一轮基础上更新dp数组值），这个时候dp数组结果如图：</p>
-<p><img src="https://s2.ax1x.com/2020/03/08/3ztSgJ.png" alt></p>
-<p>amount为11时最少需要6枚硬币（5个2元一个1元）</p>
-<p>根据此思路，再叠加下一个面值5元，得到的dp数组就是1，2，5三个面值组合后得到各个amount所需的最小数目集合，返回dp[amount]即得到结果。如果当前面值无法算出amount，即dp[amount]没有发生过改变，仍是预设的Integer最大值减1，返回-1。</p>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="keyword">int</span>[] coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[amount + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= amount;i++) &#123;</span><br><span class="line">            dp[i] = Integer.MAX_VALUE - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> coin : coins) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = coin;j &lt;= amount;j++) &#123;</span><br><span class="line">                dp[j] = Math.min(dp[j],dp[j - coin] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[amount] == (Integer.MAX_VALUE - <span class="number">1</span>) ? -<span class="number">1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/07/Java面试题模块三/" title="link to Java面试题汇总（三）">Java面试题汇总（三）</a>
+      </h2>
 
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: coins &#x3D; [1, 2, 5], amount &#x3D; 11</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: 11 &#x3D; 5 + 5 + 1</span><br></pre></td></tr></table></figure>
+      <div class="post-list__meta">
 
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: coins &#x3D; [2], amount &#x3D; 3</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+        <time datetime="2020-03-07" class="post-list__meta--date date">2020-03-07</time> 
+      </div>
 
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/07/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/07/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%89/" class="post-title-link" itemprop="url">Java面试题汇总（三）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-07 16:30:04" itemprop="dateCreated datePublished" datetime="2020-03-07T16:30:04+08:00">2020-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-01 12:08:20" itemprop="dateModified" datetime="2020-04-01T12:08:20+08:00">2020-04-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="并发三要素是什么？"><a href="#并发三要素是什么？" class="headerlink" title="并发三要素是什么？"></a>并发三要素是什么？</h4><ul>
 <li><p>可见性<br>指一个线程对共享变量的修改，另外一个线程能够立刻看到，可见性问题一般由CPU缓存引起</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//线程1执行的代码</span></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">i = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//线程2执行的代码</span></span><br><span class="line">j = i;</span><br></pre></td></tr></table></figure>
 
 <p>假如执行线程1的是CPU1，执行线程2的是CPU2，当线程1执行i = 10这句时，会先把i的初始值<strong>加载到CPU1的高速缓存中</strong>，然后赋值为10，那么在CPU1的高速缓存当中i的值就变为10了，却<strong>没有立即写入到主存当中</strong>。</p>
 <p>此时线程2执行j = i，它会<strong>先去主存读取i的值</strong>并加载到CPU2的缓存当中，注意此时内存当中i的值还是0，那么就会使得j的值为0，而不是10。这就是可见性问题，线程1对变量修改后，线程2没有立即看到线程1修改的值。</p></li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/leo-yang0201.github.io/2020/03/07/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%89/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
+      </div>
 
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <li>
 
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/06/Java面试题模块二/" title="link to Java面试题汇总（二）">Java面试题汇总（二）</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-06" class="post-list__meta--date date">2020-03-06</time> 
+      </div>
+
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/06/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/06/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%8C/" class="post-title-link" itemprop="url">Java面试题汇总（二）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-06 21:59:38" itemprop="dateCreated datePublished" datetime="2020-03-06T21:59:38+08:00">2020-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-15 15:47:17" itemprop="dateModified" datetime="2020-04-15T15:47:17+08:00">2020-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
           <h4 id="Java容器都有哪些？"><a href="#Java容器都有哪些？" class="headerlink" title="Java容器都有哪些？"></a>Java容器都有哪些？</h4><p>常见容器的目录：</p>
 <p><img src="https://s2.ax1x.com/2020/03/06/3LGWCt.jpg" alt="容器目录"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/leo-yang0201.github.io/2020/03/06/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%BA%8C/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
+      </div>
 
+      <hr class="post-list__divider" />
+    </li>
     
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <li>
 
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/06/Java面试题模块一/" title="link to Java面试题汇总（一）">Java面试题汇总（一）</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-06" class="post-list__meta--date date">2020-03-06</time> 
+      </div>
+
+      <div class="excerpt">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/06/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/06/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%80/" class="post-title-link" itemprop="url">Java面试题汇总（一）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-06 20:49:50" itemprop="dateCreated datePublished" datetime="2020-03-06T20:49:50+08:00">2020-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-25 23:38:44" itemprop="dateModified" datetime="2020-11-25T23:38:44+08:00">2020-11-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
           <p>最近陆续的开始投暑期实习简历了，自己也还是没有信心能找到一份Java开发的实习，对面试很恐惧，因为自己不会的实在是太多了。趁着现在这个期中假期，多整理一些Java的面试题目来巩固下基础。</p>
 <h4 id="JDK和JRE有什么区别？"><a href="#JDK和JRE有什么区别？" class="headerlink" title="JDK和JRE有什么区别？"></a>JDK和JRE有什么区别？</h4><ul>
 <li>JDK : Java Development Kit的简称，是Java开发工具包，提供了Java的开发环境和运行环境</li>
 <li>JRE : Java Runtime Environment的简称，是Java的运行环境</li>
 </ul>
 <p>简单说，如果需要运行Java程序，只需要安装JRE就行，如果需要编写Java环境，则需要安装JDK，JDK包含了JRE及编译器javac。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/leo-yang0201.github.io/2020/03/06/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%80/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/06/和为s的连续正数序列/" title="link to 和为s的连续正数序列">和为s的连续正数序列</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-06" class="post-list__meta--date date">2020-03-06</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+  </ol>
+
+  <hr class="post-list__divider " />
+
+<nav class="pagination" role="navigation">
+    
+    	
+          <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="/leo-yang0201.github.io/page/4/">&larr; Prev </a>
+        
+    
+
+    <span class="pagination__page-number"> 5 / 11</span>
+    
+    
+        <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/leo-yang0201.github.io/page/6/">Next &rarr;</a>
+    
+</nav>
+
+
+</div>
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
     </div>
 
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
     
+
     
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/06/%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/">
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/06/%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/" class="post-title-link" itemprop="url">和为s的连续正数序列</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-06 18:00:46 / Modified: 18:11:46" itemprop="dateCreated datePublished" datetime="2020-03-06T18:00:46+08:00">2020-03-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/%E5%89%91%E6%8C%87Offer/" itemprop="url" rel="index"><span itemprop="name">剑指Offer</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Math, Sliding Window</p>
-<p>Language : Java</p>
-<h3 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h3><p>输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。</p>
-<p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
-<p>1 &lt;= target &lt;= 10^5</p>
-<h3 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h3><ul>
-<li><p>滑动窗口<br>第一次做滑动窗口类型的题，我一开始的思路是在考虑等差数列，但也没想出来，这题使用滑动窗口方法很好解决。<br><img src="https://pic.leetcode-cn.com/af4821c41d5b093e6a41ad5602208f9e7057cc1b002cd0053de71bc9a0e35b12.jpg" alt="滑动窗口实例图（转自leetcode）"></p>
-<p>滑动窗口的重要性质是：窗口的左边界和右边界永远只能向右移动，不能向左移动，这样保证了时间复杂度为O(N)。这道题里需要判断的就是滑动窗口的和与target之间的大小关系，如果sum小于target，就让右边界向右移动1格，窗口中多了一个数字，sum也要累加上这个数字。当sum大于target的时候，窗口的和需要减少，左边界向右移一格，sum减掉原来左边界所指的数字。当sum等于target，新建长度为右边界 - 左边界的数组并赋值，即得到一个解，加到ArrayList里。</p>
-</li>
-</ul>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] findContinuousSequence(<span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>; <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        List&lt;<span class="keyword">int</span>[]&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt;= target / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &lt; target) &#123;</span><br><span class="line">                sum = sum + j;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                sum = sum - i;</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[j - i];</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = i;k &lt; j;k++) &#123;</span><br><span class="line">                    a[k - i] = k; </span><br><span class="line">                &#125;</span><br><span class="line">                res.add(a);</span><br><span class="line">                sum = sum - i;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.toArray(<span class="keyword">new</span> <span class="keyword">int</span>[res.size()][]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h3><p>示例 1：</p>
-<p>输入：target = 9<br>输出：[[2,3,4],[4,5]]</p>
-<p>示例 2：</p>
-<p>输入：target = 15<br>输出：[[1,2,3,4,5],[4,5,6],[7,8]]</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/leo-yang0201.github.io/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/leo-yang0201.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/leo-yang0201.github.io/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/leo-yang0201.github.io/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/leo-yang0201.github.io/page/11/">11</a><a class="extend next" rel="next" href="/leo-yang0201.github.io/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-      <div id="music163player">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1329734169&auto=0&height=66"></iframe>
-      </div>
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Leo Yang"
-      src="/leo-yang0201.github.io/images/avatar.jpg">
-  <p class="site-author-name" itemprop="name">Leo Yang</p>
-  <div class="site-description" itemprop="description">Hi, I use this blog to record my daily practice in computer science and data science.</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/leo-yang0201.github.io/archive/">
-        
-          <span class="site-state-item-count">105</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/leo-yang0201.github.io/categories/">
-          
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/leo-yang0201.github.io/tags/">
-          
-        <span class="site-state-item-count">43</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-
-
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Leo Yang</span>
-</div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共96.4k字</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.2
-  </div>
-
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script size="300" alpha="0.6" zIndex="-1" src="/leo-yang0201.github.io/yzm/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/leo-yang0201.github.io/yzm/anime.min.js"></script>
-  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.min.js"></script>
-  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.ui.min.js"></script>
-
-<script src="/leo-yang0201.github.io/js/utils.js"></script>
-
-<script src="/leo-yang0201.github.io/js/motion.js"></script>
-
-
-<script src="/leo-yang0201.github.io/js/schemes/pisces.js"></script>
-
-
-<script src="/leo-yang0201.github.io/js/next-boot.js"></script>
-
-
-  <script defer src="/leo-yang0201.github.io/yzm/three/three.min.js"></script>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-<!-- 文件位置：~/source/_data/body-end.swig -->
-
-<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
-<script>
-  console.log('今日诗词 - 开始加载...');
-  jinrishici.load((result) => {
-    let jrsc = document.getElementById('jrsc');
-    if (jrsc) {
-      console.log('今日诗词 - 标签获取成功.');
-    } else {
-      console.log('今日诗词 - 标签获取失败!');
-      return;
-    }
-    const data = result.data;
-    let author = data.origin.author;
-    let title = '《' + data.origin.title + '》';
-    let content = data.content.substr(0, data.content.length - 1);
-    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
-    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
-    console.log('今日诗词 - 载入完毕.');
-    if (data.origin.author == '李白') {
-      let audio = document.createElement("audio");
-      audio.src = "/ding.mp3";
-      audio.play();
-    }
-  });
-</script>
-
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
 </body>
 </html>

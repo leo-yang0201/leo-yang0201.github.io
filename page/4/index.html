@@ -1,1299 +1,440 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.1.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/leo-yang0201.github.io/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/leo-yang0201.github.io/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/leo-yang0201.github.io/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/leo-yang0201.github.io/images/logo.svg" color="#222">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-<link rel="stylesheet" href="/leo-yang0201.github.io/css/main.css">
+    
 
+    <title>
+      page 4 | Leo Yang&#39;s Blog 
+    </title>
 
-<link rel="stylesheet" href="/leo-yang0201.github.io/yzm/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/leo-yang0201.github.io/yzm/pace/pace-theme-center-atom.min.css">
-  <script src="/leo-yang0201.github.io/yzm/pace/pace.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+      <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    <meta name="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Leo Yang&#39;s Blog">
+<meta property="og:title" content="page 4 | Leo Yang&#39;s Blog">
 <meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;page&#x2F;4&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
 <meta property="og:description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
 <meta property="article:author" content="Leo Yang">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://leo-yang0201.github.io/page/4/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false
-  };
-</script>
-
-  <title>Leo Yang's Blog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <div>
-      <a href="/leo-yang0201.github.io/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leo Yang's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">记录一些技术随笔和刷题思路～</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/leo-yang0201.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">43</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/leo-yang0201.github.io/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">13</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">105</span></a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
 
     
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+<meta name="generator" content="Hexo 4.1.1"></head>
+<body>
 
-          <div class="content">
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+ 
+<header class="panel-cover">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
             
 
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/13/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
+   <!-- do nothing -->
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/13/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/" class="post-title-link" itemprop="url">Java中的反射</a>
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-13 00:22:32" itemprop="dateCreated datePublished" datetime="2020-03-13T00:22:32+08:00">2020-03-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-12 22:41:31" itemprop="dateModified" datetime="2020-03-12T22:41:31+08:00">2020-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
+<div class="main-post-list">
+    <ol class="post-list">
     
     
-    
-    <div class="post-body" itemprop="articleBody">
+    <li>
 
-      
-          <h4 id="反射的概念"><a href="#反射的概念" class="headerlink" title="反射的概念"></a>反射的概念</h4><p>Java中的反射首先是能获得Java中要反射类的字节码，获得字节码有三种方式：</p>
-<ul>
-<li>Class.forName(className)<ul>
-<li>例子：Class clazz = Class.forName(“类的全路径”);（最常用）</li>
-</ul>
-</li>
-<li>类名.class<ul>
-<li>例子：Class clazz = Person.class;</li>
-</ul>
-</li>
-<li>this.getClass()<ul>
-<li>例子：Person p = new Person(); Class clazz = p.getClass();</li>
-</ul>
-</li>
-</ul>
-<p>然后将字节码中的方法，变量，构造函数等映射成相应的Method、Filed、Constructor等类，这些类提供了丰富的方法可以被我们使用.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 Person 类的 Class 对象</span></span><br><span class="line">Class clazz=Class.forName(<span class="string">"reflection.Person"</span>);</span><br><span class="line"><span class="comment">//获取 Person 类的所有方法信息</span></span><br><span class="line">Method[] method=clazz.getDeclaredMethods(); </span><br><span class="line"><span class="keyword">for</span>(Method m:method)&#123;</span><br><span class="line">System.out.println(m.toString()); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取 Person 类的所有成员属性信息</span></span><br><span class="line">Field[] field=clazz.getDeclaredFields(); </span><br><span class="line"><span class="keyword">for</span>(Field f:field)&#123;</span><br><span class="line">System.out.println(f.toString()); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取 Person 类的所有构造方法信息</span></span><br><span class="line">Constructor[] constructor=clazz.getDeclaredConstructors(); </span><br><span class="line"><span class="keyword">for</span>(Constructor c:constructor)&#123;</span><br><span class="line">System.out.println(c.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/13/Java中的反射/" title="link to Java中的反射">Java中的反射</a>
+      </h2>
 
-<h4 id="创建对象的两种方法"><a href="#创建对象的两种方法" class="headerlink" title="创建对象的两种方法"></a>创建对象的两种方法</h4><h5 id="Class对象的newInstance"><a href="#Class对象的newInstance" class="headerlink" title="Class对象的newInstance()"></a>Class对象的newInstance()</h5><p>使用Class对象的newInstance()方法来创建该Class对象对应类的实例，该Class对象对应的类有默认的空构造器</p>
-<h5 id="调用Constructor对象的newInstance"><a href="#调用Constructor对象的newInstance" class="headerlink" title="调用Constructor对象的newInstance()"></a>调用Constructor对象的newInstance()</h5><p>先使用 Class 对象获取指定的 Constructor 对象，再调用 Constructor 对象的 newInstance()方法来创建 Class 对象对应类的实例,通过这种方法可以选定构造方法创建实例。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 Person 类的 Class 对象</span></span><br><span class="line">Class clazz=Class.forName(<span class="string">"reflection.Person"</span>); <span class="comment">//使用.newInstane 方法创建对象</span></span><br><span class="line">Person p=(Person) clazz.newInstance();</span><br><span class="line"><span class="comment">//获取构造方法并创建对象</span></span><br><span class="line">Constructor c=clazz.getDeclaredConstructor(String<span class="class">.<span class="keyword">class</span>,<span class="title">String</span>.<span class="title">class</span>,<span class="title">int</span>.<span class="title">class</span>)</span>;</span><br><span class="line"><span class="comment">//创建对象并设置属性</span></span><br><span class="line">Person p1=(Person) c.newInstance(<span class="string">"李四"</span>,<span class="string">"男"</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+      <div class="post-list__meta">
 
-
-
-<h4 id="Java中的动态代理"><a href="#Java中的动态代理" class="headerlink" title="Java中的动态代理"></a>Java中的动态代理</h4><h5 id="写一个ArrayList的动态代理类（笔试题）"><a href="#写一个ArrayList的动态代理类（笔试题）" class="headerlink" title="写一个ArrayList的动态代理类（笔试题）"></a>写一个ArrayList的动态代理类（笔试题）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">List&lt;String&gt; proxyInstance = (List&lt;String&gt;)Proxy.newProxyInstance(list.getClass().getClassLoader(),list.getClass().getInterfaces(),<span class="keyword">new</span> InvocationHandler()&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy,Method method,Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> method.invoke(list,args);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">proxyInstance.add(<span class="string">"你好"</span>);</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
-
-<h5 id="动静态代理的区别，什么场景使用"><a href="#动静态代理的区别，什么场景使用" class="headerlink" title="动静态代理的区别，什么场景使用"></a>动静态代理的区别，什么场景使用</h5><p>静态代理通常只代理一个类，动态代理是代理一个接口下的多个实现类。静态代理事先知道要代理的是什么，而动态代理不知道要代理什么东西，只有在运行时才知道。动态代理是实现JDK里的InvocationHandler接口的invoke方法，但注意的是代理的是接口，也就是你的业务类必须要实现接口，通过Proxy里的newProxyInstance得到代理对象。</p>
-<p>还有一种动态代理cglib，代理的是类，不需要业务类继承接口，通过派生的子类来实现代理。通过在运行时，动态修改字节码达到修改类的目的。</p>
-<p>AOP就是基于动态代理实现的，Spring框架、Hibernate框架等都是动态代理的使用例子。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/12/Leetcode-53-Maximum-Subarray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-53-Maximum-Subarray/" class="post-title-link" itemprop="url">Leetcode 53 Maximum Subarray(最大子序和)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-12 18:25:37 / Modified: 16:11:29" itemprop="dateCreated datePublished" datetime="2020-03-12T18:25:37+08:00">2020-03-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Dynamic Programming, Array, Divide and Conquer</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
-<p><strong>Follow up:</strong></p>
-<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>状态就是当前的索引值，选择就是加这个数还是不加，这个数本身和前一个数加这个数比大小来获得当前索引能取得的子序和最大值（有点像打家劫舍第一题），状态转移方程如下：</p>
-<p>dp[i] = Math.max(dp[i - 1] + nums[i], nums[i])</p>
-<p>新建一个max变量存储最大值，初始为nums[0]，只要max &lt; dp[i]，就max = dp[i]更新最大子序和的值，最后返回max。</p>
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        dp[<span class="number">0</span>] = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> max = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; nums.length;i++) &#123;</span><br><span class="line">            dp[i] = Math.max(dp[i - <span class="number">1</span>] + nums[i],nums[i]);</span><br><span class="line">            <span class="keyword">if</span> (max &lt; dp[i]) max = dp[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空间复杂度为O(1)的实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; <span class="number">0</span>) sum += num;</span><br><span class="line">            <span class="keyword">else</span> sum = num;</span><br><span class="line">            ans = Math.max(sum,ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum &#x3D; 6.</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/12/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/" class="post-title-link" itemprop="url">Leetcode 309 Best Time to Buy and Sell Stock with Cooldown(最佳买卖股票时机含冷冻期)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-12 15:15:57 / Modified: 13:10:34" itemprop="dateCreated datePublished" datetime="2020-03-12T15:15:57+08:00">2020-03-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Medium</p>
-<p>Type: Dynamic Programming, Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
-<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:</p>
-<ul>
-<li>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</li>
-<li>After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)</li>
-</ul>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>思路同LC 122，k还是正无穷（可以交易无数次），唯一的变化就是每次交易多了一个冷冻期，那么第i天选择buy的时候，要从i - 2的状态转移而不是i - 1</p>
-<p>状态转移方程依然是这个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">因为k为正无穷，那么k和k-1是一样的，多了一个冷冻期，买入的时候从i - 2状态开始改变</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-2][k-1][0] - prices[i])</span><br><span class="line">            &#x3D; Max(dp[i-1][k][1],dp[i-2][k][0] - prices[i])</span><br><span class="line">所以k其实没有影响了，可以拿掉，简化后为：</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][0],dp[i-1][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][1],dp[i-2][0] - prices[i])</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">2</span> == -<span class="number">1</span>)&#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = Math.max(dp[<span class="number">0</span>][<span class="number">0</span>],dp[<span class="number">0</span>][<span class="number">1</span>] + prices[<span class="number">1</span>]);</span><br><span class="line">                dp[i][<span class="number">1</span>] = Math.max(dp[<span class="number">0</span>][<span class="number">1</span>],dp[<span class="number">0</span>][<span class="number">0</span>] - prices[<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>],dp[i - <span class="number">1</span>][<span class="number">1</span>] + prices[i]);</span><br><span class="line">            dp[i][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>],dp[i - <span class="number">2</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上面代码太繁琐了，又要处理i-1又要处理i-2，代码不够优雅</span></span><br><span class="line"><span class="comment">// 空间复杂度为O(1)的实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">int</span> dp_i_0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> dp_i_1 = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">int</span> dp_2_0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = dp_i_0;</span><br><span class="line">            dp_i_0 = Math.max(dp_i_0,dp_i_1 + prices[i]);</span><br><span class="line">            dp_i_1 = Math.max(dp_i_1,dp_2_0 - prices[i]);</span><br><span class="line">            dp_2_0 = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp_i_0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,0,2]</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: transactions &#x3D; [buy, sell, cooldown, buy, sell]</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/12/Leetcode-714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/" class="post-title-link" itemprop="url">Leetcode 714 Best Time to Buy and Sell Stock with Transaction Fee(买卖股票的最佳时机含手续费)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-12 15:06:59 / Modified: 12:43:48" itemprop="dateCreated datePublished" datetime="2020-03-12T15:06:59+08:00">2020-03-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Dynamic Programming, Greedy, Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Your are given an array of integers <code>prices</code>, for which the <code>i</code>-th element is the price of a given stock on day <code>i</code>; and a non-negative integer <code>fee</code> representing a transaction fee.</p>
-<p>You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction. You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)</p>
-<p>Return the maximum profit you can make.</p>
-<p><strong>Note:</strong></p>
-<p><code>0 &lt; prices.length &lt;= 50000</code>.</p>
-<p><code>0 &lt; prices[i] &lt; 50000</code>.</p>
-<p><code>0 &lt;= fee &lt; 50000</code>.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>思路同LC 122，k还是正无穷（可以交易无数次），唯一的变化就是每次交易多了一个手续费fee，那直接减去就可以了</p>
-<p>状态转移方程依然是这个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">因为k为正无穷，那么k和k-1是一样的，又有一个手续费，那么卖出的时候减去手续费</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">            &#x3D; Max(dp[i-1][k][1],dp[i-1][k][0] - prices[i])</span><br><span class="line">所以k其实没有影响了，可以拿掉，简化后为：</span><br><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][0],dp[i-1][1] + prices[i] - fee)</span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][1],dp[i-1][0] - prices[i])</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices, <span class="keyword">int</span> fee)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>],dp[i - <span class="number">1</span>][<span class="number">1</span>] + prices[i] - fee);</span><br><span class="line">            dp[i][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>],dp[i - <span class="number">1</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 空间复杂度为O(1)的实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices, <span class="keyword">int</span> fee)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = prices.length;</span><br><span class="line">        <span class="keyword">int</span> keepMax = -prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> notKeepMax = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> keepMaxYesterday = keepMax;</span><br><span class="line">            keepMax = Math.max(keepMax, notKeepMax - prices[i]);</span><br><span class="line">            notKeepMax = Math.max(notKeepMax, keepMaxYesterday + prices[i] - fee);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> notKeepMax;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: prices &#x3D; [1, 3, 2, 8, 4, 9], fee &#x3D; 2</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: The maximum profit can be achieved by:</span><br><span class="line">Buying at prices[0] &#x3D; 1Selling at prices[3] &#x3D; 8Buying at prices[4] &#x3D; 4Selling at prices[5] &#x3D; 9The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) &#x3D; 8.</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/11/Leetcode-198-House-Robber/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-198-House-Robber/" class="post-title-link" itemprop="url">Leetcode 198 House Robber(打家劫舍)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-11 22:23:37 / Modified: 20:07:15" itemprop="dateCreated datePublished" datetime="2020-03-11T22:23:37+08:00">2020-03-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Dynamic Programming</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.</p>
-<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <strong>without alerting the police</strong>.</p>
-<p><strong>Note:</strong><br>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>动态规划题目，重点是要找到状态转移方程，本题中的状态只有一个就是当前数组的索引（房子），选择有两个，抢或者不抢，抢了当前房子，下一个就不能抢，得等到下下个房子才能抢，根据这些条件可以构造出状态转移方程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">状态转移只和dp最近的两个状态有关，所以可以单独记录dp[0]和dp[1]。</span><br><span class="line">dp[0] &#x3D; 0;&#x2F;&#x2F;假设小偷上一次抢的房子金额是0</span><br><span class="line">dp[1] &#x3D; nums[0]&#x2F;&#x2F;dp[1]是第一个房子的金额</span><br><span class="line">dp[i] &#x3D; Math.max(dp[i - 1],dp[i - 2] + nums[i - 1])&#x2F;&#x2F;当前索引i处的房子能抢到的最大值，要么就是当前房屋金额加i-2处房子的金额，要么就是i-1处房子的金额，两者之间取最大值。</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i++) &#123;</span><br><span class="line">            dp[i] = Math.max(dp[i - <span class="number">1</span>],dp[i - <span class="number">2</span>] + nums[i - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,1]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: Rob house 1 (money &#x3D; 1) and then rob house 3 (money &#x3D; 3).</span><br><span class="line">             Total amount you can rob &#x3D; 1 + 3 &#x3D; 4.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,7,9,3,1]</span><br><span class="line">Output: 12</span><br><span class="line">Explanation: Rob house 1 (money &#x3D; 2), rob house 3 (money &#x3D; 9) and rob house 5 (money &#x3D; 1).</span><br><span class="line">             Total amount you can rob &#x3D; 2 + 9 + 1 &#x3D; 12.</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/11/Leetcode-188-Best-Time-to-Buy-and-Sell-Stock-IV/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-188-Best-Time-to-Buy-and-Sell-Stock-IV/" class="post-title-link" itemprop="url">Leetcode 188 Best Time to Buy and Sell Stock IV(买卖股票的最佳时机IV)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-11 17:20:39 / Modified: 15:12:02" itemprop="dateCreated datePublished" datetime="2020-03-11T17:20:39+08:00">2020-03-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Hard</p>
-<p>Type: Dynamic Programming, Greedy, Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i-*th element is the price of a given stock on day *i</em>.</p>
-<p>Design an algorithm to find the maximum profit. You may complete at most <strong>k</strong> transactions.</p>
-<p><strong>Note:</strong><br>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>动态规划</p>
-<p>思路同LC 121，只是这一次的状态里，k是任意整数</p>
-<p>状态转移方程依然是这个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">k是任意整数，所以k的影响存在，不能化简，但直接套用上面的状态转移方程会报超内存的错误，原因是k有可能会非常大，大到比整个prices数组长度还大，所以需要做一个处理，当k大于数组长度的一半时，即默认k是正无穷的，那就和LC 122情况一样了，直接套用LC 122代码即可。</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (k &gt; n / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> profit = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; prices.length;i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = prices[i] - prices[i - <span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (tmp &gt; <span class="number">0</span>) profit += tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> profit;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[][][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][k + <span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = k;j &gt;= <span class="number">1</span>;j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                    dp[i][j][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                    dp[i][j][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                dp[i][j][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][j][<span class="number">0</span>],dp[i - <span class="number">1</span>][j][<span class="number">1</span>] + prices[i]);</span><br><span class="line">                dp[i][j][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][j][<span class="number">1</span>],dp[i - <span class="number">1</span>][j - <span class="number">1</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][k][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,4,1], k &#x3D; 2</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: Buy on day 1 (price &#x3D; 2) and sell on day 2 (price &#x3D; 4), profit &#x3D; 4-2 &#x3D; 2.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,2,6,5,0,3], k &#x3D; 2</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Buy on day 2 (price &#x3D; 2) and sell on day 3 (price &#x3D; 6), profit &#x3D; 6-2 &#x3D; 4.</span><br><span class="line">             Then buy on day 5 (price &#x3D; 0) and sell on day 6 (price &#x3D; 3), profit &#x3D; 3-0 &#x3D; 3.</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/11/Leetcode-344-Reverse-String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-344-Reverse-String/" class="post-title-link" itemprop="url">Leetcode 344 Reverse String(反转字符串)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-11 16:15:37 / Modified: 14:17:02" itemprop="dateCreated datePublished" datetime="2020-03-11T16:15:37+08:00">2020-03-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Two Pointers,String</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Write a function that reverses a string. The input string is given as an array of characters <code>char[]</code>.</p>
-<p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank" rel="noopener">in-place</a></strong> with O(1) extra memory.</p>
-<p>You may assume all the characters consist of <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters" target="_blank" rel="noopener">printable ascii characters</a>.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>双指针</p>
-<p>左右指针遍历数组两头，然后写一个最简单的交换就解决问题了</p>
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverseString</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length &lt; <span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = s.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">char</span> c = s[left];</span><br><span class="line">            s[left] = s[right];</span><br><span class="line">            s[right] = c;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">Output: [&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]</span><br><span class="line">Output: [&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/11/Leetcode-1013-Partition-Array-Into-Three-Parts-With-Equal-Sum/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-1013-Partition-Array-Into-Three-Parts-With-Equal-Sum/" class="post-title-link" itemprop="url">Leetcode 1013 Partition Array Into Three Parts With Equal Sum(将数组分成和相等的三个部分)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-11 16:14:48 / Modified: 14:01:53" itemprop="dateCreated datePublished" datetime="2020-03-11T16:14:48+08:00">2020-03-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given an array <code>A</code> of integers, return <code>true</code> if and only if we can partition the array into three <strong>non-empty</strong> parts with equal sums.</p>
-<p>Formally, we can partition the array if we can find indexes <code>i+1 &lt; j</code> with <code>(A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1])</code></p>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>3 &lt;= A.length &lt;= 50000</code></li>
-<li><code>-10^4 &lt;= A[i] &lt;= 10^4</code></li>
-</ul>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li><p>双指针</p>
-<p>三个和相等的非空部分，三部分总和一定可以整除3，所以先计算数组的总和能不能整除3，如果不能返回false。如果可以，用双指针遍历数组，左指针初始值为0，右指针初始值为数组长度 - 1，循环条件为left + 1 &lt; right(防止数组分成两个部分)，只要左指针的和不为sum/3，左指针就遍历下一个位置并加上当前位置的值到总和里，右指针同理只不过是遍历前一个位置，如果左右指针都等于sum/3，中间也一定等于sum/3，此时return true，其他情况return false</p>
-<p>Left + 1 &lt; Right的约束就是要中间有剩下的元素，以免数组划分成两部分，中间没有元素。</p>
-</li>
-</ul>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canThreePartsEqualSum</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : A)&#123;</span><br><span class="line">            sum += i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum % <span class="number">3</span> != <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;  <span class="comment">// 总和不是3的倍数，直接返回false</span></span><br><span class="line">        <span class="comment">// 使用双指针,从数组两头开始一起找，节约时间</span></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> leftSum = A[left];</span><br><span class="line">        <span class="keyword">int</span> right = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> rightSum = A[right];</span><br><span class="line">        <span class="comment">//使用left + 1 &lt; right以防止数组分成两个部分</span></span><br><span class="line">        <span class="comment">//例如：[1,-1,1,-1]，使用left &lt; right作为判断条件就会出错</span></span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (leftSum == sum / <span class="number">3</span> &amp;&amp; rightSum == sum / <span class="number">3</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">// 左右两边都等于 sum/3 ，中间也一定等于</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (leftSum != sum / <span class="number">3</span>) &#123;</span><br><span class="line">                leftSum += A[++left];<span class="comment">// left = 0赋予了初值，应该先left++，在leftSum += A[left];</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (rightSum != sum / <span class="number">3</span>) &#123;</span><br><span class="line">                rightSum += A[--right];<span class="comment">// right = A.length - 1 赋予了初值，应该先right--，在rightSum += A[right];</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: A &#x3D; [0,2,1,-6,6,-7,9,1,2,0,1]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: 0 + 2 + 1 &#x3D; -6 + 6 - 7 + 9 + 1 &#x3D; 2 + 0 + 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: A &#x3D; [0,2,1,-6,6,7,9,-1,2,0,1]</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: A &#x3D; [3,3,6,5,-2,2,5,1,-9,4]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: 3 + 3 &#x3D; 6 &#x3D; 5 - 2 + 2 + 5 + 1 - 9 + 4</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/10/Leetcode-123-Best-Time-to-Buy-and-Sell-Stock-III/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-123-Best-Time-to-Buy-and-Sell-Stock-III/" class="post-title-link" itemprop="url">Leetcode 123 Best Time to Buy and Sell Stock III(买卖股票的最佳时机III)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-10 18:04:09 / Modified: 15:45:49" itemprop="dateCreated datePublished" datetime="2020-03-10T18:04:09+08:00">2020-03-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Hard</p>
-<p>Type: Dynamic Programming, Array</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Say you have an array for which the <em>i</em>th element is the price of a given stock on day <em>i</em>.</p>
-<p>Design an algorithm to find the maximum profit. You may complete at most <em>two</em> transactions.</p>
-<p><strong>Note:</strong> You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
-<li>动态规划</li>
-</ul>
-<p>股票题的升级版，还是用状态机方法求解，这一次限定了最多可以完成<strong>两笔</strong>交易，意思就是k = 2，照搬LC 121的状态转移方程：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">dp[i][k][0] &#x3D; Max(dp[i-1][k][0],dp[i-1][k][1] + prices[i])</span><br><span class="line">                    rest       ,         sell</span><br><span class="line">解释：今天我没有持有股票，有两种可能</span><br><span class="line">我昨天就没持有，今天选择rest，所以今天还是没持有</span><br><span class="line">我昨天持有股票，今天选择sell，所以今天没持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果sell了，利润增加当天卖出的股票价格</span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">dp[i][k][1] &#x3D; Max(dp[i-1][k][1],dp[i-1][k-1][0] - prices[i])</span><br><span class="line">                        rest   ,         buy</span><br><span class="line">解释：今天我持有股票，有两种可能</span><br><span class="line">我昨天就持有，今天选择rest，所以今天还是持有</span><br><span class="line">我昨天没持有股票，今天选择buy，所以今天持有股票</span><br><span class="line">Max方程求解利润，如果rest就和昨天利润一样，如果buy了，利润减少当天的股票价格    </span><br><span class="line">今天的最大利润就是这两个状态里较大的那一个</span><br><span class="line"></span><br><span class="line">因为k为2,所以本题里k不能省略，不能化简</span><br></pre></td></tr></table></figure>
-
-<p>但此时就不能按照LC 121的思路去穷举了，因为k的存在，穷举状态需要把k = 1，k = 2两种状态也穷举出来，一共要穷举n * max_k * 2个状态，所以这次需要在多嵌套一层for循环遍历k，其他思路完全一致。</p>
-<ul>
-<li>空间复杂度为O(1)的写法</li>
-</ul>
-<p>由于这题的k = 2，完全可以枚举出所有状态，详见第二块代码。</p>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 状态机求解</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.length; <span class="keyword">int</span> max_k = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[][][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][max_k + <span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = max_k;k &gt;=<span class="number">1</span>;k--) &#123; <span class="comment">//注意这里多了一层for循环遍历k</span></span><br><span class="line">                <span class="keyword">if</span> (i - <span class="number">1</span> == -<span class="number">1</span>) &#123;</span><br><span class="line">                dp[i][k][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                dp[i][k][<span class="number">1</span>] = -prices[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i][k][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][k][<span class="number">0</span>],dp[i - <span class="number">1</span>][k][<span class="number">1</span>] + prices[i]);</span><br><span class="line">            dp[i][k][<span class="number">1</span>] = Math.max(dp[i - <span class="number">1</span>][k][<span class="number">1</span>],dp[i - <span class="number">1</span>][k - <span class="number">1</span>][<span class="number">0</span>] - prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>][max_k][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span>[] prices)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         //fst的两个变量的意义与121题相同，就是简单的动态规划更新</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         fstMineprice : 到该天为止第一次买入股票的最小价格（即所有股票价格的最小值） </span></span><br><span class="line"><span class="comment">         fstMaxprofit: 到该天为止第一次卖出股票的最大收益（即只交易一次的最大收益）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         //sec的两个变量的意义要注意，特别是secMinprice，不单纯是股票原价格，而是在此基础上减去第一次收益</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         secMinprice: 到该天为止第二次买入股票的最小价格（第二次买入股票的价格是原股票价格减去第一次买卖收益）</span></span><br><span class="line"><span class="comment">         secMaxprofit: 到该天为止第二次卖出股票可获得的最大收益</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         分别对四个变量进行相应的更新, 最后secMaxprofit就是最大</span></span><br><span class="line"><span class="comment">         **/</span></span><br><span class="line">        <span class="keyword">int</span> fstMineprice = Integer.MAX_VALUE, fstMaxprofit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> secMinprice = Integer.MAX_VALUE, secMaxprofit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> p : prices) &#123;</span><br><span class="line">            <span class="comment">//更新fstMineprice与fstMaxprofit，这里应该没有问题，与121题一样</span></span><br><span class="line">            fstMineprice = Math.min(fstMineprice, p);</span><br><span class="line">            fstMaxprofit = Math.max(fstMaxprofit, p-fstMineprice);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//更新secMineprice与secMaxprofit</span></span><br><span class="line">            secMinprice = Math.min(secMinprice, p-fstMaxprofit);<span class="comment">//加入的p产生的最小价格就是p减去第一次买卖的最大收益，以此更新secMinprice</span></span><br><span class="line">            secMaxprofit = Math.max(secMaxprofit, p-secMinprice);<span class="comment">//p产生的最大收益就是p减去第二次买入的最小价格secMinprice，以此更新secMaxprofit</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> secMaxprofit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">作者：shi-wen</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/java-1ms-100dong-tai-gui-hua-li-yong-si-ge-bian-li/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,3,5,0,0,3,1,4]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: Buy on day 4 (price &#x3D; 0) and sell on day 6 (price &#x3D; 3), profit &#x3D; 3-0 &#x3D; 3.</span><br><span class="line">             Then buy on day 7 (price &#x3D; 1) and sell on day 8 (price &#x3D; 4), profit &#x3D; 4-1 &#x3D; 3.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,4,5]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: Buy on day 1 (price &#x3D; 1) and sell on day 5 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.</span><br><span class="line">             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are</span><br><span class="line">             engaging multiple transactions at the same time. You must sell before buying again.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,6,4,3,1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: In this case, no transaction is done, i.e. max profit &#x3D; 0.</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/10/Leetcode-543-Diameter-of-Binary-Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
-      <meta itemprop="name" content="Leo Yang">
-      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leo Yang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-543-Diameter-of-Binary-Tree/" class="post-title-link" itemprop="url">Leetcode 543 Diameter of Binary Tree(二叉树的直径)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-10 17:28:14 / Modified: 15:27:32" itemprop="dateCreated datePublished" datetime="2020-03-10T17:28:14+08:00">2020-03-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Difficulty : Easy</p>
-<p>Type: Tree, DFS</p>
-<p>Language : Java</p>
-<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the <strong>longest</strong> path between any two nodes in a tree. This path may or may not pass through the root.</p>
-<p><strong>Note:</strong> The length of path between two nodes is represented by the number of edges between them.</p>
-<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><p>首先这题要找的是二叉树的<strong>任意两个结点长度中的最大值</strong>，这个路径可能穿过根结点，也可能不穿过根结点。得到这个最大路径，要的就是任意结点的左子树深度和右子树深度和的最大值再加个1（默认一个结点的高度是1，求出左子树右子树之和以后再加当前根结点的深度1，就是最大路径，等于那个根结点把左子树右子树连接起来了）</p>
-<p>设一个全局变量result记录每一次更新后的最大路径，递归方法找到左子树和右子树的最大深度，如果此时左子树右子树深度之和大于result，就更新，反之继续递归知道root为空，返回左右子树深度之和加1，主函数返回result</p>
-<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> * int val;</span></span><br><span class="line"><span class="comment"> * TreeNode left;</span></span><br><span class="line"><span class="comment"> * TreeNode right;</span></span><br><span class="line"><span class="comment"> * TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> leftDepth = dfs(root.left);</span><br><span class="line">        <span class="keyword">int</span> rightDepth = dfs(root.right);</span><br><span class="line">        <span class="keyword">if</span> ((leftDepth + rightDepth) &gt; result)&#123;</span><br><span class="line">            result = leftDepth +rightDepth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(leftDepth, rightDepth) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example:</strong><br>Given a binary tree</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   &#x2F; \</span><br><span class="line">  2   3</span><br><span class="line"> &#x2F; \     </span><br><span class="line">4   5</span><br></pre></td></tr></table></figure>
-
-
-
-<p>Return <strong>3</strong>, which is the length of the path [4,2,1,3] or [5,2,1,3].</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/leo-yang0201.github.io/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/leo-yang0201.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/leo-yang0201.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/leo-yang0201.github.io/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/leo-yang0201.github.io/page/11/">11</a><a class="extend next" rel="next" href="/leo-yang0201.github.io/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-      <div id="music163player">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1329734169&auto=0&height=66"></iframe>
+        <time datetime="2020-03-13" class="post-list__meta--date date">2020-03-13</time> 
       </div>
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Leo Yang"
-      src="/leo-yang0201.github.io/images/avatar.jpg">
-  <p class="site-author-name" itemprop="name">Leo Yang</p>
-  <div class="site-description" itemprop="description">Hi, I use this blog to record my daily practice in computer science and data science.</div>
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-53-Maximum-Subarray/" title="link to Leetcode 53 Maximum Subarray(最大子序和)">Leetcode 53 Maximum Subarray(最大子序和)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-12" class="post-list__meta--date date">2020-03-12</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/" title="link to Leetcode 309 Best Time to Buy and Sell Stock with Cooldown(最佳买卖股票时机含冷冻期)">Leetcode 309 Best Time to Buy and Sell Stock with Cooldown(最佳买卖股票时机含冷冻期)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-12" class="post-list__meta--date date">2020-03-12</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/12/Leetcode-714-Best-Time-to-Buy-and-Sell-Stock-with-Transaction-Fee/" title="link to Leetcode 714 Best Time to Buy and Sell Stock with Transaction Fee(买卖股票的最佳时机含手续费)">Leetcode 714 Best Time to Buy and Sell Stock with Transaction Fee(买卖股票的最佳时机含手续费)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-12" class="post-list__meta--date date">2020-03-12</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-198-House-Robber/" title="link to Leetcode 198 House Robber(打家劫舍)">Leetcode 198 House Robber(打家劫舍)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-11" class="post-list__meta--date date">2020-03-11</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-188-Best-Time-to-Buy-and-Sell-Stock-IV/" title="link to Leetcode 188 Best Time to Buy and Sell Stock IV(买卖股票的最佳时机IV)">Leetcode 188 Best Time to Buy and Sell Stock IV(买卖股票的最佳时机IV)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-11" class="post-list__meta--date date">2020-03-11</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-344-Reverse-String/" title="link to Leetcode 344 Reverse String(反转字符串)">Leetcode 344 Reverse String(反转字符串)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-11" class="post-list__meta--date date">2020-03-11</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/11/Leetcode-1013-Partition-Array-Into-Three-Parts-With-Equal-Sum/" title="link to Leetcode 1013 Partition Array Into Three Parts With Equal Sum(将数组分成和相等的三个部分)">Leetcode 1013 Partition Array Into Three Parts With Equal Sum(将数组分成和相等的三个部分)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-11" class="post-list__meta--date date">2020-03-11</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-123-Best-Time-to-Buy-and-Sell-Stock-III/" title="link to Leetcode 123 Best Time to Buy and Sell Stock III(买卖股票的最佳时机III)">Leetcode 123 Best Time to Buy and Sell Stock III(买卖股票的最佳时机III)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-10" class="post-list__meta--date date">2020-03-10</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/leo-yang0201.github.io/2020/03/10/Leetcode-543-Diameter-of-Binary-Tree/" title="link to Leetcode 543 Diameter of Binary Tree(二叉树的直径)">Leetcode 543 Diameter of Binary Tree(二叉树的直径)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2020-03-10" class="post-list__meta--date date">2020-03-10</time> 
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+  </ol>
+
+  <hr class="post-list__divider " />
+
+<nav class="pagination" role="navigation">
+    
+    	
+          <a class="newer-posts pagination__newer btn btn-small btn-tertiary" href="/leo-yang0201.github.io/page/3/">&larr; Prev </a>
+        
+    
+
+    <span class="pagination__page-number"> 4 / 11</span>
+    
+    
+        <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/leo-yang0201.github.io/page/5/">Next &rarr;</a>
+    
+</nav>
+
+
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/leo-yang0201.github.io/archive/">
-        
-          <span class="site-state-item-count">105</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/leo-yang0201.github.io/categories/">
-          
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/leo-yang0201.github.io/tags/">
-          
-        <span class="site-state-item-count">43</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
+            <footer class="footer">
 
-
-
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
         </div>
-
-
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
 
 
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Leo Yang</span>
-</div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共96.4k字</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.2
-  </div>
-
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script size="300" alpha="0.6" zIndex="-1" src="/leo-yang0201.github.io/yzm/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/leo-yang0201.github.io/yzm/anime.min.js"></script>
-  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.min.js"></script>
-  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.ui.min.js"></script>
-
-<script src="/leo-yang0201.github.io/js/utils.js"></script>
-
-<script src="/leo-yang0201.github.io/js/motion.js"></script>
-
-
-<script src="/leo-yang0201.github.io/js/schemes/pisces.js"></script>
-
-
-<script src="/leo-yang0201.github.io/js/next-boot.js"></script>
-
-
-  <script defer src="/leo-yang0201.github.io/yzm/three/three.min.js"></script>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-<!-- 文件位置：~/source/_data/body-end.swig -->
-
-<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
-<script>
-  console.log('今日诗词 - 开始加载...');
-  jinrishici.load((result) => {
-    let jrsc = document.getElementById('jrsc');
-    if (jrsc) {
-      console.log('今日诗词 - 标签获取成功.');
-    } else {
-      console.log('今日诗词 - 标签获取失败!');
-      return;
-    }
-    const data = result.data;
-    let author = data.origin.author;
-    let title = '《' + data.origin.title + '》';
-    let content = data.content.substr(0, data.content.length - 1);
-    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
-    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
-    console.log('今日诗词 - 载入完毕.');
-    if (data.origin.author == '李白') {
-      let audio = document.createElement("audio");
-      audio.src = "/ding.mp3";
-      audio.play();
-    }
-  });
-</script>
-
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
 </body>
 </html>
