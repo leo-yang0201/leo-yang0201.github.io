@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/leo-yang0201.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/leo-yang0201.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/leo-yang0201.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/leo-yang0201.github.io/images/logo.svg" color="#222">
 
-    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/main.css">
 
-    <title>
-      Leetcode 1103 distribute candies to people(分糖果II) | Leo Yang&#39;s Blog 
-    </title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-      <meta name="author" content="Leo Yang">
-    
-    
+<link rel="stylesheet" href="/leo-yang0201.github.io/yzm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/leo-yang0201.github.io/yzm/pace/pace-theme-center-atom.min.css">
+  <script src="/leo-yang0201.github.io/yzm/pace/pace.min.js"></script>
 
-    <meta name="description" content="Difficulty : Medium Type: LinkedList Language : Java ClarificationWe distribute some number of candies, to a row of n &#x3D; num_people people in the following way: We then give 1 candy to the first person">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"leo-yang0201.github.io","root":"/leo-yang0201.github.io/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","width":350,"display":"hide","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Difficulty : Medium Type: LinkedList Language : Java ClarificationWe distribute some number of candies, to a row of n &#x3D; num_people people in the following way: We then give 1 candy to the first person">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 1103 distribute candies to people(分糖果II) | Leo Yang&#39;s Blog">
+<meta property="og:title" content="Leetcode 1103 distribute candies to people(分糖果II)">
 <meta property="og:url" content="https:&#x2F;&#x2F;leo-yang0201.github.io&#x2F;2020&#x2F;03&#x2F;05&#x2F;Leetcode-1103-distribute-candies-to-people&#x2F;index.html">
 <meta property="og:site_name" content="Leo Yang&#39;s Blog">
 <meta property="og:description" content="Difficulty : Medium Type: LinkedList Language : Java ClarificationWe distribute some number of candies, to a row of n &#x3D; num_people people in the following way: We then give 1 candy to the first person">
@@ -29,210 +35,191 @@
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;pic.leetcode-cn.com&#x2F;Figures&#x2F;1103&#x2F;arithmeti.png">
-    
-    
-    
-      <link rel="icon" type="image/x-icon" href="/favicon.png">
-    
-    
-<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
 
-    
-<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
-
-    
-<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
-
-    
-<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+<link rel="canonical" href="https://leo-yang0201.github.io/2020/03/05/Leetcode-1103-distribute-candies-to-people/">
 
 
-<meta name="generator" content="Hexo 4.1.1"></head>
-<body>
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
 
-    <span class="mobile btn-mobile-menu">
-        <i class="icon icon-list btn-mobile-menu__icon"></i>
-        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
-    </span>
-
-    
-
-<header class="panel-cover panel-cover--collapsed">
-
-
-  <div class="panel-main">
-
+  <title>Leetcode 1103 distribute candies to people(分糖果II) | Leo Yang's Blog</title>
   
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
-
-        
-
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
-        <hr class="panel-cover__divider" />
-
-        
-        <p class="panel-cover__description">
-          记录一些技术随笔和刷题思路～
-        </p>
-        <hr class="panel-cover__divider panel-cover__divider--secondary" />
-        
-
-        <div class="navigation-wrapper">
-
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-
-              
-                
-                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
-              
-                
-                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
-              
-
-            </ul>
-          </nav>
-
-          <!-- ----------------------------
-To add a new social icon simply duplicate one of the list items from below
-and change the class in the <i> tag to match the desired social network
-and then add your link to the <a>. Here is a full list of social network
-classes that you can use:
-
-    icon-social-500px
-    icon-social-behance
-    icon-social-delicious
-    icon-social-designer-news
-    icon-social-deviant-art
-    icon-social-digg
-    icon-social-dribbble
-    icon-social-facebook
-    icon-social-flickr
-    icon-social-forrst
-    icon-social-foursquare
-    icon-social-github
-    icon-social-google-plus
-    icon-social-hi5
-    icon-social-instagram
-    icon-social-lastfm
-    icon-social-linkedin
-    icon-social-medium
-    icon-social-myspace
-    icon-social-path
-    icon-social-pinterest
-    icon-social-rdio
-    icon-social-reddit
-    icon-social-skype
-    icon-social-spotify
-    icon-social-stack-overflow
-    icon-social-steam
-    icon-social-stumbleupon
-    icon-social-treehouse
-    icon-social-tumblr
-    icon-social-twitter
-    icon-social-vimeo
-    icon-social-xbox
-    icon-social-yelp
-    icon-social-youtube
-    icon-social-zerply
-    icon-mail
-
--------------------------------->
-
-<!-- add social info here -->
 
 
 
-<nav class="cover-navigation navigation--social">
-  <ul class="navigation">
-
-    
-      <!-- Github -->
-      <li class="navigation__item">
-        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
-          <i class='icon icon-social-github'></i>
-          <span class="label">GitHub</span>
-        </a>
-      </li>
-    
-
-    <!-- China social icon -->
-    <!--
-    
-      <li class="navigation__item">
-        <a href="" title="">
-          <i class='icon cs-icon-douban'></i>
-          <span class="label">Douban</span>
-        </a>
-      </li>
-
-      <li class="navigation__item">
-        <a href="" title="">
-          <i class='icon cs-icon-weibo'></i>
-          <span class="label">Weibo</span>
-        </a>
-      </li>
-
-    -->
 
 
 
-  </ul>
-</nav>
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-        </div>
+</head>
 
-      </div>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-
-    <div class="panel-cover--overlay"></div>
   </div>
-</header>
 
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner entry">
+  <div class="site-meta">
+
+    <div>
+      <a href="/leo-yang0201.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leo Yang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">记录一些技术随笔和刷题思路～</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/leo-yang0201.github.io/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/leo-yang0201.github.io/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">43</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/leo-yang0201.github.io/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/leo-yang0201.github.io/archive/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">105</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
             
 
-<article class="post-container post-container--single">
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://leo-yang0201.github.io/2020/03/05/Leetcode-1103-distribute-candies-to-people/">
 
-  <header class="post-header">
-    
-    <h1 class="post-title">Leetcode 1103 distribute candies to people(分糖果II)</h1>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/leo-yang0201.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="Leo Yang">
+      <meta itemprop="description" content="Hi, I use this blog to record my daily practice in computer science and data science.">
+    </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leo Yang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Leetcode 1103 distribute candies to people(分糖果II)
+        </h1>
 
-    <div class="post-meta">
-      <time datetime="2020-03-05" class="post-meta__date date">2020-03-05</time> 
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-      <span class="post-meta__tags tags">
+              <time title="Created: 2020-03-05 20:03:35" itemprop="dateCreated datePublished" datetime="2020-03-05T20:03:35+08:00">2020-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-09 20:05:01" itemprop="dateModified" datetime="2020-03-09T20:05:01+08:00">2020-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo-yang0201.github.io/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
 
           
-            <font class="categories">
-            &#8226; 分类:
-            <a class="categories-link" href="/leo-yang0201.github.io/categories/leetcode/">leetcode</a>
-            </font>
-          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/leo-yang0201.github.io/tags/Math/" rel="tag">Math</a>
-            </font>
-          
+        </div>
+      </header>
 
-      </span>
-    </div>
     
     
+    
+    <div class="post-body" itemprop="articleBody">
 
-  </header>
-
-  <section id="post-content" class="article-content post">
-    <p>Difficulty : Medium</p>
+      
+        <p>Difficulty : Medium</p>
 <p>Type: LinkedList</p>
 <p>Language : Java</p>
 <h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>We distribute some number of <code>candies</code>, to a row of <strong><code>n = num_people</code></strong> people in the following way:</p>
@@ -262,64 +249,295 @@ classes that you can use:
 
 <p><strong>Example 2:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: candies &#x3D; 10, num_people &#x3D; 3</span><br><span class="line">Output: [5,2,3]</span><br><span class="line">Explanation: </span><br><span class="line">On the first turn, ans[0] +&#x3D; 1, and the array is [1,0,0].</span><br><span class="line">On the second turn, ans[1] +&#x3D; 2, and the array is [1,2,0].</span><br><span class="line">On the third turn, ans[2] +&#x3D; 3, and the array is [1,2,3].</span><br><span class="line">On the fourth turn, ans[0] +&#x3D; 4, and the final array is [5,2,3].</span><br></pre></td></tr></table></figure>
-  </section>
-
-  <section class="post-comments">
-
-    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
-    
-</section>
-
-
-</article>
-
-
-            <footer class="footer">
-
-    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
-    
-</footer>
-        </div>
     </div>
 
-    <!-- js files -->
-    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
-    <script src="/leo-yang0201.github.io/js/main.js"></script>
-    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
-    
-
-    
-
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            MathJax.Hub.Config({ 
-                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-            });
-        });
-    </script>
-
-
-    
-
-    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
-    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $.awesome_toc({
-                overlay: true,
-                contentId: "post-content",
-            });
-        });
-    </script>
-
-
     
     
-    <!--kill ie6 -->
-<!--[if IE 6]>
-  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
+    <!-- 文件位置：~/source/_data/post-body-end.swig -->
+
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/leo-yang0201.github.io/tags/Math/" rel="tag"># Math</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/leo-yang0201.github.io/2020/03/04/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E5%90%8E%E7%AB%AF%E9%9D%A2%E8%AF%95-%E8%81%AA%E6%98%8E%E7%9A%84%E7%BC%96%E8%BE%91/" rel="prev" title="字节跳动后端面试--聪明的编辑">
+      <i class="fa fa-chevron-left"></i> 字节跳动后端面试--聪明的编辑
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/leo-yang0201.github.io/2020/03/05/%E6%9B%B4%E6%8D%A2Next%E4%B8%BB%E9%A2%98%E5%90%8E%E6%A0%87%E7%AD%BE%E9%A1%B5%E8%B7%AF%E5%BE%84%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/" rel="next" title="更换Next主题后标签页路径出现问题">
+      更换Next主题后标签页路径出现问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+      <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1329734169&auto=0&height=66"></iframe>
+      </div>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Clarification"><span class="nav-number">1.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Possible-Solutions"><span class="nav-number">2.</span> <span class="nav-text">Possible Solutions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Cases"><span class="nav-number">4.</span> <span class="nav-text">Test Cases</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Leo Yang"
+      src="/leo-yang0201.github.io/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Leo Yang</p>
+  <div class="site-description" itemprop="description">Hi, I use this blog to record my daily practice in computer science and data science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/leo-yang0201.github.io/archive/">
+        
+          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/leo-yang0201.github.io/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/leo-yang0201.github.io/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo Yang</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共96.4k字</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.2
+  </div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/leo-yang0201.github.io/yzm/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/anime.min.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.min.js"></script>
+  <script src="/leo-yang0201.github.io/yzm/velocity/velocity.ui.min.js"></script>
+
+<script src="/leo-yang0201.github.io/js/utils.js"></script>
+
+<script src="/leo-yang0201.github.io/js/motion.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/schemes/pisces.js"></script>
+
+
+<script src="/leo-yang0201.github.io/js/next-boot.js"></script>
+
+
+  <script defer src="/leo-yang0201.github.io/yzm/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '28053c3bf9e94bd99f96',
+      clientSecret: '8b2847e6971db2a6490a4a011655f88756a32e17',
+      repo        : 'leo-yang0201.github.io',
+      owner       : 'leo-yang0201',
+      admin       : ['leo-yang0201'],
+      id          : '0a0bf411a1ff8202c976f00f1991990d',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+<!-- 文件位置：~/source/_data/body-end.swig -->
+
+<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+<script>
+  console.log('今日诗词 - 开始加载...');
+  jinrishici.load((result) => {
+    let jrsc = document.getElementById('jrsc');
+    if (jrsc) {
+      console.log('今日诗词 - 标签获取成功.');
+    } else {
+      console.log('今日诗词 - 标签获取失败!');
+      return;
+    }
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' @ ' + dynasty + '·' + author + title;
+    console.log('今日诗词 - 载入完毕.');
+    if (data.origin.author == '李白') {
+      let audio = document.createElement("audio");
+      audio.src = "/ding.mp3";
+      audio.play();
+    }
+  });
+</script>
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
 </body>
 </html>
