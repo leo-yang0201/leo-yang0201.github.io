@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Leetcode 1103 distribute candies to people(分糖果II) | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="Difficulty : Medium Type: LinkedList Language : Java ClarificationWe distribute some number of candies, to a row of n &#x3D; num_people people in the following way: We then give 1 candy to the first person">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 1103 distribute candies to people(分糖果II) | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/03/05/Leetcode-1103-distribute-candies-to-people/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="Difficulty : Medium Type: LinkedList Language : Java ClarificationWe distribute some number of candies, to a row of n &#x3D; num_people people in the following way: We then give 1 candy to the first person">
+<meta property="og:image" content="https://pic.leetcode-cn.com/Figures/1103/arithmeti.png">
+<meta property="article:published_time" content="2020-03-05T12:03:35.000Z">
+<meta property="article:modified_time" content="2020-03-09T12:05:01.201Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.leetcode-cn.com/Figures/1103/arithmeti.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Leetcode 1103 distribute candies to people(分糖果II)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-03-05" class="post-meta__date date">2020-03-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/leetcode/">leetcode</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/Math/" rel="tag">Math</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>Difficulty : Medium</p>
+<p>Type: LinkedList</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><p>We distribute some number of <code>candies</code>, to a row of <strong><code>n = num_people</code></strong> people in the following way:</p>
+<p>We then give 1 candy to the first person, 2 candies to the second person, and so on until we give <code>n</code> candies to the last person.</p>
+<p>Then, we go back to the start of the row, giving <code>n + 1</code> candies to the first person, <code>n + 2</code> candies to the second person, and so on until we give <code>2 * n</code> candies to the last person.</p>
+<p>This process repeats (with us giving one more candy each time, and moving to the start of the row after we reach the end) until we run out of candies. The last person will receive all of our remaining candies (not necessarily one more than the previous gift).</p>
+<p>Return an array (of length <code>num_people</code> and sum <code>candies</code>) that represents the final distribution of candies.</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;= candies &lt;= 10^9</li>
+<li>1 &lt;= num_people &lt;= 1000</li>
+</ul>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li><p>暴力法<br>不断地遍历数组，如果还有糖就一直分，直到没有糖为止。</p>
+</li>
+<li><p>等差数列</p>
+<p>除了最后一份礼物数量是根据还剩多少糖果决定，剩下礼物数量都是从1开始构成的等差数列，所以思路是根据等差数列求和公式找到每次还剩多少candy，只要不是最后一行，每次要加的值都可以根据求和公式算出来然后叠加到数组位置上，到了最后一行最后一个位置的时候直接把剩余糖果数目累加到该位置</p>
+<p><img src="https://pic.leetcode-cn.com/Figures/1103/arithmeti.png" alt></p>
+</li>
+</ul>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] distributeCandies(<span class="keyword">int</span> candies, <span class="keyword">int</span> num_people) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[num_people];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (candies &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; num_people) &#123;</span><br><span class="line">                <span class="keyword">if</span> (candies &gt;= count + <span class="number">1</span>) &#123;</span><br><span class="line">                    ans[i] = ++count;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    ans[i] = candies;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (candies &gt;= count + <span class="number">1</span> ) &#123;</span><br><span class="line">                    ans[i % num_people] = ans[i % num_people] + count + <span class="number">1</span>;</span><br><span class="line">                    ++count;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    ans[i % num_people] = ans[i % num_people] + candies;</span><br><span class="line">                    count += <span class="number">1</span>;</span><br><span class="line">                    candies = candies - count;</span><br><span class="line">                &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 等差数列</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span>[] distributeCandies(<span class="keyword">int</span> candies, <span class="keyword">int</span> num_people) &#123;</span><br><span class="line">    <span class="keyword">int</span> n = num_people;</span><br><span class="line">    <span class="comment">// how many people received complete gifts</span></span><br><span class="line">    <span class="keyword">int</span> p = (<span class="keyword">int</span>)(Math.sqrt(<span class="number">2</span> * candies + <span class="number">0.25</span>) - <span class="number">0.5</span>);</span><br><span class="line">    <span class="keyword">int</span> remaining = (<span class="keyword">int</span>)(candies - (p + <span class="number">1</span>) * p * <span class="number">0.5</span>);</span><br><span class="line">    <span class="keyword">int</span> rows = p / n, cols = p % n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[] d = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">      <span class="comment">// complete rows</span></span><br><span class="line">      d[i] = (i + <span class="number">1</span>) * rows + (<span class="keyword">int</span>)(rows * (rows - <span class="number">1</span>) * <span class="number">0.5</span>) * n;</span><br><span class="line">      <span class="comment">// cols in the last row</span></span><br><span class="line">      <span class="keyword">if</span> (i &lt; cols) d[i] += i + <span class="number">1</span> + rows * n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// remaining candies        </span></span><br><span class="line">    d[cols] += remaining;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Test-Cases"><a href="#Test-Cases" class="headerlink" title="Test Cases"></a>Test Cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: candies &#x3D; 7, num_people &#x3D; 4</span><br><span class="line">Output: [1,2,3,1]</span><br><span class="line">Explanation:</span><br><span class="line">On the first turn, ans[0] +&#x3D; 1, and the array is [1,0,0,0].</span><br><span class="line">On the second turn, ans[1] +&#x3D; 2, and the array is [1,2,0,0].</span><br><span class="line">On the third turn, ans[2] +&#x3D; 3, and the array is [1,2,3,0].</span><br><span class="line">On the fourth turn, ans[3] +&#x3D; 1 (because there is only one candy left), and the final array is [1,2,3,1].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: candies &#x3D; 10, num_people &#x3D; 3</span><br><span class="line">Output: [5,2,3]</span><br><span class="line">Explanation: </span><br><span class="line">On the first turn, ans[0] +&#x3D; 1, and the array is [1,0,0].</span><br><span class="line">On the second turn, ans[1] +&#x3D; 2, and the array is [1,2,0].</span><br><span class="line">On the third turn, ans[2] +&#x3D; 3, and the array is [1,2,3].</span><br><span class="line">On the fourth turn, ans[0] +&#x3D; 4, and the final array is [5,2,3].</span><br></pre></td></tr></table></figure>
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

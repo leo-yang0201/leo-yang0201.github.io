@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Leetcode 1095 Find in Mountain Array(山脉数组中查找目标值) | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="Difficulty : Hard Type: Binary Search Language : Java Clarification (This problem is an interactive problem.)* You may recall that an array A is a mountain array if and only if:  A.length &gt;&#x3D; 3  The">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 1095 Find in Mountain Array(山脉数组中查找目标值) | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/04/29/Leetcode-1095-Find-in-Mountain-Array/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="Difficulty : Hard Type: Binary Search Language : Java Clarification (This problem is an interactive problem.)* You may recall that an array A is a mountain array if and only if:  A.length &gt;&#x3D; 3  The">
+<meta property="article:published_time" content="2020-04-29T14:12:27.000Z">
+<meta property="article:modified_time" content="2020-04-29T12:55:18.474Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Binary Search">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Leetcode 1095 Find in Mountain Array(山脉数组中查找目标值)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-04-29" class="post-meta__date date">2020-04-29</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/leetcode/">leetcode</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/Binary-Search/" rel="tag">Binary Search</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>Difficulty : Hard</p>
+<p>Type: Binary Search</p>
+<p>Language : Java</p>
+<h4 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h4><ul>
+<li><p>(This problem is an <strong>interactive problem</strong>.)*</p>
+<p>You may recall that an array <code>A</code> is a <em>mountain array</em> if and only if:</p>
+<ul>
+<li><p><code>A.length &gt;= 3</code></p>
+</li>
+<li><p>There exists some </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i</span><br></pre></td></tr></table></figure>
+
+<p> with </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt; i &lt; A.length - 1</span><br></pre></td></tr></table></figure>
+
+<p> such that:</p>
+<ul>
+<li><code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i]</code></li>
+<li><code>A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code></li>
+</ul>
+<a id="more"></a>
+
+</li>
+</ul>
+<p>Given a mountain array <code>mountainArr</code>, return the <strong>minimum</strong> <code>index</code> such that <code>mountainArr.get(index) == target</code>. If such an <code>index</code> doesn’t exist, return <code>-1</code>.</p>
+<p><strong>You can’t access the mountain array directly.</strong> You may only access the array using a <code>MountainArray</code> interface:</p>
+<ul>
+<li><code>MountainArray.get(k)</code> returns the element of the array at index <code>k</code> (0-indexed).</li>
+<li><code>MountainArray.length()</code> returns the length of the array.</li>
+</ul>
+<p>Submissions making more than <code>100</code> calls to <code>MountainArray.get</code> will be judged <em>Wrong Answer</em>. Also, any solutions that attempt to circumvent the judge will result in disqualification.</p>
+</li>
+</ul>
+<h4 id="Possible-Solutions"><a href="#Possible-Solutions" class="headerlink" title="Possible Solutions"></a>Possible Solutions</h4><ul>
+<li><p>二分查找<br>本题对调用get方法的次数做了限制，所以常规操作遍历数组是一定会超时的，所以很快想到要用二分法。分段数组查询目标值问题都可以化为有序数组查找目标值问题，重点就是要处理二分法的边界，先复习一下有序数组查找目标值的二分法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> lo = <span class="number">0</span>, hi = nums.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (lo &lt;= hi) &#123; <span class="comment">//切记是&lt;=</span></span><br><span class="line">    <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">      <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">      lo = mid + <span class="number">1</span>;<span class="comment">//一定记得+1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      hi = mid - <span class="number">1</span>;<span class="comment">//一定记得-1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>处理lo和hi时需要+1，-1是因为可能出现lo = 0,hi = 1的情况，这种情况mid的值不会再更新，就会进入无限循环</p>
+<p><strong>这个模板适用于有序数组查找目标值</strong></p>
+<p>此题可用一个万能二分模板（我直接抄的甜姨的，写的实在是elegant）</p>
+<ul>
+<li>找到峰顶后，在两段有序数组中使用基础二分模板或者万能模板</li>
+</ul>
+</li>
+</ul>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findInMountainArray</span><span class="params">(<span class="keyword">int</span> target, MountainArray mountainArr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 先找到峰顶索引 peakIdx</span></span><br><span class="line">        <span class="keyword">int</span> lo = <span class="number">0</span>, hi = mountainArr.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (lo + <span class="number">1</span> &lt; hi) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> midVal = mountainArr.get(mid);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (midVal &gt; mountainArr.get(mid - <span class="number">1</span>)) &#123;</span><br><span class="line">                lo = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                hi = mid;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> peakIdx = mountainArr.get(lo) &gt; mountainArr.get(hi)? lo: hi;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 根据峰顶将山脉数组分为「升序数组」和「降序数组」两段，分别进行二分查找</span></span><br><span class="line">        <span class="keyword">int</span> idx = binSearch(mountainArr, <span class="number">0</span>, peakIdx, target, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> idx != -<span class="number">1</span>? idx: binSearch(mountainArr, peakIdx + <span class="number">1</span>, mountainArr.length() - <span class="number">1</span>, target, <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">binSearch</span><span class="params">(MountainArray mountainArr, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> target, <span class="keyword">boolean</span> asc)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (lo &lt;= hi) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> midVal = mountainArr.get(mid);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (midVal == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (midVal &lt; target) &#123;</span><br><span class="line">                lo = asc? mid + <span class="number">1</span>: lo;</span><br><span class="line">                hi = asc? hi: mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                hi = asc? mid - <span class="number">1</span>: hi;</span><br><span class="line">                lo = asc? lo: mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：sweetiee</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/find-in-mountain-array/solution/shi-shi-hou-ji-chu-wo-de-mo-neng-er-fen-mo-ban-lia/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h4><p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: array &#x3D; [1,2,3,4,5,3,1], target &#x3D; 3</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: 3 exists in the array, at index&#x3D;2 and index&#x3D;5. Return the minimum index, which is 2.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: array &#x3D; [0,1,2,4,2,1], target &#x3D; 3</span><br><span class="line">Output: -1</span><br><span class="line">Explanation: 3 does not exist in the array, so we return -1.</span><br></pre></td></tr></table></figure>
+
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

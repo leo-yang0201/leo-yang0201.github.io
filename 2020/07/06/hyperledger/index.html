@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Hyperledger学习总结 | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="基本概念（Hyperledger Fabric Concept) DLT - Transactions - Chaincode  Distributed Ledger 作用：Track the state of an assetAsset可以是有形的或者是无形的，如车辆、房屋、股票、证书等，Distributed Ledger记录这些asset的状态   Transactions 作用：Manag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperledger学习总结 | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/07/06/hyperledger/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="基本概念（Hyperledger Fabric Concept) DLT - Transactions - Chaincode  Distributed Ledger 作用：Track the state of an assetAsset可以是有形的或者是无形的，如车辆、房屋、股票、证书等，Distributed Ledger记录这些asset的状态   Transactions 作用：Manag">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/06/UC2Ga6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/06/UC2Lz4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/06/UCR4pD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/06/UCRffO.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/06/UC4Sje.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/06/UCTEZQ.png">
+<meta property="article:published_time" content="2020-07-06T05:57:29.000Z">
+<meta property="article:modified_time" content="2020-07-06T05:53:30.709Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Hyperledger">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/06/UC2Ga6.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Hyperledger学习总结</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-07-06" class="post-meta__date date">2020-07-06</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/Blockchain/">Blockchain</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/Hyperledger/" rel="tag">Hyperledger</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="基本概念（Hyperledger-Fabric-Concept"><a href="#基本概念（Hyperledger-Fabric-Concept" class="headerlink" title="基本概念（Hyperledger Fabric Concept)"></a>基本概念（Hyperledger Fabric Concept)</h3><ul>
+<li><p>DLT - Transactions - Chaincode</p>
+<ul>
+<li>Distributed Ledger<ul>
+<li>作用：Track the state of an asset<br>Asset可以是有形的或者是无形的，如车辆、房屋、股票、证书等，Distributed Ledger记录这些asset的状态</li>
+</ul>
+</li>
+<li>Transactions<ul>
+<li>作用：Manages the state of asset 管理asset状态<ul>
+<li>Invocation of the business logic 调用业务逻辑</li>
+<li>Chaincode implements the logic 通过Chaincode实现逻辑</li>
+<li>Recorded in the ledger 所有的Transaction都被记录在ledger中，这些record transaction是不可变的，即不能被更新或删除</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Chaincode<ul>
+<li>Applications execute functions by way of Transactions 通过事务执行功能，如向区块链中存储一条记录等功能</li>
+<li>Functions exposed for reading the state</li>
+<li>可用Go, NodeJS或Java编写Chaincode<a id="more"></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Client side invocation(API)</p>
+<p><img src="https://s1.ax1x.com/2020/07/06/UC2Ga6.png" alt="UC2Ga6.png"></p>
+<ul>
+<li>Invoke 负责执行chaincode中的业务逻辑</li>
+<li>Query 负责从distributed ledger读取asset状态</li>
+<li>invoke和query都执行chaincode中的方法</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/06/UC2Lz4.png" alt="UC2Lz4.png"></p>
+<ul>
+<li>invoke和query不同在于当你用invoke执行chaincode的方法时，transaction会被记录到ledger，而query执行chaincode方法时，transaction不会被记录，它只会读取asset状态并将其返回给caller。</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/06/UCR4pD.png" alt="UCR4pD.png"></p>
+<ul>
+<li>当用户调用invoke API，transaction proposal被创建并发送给Endorsing Peers，这些Peers再发回signed Transaction Proposal。然后，Client在把signed Tx Proposal发给Orderer，Orderer会建立Block(包含Transaction)并把block发给peers，并不一定每个peer都有chaincode，即使peer没有导致transaction生成的chaincode，它仍然可以接收有transaction的Block</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/06/UCRffO.png" alt="UCRffO.png"></p>
+<ul>
+<li>当用户调用query API， query function只会在有chaincode的peer上执行，client不能在没有chaincode的peer上执行query方法，client也不会和orderer进行交互，所以没有block会被生成</li>
+</ul>
+<h4 id="基本概念总结"><a href="#基本概念总结" class="headerlink" title="基本概念总结"></a>基本概念总结</h4><p><img src="https://s1.ax1x.com/2020/07/06/UC4Sje.png" alt="UC4Sje.png"></p>
+</li>
+</ul>
+<h3 id="Chaincode-生命周期"><a href="#Chaincode-生命周期" class="headerlink" title="Chaincode 生命周期"></a>Chaincode 生命周期</h3><ul>
+<li>CC Development<br><img src="https://s1.ax1x.com/2020/07/06/UCTEZQ.png" alt="UCTEZQ.png"><ul>
+<li>Specifications (Smart contract = Specifications)<ul>
+<li>Transaction interfaces</li>
+<li>Business rules</li>
+<li>Work Flow logic</li>
+</ul>
+</li>
+<li>Coding<ul>
+<li>Chaincode implements Smart Contract</li>
+</ul>
+</li>
+<li>Package<ul>
+<li>Put the package in a shared repository. Organizations can access this repo so admin from Orgs pick up the package to share code and install it on the peers in their respective organizations</li>
+<li>Developer from that Orgs can implement the specifications on their own and clear or specific chaincode implementation(机构可以使用shared chaincode package，但也可以自定义自己的implementation，此时这个自定义的版本只有定义它的机构可使用)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Installation<ul>
+<li>Orgs install the chaincode</li>
+<li>Generates the Package-ID; needed for approval(管理员可以用peer二进制文件安装package，如果写入正确，返回一个package id给peer二进制文件，用于approval)</li>
+<li>Chaincode package id must be consistent within Org，否则不会被approved</li>
+</ul>
+</li>
+<li>Approval<ul>
+<li>Organizations approve the CC parameters</li>
+</ul>
+</li>
+<li>Committing<ul>
+<li>One of the Org Admin commits</li>
+</ul>
+</li>
+</ul>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Amazon S3 笔记 | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="实习过程中目前用的最多也最广泛的数据库就是Amazon S3，有必要对其以及其他工作中常见到的分布式存储系统进行深入了解。 S3的存储形式S3是基于桶(Bucket)的存储系统，它把每个被存储的文件当做一个Object，被存储的Object被放到相应的Bucket中，如下所示：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Amazon S3 笔记 | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/11/22/Amazon-S3-%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="实习过程中目前用的最多也最广泛的数据库就是Amazon S3，有必要对其以及其他工作中常见到的分布式存储系统进行深入了解。 S3的存储形式S3是基于桶(Bucket)的存储系统，它把每个被存储的文件当做一个Object，被存储的Object被放到相应的Bucket中，如下所示：">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/22/DG1PKO.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/22/DG8G3q.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/22/DG8T2t.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/22/DGNmTO.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/22/DGNe0K.png">
+<meta property="article:published_time" content="2020-11-22T13:20:05.000Z">
+<meta property="article:modified_time" content="2020-11-22T14:50:36.842Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="S3">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2020/11/22/DG1PKO.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Amazon S3 笔记</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-11-22" class="post-meta__date date">2020-11-22</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/">分布式存储</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/AWS/" rel="tag">AWS</a>, <a class="tags-link" href="/leo-yang0201.github.io/tags/S3/" rel="tag">S3</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>实习过程中目前用的最多也最广泛的数据库就是Amazon S3，有必要对其以及其他工作中常见到的分布式存储系统进行深入了解。</p>
+<h4 id="S3的存储形式"><a href="#S3的存储形式" class="headerlink" title="S3的存储形式"></a>S3的存储形式</h4><p>S3是基于桶(Bucket)的存储系统，它把每个被存储的文件当做一个Object，被存储的Object被放到相应的Bucket中，如下所示：</p>
+<p><a href="https://imgchr.com/i/DG1PKO" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DG1PKO.png" alt="DG1PKO.png"></a></p>
+<a id="more"></a>
+
+<h5 id="Bucket"><a href="#Bucket" class="headerlink" title="Bucket"></a>Bucket</h5><p>用户创建的Bucket的BuckerName必须说全局唯一的，该名字可以由用户提供，也可以由系统提供。创建的同时会设置Bucket的一些属性：</p>
+<ul>
+<li>MetaData: 包含创建时间、创建者标识，该Bucket中所有Objects的总大小，还包含有用户访问的历史信息等</li>
+<li>Acess Policy: 设置了Bucket的访问权限，例如可以设置哪些用户可以访问，是否有读写权限等</li>
+</ul>
+<h5 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h5><p>在一个Bucket里可以存放多个Object，在S3系统中存储的Object是被序列化的，S3系统并不能区分Object的类型，它可能是一个文本文件或者一个视频文件。Metadata里面存储的是Object创建时间、大小、文件类型等。另外只要用户能够访问object的数据，就能够访问MetaData的权限。</p>
+<p>S3系统中Object的Identifier有两种表示方法，key和locator</p>
+<ul>
+<li><p>Key<br>Key在Object被创建的时候由用户给定，若用户未指定则由系统分配，要保证key在桶内部是唯一的，不同的桶可以有相同的key，如：有一个Bucket的标识为05073951，存储了一个Object的key为MyDocument/Email/message.txt(注：key可以是string类型或其他类型)，那么用户就可以通过下面的地址来访问Object</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;storageservice.domain.com&#x2F;050739517&#x2F;MyDocument&#x2F;Email&#x2F;message.txt</span><br></pre></td></tr></table></figure>
+
+<p>当然不能直接访问，用户还需提供必要的验证信息，因为Bucket设置了访问权限，所以当一个访问到达时，首先有一个认证过程。</p>
+</li>
+<li><p>Locator<br>Locator和key不同，locator的分配必须是全局唯一的，而不是桶内唯一。通过locator访问object可以越过认证，所以性能上比key要好（吞吐率、访问延迟等），但是正因为越过了验证，安全性不好，所以一般在传输过程中要对locator进行加密传输。和上面的key对应如下是一个locator例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;storageservice.domain.com&#x2F;locator&#x2F;3859C89A208FDB5A</span><br></pre></td></tr></table></figure>
+
+<p>这里3859C89A208FDB5A就是object的locator，它是一个128位16进制表示的数</p>
+</li>
+</ul>
+<h4 id="存储系统架构"><a href="#存储系统架构" class="headerlink" title="存储系统架构"></a>存储系统架构</h4><p>S3的整体架构如下图所示：</p>
+<p><a href="https://imgchr.com/i/DG8G3q" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DG8G3q.png" alt="DG8G3q.png"></a></p>
+<p>如上图所示，S3存储架构主要是由keymap+Bitstore作为基本的存储功能，然后coordinator和NodePicker充当调度功能，然后replicator实现副本的功能，DFDD(discovery, failure, detection, daemon)用来检测各个组件的运行状态，web service platform使用来接收和处理客户端client的请求。</p>
+<p><a href="https://imgchr.com/i/DG8T2t" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DG8T2t.png" alt="DG8T2t.png"></a></p>
+<ul>
+<li><p>Web Service Platform<br>用来接收客户端的web service请求，然后将这些请求送给coordinator。Web Service Platform 是存储系统对外的接口，它提供REST/SOAP类型的API，支持一些对bucket或者object的操作。例如creatBucket、listBucket、deleteBucket等API。WebServicePlatform还提供计费功能、认证、访问控制等。</p>
+<p>另外如果该存储系统限制object的大小，那么web service platform还需要对一些大文件进行分割，将它们分成好多chunck，然后为每个chunck分配一个key，这些key可以是由原来大文件的key作为每个chunck的前缀，后面加上一些按字母或数字顺序的字段，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;storageservice.domain.com&#x2F;050739517&#x2F;MyDocument&#x2F;Email&#x2F;message.txt&#x2F;1</span><br><span class="line">http:&#x2F;&#x2F;storageservice.domain.com&#x2F;050739517&#x2F;MyDocument&#x2F;Email&#x2F;message.txt&#x2F;2</span><br></pre></td></tr></table></figure>
+
+<p>当然客户端也可以设置是否允许系统进行分片，如果不允许则存储失败。</p>
+</li>
+<li><p>Coordinator协调器<br>Coordinator是用来协调web service platform和系统中其他组件的。例如：</p>
+<ul>
+<li>当webservice platform有read object请求时，coordinator首先从keymap中获取该object及object副本的存储位置，然后根据这些位置去相应的bitstore Node获取数据。</li>
+<li>当有write object请求时，coordinator首先从NodePicker获取符合一定SLA的节点，然后将object写入到这些节点</li>
+<li>CreateBucker请求时，创建并存储一个新的bucket，有时候用户未指定bucket标识时它也可以为bucket生成一个key</li>
+</ul>
+</li>
+<li><p>NodePicker<br>NodePicker会根据一定的存储策略来选择节点，如下：</p>
+<ul>
+<li>Durability Policy（持续性）: 至少N个副本被成功存储，write object才算成功</li>
+<li>Area diversity policy（区域多样性）: Object被存在在多个区域，增加可靠性</li>
+<li>Locality policy（本地）: 降低延迟</li>
+<li>Load balance policy（负载均衡）: 平衡各个存储节点的请求量</li>
+<li>Space balance policy（空间负载均衡）: 平衡各个存储节点的空间利用率</li>
+<li>Lowest-cost chain policy : 在write object时最小开销</li>
+</ul>
+<p>上述是一些存储策略，NodePicker会根据用户的SLA来选择不同的存储策略，例如：</p>
+<ol>
+<li>有些用户对可靠性要求不高，则可以减少副本数目</li>
+<li>有些用户对延迟要求比较高，同时要求可靠性，假设副本数量为5，那么可以选择将3个副本使用locality policy来保证延时，另外2个分别存储在两个不同的区域来保证可靠性</li>
+<li>有些用户对延迟的要求比可靠性低，那么可以选择将2（或1）个副本使用 locality policy，另外3（或4）分别存放在三个不同的区域里面</li>
+<li>当coordinator需要read object时，node picker会选择一个离用户比较近的位置的节点给coordinator</li>
+</ol>
+<p>NodePicker为了完成上面的一些调度任务，需要监视节点的状态，如可用资源大小等，且考虑到节点的状态时刻在变，所以需要定期进行检测</p>
+</li>
+<li><p>Keymap<br>是用来存储object(和其副本)的存放位置的</p>
+</li>
+<li><p>Bitstore<br>Bitstore是存储object的最终节点，它的内部结构如下：<br><a href="https://imgchr.com/i/DGNmTO" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DGNmTO.png" alt="DGNmTO.png"></a></p>
+<ul>
+<li>Storage node management controller:<br>对外提供存取数据的API，如put，get，release</li>
+<li>Logical file I/O manager<br>该部分实现虚拟化底层的存储设备或者file system，它用object在存储设备上的偏移量以及文件大小来定位文件，它给每个被存储的object提供一个索引，如下所示:<br><a href="https://imgchr.com/i/DGNe0K" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DGNe0K.png" alt="DGNe0K.png"></a></li>
+<li>File System 文件系统</li>
+<li>Storage Device 存储设备</li>
+</ul>
+</li>
+<li><p>Replicator<br>当系统中object的实例副本的数目小于给定的副本的数目时，Replicator就会完成剩下副本的存储，使副本满足给定的数目。</p>
+</li>
+<li><p>DFDD<br>DFDD是组件所在系统上运行的一个守护进程，用来监测组件的状态信息。</p>
+</li>
+</ul>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

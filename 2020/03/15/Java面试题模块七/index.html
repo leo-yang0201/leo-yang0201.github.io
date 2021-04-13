@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Java面试题汇总(七) | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="请你简述TCP、UDP的区别TCP和UDP是OSI模型中的运输层中的协议。TCP提供可靠的通信传输，而UDP常被用于让广播和细节控制交给应用的通信传输  TCP面向连接，UDP面向非连接，即发送数据前不需要建立连接 TCP提供可靠的服务（数据传输无差错，不丢失，不重复，按序到达），UDP无法保证可靠交付 TCP面向字节流，UDP面向报文（对实时应用有用如实时视频会议） TCP数据传输慢，UDP数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试题汇总(七) | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/03/15/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E4%B8%83/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="请你简述TCP、UDP的区别TCP和UDP是OSI模型中的运输层中的协议。TCP提供可靠的通信传输，而UDP常被用于让广播和细节控制交给应用的通信传输  TCP面向连接，UDP面向非连接，即发送数据前不需要建立连接 TCP提供可靠的服务（数据传输无差错，不丢失，不重复，按序到达），UDP无法保证可靠交付 TCP面向字节流，UDP面向报文（对实时应用有用如实时视频会议） TCP数据传输慢，UDP数据">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/15/83Hnfg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/30/GnvKbQ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/30/GnvQEj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/25/d6ebE4.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/25/d6mMVg.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/25/d6muqS.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/25/d6Q6bV.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/25/d6lDiD.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/01/G1I0F1.png">
+<meta property="article:published_time" content="2020-03-15T12:26:19.000Z">
+<meta property="article:modified_time" content="2020-08-25T02:04:18.746Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/15/83Hnfg.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Java面试题汇总(七)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-03-15" class="post-meta__date date">2020-03-15</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/Java/">Java</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="请你简述TCP、UDP的区别"><a href="#请你简述TCP、UDP的区别" class="headerlink" title="请你简述TCP、UDP的区别"></a>请你简述TCP、UDP的区别</h4><p>TCP和UDP是OSI模型中的运输层中的协议。TCP提供可靠的通信传输，而UDP常被用于让广播和细节控制交给应用的通信传输</p>
+<ul>
+<li>TCP面向连接，UDP面向非连接，即发送数据前不需要建立连接</li>
+<li>TCP提供可靠的服务（数据传输无差错，不丢失，不重复，按序到达），UDP无法保证可靠交付</li>
+<li>TCP面向字节流，UDP面向报文（对实时应用有用如实时视频会议）</li>
+<li>TCP数据传输慢，UDP数据传输快</li>
+<li>TCP连接只能是点到点的，UDP支持一对一，一对多，多对多，多对一的交互通信</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="请简单说一下你了解的端口及对应的服务"><a href="#请简单说一下你了解的端口及对应的服务" class="headerlink" title="请简单说一下你了解的端口及对应的服务"></a>请简单说一下你了解的端口及对应的服务</h4><ul>
+<li>21 FTP（文件传输协议）</li>
+<li>22 SSH</li>
+<li>23 Telnet（远程登录）服务</li>
+<li>25 SMTP（简单邮件传输协议）</li>
+<li>53 DNS 域名服务器</li>
+<li>80 HTTP超文本传输协议</li>
+<li>110 POP3邮件协议3</li>
+<li>443 HTTPS</li>
+<li>1080 Socket</li>
+<li>1521 Oracle数据库默认端口</li>
+<li>3306 MySQL服务</li>
+</ul>
+<h4 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h4><p>举个例子说明，张三（客户端）首先对李四（服务器）招手（发送一个syn），李四看到张三向自己招手后，点头并挤出一个微笑（发送一个ack），张三看到李四微笑后确认李四成功辨认了自己（张三进入了establish状态），但李四不知道张三是不是向他招手，所以他也向张三招了手（发送一个syn），张三看到后知道李四在寻求自己的确认，于是也点头微笑（发松一个ack），李四看到后确认张三在向自己打招呼（李四也进入了establish状态），连接建立。</p>
+<h4 id="TCP数据传输"><a href="#TCP数据传输" class="headerlink" title="TCP数据传输"></a>TCP数据传输</h4><p>张三喊了一句话（发送data），李四听见后向张三回复自己听见了（发送回一个ack）</p>
+<p>如果李四没有及时回复，张三就认为自己的话没被听到，就需要重新喊话（tcp重传），李四就有可能一句话听到了两次，这就是<strong>去重</strong>，<strong>重传</strong>和<strong>去重</strong>工作操作系统的网络内核模块以及处理好了，用户层不用关心。因为TCP是双工的，双方都可以主动发起数据传输，不论是哪方喊话，都需要对方确认才能认为对方收到了自己的喊话。</p>
+<h4 id="TCP四次挥手？"><a href="#TCP四次挥手？" class="headerlink" title="TCP四次挥手？"></a>TCP四次挥手？</h4><p>张三挥手（发送fin），李四微笑（收到fin后发送ack），此时是半关闭状态，张三（客户端）已经发送了fin请求，不再说话，但是还可以接收李四说的话，李四可以继续说话，等李四不想说话了发送了fin请求时，张三收到并微笑（发送ack），连接断开。</p>
+<p><img src="https://s1.ax1x.com/2020/03/15/83Hnfg.png" alt></p>
+<h4 id="TCP为什么要三次握手，两次不行吗，为什么？"><a href="#TCP为什么要三次握手，两次不行吗，为什么？" class="headerlink" title="TCP为什么要三次握手，两次不行吗，为什么？"></a>TCP为什么要三次握手，两次不行吗，为什么？</h4><p>为了实现可靠数据传输，TCP协议的通信双方，都必须维护一个序列号，以标识发送出去的数据包中，哪些是已经被对方收到的。三次握手的过程即是通信双方相互告知序列号起始值，并确认对方已经收到了序列号起始值的必经步骤。</p>
+<p>如果只是两次握手，至多只有连接发起方的起始序列号能被确认，另一方选择的序列号则得不到的确认。</p>
+<h4 id="TCP协议如何保证可靠传输"><a href="#TCP协议如何保证可靠传输" class="headerlink" title="TCP协议如何保证可靠传输"></a>TCP协议如何保证可靠传输</h4><ul>
+<li>应用数据被分割成TCP认为最适合发送的数据块</li>
+<li>TCP给发送的每一个包进行编号，接收方对数据包进行排序，把有序数据传送给应用层</li>
+<li>校验和：TCP将保持它首部和数据的校验和。这是一个端到端的校验和，目的是检测数据在传输过程中的任何变化。如果收到段的校验和有差错，TCP将丢弃这个报文段和不确认收到此报文段</li>
+<li>TCP的接收端会丢弃重复的数据</li>
+<li>流量控制：TCP连接的每一方都有固定大小的缓冲空间，TCP的接收端只允许发送端发送接收端缓存区能接纳的数据。<strong>当接收方来不及处理发送方的数据</strong>，能提示发送方降低发送的速率，防止包丢失。TCP使用的流量控制协议是可变大小的滑动窗口协议（TCP利用滑动窗口实现流量控制）</li>
+<li>拥塞控制：当网络拥塞时，减少数据的发送</li>
+<li>ARQ协议：也是为了实现可靠传输的，它的基本原理就是每发完一个分组就停止发送，等待对方确认。在收到确认后再发下一个分组。</li>
+<li>超时重传： 当TCP发送一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段。</li>
+</ul>
+<h4 id="TCP拥塞控制讲一下？"><a href="#TCP拥塞控制讲一下？" class="headerlink" title="TCP拥塞控制讲一下？"></a>TCP拥塞控制讲一下？</h4><p>在某段时间，若对网络中某一个资源的需求超过了该资源所能提供的可用部分，网络的性能就变坏，这种情况就是拥塞。拥塞控制就是为了防止过多的数据注入到网络中，使得路由器或链路不至于过载。拥塞控制所要做的都有一个前提，就是网络能够承受现有的网络负荷。拥塞控制是一个全局性的过程，涉及所有的主机，路由器以及与降低网络传输性能有关的所有因素。相反，流量控制往往是点对点通信量的控制，是个端到端的问题。流量控制所要做到的就是抑制发送端发送数据的速率，以便接收端能来得及接收。</p>
+<p>为了进行拥塞控制，TCP发送方要维持一个<strong>拥塞窗口(cwnd)</strong>的状态变量。拥塞控制窗口的大小取决于网络拥塞程度，并且可以动态变化。发送方让自己的发送窗口取为拥塞窗口和接收方接受窗口中较小的一个。</p>
+<p>TCP拥塞控制采用四种算法，即慢开始，拥塞避免，快重传和快恢复。在网络层也可以使路由器采用适当的分组丢弃策略（如主动队列管理AQM），以减少网络拥塞的产生。</p>
+<ul>
+<li>慢开始<br>思路是当主机开始发送数据时，如果立即把大量数据字节注入网络，那么可能会引起网络阻塞，因为现在还不知道网络的符合情况。较好的方式是先探测一下，即由小到大逐渐增大发送窗口，也就是由小到大逐渐增大拥塞窗口数值。cwnd初始值为1，每经过一个传播轮次，cwnd翻倍。</li>
+<li>拥塞避免<br>算法思路是让cwnd缓慢增大，每经过一个往返时间就把发送方的cwnd+1</li>
+<li>快重传和快恢复(FRR)<br>快重传和快恢复可以快速恢复丢失的数据包。没有FRR，如果数据包丢失了，TCP会用定时器来要求传输暂停。在暂停的期间里，没有新的或复制的数据包被发送。FRR出现后，如果接收机接到一个不按顺序的数据端，会立即给发送机发一个重复确认。如果发送机收到三个重复确认，它会假定数据段丢失了，并立即重传这些丢失的数据段。有了FRR，就不会因为重传时要求的暂停被耽误。当有单独的数据包丢失时，FRR能最有效地工作，当有多个数据信息包在某一段很短的时间内丢失时，它则不能很有效地工作。</li>
+</ul>
+<h4 id="TCP流量控制说一下？"><a href="#TCP流量控制说一下？" class="headerlink" title="TCP流量控制说一下？"></a>TCP流量控制说一下？</h4><p>TCP利用滑动窗口实现流量控制。流量控制是为了控制发送方发送速率，保证接收方来得及接收。接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发松速率。将窗口字段设置为0，则发送方不能发送数据。</p>
+<h4 id="TCP粘包是怎么产生的"><a href="#TCP粘包是怎么产生的" class="headerlink" title="TCP粘包是怎么产生的"></a>TCP粘包是怎么产生的</h4><ul>
+<li><p>发送方产生粘包<br>采用TCP协议传输数据的客户端与服务器经常是保持一个长连接的状态（一次连接发一次数据不存在粘包），双方在连接不断开的情况下，可以一直传输数据；但当发送的数据包过于的小时，那么TCP协议默认会启动Nagle算法，将这些较小的数据包进行合并发送（缓冲区数据发送是一个堆压的过程）；这个合并过程就是在发送缓冲区中进行的，也就是说数据发送出来，它已经是粘包的状态了。<br><img src="https://s1.ax1x.com/2020/03/30/GnvKbQ.png" alt="GnvKbQ.png"></p>
+</li>
+<li><p>接收方产生粘包<br>接收方采用TCP协议接收数据时的过程是这样的：数据到达接收方，从网络模型的下方传递到传输层，传输层的TCP协议处理是将其放置接收缓冲区，然后由应用层来主动获取（C语言用recv，read等函数）。这时会出现一个问题，我们在程序中调用的读取数据函数不能及时的把缓冲区中的数据拿出来，而下一个数据又到来并有一部分放入的缓冲区末尾，等我们读取数据时就是一个粘包（放数据的速度&gt;应用层拿数据速度）</p>
+<p><img src="https://s1.ax1x.com/2020/03/30/GnvQEj.png" alt="GnvQEj.png"></p>
+</li>
+</ul>
+<h4 id="在浏览器中输入网址之后执行会发生什么？"><a href="#在浏览器中输入网址之后执行会发生什么？" class="headerlink" title="在浏览器中输入网址之后执行会发生什么？"></a>在浏览器中输入网址之后执行会发生什么？</h4><ul>
+<li>查找域名对应的IP地址，会依次查找浏览器缓存，系统缓存，路由器缓存，DNS缓存，根域名服务器</li>
+<li>TCP连接</li>
+<li>浏览器向IP对应的web服务器发送一个HTTP请求</li>
+<li>服务器响应请求，发回网页内容</li>
+<li>浏览器解析网页内容</li>
+</ul>
+<h4 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h4><p>从顶层到底层</p>
+<ul>
+<li>应用层：为应用程序提供网络服务，各种应用程序协议如HTTP, FTP, SMTP, POP3</li>
+<li>表示层：信息的语法语义以及它们的关联，数据格式化，如加密解密、转换翻译，对应网络协议Telnet,Rlogin,SNMP</li>
+<li>会话层：建立、维护、管理会话连接，对应网络协议SMTP，DNS</li>
+<li>传输层：建立、维护、管理端到端连接，对应网络协议TCP，UDP</li>
+<li>网络层：IP寻址和路由选择，对应网络协议IP，ICMP，ARP，AKP，UUCP</li>
+<li>数据链路层：控制网络层与物理层之间通信，对应网络协议FDDI，Ethernet，Arpanet，PDN，PPP</li>
+<li>物理层：比特流传输，对应协议IEEE 802.1A，IEEE 802.2到IEEE802.11</li>
+</ul>
+<p>注：在TCP/IP四层概念模型中，应用层，表示层，会话层统称为应用层，数据链路层和物理层统称为数据链路层</p>
+<h4 id="OSI模型详解"><a href="#OSI模型详解" class="headerlink" title="OSI模型详解"></a>OSI模型详解</h4><ul>
+<li><p>物理层</p>
+<ul>
+<li>通过光缆，电缆，无线电波等方式将设备连接起来组网</li>
+<li>两个不同区域网通信，需要ISP互联网服务供应商的物理连接</li>
+<li>作用：传送比特流0和1</li>
+</ul>
+</li>
+<li><p>数据链路层</p>
+<ul>
+<li>作用<ul>
+<li>根据以太网协议将一组电信号组一个数据包，称作“帧”，并控制它的传输，有两部分，标头head，标明数据发送者、接收者、数据类型，另一部分是数据data</li>
+</ul>
+</li>
+<li>MAC地址<ul>
+<li>作用：定位数据包的路径，如发送者，接收者</li>
+<li>网卡地址，每个网卡都是独一无二的12个16进制数</li>
+<li>前6个表厂商，后6个表流水号</li>
+</ul>
+</li>
+<li>广播方式<ul>
+<li>发送者把数据包，发送给局域网内的所有pc，让每个pc根据MAC地址自动匹配</li>
+<li>发送媒介：分组交换剂/网络交换机</li>
+</ul>
+</li>
+<li>网络交换机<ul>
+<li>扩展网络的机器</li>
+<li>作用：为子网提供更多的接口，以连接更多的pc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>网络层</p>
+<ul>
+<li><img src="https://s1.ax1x.com/2020/08/25/d6ebE4.jpg" alt="d6ebE4.jpg"></li>
+</ul>
+</li>
+<li><p>传输层</p>
+<ul>
+<li><img src="https://s1.ax1x.com/2020/08/25/d6mMVg.jpg" alt="d6mMVg.jpg"></li>
+</ul>
+</li>
+<li><p>应用层</p>
+<ul>
+<li><img src="https://s1.ax1x.com/2020/08/25/d6muqS.jpg" alt="d6muqS.jpg"></li>
+</ul>
+</li>
+<li><p>数据链路层数据包（以太网数据包）格式，除了应用层没有头部，其他都有</p>
+<ul>
+<li><img src="https://s1.ax1x.com/2020/08/25/d6Q6bV.jpg" alt="d6Q6bV.jpg"></li>
+</ul>
+</li>
+<li><p>数据包在传送时的封装和解封装如下所示<br><a href="https://imgchr.com/i/d6lDiD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/25/d6lDiD.jpg" alt="d6lDiD.jpg"></a></p>
+</li>
+</ul>
+<h4 id="HTTP协议包括哪些请求"><a href="#HTTP协议包括哪些请求" class="headerlink" title="HTTP协议包括哪些请求"></a>HTTP协议包括哪些请求</h4><ul>
+<li>Get ：对服务器资源的简单请求</li>
+<li>Post ： 用于发送包含用户提交数据的请求</li>
+<li>Head ： 类似于GET请求，不过返回的响应中没有具体内容，用于获取报头</li>
+<li>Delete ：发出一个删除指定文档的请求</li>
+<li>Trace ： 发送一个请求副本，以跟踪其处理进程</li>
+<li>Options ：返回所有可用的方法，检查服务器支持哪些方法</li>
+<li>Connect ：用于ssl隧道的基于代理的请求</li>
+</ul>
+<h4 id="简述HTTP中GET和POST的区别"><a href="#简述HTTP中GET和POST的区别" class="headerlink" title="简述HTTP中GET和POST的区别"></a>简述HTTP中GET和POST的区别</h4><p>从表面上看：</p>
+<ul>
+<li>GET请求的数据会附在URL后面，POST的数据放在HTTP包体</li>
+<li>POST安全性比GET安全性高</li>
+</ul>
+<p>从原理性看：</p>
+<ul>
+<li>根据HTTP规范，GET用于信息获取，而且应该是安全和幂等的</li>
+<li>根据HTTP规范，POST请求表示可能修改服务器上资源的请求</li>
+</ul>
+<h4 id="Cookie的作用是什么？它和Session有什么区别？"><a href="#Cookie的作用是什么？它和Session有什么区别？" class="headerlink" title="Cookie的作用是什么？它和Session有什么区别？"></a>Cookie的作用是什么？它和Session有什么区别？</h4><p>Cookie和Session都是用来跟踪浏览器用户身份的会话方式，但是两者的应用场景不一样</p>
+<ul>
+<li>Cookie一般用来保存用户信息<ul>
+<li>在Cookie中保存已登录过的用户信息，下次访问网站的时候页面可以自动帮你把登录的一些基本信息给填了</li>
+<li>一般网站都会有保持登录也就是下次你再访问网站时就不需要重新登录了，这是因为用户登陆的时候我们可以存放一个Token在Cookie中，下次登录根据Token值来查找用户即可（为安全考虑，重新登录一般要将Token重写）</li>
+<li>登录一次网站后访问网站其他页面不需要重新登录</li>
+</ul>
+</li>
+<li>Session的主要作用是通过服务器记录用户的状态<ul>
+<li>典型的场景是购物车，当你要添加商品到购物车的时候，系统不知道是哪个用户操作的，HTTP协议是无状态的。服务器给特定的用户创建特点的Session之后就可以标识这个用户并且跟踪这个用户。</li>
+</ul>
+</li>
+</ul>
+<p>Cookie数据保存在客户端（浏览器端），Session数据保存在服务器端，相对来说Session安全性更高。如果要在Cookie中存储一些敏感信息，不要直接写入Cookie中，最好将Cookie信息加密然后使用到的时候再去服务器端解密</p>
+<h4 id="HTTP和HTTPS区别？"><a href="#HTTP和HTTPS区别？" class="headerlink" title="HTTP和HTTPS区别？"></a>HTTP和HTTPS区别？</h4><ul>
+<li><p>端口：HTTP的URL由”http://“起始且默认使用端口80，而HTTPS的URL由”https://“起始且默认端口443</p>
+</li>
+<li><p>安全性和资源消耗：HTTP协议运行在TCP之上，所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。HTTPS是运行在SSL/TLS之上的HTTP协议，SSL/TLS运行在TCP之上。所有传输的内容都经过加密，加密采用对称加密，但对称加密的密钥用服务器方的证书进行了非对称加密。所以说，HTTP安全性没有HTTPS高，但是HTTPS比HTTP耗费更多服务器资源。</p>
+<ul>
+<li>对称加密：密钥只有一个，加密解密为同一个密码，且加解密速度快，典型的对称加密算法有DES，AES等</li>
+<li>非对称加密：密钥成对出现（且根据公钥无法推知私钥，根据私钥也无法推知公钥），加密解密使用不同密钥（公钥加密需要私钥解密，私钥加密需要公钥解密），相对对称加密速度较慢，典型的非对称加密算法RSA、DSA等。</li>
+</ul>
+<p>HTTPS的整体过程分为证书验证和数据传输阶段，具体的交互过程如下：</p>
+<p><img src="https://s1.ax1x.com/2020/04/01/G1I0F1.png" alt="G1I0F1.png"></p>
+<p>证书验证阶段</p>
+<ul>
+<li>浏览器发起https请求</li>
+<li>服务端返回https证书</li>
+<li>客户端验证证书是否合法，如果不合法提示告警</li>
+</ul>
+<p>数据传输阶段</p>
+<ul>
+<li>当证书验证合法后，在本地生成随机数</li>
+<li>通过公钥加密随机数，并把加密后的随机数传输到服务端</li>
+<li>服务器通过私钥对随机数进行解密</li>
+<li>服务端通过客户端传入的随机数构造对称加密算法，对返回结果内容进行加密后传输</li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么数据传输是用对称加密？"><a href="#为什么数据传输是用对称加密？" class="headerlink" title="为什么数据传输是用对称加密？"></a>为什么数据传输是用对称加密？</h4><p>首先，非对称加解密的效率非常低，而http的应用场景中通常端与端之间存在大量的交互，非对称加密的效率无法接受。<br>另外，在https的场景中只有服务器保存了私钥，一对公私钥只能实现单向的加解密，所以https中内容传输加密采取对称加密，而不是非对称加密。</p>
+<h4 id="HTTP-1-0和HTTP1-1的主要区别是什么？"><a href="#HTTP-1-0和HTTP1-1的主要区别是什么？" class="headerlink" title="HTTP 1.0和HTTP1.1的主要区别是什么？"></a>HTTP 1.0和HTTP1.1的主要区别是什么？</h4><ul>
+<li>长连接<br><strong>在HTTP/1.0中，默认使用的是短链接</strong>，也就是每次请求都要重新建立一次连接，HTTP是基于TCP/IP协议的，每一次建立或者断开连接都需要三次握手四次挥手的开销，如果每次请求都建立连接，开销比较大。因此最好维持一个长连接，可以用长连接发送多个请求，<strong>HTTP1.1开始，默认使用长连接</strong>，默认开启Connection：keep-alive。<strong>HTTP/1.1的持续连接有非流水线方式和流水线方式</strong>。流水线方式是客户在收到HTTP的的响应报文之前就能接着发送新的请求报文。与之相对应的非流水线方式是客户在收到前一个响应后才能发送下一个请求。</li>
+<li>错误状态响应码<br>在HTTP1.1中新增了24个错误状态响应码，如409(Conflict)表示请求的资源与资源的当前状态发生冲突；410(Gone)状态表示服务器上某个资源被永久性的删除</li>
+<li>缓存处理<br>在HTTP1.0里主要使用header里的If-Modifed-Since，Expires来作为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略比如Entity tag，If-Unmodified-Since，If-Match，If-None-Match等更多可供选择的缓存头来控制缓存策略</li>
+<li>带宽优化及网络连接的使用<br>HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206(Partial Content)，这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
+</ul>
+<h4 id="HTTP-1-1和HTTP2-0的主要区别是什么？"><a href="#HTTP-1-1和HTTP2-0的主要区别是什么？" class="headerlink" title="HTTP 1.1和HTTP2.0的主要区别是什么？"></a>HTTP 1.1和HTTP2.0的主要区别是什么？</h4><ul>
+<li>多路复用<br>在http2.0中，有两个非常重要的概念，分别是帧(frame)和流(stream)。帧代表着最小的数据单位，每个帧会标示出该帧属于哪个流，流也就是多个帧组成的数据流。<br>多路复用就是一个TCP连接中可以存在多条流，也就是可以发送多个请求，对端可以通过帧中的标识知道属于哪个请求，这个技术可以避免http旧版中队头阻塞问题，提高传输性能。</li>
+<li>首部压缩</li>
+<li>HTTP2.0支持服务器推送</li>
+</ul>
+<h4 id="HTTP长连接，短连接"><a href="#HTTP长连接，短连接" class="headerlink" title="HTTP长连接，短连接"></a>HTTP长连接，短连接</h4><p>在HTTP1.0中默认使用短连接，客户端和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。当客户端浏览器访问的某个HTML或其他类型的Web页中包含有其他的Web资源（如JavaScript文件，图像文件或CSS文件等），每遇到这样一个Web资源，浏览器就会重新建立一个Http会话。</p>
+<p>Http1.1起，默认使用长连接，用以保持连接特性。使用长连接的HTTP协议，会在响应头加入这行代码：</p>
+<p>“Connection: keep-alive”</p>
+<p>在使用长连接的情况下，当一个网页打开完成以后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，客户端再次访问这个服务器时，会继续使用这一条已经建立的连接。Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间。实现长连接需要客户端和服务端都支持长连接。HTTP协议的长连接和短连接，实质上是TCP协议的长连接和短连接。</p>
+<h4 id="HTTP是不保存状态的协议，如何保存用户状态？"><a href="#HTTP是不保存状态的协议，如何保存用户状态？" class="headerlink" title="HTTP是不保存状态的协议，如何保存用户状态？"></a>HTTP是不保存状态的协议，如何保存用户状态？</h4><p>HTTP是一种不保存状态，即无状态协议。也就是说HTTP协议自身不对请求和响应之间的通信状态进行保存。那么我们保存用户状态呢？Session机制的存在就是为了解决这个问题，Session的主要作用就是通过服务端记录用户的状态。典型的场景是购物车，当你要添加商品到购物车的时候，系统不知道是哪个用户操作的，因为HTTP协议是无状态的。服务端给特定的用户创建特定的Session之后，就可以标识这个用户并且跟踪这个用户了（一般情况下，服务器会在一定时间内保存这个Session，过了时间限制，就会销毁这个Session）。</p>
+<h4 id="Cookie被禁用怎么办？"><a href="#Cookie被禁用怎么办？" class="headerlink" title="Cookie被禁用怎么办？"></a>Cookie被禁用怎么办？</h4><p>最常用的就是利用URL重写把SessionID直接附加在URL路径的后面。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

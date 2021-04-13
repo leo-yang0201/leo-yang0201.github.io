@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      软件测试面试题汇总 | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="说一下测试流程？ 软件开发完成以后，就会把需求规格说明书、软件程序和源码发过来 项目经理出测试方案（使用什么样的测试方法、测试策略），安全测试计划（测试人员、资源、进度的安排，测试的范围和完成的目标） 测试人员编写和执行测试用例 提交缺陷并且进行跟踪 编写测试报告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试面试题汇总 | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/04/07/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="说一下测试流程？ 软件开发完成以后，就会把需求规格说明书、软件程序和源码发过来 项目经理出测试方案（使用什么样的测试方法、测试策略），安全测试计划（测试人员、资源、进度的安排，测试的范围和完成的目标） 测试人员编写和执行测试用例 提交缺陷并且进行跟踪 编写测试报告">
+<meta property="article:published_time" content="2020-04-07T14:59:31.000Z">
+<meta property="article:modified_time" content="2020-04-08T08:39:29.965Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="软件测试">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">软件测试面试题汇总</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-04-07" class="post-meta__date date">2020-04-07</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/%E6%B5%8B%E8%AF%95/">测试</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" rel="tag">软件测试</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="说一下测试流程？"><a href="#说一下测试流程？" class="headerlink" title="说一下测试流程？"></a>说一下测试流程？</h4><ul>
+<li>软件开发完成以后，就会把需求规格说明书、软件程序和源码发过来</li>
+<li>项目经理出测试方案（使用什么样的测试方法、测试策略），安全测试计划（测试人员、资源、进度的安排，测试的范围和完成的目标）</li>
+<li>测试人员编写和执行测试用例</li>
+<li>提交缺陷并且进行跟踪</li>
+<li>编写测试报告</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="你平时会写测试用例吗？"><a href="#你平时会写测试用例吗？" class="headerlink" title="你平时会写测试用例吗？"></a>你平时会写测试用例吗？</h4><p>重点：回答这个问题的时候要有条理，尽量面面俱到，切忌不要急</p>
+<p>例如：给你一个杯子如何测试？</p>
+<ul>
+<li>界面测试：查看杯子的外观是否得体（外观、图案）</li>
+<li>易用性：杯子是否烫手、是否有防滑措施、是否方便饮水、是否易用手端着或手拿</li>
+<li>安全性：使用过程中杯口是否容易给身体造成伤害，杯子有没有毒和细菌</li>
+<li>可靠性：杯子从不同高度掉下的损坏程度</li>
+<li>稳定性：杯子一直盛着水，时间长了是否会漏水</li>
+<li>兼容性：是否可容纳高温度水、果汁、酒精、汽油等</li>
+<li>用户文档：用户使用手册上是否对杯子的使用方法进行限制，是否出现使用过程中友好的提示，该注意的问题，使用环境等有详细的描述</li>
+</ul>
+<h4 id="如何对一个页面进行测试？"><a href="#如何对一个页面进行测试？" class="headerlink" title="如何对一个页面进行测试？"></a>如何对一个页面进行测试？</h4><ul>
+<li>UI测试：页面布局、样式检查，显示时是否会被截断，支持的快捷键是否正常等</li>
+<li>功能测试：页面上各类控件的测试范围，测试点。结合控件的实际作用来补充检查点：比如，密码框是否*显示，输入是否做trim处理</li>
+<li>安全测试：输入特殊字符，sql注入，脚本注入测试。后台验证测试，对于比较重要的表单，绕过js检测后台是否验证；数据传输是否加密处理。</li>
+<li>兼容性测试</li>
+<li>性能测试</li>
+</ul>
+<h4 id="如何测试登陆界面"><a href="#如何测试登陆界面" class="headerlink" title="如何测试登陆界面"></a>如何测试登陆界面</h4><ul>
+<li><p>功能测试</p>
+<p>1.输入正确的用户名和密码，点击提交按钮，验证是否能正确登录。</p>
+<p>2.输入错误的用户名或者密码,验证登录会失败，并且提示相应的错误信息。</p>
+<p>3.登录成功后能否能否跳转到正确的页面</p>
+<p>4.用户名和密码，如果太短或者太长，应该怎么处理</p>
+<p>5.用户名和密码，中有特殊字符（比如空格），和其他非英文的情况</p>
+<p>6.记住用户名的功能</p>
+<p>7.登陆失败后，不能记录密码的功能</p>
+<p>8.用户名和密码前后有空格的处理</p>
+<p>9.密码是否非明文显示显示，使用星号圆点等符号代替。</p>
+<p>10.牵扯到验证码的，还要考虑文字是否扭曲过度导致辨认难度大，考虑颜色（色盲使 用者），刷新或换一个按钮是否好用</p>
+<p>11.登录页面中的注册、忘记密码，登出用另一帐号登陆等链接是否正确</p>
+<p>12.输入密码的时候，大写键盘开启的时候要有提示信息。</p>
+<p>13.什么都不输入，点击提交按钮，检查提示信息。</p>
+</li>
+<li><p>界面测试</p>
+<ol>
+<li><p>布局是否合理，testbox和按钮是否整齐。</p>
+</li>
+<li><p>testbox和按钮的长度，高度是否复合要求。</p>
+</li>
+<li><p>界面的设计风格是否与UI的设计风格统一。</p>
+</li>
+<li><p>界面中的文字简洁易懂，没有错别字。</p>
+</li>
+</ol>
+</li>
+<li><p>性能测试<br>1.打开登录页面，需要的时间是否在需求要求的时间内。</p>
+<p>2.输入正确的用户名和密码后，检查登录成功跳转到新页面的时间是否在需求要求的时间内。</p>
+<p>3.模拟大量用户同时登陆，检查一定压力下能否正常登陆跳转。</p>
+</li>
+<li><p>安全性测试</p>
+<ol>
+<li><p>登录成功后生成的Cookie，是否是httponly (否则容易被脚本盗取)。</p>
+</li>
+<li><p>用户名和密码是否通过加密的方式，发送给Web服务器。</p>
+</li>
+<li><p>用户名和密码的验证，应该是用服务器端验证， 而不能单单是在客户端用javascript 验证。</p>
+</li>
+<li><p>用户名和密码的输入框，应该屏蔽SQL注入攻击。</p>
+</li>
+<li><p>用户名和密码的的输入框，应该禁止输入脚本 （防止XSS攻击）。</p>
+</li>
+<li><p>防止暴力破解，检测是否有错误登陆的次数限制。</p>
+</li>
+<li><p>是否支持多用户在同一机器上登录。</p>
+</li>
+<li><p>同一用户能否在多台机器上登录。</p>
+</li>
+</ol>
+</li>
+<li><p>兼容性测试<br>1.不同浏览器下能否显示正常且功能正常（IE,6,7,8,9, Firefox, Chrome, Safari,等）。</p>
+<p>2.同种浏览器不同版本下能否显示正常且功能正常。</p>
+<p>2.不同的平台是否能正常工作，比如Windows, Mac。</p>
+<p>3.移动设备上是否正常工作，比如Iphone, Andriod。</p>
+<p>4.不同的分辨率下显示是否正常。</p>
+</li>
+</ul>
+<h4 id="怎么开展测试工作？"><a href="#怎么开展测试工作？" class="headerlink" title="怎么开展测试工作？"></a>怎么开展测试工作？</h4><ul>
+<li>需求分析<br>我会对这个全新的软件需求进行全面分析，主要分析的点有：<ul>
+<li>软件的版本需求合理性，是否可测试</li>
+<li>项目人员配置（遇到什么问题找谁，有多少人投入测试，测试环境，测试资源，硬件，软件）</li>
+<li>要测试的软件的主流程，异常流程，测试重点</li>
+<li>项目整体计划（发布时间）</li>
+</ul>
+</li>
+<li>制定测试策略、测试计划和bug定义标准</li>
+<li>按计划执行，编写测试用例</li>
+<li>执行用例，补充场景，记录bug，回归bug（注意开发提测的需求需要冒烟测试通过）</li>
+<li>功能合入，回归测试（各个功能点测试通过之后，再合入）</li>
+<li>提交验收（回归测试通过之后，提交给验收人员进行验收）</li>
+<li>发布上线（全新的软件，先是小范围内测，观察线上数据（如: crash，用户反馈，运营数据等），如果有产品认为严重的问题，则需要修复后重发，符合预期才能扩大发布）</li>
+</ul>
+<h4 id="请分别介绍一下单元测试、集成测试、系统测试、验收测试、回归测试？"><a href="#请分别介绍一下单元测试、集成测试、系统测试、验收测试、回归测试？" class="headerlink" title="请分别介绍一下单元测试、集成测试、系统测试、验收测试、回归测试？"></a>请分别介绍一下单元测试、集成测试、系统测试、验收测试、回归测试？</h4><ul>
+<li><p>单元测试<br>完成最小的软件设计单元（模块）的验证工作，目标是确保模块被正确的编码，使用过程设计描述作为指南，对重要的控制路径进行测试以发现模块内的错误，通常情况下是白盒的，对代码风格和规则、程序设计和结构、业务逻辑等进行静态测试，及早的发现和解决不易显现的错误。</p>
+</li>
+<li><p>集成测试<br>通过测试发现与模块接口有关的问题。目标是把通过了单元测试的模块拿来，构造一个在设计中所描述的程序结构，应当避免一次性的集成（除非软件规模很小），而采用增量集成。</p>
+<p>自顶向下集成：模块集成的顺序是首先集成主模块，然后按照控制层次结构向下进行集成，隶属于主模块的模块按照深度优先或广度优先的方式集成到整个结构中去。</p>
+<p>自底向上集成：从原子模块开始来进行构造和测试，因为模块是自底向上集成的，进行时要求所有隶属于某个给顶层次的模块总是存在的，也不再有使用稳定测试桩的必要。</p>
+</li>
+<li><p>系统测试<br>是基于系统整体需求说明书的黑盒类测试，应覆盖系统所有联合的部件。系统测试是针对整个产品系统进行的测试，目的是验证系统是否满足了需求规格的定义，找出与需求规格不相符合或与之矛盾的地方。系统测试的对象不仅仅包括需要测试的产品系统的软件，还要包含软件所依赖的硬件、外设甚至包括某些数据、某些支持软件及其接口等。因此，必须将系统中的软件与各种依赖的资源结合起来，在系统实际运行环境下来进行测试。</p>
+</li>
+<li><p>回归测试<br>回归测试是指在发生修改之后重新测试先前的测试用例以保证修改的正确性。理论上，软件产生新版本，都需要进行回归测试，验证以前发现和修复的错误是否在新软件版本上再次出现。根据修复好了的缺陷再重新进行测试。回归测试的目的在于验证以前出现过但已经修复好的缺陷不再重新出现。一般指对某已知修正的缺陷再次围绕它原来出现时的步骤重新测试。</p>
+</li>
+<li><p>验收测试<br>验收测试是指系统开发生命周期方法论的一个阶段，这时相关的用户或独立测试人员根据测试计划和结果对系统进行测试和接收。它让系统用户决定是否接收系统。它是一项确定产品是否能够满足合同或用户所规定需求的测试。验收测试包括Alpha测试和Beta测试。</p>
+</li>
+</ul>
+<h4 id="测试和开发对比一下？"><a href="#测试和开发对比一下？" class="headerlink" title="测试和开发对比一下？"></a>测试和开发对比一下？</h4><p>软件开发重点是把软件功能通过代码方式实现，侧重各种语言、框架的使用</p>
+<p>软件测试是验证开发出来的软件符合需求预期的过程，包含软件的功能，性能，安全，稳定，易用性，如果大型软件，还需要自动化测试。需要更多的思考用户使用这个软件时的各种特殊场景。</p>
+<h4 id="你认为是bug，开发人员不认同怎么办？"><a href="#你认为是bug，开发人员不认同怎么办？" class="headerlink" title="你认为是bug，开发人员不认同怎么办？"></a>你认为是bug，开发人员不认同怎么办？</h4><ul>
+<li>简单分析下需求对客户可能的影响，通过影响和严重程度说服开发修改</li>
+<li>产品需求里没有明确要求的，需求先和需求人员讨论一下，如果确认需要修改，在会议上提出</li>
+</ul>
+<h4 id="平时写测试用例会用到的设计方法？"><a href="#平时写测试用例会用到的设计方法？" class="headerlink" title="平时写测试用例会用到的设计方法？"></a>平时写测试用例会用到的设计方法？</h4><p>主要有黑盒和白盒两种测试种类</p>
+<p>黑盒</p>
+<ul>
+<li><p>等价类划分法<br>把所有的输入数据，即程序的输入域分为若干部分（子集），然后从每一个子集中选取少数具有代表性的数据作为测试用例。是一种非常重要的、常用的黑盒测试用例设计方法。等价类是指某一个输入域的子集合。在该子集合中， 各个输入数据对于揭露程序中的错误是等效的，并合理地假定：测试某等价类的代表值就等于对这一类其他值的测试。因此，可以把全部输入数据合理划分为若干等价类，在每一个等价类中取一个数据作为测试的输入就可以用少量的代表性的测试数据取得较好的测试结果。等价类划分有两种不同的情况：有效等价类和无效等价类。</p>
+<ul>
+<li>有效等价类<br>是指对于程序的规格说明来说是合理的、有意义的输入数据构成的集合。利用有效等价类可检验程序是否实现了规格说明所规定的功能和性能。</li>
+<li>无效等价类<br>指对程序的规格说明是不合理的或者无意义的输入数据所构成的集合。对于具体的问题，无效等价类至少有一个，也可能多个。</li>
+</ul>
+</li>
+<li><p>边界分析法</p>
+<p>边界值分析法就是对输入或输出的边界值进行测试的一种<a href="https://baike.baidu.com/item/黑盒测试/934030" target="_blank" rel="noopener">黑盒测试</a>方法。通常边界值分析法是作为对<a href="https://baike.baidu.com/item/等价类" target="_blank" rel="noopener">等价类</a>划分法的补充，这种情况下，其<a href="https://baike.baidu.com/item/测试用例/1928697" target="_blank" rel="noopener">测试用例</a>来自等价类的边界。</p>
+<p>边界值分析与等价类划分的区别在于边界值分析不是从某等价类中随便挑一个作为代表，而是使这个等价类的每个边界都要作为测试条件。而且边界值分析不仅考虑输入条件，还要考虑输出空间产生的测试情况。</p>
+<p>例：测试计算平方根的函数<br>–输入：实数<br>–输出：实数<br>–需求说明：当输入一个0或比0大的数的时候，返回其正平方根；当输入一个小于0的数时，显示错误信息”平方根非法-输入值小于0”并返回0；库函数Print-Line可以用来输出错误信息</p>
+</li>
+<li><p>错误猜测法<br>基本思想是列举程序可能出现的错误或者容易产生错误的测试点，然后根据测试点来编写测试用例。另一个思想是，在阅读规格说明时联想开发可能做的假设来确定测试用例，比如规格说明中的可能容易被忽略的内容。</p>
+</li>
+</ul>
+<p>白盒<br>白盒测试检验程序中每条通路是否都能按预定要求正确工作，不顾功能，主要方法有逻辑驱动、基路测试等，主要用于软件验证等。</p>
+<ul>
+<li>语句覆盖<br>设计若干个测试用例，运行被测程序，使得每一可执行的语句至少执行一次，测试用例越少越好</li>
+<li>判定覆盖<br>使设计的测试用例保证每个判断的每个取值分支至少经历一次</li>
+<li>条件覆盖<br>选择足够多的测试用例，使得运行这些用例时，判定中每个条件的所有可能结果至少出现一次，但未必能覆盖全部分支</li>
+<li>条件组合覆盖<br>选择足够多的测试用例，使所有判定中各条件判定结果的所有组合至少出现一次</li>
+<li>路径覆盖<br>每条可能执行到的路径至少执行一次</li>
+</ul>
+<h4 id="在您以往的工作中，一条bug记录都包含了哪些内容？如何提交高质量的软件缺陷记录？"><a href="#在您以往的工作中，一条bug记录都包含了哪些内容？如何提交高质量的软件缺陷记录？" class="headerlink" title="在您以往的工作中，一条bug记录都包含了哪些内容？如何提交高质量的软件缺陷记录？"></a>在您以往的工作中，一条bug记录都包含了哪些内容？如何提交高质量的软件缺陷记录？</h4><p>检测时间，系统环境，硬件环境，严重程度，程式版本，确认人，功能模板，问题描述，详细操作步骤，是否会重现。</p>
+<p>问题描述和详细操作步骤要尽可能详细。对于严重程度比较高的缺陷要在相同环境下测试一遍。</p>
+<h4 id="α、β、λ测试是什么？"><a href="#α、β、λ测试是什么？" class="headerlink" title="α、β、λ测试是什么？"></a>α、β、λ测试是什么？</h4><p>α、β、λ常用来表示软件测试过程中的三个阶段：<br>α是第一阶段，一般只供内部测试使用；<br>alpha测试 （由用户、测试人员、开发人员共同参与的内部测试）</p>
+<p>β是第二个阶段，已经消除了软件中大部分的不完善之处，但仍有可能还存在缺陷和漏洞，一般只提供给特定的用户群来测试使用；<br>beta测试 （内测后的公测，交给最终用户测试 公司外部展开的测试，可以由非专业的测试人员执行的测试）</p>
+<p>λ是第三个阶段，此时产品已经相当成熟，只需在个别地方再做进一步的优化处理即可上市发行</p>
+<h4 id="什么是自动化测试？"><a href="#什么是自动化测试？" class="headerlink" title="什么是自动化测试？"></a>什么是自动化测试？</h4><p>自动化测试是一种使用自动化工具编写和执行测试人员测试脚本和案例的技术。</p>
+<p>自动化测试的主要目标是减少手动运行的测试用例数量，而不是完全取消手动测试。</p>
+<h4 id="告诉我你对Selenium的了解"><a href="#告诉我你对Selenium的了解" class="headerlink" title="告诉我你对Selenium的了解"></a>告诉我你对Selenium的了解</h4><p>Selenium是一个免费的(开源)Test Suite框架。它用于自动化Web和移动环境。</p>
+<ul>
+<li>Selenium IDE(浏览器插件 - 录制和播放工具)</li>
+<li>Selenium WebDriver</li>
+<li>Selenium Grid</li>
+</ul>
+<p>Selenium支持Java，C#，Python，Ruby，PHP，Perl，Javascript等语言的脚本编写</p>
+<h4 id="UI级别测试和API测试之间的关键区别？"><a href="#UI级别测试和API测试之间的关键区别？" class="headerlink" title="UI级别测试和API测试之间的关键区别？"></a>UI级别测试和API测试之间的关键区别？</h4><p>UI(用户界面)是指测试图形界面，如用户如何与应用程序交互，测试应用程序元素，如字体，图像，布局等。UI测试基本上侧重于应用程序的外观和感觉。</p>
+<p>而API可以实现两个独立的软件系统之间的通信。实现API的软件系统包含可由另一软件系统执行功能或子例程</p>
+<h4 id="接口测试怎么测？"><a href="#接口测试怎么测？" class="headerlink" title="接口测试怎么测？"></a>接口测试怎么测？</h4><ul>
+<li>通过性验证：首先肯定要保证这个接口的功能是好使的，也就是通过性测试，按照接口文档的参数，正常传入，观察结果是否正确</li>
+<li>参数组合：现在有一个操作商品的接口，有个字段type，传1的时候代表修改商品、商品id、商品名称、价格有一个是必传的，type传2的时候是删除商品，商品id是必传的，这种情况需要测试参数组合。type传1的时候，只传商品名称能不能修改成功，id、名称、价格都传的时候能不能修改成功。</li>
+<li>接口安全：<ul>
+<li>绕过验证，比如购买了一个商品，它的价格是300元，那么提交订单时，把这个商品价格改成3元，后端有没有做验证，或者改成-3，是不是余额还会增加？</li>
+<li>绕过身份验证，比如说修改商品信息接口，那必须得是卖家才能修改，那我传一个普通用户，能不能修改成功，我传一个其它的卖家能不能修改成功</li>
+<li>参数是否加密，比如我登录的接口、用户名和密码是不是加密，如果不加密的话，别人拦截到你的请求，就能获取到你的信息了，加密规则是否容易破解。</li>
+<li>密码安全规则，密码的复杂程度校验</li>
+</ul>
+</li>
+<li>异常验证<br>不按照文档上的要求输入参数，来验证接口对异常情况的校验。比如说必填的参数不填，输入整数类型的，传入字符串类型，长度是10的，输入11，主要就三种，必传非必传，参数类型，入参长度。</li>
+<li>性能测试<br>接口并发情况，如上面提到的：一个账号，同时（大于两个请求）对最后一个商品下单，或不同账号，对最后一个商品下单，接口响应时间太长了需要优化。</li>
+</ul>
+<h4 id="没有接口文档如何做接口测试？"><a href="#没有接口文档如何做接口测试？" class="headerlink" title="没有接口文档如何做接口测试？"></a>没有接口文档如何做接口测试？</h4><ul>
+<li>和开发沟通，然后整理接口文档</li>
+<li>可以抓包看接口请求参数，不懂的和开发沟通</li>
+</ul>
+<h4 id="分析bug是前端的还是后端的"><a href="#分析bug是前端的还是后端的" class="headerlink" title="分析bug是前端的还是后端的"></a>分析bug是前端的还是后端的</h4><p>抓包看请求报文，对着接口文档，看请求报文有没有问题，有问题就是前端发的数据不对，请求报文没问题，那就看返回报文，返回的数据不对，就是后端问题。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

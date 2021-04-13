@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Java面试题汇总(八) | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="为什么要使用Spring？ 简介  目的：解决企业应用开发的复杂性 功能：使用基本的JavaBean代替EJB，并提供了更多的企业应用功能 范围：任何Java应用  简单来说，Spring是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架  轻量   从大小和开销两方面而言Spring都是轻量的。完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布。并且Spring所需的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java面试题汇总(八) | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/03/16/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97%E5%85%AB/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="为什么要使用Spring？ 简介  目的：解决企业应用开发的复杂性 功能：使用基本的JavaBean代替EJB，并提供了更多的企业应用功能 范围：任何Java应用  简单来说，Spring是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架  轻量   从大小和开销两方面而言Spring都是轻量的。完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布。并且Spring所需的">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/27/G9j0Qf.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/18/8dWQiV.jpg">
+<meta property="article:published_time" content="2020-03-16T06:43:36.000Z">
+<meta property="article:modified_time" content="2020-04-01T09:13:46.344Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/27/G9j0Qf.jpg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Java面试题汇总(八)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-03-16" class="post-meta__date date">2020-03-16</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/Java/">Java</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/Spring/" rel="tag">Spring</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="为什么要使用Spring？"><a href="#为什么要使用Spring？" class="headerlink" title="为什么要使用Spring？"></a>为什么要使用Spring？</h4><ul>
+<li><p>简介</p>
+<ul>
+<li>目的：解决企业应用开发的复杂性</li>
+<li>功能：使用基本的JavaBean代替EJB，并提供了更多的企业应用功能</li>
+<li>范围：任何Java应用</li>
+</ul>
+<p>简单来说，Spring是一个轻量级的控制反转（IOC）和面向切面（AOP）的容器框架</p>
+</li>
+<li><p>轻量</p>
+</li>
+</ul>
+<p>从大小和开销两方面而言Spring都是轻量的。完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布。并且Spring所需的处理开销也是微不足道的。此外，Spring是非侵入式的：典型地，Spring应用中的对象不依赖于Spring的特定类。</p>
+<a id="more"></a>
+
+<ul>
+<li>控制反转</li>
+</ul>
+<p>Spring通过IOC技术促进了松耦合。应用了IOC，一个对象依赖的其他对象会通过被动的方式传递进来，而不是这个对象自己创建或者查找依赖对象。你可以认为IOC和JNDI相反—不是对象从容器中查找依赖，而是容器在对象初始化时不等对象请求就主动将依赖传递给它</p>
+<ul>
+<li>面向切面 （AOP，后面详解）</li>
+<li>容器</li>
+</ul>
+<p>Spring包含并管理应用对象的配置和生命周期，在这个意义上它是一种容器，你可以配置你的每个bean如何被创建——基于一个可配置原型（prototype），你的bean可以创建一个单独的实例或者每次需要时都生成一个新的实例——以及它们是如何相互关联的。然而，Spring不应该被混同于传统的重量级的EJB容器，它们经常是庞大与笨重的，难以使用。</p>
+<ul>
+<li>框架</li>
+</ul>
+<p>Spring可以将简单的组建配置、组合称为复杂的应用。在Spring中，应用对象被声明式地组合，典型地是在一个XML文件里。Spring也提供了很多基础功能（事务管理、持久化框架集成等等），将应用逻辑的开发留给了你。</p>
+<p>所有Spring的这些特征使你能够编写更干净、更可管理、并且更易于测试的代码。它们也为Spring中的各种模块提供了基础支持。</p>
+<h4 id="解释一下什么是AOP？"><a href="#解释一下什么是AOP？" class="headerlink" title="解释一下什么是AOP？"></a>解释一下什么是AOP？</h4><p>OOP允许定义从上到下的关系，但不适合定义从左到右的关系，例如日志功能。日志代码往往分散在所有对象层次中，而与它所散布到的对象的核心功能毫无关系。对于安全性、异常处理和透明的持续性也是如此，这些散步在各处无关的代码被称为横切代码，在OOP里它导致了大量的代码重复。不利于重用。</p>
+<p>AOP利用一种横切的技术，将影响了多个类的公共行为封装到一个可重用模块，将其命名为”Aspect”切面，切面就是把和业务无关却为业务模块所共同调用的逻辑和责任封装起来，降低模块间的耦合度，并有利于未来的可操作性和可维护性。</p>
+<p>使用“横切”技术，AOP把软件系统分为两个部分：核心关注点和横切关注点，业务处理的主要流程是核心关注点，与之关系不大的是横切关注点，横切关注点经常发生在核心关注点的多处，且各处基本相似。比如权限认证、日志、事务处理。AOP的作用在于分离系统中的各种关注点，将核心关注点和横切关注点分离开来。</p>
+<p><strong>Spring AOP就是基于动态代理的</strong>，如果要代理的对象，实现了某个接口，那么Spring AOP会使用<strong>JDK Proxy</strong>，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候Spring AOP会使用<strong>Cglib</strong> ，这时候Spring AOP会使用 <strong>Cglib</strong> 生成一个被代理对象的子类来作为代理，如下图所示：</p>
+<p><img src="https://s1.ax1x.com/2020/03/27/G9j0Qf.jpg" alt></p>
+<p>也可以使用AspectJ，Spring AOP已经集成了AspectJ</p>
+<p>使用 AOP 之后我们可以把一些通用功能抽象出来，在需要用到的地方直接使用即可，这样大大简化了代码量。我们需要增加新功能时也方便，这样也提高了系统扩展性。日志功能、事务管理等等场景都用到了 AOP 。</p>
+<h4 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h4><ul>
+<li>实例化一个Bean，以及设置bean属性</li>
+<li>如果通过Aware接口声明了依赖关系，就会注入Bean对容器基础设施层面的依赖，Aware接口是为了感知到自身的一些属性。在Bean中设置对容器的感知，可以通过BeanNameAware知道自己在容器中的名字。如果这个Bean以及实现了BeanFactoryAware接口，可以用这个方式获取其他Bean</li>
+<li>紧接着会调用BeanPostProcess的前置初始化方法postProcessBeforeInitialization，主要作用是在Spring完成实例化之后，初始化之前，对Spring容器实例化的Bean添加自定义的处理逻辑。有点类似于AOP</li>
+<li>如果实现了BeanFactoryPostProcessor接口的afterPropertiesSet方法，做一些属性被设定后的自定义的事情</li>
+<li>调用Bean自身定义的init方法，去做一些初始化的工作</li>
+<li>调用BeanPostProcess的后置初始化方法，postProcessAfterInitialization去做一些bean初始化之后的自定义工作</li>
+<li>完成以上创建之后就可以在应用里用这个Bean了</li>
+<li>销毁时，如果实现了DisposableBean接口，则会调用destroy方法</li>
+<li>如果配置了destroy-method属性，则会调用起配置的销毁方法</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/03/18/8dWQiV.jpg" alt></p>
+<h4 id="Spring如何解决循环依赖"><a href="#Spring如何解决循环依赖" class="headerlink" title="Spring如何解决循环依赖"></a>Spring如何解决循环依赖</h4><p>Spring bean的创建，本质上是一个对象的创建，只是在Spring中，对象的实例化是通过反射实现的，而对象的属性则是在对象实例化之后通过一定的方式设置的，循环依赖的理解以两个类A和B作为实例，实例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> B b;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setB</span><span class="params">(B b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.b = b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> A a;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(A a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A和B都以对方为自己的全局属性，如果获取的对象依赖了另一个对象，那么其首先会创建该对象，然后通过递归调用ApplicationContext.getBean()方法获取所依赖的对象，最后将获取到的对象注入到当前对象中。</p>
+<p>循环依赖可以是属性注入，构造方式注入或者setter方法注入，对应有三种循环依赖的形式。</p>
+<ul>
+<li>构造器参数循环依赖</li>
+</ul>
+<p>Spring容器会将每一个正在创建的Bean标识符放在一个“当前创建Bean池”中，Bean标示符在创建过程将一直保持在这个池中。因此如果创建Bean过程中发现自己已经在“当前创建Bean池”里时，将抛出BeanCurrentlyInCreationException异常表示循环依赖。对于已经创建完毕的Bean，将从“当前创建Bean池中清除掉。</p>
+<ul>
+<li>setter方法单例，默认方式</li>
+</ul>
+<p>Spring先是用构造实例化Bean对象，此时Spring会将这个实例化结束的对象放到一个Map中，并且提供了获取这个未设置属性的实例化对象引用的方法。当对象A，B，C被Spring实例化以后，紧接着会设置对象的属性，此时A依赖B，就去map里取出存在里面的单例B对象，，不会出现循环问题</p>
+<ul>
+<li>setter方式原型，prototype</li>
+</ul>
+<p>prototype的意思是每次请求都会创建一个实例对象</p>
+<p>两者的区别是有状态的Bean都使用prototype作用域，无状态的一般哦读使用singleton单例作用域，会报异常，因为对于prototype作用域Bean，Spring容器无法完成依赖注入，因为prototype作用域的Bean，Spring容器不进行缓存，因此无法提前暴露一个创建中的Bean</p>
+<h4 id="谈谈自己对IOC的理解？"><a href="#谈谈自己对IOC的理解？" class="headerlink" title="谈谈自己对IOC的理解？"></a>谈谈自己对IOC的理解？</h4><p>IOC是一种设计思想，就是原本在程序中手动创建对象的控制权，交给Spring框架来处理。IOC容器是Spring用来实现IOC的载体，IoC容器实际上是个Map（key，value），Map中存放的是各种对象。</p>
+<p>将对象之间的相互依赖关系交给 IoC 容器来管理，并由 IoC 容器完成对象的注入。这样可以很大程度上简化应用的开发，把应用从复杂的依赖关系中解放出来。 <strong>IoC 容器就像是一个工厂一样，当我们需要创建一个对象的时候，只需要配置好配置文件/注解即可，完全不用考虑对象是如何被创建出来的。</strong> 在实际项目中一个 Service 类可能有几百甚至上千个类作为它的底层，假如我们需要实例化这个 Service，你可能要每次都要搞清这个 Service 所有底层类的构造函数，这可能会把人逼疯。如果利用 IoC 的话，你只需要配置好，然后在需要的地方引用就行了，这大大增加了项目的可维护性且降低了开发难度。</p>
+<p>Spring 时代我们一般通过 XML 文件来配置 Bean，后来开发人员觉得 XML 文件来配置不太好，于是 SpringBoot 注解配置就慢慢开始流行起来。</p>
+<h4 id="Spring常用的注入方式有哪些？"><a href="#Spring常用的注入方式有哪些？" class="headerlink" title="Spring常用的注入方式有哪些？"></a>Spring常用的注入方式有哪些？</h4><p>Spring通过DI(依赖注入)实现IOC(控制反转)，常用的注入方式主要有三种：</p>
+<ul>
+<li>构造方法注入</li>
+<li>setter注入</li>
+<li>基于注解的注入</li>
+</ul>
+<h4 id="Spring支持几种bean的作用域"><a href="#Spring支持几种bean的作用域" class="headerlink" title="Spring支持几种bean的作用域"></a>Spring支持几种bean的作用域</h4><p>当通过Spring容器创建一个bean实例时，不仅可以完成Bean实例的实例化，还可以为Bean指定特定的作用域。Spring支持如下五种作用域：</p>
+<ul>
+<li>单例模式，在整个Spring IoC容器中，使用单例定义的Bean将只有一个实例</li>
+<li>原型模式，每次通过容器的getBean方法获取prototype定义的Bean时，都将产生一个新的Bean实例</li>
+<li>request：对于每次HTTP请求，使用request定义的Bean都将产生一个新实例，即每次HTTP请求将会产生不同的Bean实例。只有在Web应用中使用Spring时，该作用域才有效。</li>
+<li>session：对于每次HTTP Session，使用session定义的Bean都将产生一个新实例。同样只有在Web应用中使用Spring时，该作用域才有效</li>
+<li>globalsession：每个全局的HTTP Session，使用session定义的Bean都将产生一个新实例。典型情况下，仅在使用portlet context的时候有效。同样只有在Web应用中使用Spring时，该作用域才有效</li>
+</ul>
+<p>其中比较常用的是singleton和prototype两种作用域。对于singleton作用域的Bean，每次请求该Bean都将获得相同的实例。容器负责跟踪Bean实例的状态，负责维护Bean实例的生命周期行为；如果一个Bean被设置成prototype作用域，程序每次请求该id的Bean，Spring都会新建一个Bean实例，然后返回给程序。在这种情况下，Spring容器仅仅使用new关键字创建Bean实例，一旦创建成功，容器不在跟踪实例，也不会维护Bean实例的状态。</p>
+<p>如果不指定Bean的作用域，Spring默认使用singleton作用域。Java在创建Java实例时，需要进行内存申请；销毁实例时，需要完成垃圾回收，这些工作都会导致系统开销的增加。因此，prototype作用域Bean的创建、销毁代价比较大。而singleton作用域的Bean实例一旦创建成功，可以重复使用。因此，除非必要，否则尽量避免将Bean被设置成prototype作用域。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

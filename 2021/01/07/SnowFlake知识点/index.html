@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      SnowFlake知识点 | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="笔记参考b站上对snowflake论文的解读，详见链接，简单说明了snowflake和传统数据仓库的区别及其优势 SnowFlake解决了哪些问题？传统数仓的主流做法：计算与存储耦合  每个节点有自己的计算资源和存储空间，数据横向分布到各个节点，计算时，每个节点只需要处理分配到这个节点上的数据。 优点在于速度快，降低了数据在节点之间传输的时间，数据处理过程中不会出现节点竞争抢占资源的情况。 缺点在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SnowFlake知识点 | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2021/01/07/SnowFlake%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="笔记参考b站上对snowflake论文的解读，详见链接，简单说明了snowflake和传统数据仓库的区别及其优势 SnowFlake解决了哪些问题？传统数仓的主流做法：计算与存储耦合  每个节点有自己的计算资源和存储空间，数据横向分布到各个节点，计算时，每个节点只需要处理分配到这个节点上的数据。 优点在于速度快，降低了数据在节点之间传输的时间，数据处理过程中不会出现节点竞争抢占资源的情况。 缺点在">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/23/s7jRkF.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/23/s7vAhQ.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/23/s7v7gs.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/23/s7xCvR.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/23/s7xQKI.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/23/s7zpo8.png">
+<meta property="article:published_time" content="2021-01-07T01:03:01.000Z">
+<meta property="article:modified_time" content="2021-01-23T14:47:04.534Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="数据仓库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/23/s7jRkF.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">SnowFlake知识点</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2021-01-07" class="post-meta__date date">2021-01-07</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>, <a class="categories-link" href="/leo-yang0201.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/">分布式存储</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" rel="tag">数据仓库</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>笔记参考b站上对snowflake论文的解读，详见<a href="https://www.bilibili.com/video/BV1oK41137AX?from=search&seid=7748739025199961504" target="_blank" rel="noopener">链接</a>，简单说明了snowflake和传统数据仓库的区别及其优势</p>
+<h4 id="SnowFlake解决了哪些问题？"><a href="#SnowFlake解决了哪些问题？" class="headerlink" title="SnowFlake解决了哪些问题？"></a>SnowFlake解决了哪些问题？</h4><p>传统数仓的主流做法：计算与存储耦合</p>
+<p><a href="https://imgchr.com/i/s7jRkF" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/23/s7jRkF.png" alt="s7jRkF.png"></a></p>
+<p>每个节点有自己的计算资源和存储空间，数据横向分布到各个节点，计算时，每个节点只需要处理分配到这个节点上的数据。</p>
+<p>优点在于速度快，降低了数据在节点之间传输的时间，数据处理过程中不会出现节点竞争抢占资源的情况。</p>
+<p>缺点在于数据不均匀，需要提前把数据分配到各个节点，增加或删除节点非常麻烦，大量的数据需要被重新洗牌，无法单独的增加计算资源或者存储资源。（计算存储耦合，导致增加计算资源也需要增加不必要的存储资源，反之亦然，资源浪费）</p>
+<a id="more"></a>
+
+<p>SnowFlake的做法：计算与存储分离</p>
+<p><a href="https://imgchr.com/i/s7vAhQ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/23/s7vAhQ.png" alt="s7vAhQ.png"></a></p>
+<p>存储层只负责存储数据，计算层只负责计算，做到了解耦</p>
+<h4 id="SnowFlake计算层"><a href="#SnowFlake计算层" class="headerlink" title="SnowFlake计算层"></a>SnowFlake计算层</h4><p>计算过程中，计算节点首先均匀地从存储层获得数据，然后在节点中完成计算，这个架构下可以自由单独增减计算资源和存储空间。计算层创建warehouse可以根据需求选择仓库size和数量，在工作中因为涉及TB级别的数据迁移，SQL脚本较为复杂，通常采用2X-Large或者4X-Large大小的仓库完成计算，snowflake会根据仓库尺寸的不同按小时计credit并收费。如果需要考虑并发性，可以考虑增加仓库的数量。</p>
+<h4 id="SnowFlake存储层"><a href="#SnowFlake存储层" class="headerlink" title="SnowFlake存储层"></a>SnowFlake存储层</h4><p>Snowflake选择Amazon S3作为存储层，S3本身可以无限扩展</p>
+<h4 id="SnowFlake如何优化性能"><a href="#SnowFlake如何优化性能" class="headerlink" title="SnowFlake如何优化性能"></a>SnowFlake如何优化性能</h4><h5 id="local-caching"><a href="#local-caching" class="headerlink" title="local caching"></a>local caching</h5><p><a href="https://imgchr.com/i/s7v7gs" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/23/s7v7gs.png" alt="s7v7gs.png"></a></p>
+<p>每个计算节点都会保存一些常用的数据在本地的硬盘上，这些数据相当于缓存，会按照LRU的方法进行替换，service层会按照一致性hash的方法，给每个节点分配任务，尽可能增加cache hit rate，从而减少计算层和存储层的数据传输，达到加速目的</p>
+<h5 id="file-stealing"><a href="#file-stealing" class="headerlink" title="file stealing"></a>file stealing</h5><p><a href="https://imgchr.com/i/s7xCvR" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/23/s7xCvR.png" alt="s7xCvR.png"></a></p>
+<p>假设有两个计算节点，每个节点都被分配了3个任务，节点1很快完成了三个任务，节点2一个都没有完成，节点1此时会在征得节点2的同意下，把节点2的一个任务转移给自己，节点1就可以多处理文件，达到加速目的</p>
+<h5 id="storage-优化"><a href="#storage-优化" class="headerlink" title="storage 优化"></a>storage 优化</h5><p><img src="https://s3.ax1x.com/2021/01/23/s7xQKI.png" alt="s7xQKI.png"></p>
+<p>[<a href="https://imgchr.com/i/s7xQKI" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/23/s7zpo8.png" alt="s7zpo8.png"></a></p>
+<p>所有表格文件在处理时被横向切割成N块，每一块都用列式存储方式（对CPU友好）存储在S3，每一个文件块都有header来存储每一列的存储位置（offset），header信息被保存在服务层，当用户发送一个query请求，服务层会根据这个query，精确定位query所需数据在存储层的位置，从而减少不必要的内容读取</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

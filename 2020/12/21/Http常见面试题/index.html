@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Http常见面试题 | Leo Yang&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Leo Yang">
+    
+    
+
+    <meta name="description" content="Http与Https的区别 http的url以http:&#x2F;&#x2F;开头，https以https:&#x2F;&#x2F;开头 http是不安全的（明文传输），https安全 http标准端口号80，https 443 osi模型里，http工作与应用层，https的安全传输工作在传输层 http无法加密，https对传输数据进行加密 http无需证书，https需要CA机构颁发的SSL数字证书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Http常见面试题 | Leo Yang&#39;s Blog">
+<meta property="og:url" content="https://leo-yang0201.github.io/2020/12/21/Http%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="Leo Yang&#39;s Blog">
+<meta property="og:description" content="Http与Https的区别 http的url以http:&#x2F;&#x2F;开头，https以https:&#x2F;&#x2F;开头 http是不安全的（明文传输），https安全 http标准端口号80，https 443 osi模型里，http工作与应用层，https的安全传输工作在传输层 http无法加密，https对传输数据进行加密 http无需证书，https需要CA机构颁发的SSL数字证书">
+<meta property="article:published_time" content="2020-12-21T01:19:29.000Z">
+<meta property="article:modified_time" content="2020-12-21T02:04:35.001Z">
+<meta property="article:author" content="Leo Yang">
+<meta property="article:tag" content="Java基础">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/uno.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/archive.css">
+
+    
+<link rel="stylesheet" href="/leo-yang0201.github.io/css/china-social-icon.css">
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Leo Yang&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          记录一些技术随笔和刷题思路～
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags" title="" class="">标签</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/leo-yang0201" target="_blank" rel="noopener" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Http常见面试题</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-12-21" class="post-meta__date date">2020-12-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/leo-yang0201.github.io/categories/Http/">Http</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/leo-yang0201.github.io/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="Http与Https的区别"><a href="#Http与Https的区别" class="headerlink" title="Http与Https的区别"></a>Http与Https的区别</h4><ul>
+<li>http的url以http://开头，https以https://开头</li>
+<li>http是不安全的（明文传输），https安全</li>
+<li>http标准端口号80，https 443</li>
+<li>osi模型里，http工作与应用层，https的安全传输工作在传输层</li>
+<li>http无法加密，https对传输数据进行加密</li>
+<li>http无需证书，https需要CA机构颁发的SSL数字证书</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="常用的HTTP方法有哪些？"><a href="#常用的HTTP方法有哪些？" class="headerlink" title="常用的HTTP方法有哪些？"></a>常用的HTTP方法有哪些？</h4><ul>
+<li>GET： 用于请求访问已经被URI识别的资源，通过URL传参给服务器，get参数通过url传递，传递的参数有长度限制，请求参数会被保留在历史记录里，一次产生一个tcp数据包，对于get请求，浏览器先将http header和data一起发送，服务器响应200 ok，用户获取数据不用每次都连接数据库，可以用缓存</li>
+<li>POST：向指定资源提交数据，请求服务器去处理，post参数放在request body里，没有长度限制，请求可以有多种编码方式，参数不会保留在历史记录，一次产生两个tcp数据包，对于post请求浏览器先发送header，服务器响应100 continue，浏览器在发送data，服务器响应200 ok，post一般用于更新删除操作，不能用缓存</li>
+<li>HEAD：获取服务器的响应头信息，常用于查看服务器的性能</li>
+<li>OPTIONS：请求服务器返回该资源所支持的所有HTTP请求方法，常用于客户端查看服务器的性能</li>
+<li>PUT：传输文件，报文主体中包含文件内容，保存到对应URI位置</li>
+<li>DELETE：删除文件，与PUT方法相反，删除对应URI位置的文件</li>
+</ul>
+<h4 id="HTTP2-0新特点？"><a href="#HTTP2-0新特点？" class="headerlink" title="HTTP2.0新特点？"></a>HTTP2.0新特点？</h4><ul>
+<li>基于https，天然安全</li>
+<li>二进制分帧层，将所有传输信息分割成更小的信息或帧，并进行二进制编码（增强性能）</li>
+<li>允许多路复用，基于二进制分帧层，在共享tcp连接基础上，同时发送请求和响应。http消息被分解为独立的帧，不破坏本身的语义，交错发送出去，最后在另一端根据流ID和首部将他们重新组合起来</li>
+<li>服务器推送：服务端根据客户端的请求，提前返回多个响应，推送额外的资源给客户端，支持缓存（遵循同源策略；基于客户端的请求响应来确定的）</li>
+</ul>
+<h4 id="HTTP缓存机制？"><a href="#HTTP缓存机制？" class="headerlink" title="HTTP缓存机制？"></a>HTTP缓存机制？</h4><ul>
+<li>强缓存（200）：浏览器不向客户端发送任何请求，直接从本地缓存中读取文件并返回（相关字段：Cache-Control，Expires）</li>
+<li>协商缓存（304）：浏览器发送请求到服务器，通过服务器告知缓存是不是可用（相关字段：Last-Modified/If-Modified-Since，Etag/If-None-Match）</li>
+</ul>
+<h4 id="HTTP无状态协议"><a href="#HTTP无状态协议" class="headerlink" title="HTTP无状态协议"></a>HTTP无状态协议</h4><p>http没有记忆能力，缺少状态意味着如果处理后续的信息需要签名的信息</p>
+<p>当客户端一次http请求完成以后，客户端再发送一次http请求，http并不知道当前客户端是一个老用户</p>
+<p>可以使用cookie解决无状态问题</p>
+<h4 id="Cookie和Session的共同点和区别？"><a href="#Cookie和Session的共同点和区别？" class="headerlink" title="Cookie和Session的共同点和区别？"></a>Cookie和Session的共同点和区别？</h4><ul>
+<li>Cookie保存在客户端（浏览器），Session数据保存在服务器</li>
+<li>Cookie没有Session安全，本地的cookie存在被攻击的风险，考虑安全使用Session</li>
+<li>Session会一段时间内保存在服务器上，当访问增多则占用服务器性能，考虑性能使用cookie</li>
+</ul>
+<h4 id="CSRF和XSS攻击手段"><a href="#CSRF和XSS攻击手段" class="headerlink" title="CSRF和XSS攻击手段"></a>CSRF和XSS攻击手段</h4><ul>
+<li>CSRF（跨站请求伪造）：攻击者在页面里嵌入恶意js脚本，当用户浏览页面时进行攻击。解决方案：cookie设置httponly和secure字段，进行特殊字符过滤，对用户的输入进行检查</li>
+<li>XSS（跨站脚本攻击）：攻击者盗用用户身份，以用户名义发送恶意请求。解决方案：使用验证码，检查https头部referer字段</li>
+</ul>
+<h4 id="Cookie如何防范XSS攻击？"><a href="#Cookie如何防范XSS攻击？" class="headerlink" title="Cookie如何防范XSS攻击？"></a>Cookie如何防范XSS攻击？</h4><p>在http头部配上set-cookie，其中httponly属性会禁止js脚本使用document.cookie访问cookie</p>
+<p>secure属性告诉浏览器仅在请求为https时发送cookie</p>
+<h4 id="在地址栏里输入一个URL-到这个页面呈现出来，中间会发生什么？"><a href="#在地址栏里输入一个URL-到这个页面呈现出来，中间会发生什么？" class="headerlink" title="在地址栏里输入一个URL,到这个页面呈现出来，中间会发生什么？"></a>在地址栏里输入一个URL,到这个页面呈现出来，中间会发生什么？</h4><p>简答：DNS解析 -&gt; TCP连接 -&gt; 发送http请求 -&gt; 服务器处理请求并返回http报文 -&gt; 浏览器解析渲染页面 -&gt; 连接结束</p>
+<p>详细：</p>
+<ul>
+<li>根据URL域名寻找服务器ip，浏览器现在浏览器缓存里找，再去系统缓存找，再去路由器缓存找，都找不到再去系统的hosts文件中查找，还没有就查DNS服务器</li>
+<li>得到ip地址后，浏览器根据ip和端口后构建一个http请求并将该请求封装在一个tcp包里，这个tcp包依次经过传输层、网络层、数据链路层、物理层到达服务器，服务器解析这个请求并做出响应，返回对应的html给浏览器</li>
+<li>浏览器根据返回的html构建DOM树，并行下载音频视频图片资源，遇到js脚本则会下载对应脚本，根据外部样式、内部样式、内联样式构建CSSOM树，和DOM树合并成渲染树</li>
+<li>进行布局，确定各元素位置和尺寸，渲染页面返回</li>
+</ul>
+<h4 id="HTTPS的工作原理"><a href="#HTTPS的工作原理" class="headerlink" title="HTTPS的工作原理"></a>HTTPS的工作原理</h4><ul>
+<li>客户端通过URL发起https请求，要求服务器建立ssl连接</li>
+<li>服务器收到客户端的请求，返回CA证书</li>
+<li>客户端检测公钥证书是否有效，如果无效发出警报，有效就利用伪随机数生成会话密钥，用证书的公钥加密会话密钥，发给服务器</li>
+<li>服务器用证书的私钥解密会话密钥，至此服务器和浏览器都有相同的会话密钥</li>
+<li>两端通过AES对称加密传递数据</li>
+</ul>
+<h4 id="HTTPS加密方式"><a href="#HTTPS加密方式" class="headerlink" title="HTTPS加密方式"></a>HTTPS加密方式</h4><p>使用非对称加密传输一个对称密钥，服务器和客户端用这个对称密钥来加密解密收发数据，而具体的传输数据通过对称加密方式</p>
+<ul>
+<li>对称加密AES：加密和解密用同一个密钥（速度快）</li>
+<li>非对称加密RSA：发送端使用公开的公钥加密，接收端使用私密的私钥解密（安全）</li>
+</ul>
+<h4 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h4><p>200 OK 请求成功</p>
+<p>301 永久重定向 请求的信息已经被移动到新的URI，返回新的URI</p>
+<p>302 临时移动 客户端继续使用原URI</p>
+<p>304 未修改，服务器返回此状态码不会返回任何资源，所请求的资源未修改</p>
+<p>400 bad request 客户端请求语法有误</p>
+<p>401 当前请求需要用户验证</p>
+<p>403 服务器收到请求但拒绝执行</p>
+<p>404 服务器无法根据用户的请求找到资源</p>
+<p>500 服务器内部错误</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/main.js"></script>
+    <script src="/leo-yang0201.github.io/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/leo-yang0201.github.io/js/jquery.min.js"></script>
+    <script src="/leo-yang0201.github.io/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
